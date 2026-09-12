@@ -1380,8 +1380,8 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     },
   },
 ];
-
 export function isEventUpcoming(event: ExhibitionEvent, referenceDate = new Date()): boolean {
+  if (!event?.dates?.end) return false;
   return new Date(event.dates.end) >= referenceDate;
 }
 
@@ -1397,9 +1397,19 @@ export function getUpcomingEvents(limit = 3): ExhibitionEvent[] {
   return [...upcoming, ...past].slice(0, limit);
 }
 
+export function getPastEvents(): ExhibitionEvent[] {
+  const now = new Date();
+  return EXHIBITIONS.filter((e) => !isEventUpcoming(e, now)).sort(
+    (a, b) => new Date(b.dates.start).getTime() - new Date(a.dates.start).getTime(),
+  );
+}
+
 export const EVENT_COUNTRIES = Array.from(new Set(EXHIBITIONS.map((e) => e.venue.country)));
 export const EVENT_CITIES = Array.from(new Set(EXHIBITIONS.map((e) => e.venue.city)));
 export const EVENT_INDUSTRIES = Array.from(new Set(EXHIBITIONS.map((e) => e.industry)));
 export const EVENT_YEARS = Array.from(
   new Set(EXHIBITIONS.map((e) => e.dates.start.slice(0, 4))),
 ).sort((a, b) => Number(b) - Number(a));
+
+// Build Fix: lowercase export for components expecting 'exhibitions'
+export const exhibitions = EXHIBITIONS;

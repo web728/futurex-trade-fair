@@ -1,10 +1,10 @@
 'use client';
 
-import { CheckCircle2, AlertCircle, Send, Sparkles } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import type { FormType } from '@/types/enquiry';
-import { exhibitions } from '@/data/exhibitions';
+import { EXHIBITIONS } from '@/data/exhibitions';
 import { submissionSchema } from '@/lib/validations';
 import { FormField } from './FormField';
 import { SubmitButton } from './SubmitButton';
@@ -68,19 +68,19 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
   }
 
   return (
-    <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200/80 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+    <div className="bg-white rounded-3xl p-7 sm:p-10 border border-neutral-200/90 shadow-[0_10px_40px_rgba(0,0,0,0.04)] select-none">
       {/* Intro Header */}
       <div className="mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#E3131B]/5 border border-[#E3131B]/20 rounded-md mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-[#E3131B]" />
-          <span className="text-[10px] font-mono font-extrabold tracking-[0.2em] uppercase text-[#E3131B]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-red-50 border border-red-200 rounded-full mb-4">
+          <Sparkles className="w-3.5 h-3.5 text-red-600" />
+          <span className="text-[10px] font-mono font-bold tracking-[0.18em] uppercase text-red-600">
             {formType.toUpperCase()} ENQUIRY
           </span>
         </div>
-        <h2 className="font-heading font-black text-slate-900 text-2xl sm:text-3xl tracking-tight mb-2">
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.035em] text-[#0A0D12] leading-tight mb-2">
           {title}
         </h2>
-        <p className="text-slate-600 text-sm leading-relaxed">
+        <p className="text-neutral-500 text-xs sm:text-sm leading-[1.75]">
           {intro}
         </p>
       </div>
@@ -103,7 +103,10 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
               name="event" 
               error={errors.event} 
               as="select" 
-              options={exhibitions.map((item) => ({ value: item.title, label: `${item.shortTitle} — ${item.city}` }))} 
+              options={EXHIBITIONS.map((item) => ({ 
+                value: item.name, 
+                label: `${item.name} — ${item.venue.city}` 
+              }))} 
               selectProps={{ defaultValue: defaultEvent }} 
             />
           ) : null}
@@ -118,20 +121,20 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
 
         <div className="pt-2" aria-live="polite">
           {status === 'success' ? (
-            <div className="flex items-start gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-sm">
+            <div className="flex items-start gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-800 text-xs sm:text-sm font-mono">
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="block font-bold">Thank you!</strong>
+                <strong className="block font-bold mb-0.5">Thank you!</strong>
                 <span>{message}</span>
               </div>
             </div>
           ) : null}
 
           {status === 'error' ? (
-            <div className="flex items-start gap-3 p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-sm">
+            <div className="flex items-start gap-3 p-4 bg-rose-50 border border-rose-200 rounded-2xl text-rose-800 text-xs sm:text-sm font-mono">
               <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="block font-bold">Unable to submit.</strong>
+                <strong className="block font-bold mb-0.5">Unable to submit.</strong>
                 <span>{message}</span>
               </div>
             </div>
@@ -141,3 +144,5 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
     </div>
   );
 }
+
+export default PremiumForm;

@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { PageHero } from '@/components/hero/PageHero';
-import { StatsSection } from '@/components/sections/StatsSection';
 import { GroupCompanies } from '@/components/sections/GroupCompanies';
 import { CTASection } from '@/components/sections/CTASection';
 import PillarsSection from '@/components/sections/PillarsSection';
