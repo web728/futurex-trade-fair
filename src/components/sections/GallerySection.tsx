@@ -1,161 +1,213 @@
 'use client';
 
+import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
-import { useState, useMemo } from 'react';
 import { motion, type Variants, AnimatePresence } from 'framer-motion';
-import { Maximize2, Camera, Layers, Sparkles } from 'lucide-react';
+import { Maximize2, Aperture, Sparkles, Compass, Eye } from 'lucide-react';
 import { galleryItems } from '@/data/gallery';
 import { Lightbox } from '@/components/ui/Lightbox';
+
+const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.05 }
+    transition: { staggerChildren: 0.06, delayChildren: 0.04 }
   }
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.95, y: 20 },
+  hidden: { opacity: 0, y: 14, scale: 0.98 },
   visible: { 
     opacity: 1, 
-    scale: 1,
     y: 0, 
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } 
+    scale: 1,
+    transition: { duration: 0.65, ease: easeEditorial } 
   }
 };
 
 export function GallerySection({ full = false }: { full?: boolean }) {
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
-  
-  // Extract Unique Categories dynamically
+
   const categories = useMemo(() => {
-    const rawCategories = galleryItems.map(item => item.category);
+    const rawCategories = (galleryItems || []).map(item => item.category).filter(Boolean);
     return ['ALL', ...Array.from(new Set(rawCategories))];
   }, []);
 
-  // Filter Items
   const filteredItems = useMemo(() => {
-    const baseItems = full ? galleryItems : galleryItems.slice(0, 5);
+    const baseItems = full ? (galleryItems || []) : (galleryItems || []).slice(0, 5);
     if (activeCategory === 'ALL') return baseItems;
-    return baseItems.filter(item => item.category.toUpperCase() === activeCategory.toUpperCase());
+    return baseItems.filter(item => item.category?.toUpperCase() === activeCategory.toUpperCase());
   }, [full, activeCategory]);
 
   const [selected, setSelected] = useState<(typeof galleryItems)[number] | null>(null);
 
   return (
-    <section className="relative z-20 w-full bg-slate-50 text-slate-900 py-16 sm:py-28 overflow-hidden border-t border-slate-200">
-      {/* Precision Structural Grid Overlay */}
+    <section 
+      className="relative z-20 w-full bg-[#FBFBFD] text-[#0A0D12] py-16 sm:py-20 lg:py-24 border-b border-neutral-200/80 overflow-hidden select-none"
+      aria-labelledby="gallery-section-heading"
+    >
+      {/* Editorial Watermark Behind Header */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-40"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px'
-        }}
+        className="absolute top-6 right-8 text-[120px] sm:text-[180px] font-black text-neutral-900/[0.02] tracking-tighter leading-none pointer-events-none select-none -z-0"
         aria-hidden="true"
-      />
+      >
+        EXPO
+      </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-8">
-
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 mb-10 border-b border-slate-200">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-slate-200 rounded-full mb-4 shadow-xs">
-              <Camera className="w-3.5 h-3.5 text-[#E3131B]" />
-              <span className="text-[10px] font-mono font-extrabold tracking-[0.2em] uppercase text-slate-600">
-                EXHIBITION VISUAL ARCHIVE
-              </span>
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 z-10">
+        
+        {/* ========================================================================= */}
+        {/* 1. HIGH-END EDITORIAL HEADING BLOCK */}
+        {/* ========================================================================= */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-neutral-200/80 mb-8 sm:mb-10">
+          <div className="max-w-2xl">
+            {/* Live Aperture Indicator */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1 rounded-full bg-neutral-900 text-white text-[10.5px] font-mono tracking-widest uppercase mb-4 shadow-sm">
+              <Aperture className="w-3.5 h-3.5 text-red-500 animate-[spin_10s_linear_infinite]" />
+              <span>Visual Telemetry • On-Ground Archives</span>
+              <span className="w-1 h-1 rounded-full bg-red-500" />
             </div>
-            <h2 className="font-heading font-extrabold text-slate-900 text-3xl sm:text-4xl lg:text-[44px] leading-[1.1] tracking-tight m-0">
-              Moments From The <span className="text-[#E3131B]">Trade Floor</span>
+
+            {/* Premium Editorial Title */}
+            <h2 
+              id="gallery-section-heading"
+              className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-[-0.04em] text-[#0A0D12] leading-[1.05]"
+            >
+              Moments From The <br />
+              <span className="font-serif italic font-normal text-neutral-500 hover:text-[#0A0D12] transition-colors duration-300">
+                Commercial Trade Floor
+              </span>
+              <span className="text-red-600 font-sans">.</span>
             </h2>
+
+            <p className="mt-3.5 text-sm sm:text-base text-neutral-600 font-normal leading-[1.65] max-w-xl">
+              Photographic documentation of live industrial summits, ministerial ribbon-cuttings, and verified enterprise buyer interactions across South Asia & East Africa.
+            </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-slate-500 bg-slate-100/80 px-4 py-2 rounded-xl border border-slate-200 self-start lg:self-auto">
-            <Sparkles className="w-4 h-4 text-[#E3131B]" />
-            <span>SAARC & EAST AFRICA GALLERIES</span>
+          {/* Right Header Stats & Telemetry */}
+          <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3 self-start lg:self-auto">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs text-xs font-mono">
+              <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+              <span className="text-neutral-500 uppercase tracking-wider">ARCHIVE INDEX:</span>
+              <strong className="text-neutral-900 font-bold">{filteredItems.length} MASTER PLATES</strong>
+            </div>
+
+            <span className="text-[11px] font-mono text-neutral-400 tracking-wider uppercase">
+              Curated Trade Fairs • 2026 — 2027
+            </span>
           </div>
         </div>
 
-        {/* Category Filter Pills (Only shown when full page view is active) */}
+        {/* ========================================================================= */}
+        {/* 2. CATEGORY FILTER (Optional for Full Page Mode) */}
+        {/* ========================================================================= */}
         {full && (
           <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 whitespace-nowrap cursor-pointer ${
-                  activeCategory === cat
-                    ? 'bg-[#E3131B] text-white shadow-md shadow-[#E3131B]/20 scale-105'
-                    : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-100'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const isSelected = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCategory(cat)}
+                  className={`relative px-5 py-2 rounded-full text-xs font-mono tracking-wider uppercase transition-all duration-200 cursor-pointer shrink-0 ${
+                    isSelected 
+                      ? 'text-white font-medium' 
+                      : 'text-neutral-600 hover:text-neutral-900 bg-white border border-neutral-200/90 shadow-2xs'
+                  }`}
+                >
+                  {isSelected && (
+                    <motion.div
+                      layoutId="activeLuxuryGalleryFilter"
+                      className="absolute inset-0 bg-[#0A0D12] rounded-full -z-10 shadow-xs"
+                      transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+                    />
+                  )}
+                  <span>{cat}</span>
+                </button>
+              );
+            })}
           </div>
         )}
 
-        {/* Bento Visual Grid */}
+        {/* ========================================================================= */}
+        {/* 3. ARCHITECTURAL CONTACT-SHEET BENTO GRID */}
+        {/* ========================================================================= */}
         <AnimatePresence mode="wait">
           <motion.div 
             key={activeCategory}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 auto-rows-[240px] sm:auto-rows-[270px]"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 auto-rows-[180px] sm:auto-rows-[210px]"
           >
             {filteredItems.map((item, index) => {
               const isFeatured = index === 0 && activeCategory === 'ALL';
+              const frameCode = `FX-${String(index + 1).padStart(3, '0')}`;
+
               return (
                 <motion.button 
-                  key={item.id} 
+                  key={item.id || index} 
                   type="button" 
                   variants={itemVariants}
                   onClick={() => setSelected(item)}
-                  className={`group relative w-full h-full bg-slate-900 rounded-2xl overflow-hidden text-left border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#E3131B]/50 transition-all duration-500 cursor-pointer ${
+                  className={`group relative w-full h-full rounded-3xl overflow-hidden text-left bg-neutral-950 border border-neutral-200/90 hover:border-neutral-400 shadow-2xs hover:shadow-2xl transition-all duration-500 cursor-pointer active:scale-[0.99] ${
                     isFeatured ? 'sm:col-span-2 sm:row-span-2' : 'col-span-1 row-span-1'
                   }`}
                   aria-label={`View ${item.title}`}
                 >
-                  {/* Visual Image Asset */}
+                  {/* Top Laser Hairline on Hover */}
+                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-[0.16,1,0.3,1] origin-left z-30" />
+
+                  {/* Visual Photographic Asset */}
                   <Image 
                     src={item.image} 
                     alt={item.title} 
                     fill 
                     sizes={isFeatured ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 50vw, 25vw'} 
-                    className="object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105 brightness-[0.82] contrast-[1.1]"
                   />
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
+                  {/* Atmospheric Depth Mask */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07080A]/95 via-[#07080A]/30 to-transparent opacity-90 group-hover:opacity-85 transition-opacity" />
 
-                  {/* Top Category Badge */}
-                  <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-mono font-black uppercase tracking-wider rounded-lg border border-white/20 group-hover:bg-[#E3131B] group-hover:text-white group-hover:border-[#E3131B] transition-colors duration-300 shadow-xs">
-                      {item.category}
+                  {/* Top Technical Metadata Bar */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 z-20 flex items-center justify-between pointer-events-none">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[9.5px] font-mono tracking-wider uppercase">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                      {item.category || 'EXHIBITION'}
                     </span>
+
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono text-white/60 tracking-widest hidden sm:inline-block">
+                        {frameCode}
+                      </span>
+                      <div className="w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
+                        <Maximize2 size={12} />
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Zoom Action Icon */}
-                  <div className="absolute top-4 right-4 z-10 w-9 h-9 rounded-xl bg-slate-900/80 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 shadow-lg">
-                    <Maximize2 size={15} />
-                  </div>
+                  {/* Bottom Caption & Architectural Identity */}
+                  <div className="absolute bottom-4 left-4 right-4 z-20">
+                    <div className="flex items-center gap-2 mb-1.5 text-[10px] font-mono text-neutral-400">
+                      <span>VERIFIED ASSET</span>
+                      <span>•</span>
+                      <span className="text-red-400">ON-SITE CAPTURE</span>
+                    </div>
 
-                  {/* Bottom Caption Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 z-10">
-                    <h3 className={`font-heading font-extrabold text-white leading-snug tracking-tight m-0 ${
-                      isFeatured ? 'text-xl sm:text-2xl' : 'text-sm sm:text-base line-clamp-2'
+                    <h3 className={`font-semibold text-white tracking-tight leading-snug m-0 group-hover:text-red-400 transition-colors duration-200 ${
+                      isFeatured ? 'text-xl sm:text-2xl lg:text-[26px]' : 'text-xs sm:text-sm line-clamp-1'
                     }`}>
                       {item.title}
                     </h3>
+
                     {isFeatured && (
-                      <p className="text-slate-300 text-xs mt-2 line-clamp-2 font-normal hidden sm:block leading-relaxed">
-                        Capturing industrial machinery showcases, institutional delegations, and high-level trade partnerships.
+                      <p className="text-neutral-300 text-xs sm:text-[13px] mt-2 line-clamp-2 font-normal hidden sm:block leading-relaxed max-w-lg">
+                        High-resolution photographic capture of international buyer delegations, live machinery unveilings, and bilateral trade MoUs.
                       </p>
                     )}
                   </div>
@@ -167,7 +219,7 @@ export function GallerySection({ full = false }: { full?: boolean }) {
 
       </div>
 
-      {/* Lightbox Popover Portal */}
+      {/* Lightbox Popover */}
       {selected ? (
         <Lightbox 
           open 

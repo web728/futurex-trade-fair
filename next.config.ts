@@ -4,7 +4,11 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'futurextrade.com' },
-      { protocol: 'https', hostname: 'www.futurextrade.com' }
+      { protocol: 'https', hostname: 'www.futurextrade.com' },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ]
   },
   poweredByHeader: false

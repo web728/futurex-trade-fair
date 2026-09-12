@@ -1,22 +1,36 @@
 "use client";
 
+import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { Target, Compass, Sparkles, Award, ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Globe } from 'lucide-react';
+import { 
+  Target, 
+  Compass, 
+  ShieldCheck, 
+  Sparkles, 
+  ArrowUpRight,
+  Globe2,
+  CheckCircle2,
+  HeartHandshake,
+  Clock,
+  Flame
+} from 'lucide-react';
+
+const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 }
   }
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 16 },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
+    transition: { duration: 0.55, ease: easeEditorial } 
   }
 };
 
@@ -27,239 +41,278 @@ interface PillarsSectionProps {
 export function PillarsSection({ visionText }: PillarsSectionProps) {
   return (
     <section 
-      className="relative z-20 w-full overflow-hidden text-white bg-[#0B132B] py-28 sm:py-36 select-none"
-      style={{
-        clipPath: 'polygon(0 2.5vw, 100% 0, 100% calc(100% - 2.5vw), 0 100%)'
-      }}
+      className="relative z-20 w-full bg-[#050608] text-[#F3F4F6] py-16 sm:py-20 lg:py-24 border-b border-white/[0.08] overflow-hidden select-none"
       aria-labelledby="pillars-heading"
     >
-      {/* Background Architectural Grid */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-10 z-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px'
-        }}
-        aria-hidden="true"
-      />
+      {/* ========================================================================= */}
+      {/* 1. CINEMATIC VOLUMETRIC RED FOG & HORIZON LASER */}
+      {/* ========================================================================= */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 max-w-4xl h-px bg-gradient-to-r from-transparent via-red-500/70 to-transparent" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[260px] bg-red-600/[0.14] rounded-full blur-[140px]" />
+        <div className="absolute -top-10 left-1/4 w-[380px] h-[180px] bg-blue-600/[0.06] rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-[#050608]" />
+      </div>
 
-      {/* Radial Ambient Lights */}
-      <div 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#E3131B]/10 rounded-full blur-[160px] pointer-events-none z-0" 
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-8">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 z-10">
         
-        {/* Header Block */}
-        <div className="flex flex-col items-center text-center max-w-[720px] mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full mb-6 backdrop-blur-md shadow-2xl">
-            <Sparkles className="w-3.5 h-3.5 text-[#E3131B]" aria-hidden="true" />
-            <span className="text-[10px] font-mono font-black tracking-[0.3em] uppercase text-slate-300">
-              CORE STRATEGY & FOUNDATION
-            </span>
+        {/* ========================================================================= */}
+        {/* 2. ELEVATED EDITORIAL HEADER */}
+        {/* ========================================================================= */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-white/[0.08] mb-10 sm:mb-12">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10.5px] font-mono tracking-widest uppercase text-neutral-300 mb-4 backdrop-blur-md shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-red-500" />
+              <span>CORE STRATEGY & FOUNDATION</span>
+              <span className="w-1 h-1 rounded-full bg-red-500" />
+            </div>
+
+            <h3 
+              id="pillars-heading"
+              className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-[-0.04em] text-white leading-[1.08]"
+            >
+              Purpose, Vision & <br />
+              <span className="font-serif italic font-normal text-neutral-400">
+                Institutional Doctrine
+              </span>
+              <span className="text-red-500 font-sans">.</span>
+            </h3>
           </div>
 
-          <h2 
-            id="pillars-heading"
-            className="font-heading font-black text-white text-3xl sm:text-5xl lg:text-[52px] leading-[1.05] tracking-tight uppercase"
-          >
-            Guided By <br />
-            <span className="relative inline-block pb-1 text-[#E3131B]">
-              Purpose & Excellence
-              <svg
-                className="absolute left-0 -bottom-1 w-full h-[8px] text-[#E3131B] overflow-visible"
-                viewBox="0 0 260 8"
-                fill="none"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M 1 6 C 50 1, 150 1, 259 5"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-          </h2>
+          <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-2 text-xs font-mono text-neutral-400 self-start lg:self-auto">
+            <span className="text-white font-medium">ESTABLISHED 2011 • MULTI-REGIONAL</span>
+            <span className="text-[11px] text-neutral-500">OPERATIONAL CHARTER // SAARC & AFRICA</span>
+          </div>
         </div>
 
-        {/* Pillars Grid */}
+        {/* ========================================================================= */}
+        {/* 3. THREE-COLUMN ARCHITECTURAL MONOLITHS */}
+        {/* ========================================================================= */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch"
+          viewport={{ once: true, margin: "-40px" }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch"
         >
-          {/* 1. MISSION CARD */}
+          
+          {/* ======================= PILLAR 1: MISSION ======================= */}
           <motion.article 
-            variants={cardVariants} 
-            className="group relative flex flex-col justify-between bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-[#E3131B]/80 rounded-2xl p-8 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_rgba(227,19,27,0.2)] hover:-translate-y-1.5"
+            variants={cardVariants}
+            className="group relative flex flex-col justify-between h-full bg-white/[0.025] hover:bg-white/[0.045] border border-white/[0.08] hover:border-white/[0.18] rounded-3xl p-7 sm:p-8 transition-all duration-300 shadow-xl overflow-hidden backdrop-blur-xl"
           >
-            <span 
-              className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#E3131B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-              aria-hidden="true" 
-            />
+            {/* Medium Static Blueprint Vector (Right Corner) */}
+            <svg 
+              className="absolute right-2 bottom-2 w-40 h-40 text-white/[0.05] group-hover:text-red-500/[0.12] transition-colors duration-400 pointer-events-none"
+              viewBox="0 0 160 160" 
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle cx="80" cy="80" r="70" stroke="currentColor" strokeWidth="1" strokeDasharray="4 5" />
+              <circle cx="80" cy="80" r="44" stroke="currentColor" strokeWidth="1" />
+              <line x1="80" y1="10" x2="80" y2="150" stroke="currentColor" strokeWidth="1" />
+              <line x1="10" y1="80" x2="150" y2="80" stroke="currentColor" strokeWidth="1" />
+              <circle cx="80" cy="80" r="3.5" fill="#dc2626" />
+            </svg>
 
-            <div>
-              {/* Card Top Row */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#E3131B] group-hover:bg-[#E3131B] group-hover:text-white transition-all duration-300 shadow-md">
-                  <Target className="w-6 h-6" />
+            {/* Top Red Laser Accent */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left" />
+
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-10 h-10 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white group-hover:bg-red-600 group-hover:border-red-600 transition-colors">
+                  <Target size={18} />
                 </div>
-                <span className="font-mono text-[10px] font-black tracking-[0.2em] px-3 py-1 rounded-full bg-black/40 text-slate-400 border border-white/5 uppercase">
-                  Pillar // 01
+                <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
+                  EXECUTION MANDATE
                 </span>
               </div>
 
-              <span className="text-[11px] font-mono font-black tracking-[0.25em] uppercase text-[#E3131B] block mb-2">
-                MISSION
+              <span className="text-[10.5px] font-mono tracking-widest uppercase text-red-500 block mb-1.5 font-semibold">
+                OUR MISSION
               </span>
 
-              <h3 className="font-heading font-extrabold text-white text-xl leading-snug mb-4">
-                Catalyzing Regional Industrial Trade
+              <h3 className="text-xl font-semibold text-white tracking-tight mb-4 group-hover:text-red-400 transition-colors">
+                Catalyzing Regional Trade
               </h3>
 
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Organizing specialized, high-impact trade fairs designed to unlock emerging market potential across international territories.
+              <p className="text-xs text-neutral-400 leading-relaxed mb-5">
+                Futurex strives to excel in high-quality service delivery through trust, commitment, and perseverance across specialized trade exhibitions.
               </p>
 
-              <ul className="space-y-3 pt-6 border-t border-white/10">
-                <li className="flex items-start gap-3 text-slate-300 text-xs font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3131B] shrink-0 mt-0.5" />
-                  <span>Elevate trade exhibition benchmarks continuously</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-300 text-xs font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3131B] shrink-0 mt-0.5" />
-                  <span>Engineered B2B buyer-seller matchmaking</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-300 text-xs font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3131B] shrink-0 mt-0.5" />
-                  <span>Strategic footprint expansion across South Asia</span>
-                </li>
+              {/* Exact User Mission Points */}
+              <ul className="space-y-2.5 pt-4 border-t border-white/[0.06] p-0 m-0 list-none">
+                {[
+                  "Increase existing show standards and develop new shows according to demand.",
+                  "Create business cooperation networking for commercial opportunities.",
+                  "Expand our masterpiece shows around the region.",
+                  "Organize the largest number of specialized trade fairs for promising industries.",
+                  "Provide visitors with in-depth information about fields they are interested in."
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-[12px] text-neutral-300 font-normal leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono font-bold text-slate-400 group-hover:text-white transition-colors">
-              <span>ACTION PLAN</span>
-              <ArrowUpRight className="w-4 h-4 text-[#E3131B]" />
+            <div className="relative z-10 pt-5 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-500 group-hover:text-neutral-300 transition-colors">
+              <span>OPERATIONAL CORE</span>
+              <ArrowUpRight size={13} className="text-red-500" />
             </div>
           </motion.article>
 
-          {/* 2. VISION CARD (Featured Center Highlight) */}
+          {/* ======================= PILLAR 2: VISION (FEATURED CENTER) ======================= */}
           <motion.article 
-            variants={cardVariants} 
-            className="group relative flex flex-col justify-between bg-gradient-to-b from-[#E3131B]/10 via-white/[0.05] to-white/[0.02] border border-[#E3131B]/40 hover:border-[#E3131B] rounded-2xl p-8 lg:p-9 backdrop-blur-2xl transition-all duration-500 shadow-[0_25px_60px_rgba(0,0,0,0.7)] hover:shadow-[0_25px_60px_rgba(227,19,27,0.3)] hover:-translate-y-2 lg:-translate-y-2"
+            variants={cardVariants}
+            className="group relative flex flex-col justify-between h-full bg-gradient-to-b from-red-600/[0.09] to-white/[0.02] border border-red-500/30 hover:border-red-500/60 rounded-3xl p-7 sm:p-8 transition-all duration-300 shadow-2xl overflow-hidden backdrop-blur-xl"
           >
-            <span 
-              className="absolute top-0 left-0 right-0 h-[3px] bg-[#E3131B] rounded-t-2xl" 
-              aria-hidden="true" 
-            />
+            {/* Medium Static Blueprint Vector (Right Corner) */}
+            <svg 
+              className="absolute right-2 bottom-2 w-44 h-44 text-red-500/[0.1] pointer-events-none" 
+              viewBox="0 0 160 160" 
+              fill="none"
+              aria-hidden="true"
+            >
+              <rect x="25" y="25" width="110" height="110" rx="14" stroke="currentColor" strokeWidth="1" strokeDasharray="5 5" />
+              <circle cx="80" cy="80" r="38" stroke="currentColor" strokeWidth="1" />
+              <line x1="80" y1="15" x2="80" y2="145" stroke="currentColor" strokeWidth="1.2" />
+              <line x1="15" y1="80" x2="145" y2="80" stroke="currentColor" strokeWidth="1.2" />
+            </svg>
 
-            <div>
-              {/* Card Top Row */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-13 h-13 rounded-xl bg-[#E3131B] text-white flex items-center justify-center shadow-lg shadow-[#E3131B]/30">
-                  <Compass className="w-7 h-7" />
+            {/* Permanent Top Red Accent */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-600" />
+
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-10 h-10 rounded-2xl bg-red-600 text-white flex items-center justify-center shadow-[0_0_16px_rgba(220,38,38,0.5)]">
+                  <Compass size={19} />
                 </div>
-                <span className="font-mono text-[10px] font-black tracking-[0.2em] px-3 py-1 rounded-full bg-[#E3131B]/20 text-white border border-[#E3131B]/30 uppercase">
-                  CORE // 02
+                <span className="text-[10px] font-mono tracking-widest text-red-300 uppercase">
+                  PINNACLE DIRECTION
                 </span>
               </div>
 
-              <span className="text-[11px] font-mono font-black tracking-[0.25em] uppercase text-[#E3131B] block mb-2">
+              <span className="text-[10.5px] font-mono tracking-widest uppercase text-red-400 block mb-1.5 font-semibold">
                 OUR VISION
               </span>
 
-              <h3 className="font-heading font-black text-white text-2xl leading-snug mb-4">
-                The Pinnacle Global B2B Platform
+              <h3 className="text-xl font-semibold text-white tracking-tight mb-4">
+                The Pinnacle B2B Platform
               </h3>
 
-              <p className="text-white text-base leading-relaxed font-semibold mb-6">
-                {visionText || "To be the most trusted international platform orchestrating world-class business exhibitions and trade bridges."}
+              <p className="text-xs sm:text-[13px] text-neutral-200 leading-[1.8] mb-5 font-normal">
+                {visionText || "Exhibitions transcend mere spectacle; their true value lies in uniting like-minded business entities under exacting global standards. We lay the groundwork for effective business development, meaningful consumer engagement, seamless execution, and industry knowledge."}
               </p>
 
-              <div className="p-4 rounded-xl bg-black/40 border border-white/10 text-xs text-slate-300 font-medium leading-relaxed">
-                <div className="flex items-center gap-2 text-white font-bold mb-1">
-                  <Globe className="w-3.5 h-3.5 text-[#E3131B]" />
-                  <span>Global Execution</span>
+              {/* Exact Strategic Aims Capsule */}
+              <div className="p-3.5 rounded-2xl bg-black/40 border border-white/[0.08] backdrop-blur-md mb-4">
+                <div className="flex items-center gap-2 text-white font-mono text-[11px] mb-2">
+                  <Globe2 size={13} className="text-red-500" />
+                  <span className="uppercase tracking-wider">STRATEGIC AIMS SPECTRUM</span>
                 </div>
-                Futurex excels in delivery through unwavering trust, operational commitment, and perseverance.
+                <div className="grid grid-cols-2 gap-2 text-[11px] text-neutral-300">
+                  <span>• Enhanced Networking</span>
+                  <span>• Elevated Brand Visibility</span>
+                  <span>• In-depth Insights</span>
+                  <span>• Cost-Effective Guidance</span>
+                  <span>• Instant Deal Closing</span>
+                  <span>• Expansive Product Floor</span>
+                </div>
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-[11px] font-mono font-bold text-white">
-              <span className="tracking-wider">LONG TERM ASPIRATION</span>
-              <Sparkles className="w-4 h-4 text-[#E3131B]" />
+            <div className="relative z-10 pt-5 mt-6 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-neutral-400">
+              <span className="tracking-wider">LONG RANGE HORIZON</span>
+              <Sparkles size={13} className="text-red-500" />
             </div>
           </motion.article>
 
-          {/* 3. VALUES CARD */}
+          {/* ======================= PILLAR 3: VALUES ======================= */}
           <motion.article 
-            variants={cardVariants} 
-            className="group relative flex flex-col justify-between bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-[#E3131B]/80 rounded-2xl p-8 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_rgba(227,19,27,0.2)] hover:-translate-y-1.5"
+            variants={cardVariants}
+            className="group relative flex flex-col justify-between h-full bg-white/[0.025] hover:bg-white/[0.045] border border-white/[0.08] hover:border-white/[0.18] rounded-3xl p-7 sm:p-8 transition-all duration-300 shadow-xl overflow-hidden backdrop-blur-xl"
           >
-            <span 
-              className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#E3131B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-              aria-hidden="true" 
-            />
+            {/* Medium Static Blueprint Vector (Right Corner) */}
+            <svg 
+              className="absolute right-2 bottom-2 w-40 h-40 text-white/[0.05] group-hover:text-red-500/[0.12] transition-colors duration-400 pointer-events-none" 
+              viewBox="0 0 160 160" 
+              fill="none"
+              aria-hidden="true"
+            >
+              <polygon points="80,20 140,135 20,135" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+              <circle cx="80" cy="95" r="26" stroke="currentColor" strokeWidth="1" />
+              <line x1="80" y1="20" x2="80" y2="135" stroke="currentColor" strokeWidth="0.8" />
+            </svg>
 
-            <div>
-              {/* Card Top Row */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#E3131B] group-hover:bg-[#E3131B] group-hover:text-white transition-all duration-300 shadow-md">
-                  <Award className="w-6 h-6" />
+            {/* Top Red Laser Accent */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left" />
+
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-10 h-10 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white group-hover:bg-red-600 group-hover:border-red-600 transition-colors">
+                  <ShieldCheck size={18} />
                 </div>
-                <span className="font-mono text-[10px] font-black tracking-[0.2em] px-3 py-1 rounded-full bg-black/40 text-slate-400 border border-white/5 uppercase">
-                  Pillar // 03
+                <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
+                  ETHICAL CODE
                 </span>
               </div>
 
-              <span className="text-[11px] font-mono font-black tracking-[0.25em] uppercase text-[#E3131B] block mb-2">
-                CORE VALUES
+              <span className="text-[10.5px] font-mono tracking-widest uppercase text-red-500 block mb-1.5 font-semibold">
+                OUR VALUES
               </span>
 
-              <h3 className="font-heading font-extrabold text-white text-xl leading-snug mb-5">
-                Uncompromising Integrity
+              <h3 className="text-xl font-semibold text-white tracking-tight mb-4 group-hover:text-red-400 transition-colors">
+                Uncompromising Governance
               </h3>
 
-              <div className="space-y-3">
-                <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 group-hover:border-white/15 transition-colors">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <ShieldCheck className="w-4 h-4 text-[#E3131B]" />
-                    <span className="text-xs font-bold text-white">Business Ethics</span>
-                  </div>
-                  <p className="text-[11px] text-slate-400 pl-6">Socially responsible production & green image focus.</p>
+              {/* Exact User Values (All 4 Preserved) */}
+              <div className="space-y-2.5 pt-2">
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <strong className="block text-xs font-semibold text-white mb-0.5">
+                    Business Ethics
+                  </strong>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed m-0">
+                    We seek to build a green image; our production processes are socially responsible.
+                  </p>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 group-hover:border-white/15 transition-colors">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <Zap className="w-4 h-4 text-[#E3131B]" />
-                    <span className="text-xs font-bold text-white">Client Integrity</span>
-                  </div>
-                  <p className="text-[11px] text-slate-400 pl-6">Unmatched commitment with complete operational clarity.</p>
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <strong className="block text-xs font-semibold text-white mb-0.5">
+                    Respect
+                  </strong>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed m-0">
+                    We respect our clients wishes and comply with them to bring about the highest satisfaction.
+                  </p>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 group-hover:border-white/15 transition-colors">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#E3131B]" />
-                    <span className="text-xs font-bold text-white">Reliability</span>
-                  </div>
-                  <p className="text-[11px] text-slate-400 pl-6">Strict execution timelines and high flexibility.</p>
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <strong className="block text-xs font-semibold text-white mb-0.5">
+                    Integrity
+                  </strong>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed m-0">
+                    We commit ourselves to work with utmost sincerity and dedicate ourselves wholeheartedly.
+                  </p>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <strong className="block text-xs font-semibold text-white mb-0.5">
+                    Reliability
+                  </strong>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed m-0">
+                    We are flexible and we set clear deadlines, meeting them with precision.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono font-bold text-slate-400 group-hover:text-white transition-colors">
-              <span>ETHICAL CODE</span>
-              <ArrowUpRight className="w-4 h-4 text-[#E3131B]" />
+            <div className="relative z-10 pt-5 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-500 group-hover:text-neutral-300 transition-colors">
+              <span>AUDITED PRINCIPLES</span>
+              <ArrowUpRight size={13} className="text-red-500" />
             </div>
           </motion.article>
+
         </motion.div>
 
       </div>

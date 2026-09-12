@@ -1,236 +1,301 @@
 "use client";
 
-import Image from 'next/image';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
-import { ArrowUpRight, Globe2, Building2, ShieldCheck, Award, Sparkles } from 'lucide-react';
+import { 
+  ArrowUpRight, 
+  Globe2, 
+  ShieldCheck, 
+  Award, 
+  Layers, 
+  Briefcase,
+  Compass
+} from 'lucide-react';
 import { company } from '@/data/company';
 
-const copyVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1], staggerChildren: 0.1 }
-  }
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-  }
+    transition: { duration: 0.7, ease: easeEditorial },
+  },
 };
 
+const blueprintPillars = [
+  {
+    index: '01',
+    title: 'Platform Architecture',
+    subtitle: 'B2B Trade Ecosystems',
+    desc: 'Connecting industrial equipment makers with institutional trade buyers across South Asia & East Africa.',
+    icon: Layers,
+    accent: 'text-red-500',
+    meta: '220+ Global Expos'
+  },
+  {
+    index: '02',
+    title: 'Cross-Border Execution',
+    subtitle: 'Permanent Ground Desks',
+    desc: 'Eliminating customs, logistics, and stall fabrication friction via active offices in 5 key capital hubs.',
+    icon: Globe2,
+    accent: 'text-sky-400',
+    meta: '5 Regional Hubs'
+  },
+  {
+    index: '03',
+    title: 'Institutional Governance',
+    subtitle: 'Audited Trade Standards',
+    desc: 'Operating strictly under verified international exhibition guidelines with certified buyer demographics.',
+    icon: ShieldCheck,
+    accent: 'text-emerald-400',
+    meta: 'CIEO Accredited'
+  },
+  {
+    index: '04',
+    title: 'Capital Sourcing',
+    subtitle: 'Procurement Platforms',
+    desc: 'Focused on high-growth sectors: Woodtech, Packaging, Clean Energy, Infra, Agro, and Pharma Machinery.',
+    icon: Briefcase,
+    accent: 'text-amber-400',
+    meta: '1.2M+ Trade Visitors'
+  }
+];
+
 export function AboutStory() {
+  const [activePillar, setActivePillar] = useState(0);
+
   return (
-    <div className="relative w-full bg-white overflow-hidden py-10">
-      
-      {/* Background Section Container with Sharp Asymmetric Diagonal Cut */}
-      <section 
-        className="relative z-20 w-full bg-[#03070f] text-white py-28 sm:py-36 select-none overflow-hidden"
-        style={{
-          clipPath: 'polygon(0 5vw, 100% 0, 100% calc(100% - 6vw), 0 100%)'
-        }}
-      >
-        {/* Precision Blueprint Grid Overlay */}
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-20"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px)
-            `,
-            backgroundSize: '48px 48px'
-          }}
+    <section 
+      className="relative z-20 w-full bg-[#07080A] text-[#F3F4F6] py-16 sm:py-20 lg:py-24 border-b border-white/[0.08] overflow-hidden select-none"
+      aria-labelledby="about-blueprint-heading"
+    >
+      {/* ========================================================================= */}
+      {/* 1. STATIC CORNER ARCHITECTURAL RADIAN BEACON (NO ROTATION, CRISP CONTRAST) */}
+      {/* ========================================================================= */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        
+        {/* Soft Controlled Red Ambient Glow focused behind corner beacon */}
+        <div className="absolute -top-16 -right-16 w-[480px] h-[480px] bg-red-600/[0.12] rounded-full blur-[120px]" />
+        <div className="absolute -bottom-20 left-10 w-[380px] h-[380px] bg-blue-600/[0.05] rounded-full blur-[130px]" />
+
+        {/* Static Corner Architectural Vector Arc */}
+        <svg 
+          viewBox="0 0 500 500" 
+          className="absolute top-0 right-0 w-[360px] h-[360px] sm:w-[500px] sm:h-[500px] opacity-[0.42]"
           aria-hidden="true"
-        />
+        >
+          {/* Concentric Quarter Arcs radiating from Top-Right (500, 0) */}
+          <path d="M 500,100 A 400,400 0 0,0 100,500" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
+          <path d="M 500,180 A 320,320 0 0,0 180,500" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" strokeDasharray="4 8" />
+          <path d="M 500,260 A 240,240 0 0,0 260,500" fill="none" stroke="#dc2626" strokeWidth="1.5" strokeDasharray="6 10" />
+          <path d="M 500,340 A 160,160 0 0,0 340,500" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+          <path d="M 500,420 A 80,80 0 0,0 420,500" fill="none" stroke="#dc2626" strokeWidth="1.2" strokeOpacity="0.7" />
 
-        {/* Dynamic Angled Red Cut Overlay Accent at Bottom */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-r from-[var(--color-red)] via-[#ff2a34] to-[var(--color-red)] opacity-95 pointer-events-none"
-          style={{
-            clipPath: 'polygon(0 80%, 100% 0%, 100% 100%, 0 100%)'
-          }}
-          aria-hidden="true"
-        />
+          {/* Precision Angular Radial Rays from origin (500, 0) */}
+          <line x1="500" y1="0" x2="160" y2="460" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="2 6" />
+          <line x1="500" y1="0" x2="280" y2="490" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="2 6" />
+          <line x1="500" y1="0" x2="400" y2="500" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
+          <line x1="500" y1="0" x2="100" y2="350" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
 
-        {/* Glassmorphic Glow Orbs */}
-        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[var(--color-red)]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+          {/* Anchor Node Marker Points on Arcs */}
+          <circle cx="260" cy="500" r="3.5" fill="#dc2626" />
+          <circle cx="340" cy="500" r="2.5" fill="#ffffff" />
+          <circle cx="330" cy="270" r="3" fill="#ffffff" />
+          <circle cx="410" cy="180" r="3.5" fill="#dc2626" />
+        </svg>
 
-        {/* Top Edge Angled Red Hairline */}
-        <div 
-          className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-red)] to-transparent shadow-[0_0_12px_var(--color-red)]" 
-          aria-hidden="true" 
-        />
+        {/* Falloff Contrast Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-[#07080A]/40" />
+      </div>
 
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-8">
-          
-          {/* Architectural Header Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b border-white/10">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-[2.5px] bg-[var(--color-red)] block rounded-full shadow-[0_0_8px_var(--color-red)]" aria-hidden="true" />
-              <span className="font-mono text-[11px] font-black tracking-[0.28em] uppercase text-slate-200">
-                PLATFORM SCALE // TRUST MECHANISM
-              </span>
+      {/* ========================================================================= */}
+      {/* 2. SECTION HEADER */}
+      {/* ========================================================================= */}
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 z-10">
+        
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 pb-6 sm:pb-8 border-b border-white/[0.08]">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-neutral-300 mb-3">
+              <Compass className="w-3.5 h-3.5 text-red-500" />
+              <span>Futurex Blueprint • Est. 2011 • New Delhi</span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 bg-white/[0.06] border border-white/15 rounded-full text-xs font-mono text-slate-300">
-              <ShieldCheck size={14} className="text-sky-400" />
-              <span className="uppercase tracking-wider font-semibold">Audited B2B Trade Network</span>
-            </div>
+
+            <h2 
+              id="about-blueprint-heading"
+              className="text-2xl sm:text-4xl lg:text-[46px] font-semibold tracking-[-0.035em] text-white leading-[1.1]"
+            >
+              The Architecture Behind <br />
+              <span className="text-neutral-400 font-normal">220+ International Trade Fairs.</span>
+            </h2>
           </div>
 
-          {/* Main Showcase Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            
-            {/* Left Column: Premium Framed Exhibition Image */}
-            <div className="lg:col-span-5 relative min-h-[440px] sm:min-h-[520px] lg:min-h-[560px] rounded-2xl overflow-hidden border border-white/20 bg-[#050c18] shadow-[0_20px_50px_rgba(0,0,0,0.6)] group">
-              <motion.div
-                initial={{ scale: 1.06, opacity: 0.85 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0"
-              >
-                <Image 
-                  src={company.assets.exhibition} 
-                  alt="Trade visitors and business discussions at a Futurex exhibition" 
-                  fill 
+          <div className="flex items-center gap-3 self-start md:self-end">
+            <Link
+              href="/company-profile.pdf"
+              target="_blank"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-white/20 text-xs font-mono tracking-wider uppercase text-neutral-300 hover:text-white transition-all duration-300 active:scale-95"
+            >
+              <span>Download Dossier</span>
+              <ArrowUpRight size={14} className="text-neutral-400 group-hover:text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* 3. 4-PILLAR MATRIX & VISUAL COMMAND ANCHOR */}
+        {/* ========================================================================= */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-30px" }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 mt-8 sm:mt-10 items-stretch"
+        >
+          {/* Left Column: 4 Strategic Pillars */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+            {blueprintPillars.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              const isActive = activePillar === idx;
+
+              return (
+                <motion.div
+                  key={pillar.index}
+                  variants={itemVariants}
+                  onMouseEnter={() => setActivePillar(idx)}
+                  whileHover={{ y: -4, transition: { duration: 0.25, ease: easeEditorial } }}
+                  className={`group relative p-5 sm:p-6 rounded-2xl border transition-all duration-300 flex flex-col justify-between cursor-default backdrop-blur-md ${
+                    isActive 
+                      ? 'bg-white/[0.04] border-white/25 shadow-[0_10px_30px_rgba(0,0,0,0.45)]'
+                      : 'bg-white/[0.015] border-white/[0.06] hover:bg-white/[0.03] hover:border-white/[0.14]'
+                  }`}
+                >
+                  {/* Subtle Red Left Marker */}
+                  <span 
+                    className={`absolute left-0 top-3 bottom-3 w-1 rounded-r-full transition-all duration-300 ${
+                      isActive ? 'bg-red-500 scale-y-100' : 'bg-transparent scale-y-0'
+                    }`}
+                  />
+
+                  <div>
+                    {/* Index & Pillar Icon */}
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <span className="font-mono text-[10.5px] tracking-widest text-neutral-400 font-medium">
+                        PILLAR {pillar.index}
+                      </span>
+                      <div className={`p-1.5 rounded-lg bg-white/[0.04] border border-white/[0.08] ${pillar.accent}`}>
+                        <Icon size={15} />
+                      </div>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight leading-snug group-hover:text-red-400 transition-colors duration-200">
+                      {pillar.title}
+                    </h3>
+
+                    <span className="block text-[10px] font-mono text-neutral-400 mt-0.5 uppercase tracking-wider">
+                      {pillar.subtitle}
+                    </span>
+
+                    <p className="mt-2.5 text-xs text-neutral-400 font-normal leading-relaxed">
+                      {pillar.desc}
+                    </p>
+                  </div>
+
+                  {/* Micro Metric Tag */}
+                  <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[10.5px] font-mono">
+                    <span className="text-neutral-500">Metric</span>
+                    <span className="text-neutral-200 font-medium">{pillar.meta}</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Right Column: Central Institutional Command Anchor */}
+          <motion.div 
+            variants={itemVariants}
+            className="group/card lg:col-span-5 relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.03] border border-white/[0.08] hover:border-white/[0.18] p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-xl backdrop-blur-xl transition-all duration-300"
+          >
+            {/* Top Red Laser Accent */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-600 group-hover/card:shadow-[0_0_12px_rgba(220,38,38,0.7)] transition-all duration-300" />
+
+            {/* Inner Blueprint Graphic Preview with Image Hover Zoom */}
+            <div>
+              <div className="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden bg-neutral-900 mb-5 border border-white/[0.08]">
+                <Image
+                  src={company?.assets?.exhibition || "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop"}
+                  alt="Futurex Trade Stage"
+                  fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-center filter contrast-105 brightness-95 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-center brightness-[0.75] contrast-[1.15] transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover/card:scale-105 group-hover/card:brightness-[0.85]"
                 />
-              </motion.div>
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-transparent" />
+                
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9.5px] font-mono text-white">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                  <span>HQ: Kalkaji, New Delhi</span>
+                </div>
 
-              {/* Dark Gradient Contrast Mask */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#03070f] via-transparent to-[#03070f]/50" />
-
-              {/* Status Badge Top Left */}
-              <div className="absolute top-5 left-5 z-10 inline-flex items-center gap-2 px-4 py-1.5 bg-black/70 backdrop-blur-md border border-white/25 rounded-full text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white shadow-xl">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-red)] animate-pulse shadow-[0_0_6px_var(--color-red)]" />
-                ORGANIZER OF RECORD
+                <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-neutral-400 group-hover/card:text-neutral-200 transition-colors">
+                  <span>LAT: 28.5385° N</span>
+                  <span>LONG: 77.2536° E</span>
+                </div>
               </div>
 
-              {/* Proof Box Bottom */}
-              <div className="absolute bottom-5 left-5 right-5 z-10 bg-black/80 backdrop-blur-xl border border-white/20 p-5 rounded-xl shadow-2xl">
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <Award className="w-4.5 h-4.5 text-[var(--color-red)] shrink-0" />
-                  <span className="text-[11px] font-black tracking-wider uppercase text-white">
-                    15+ Years Industrial Leadership
+              {/* Verified Legal Identity */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Award size={15} className="text-red-500 shrink-0" />
+                  <span className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider font-semibold">
+                    CIEO Accredited Organizer
                   </span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed m-0 font-normal">
-                  Connecting manufacturers, machinery suppliers, and global trade buyers across SAARC and East Africa.
+
+                <h4 className="text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug">
+                  Futurex Trade Fair and Events Private Limited
+                </h4>
+
+                <p className="text-xs text-neutral-400 font-normal leading-relaxed">
+                  Incorporated in 2011 to bridge global equipment manufacturers with verified enterprise buyers across Asia&apos;s key industrial sectors.
                 </p>
               </div>
             </div>
 
-            {/* Right Column: High Contrast Typography & Footprint */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-                variants={copyVariants}
+            {/* Bottom Actions */}
+            <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3">
+              <span className="text-[10.5px] font-mono text-neutral-400">
+                15+ Years Commercial Leadership
+              </span>
+
+              <Link
+                href="/about"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase rounded-full transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.28)] hover:shadow-[0_0_24px_rgba(220,38,38,0.45)] active:scale-95 shrink-0"
               >
-                {/* Eyebrow Floating Pill */}
-                <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 bg-white/[0.08] border border-white/15 rounded-md mb-5">
-                  <Sparkles size={13} className="text-[var(--color-red)]" />
-                  <span className="text-[10.5px] font-mono font-extrabold tracking-[0.22em] uppercase text-slate-300">
-                    ABOUT FUTUREX GROUP
-                  </span>
-                </motion.div>
-
-                {/* Main "Since 2011" Headline Accent */}
-                <motion.div variants={itemVariants} className="mb-2">
-                  <h2 className="font-heading font-black text-6xl sm:text-7xl lg:text-[84px] tracking-tight text-[var(--color-red)] leading-none drop-shadow-[0_4px_20px_rgba(227,19,27,0.3)]">
-                    Since 2011
-                  </h2>
-                </motion.div>
-
-                {/* Bright Crisp Subheadline */}
-                <motion.h3 
-                  variants={itemVariants}
-                  className="font-heading font-black text-white text-2xl sm:text-3xl lg:text-[40px] leading-[1.12] tracking-tight mb-6"
-                >
-                  Building platforms where global industries meet opportunity.
-                </motion.h3>
-
-                {/* Narrative Text */}
-                <motion.p 
-                  variants={itemVariants}
-                  className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-[620px]"
-                >
-                  Headquartered in New Delhi with branch offices in Mumbai, Colombo, Kathmandu, and Dhaka, Futurex is an international exhibition organizer delivering 220+ successful high-impact trade fairs and bilateral investment forums.
-                </motion.p>
-
-                {/* Interactive Glassmorphic Footprint Matrix */}
-                <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6 border-y border-white/10 mb-8">
-                  
-                  {/* Offices Box */}
-                  <div className="flex items-start gap-3.5 p-4 bg-white/[0.05] border border-white/15 rounded-xl hover:border-white/35 hover:bg-white/[0.08] transition-all duration-300 shadow-md">
-                    <div className="p-2.5 rounded-lg bg-white/10 border border-white/20 text-[var(--color-red)] shrink-0">
-                      <Building2 size={18} />
-                    </div>
-                    <div>
-                      <strong className="block text-[11px] font-extrabold text-white uppercase tracking-wider mb-1 font-mono">
-                        Established Offices
-                      </strong>
-                      <span className="text-xs text-slate-300 leading-relaxed font-normal">
-                        New Delhi (HQ) · Mumbai · Dhaka · Colombo · Kathmandu
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Target Markets Box */}
-                  <div className="flex items-start gap-3.5 p-4 bg-white/[0.05] border border-white/15 rounded-xl hover:border-white/35 hover:bg-white/[0.08] transition-all duration-300 shadow-md">
-                    <div className="p-2.5 rounded-lg bg-white/10 border border-white/20 text-sky-400 shrink-0">
-                      <Globe2 size={18} />
-                    </div>
-                    <div>
-                      <strong className="block text-[11px] font-extrabold text-white uppercase tracking-wider mb-1 font-mono">
-                        Target Markets
-                      </strong>
-                      <span className="text-xs text-slate-300 leading-relaxed font-normal">
-                        India · Nepal · Bangladesh · Sri Lanka · Kenya · Tanzania
-                      </span>
-                    </div>
-                  </div>
-
-                </motion.div>
-
-                {/* Premium White Glass Button CTA */}
-                <motion.div variants={itemVariants} className="flex items-center gap-4">
-                  <Link 
-                    href="/about" 
-                    className="group inline-flex items-center gap-3 px-7 py-3.5 bg-white text-black text-xs font-heading font-black tracking-wider uppercase rounded-full hover:bg-[var(--color-red)] hover:text-white transition-all duration-300 shadow-[0_4px_25px_rgba(255,255,255,0.25)] hover:shadow-[0_6px_30px_rgba(227,19,27,0.5)] hover:-translate-y-0.5"
-                  >
-                    <span>Our Full Story</span>
-                    <ArrowUpRight 
-                      size={17} 
-                      aria-hidden="true" 
-                      className="stroke-[2.5] transition-transform duration-300 group-hover:rotate-45" 
-                    />
-                  </Link>
-                </motion.div>
-
-              </motion.div>
+                <span>Read Story</span>
+                <ArrowUpRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
+          </motion.div>
 
-          </div>
+        </motion.div>
 
-        </div>
-
-        {/* Bottom Hairline Diagonal Border */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent" 
-          aria-hidden="true" 
-        />
-      </section>
-
-    </div>
+      </div>
+    </section>
   );
 }
 

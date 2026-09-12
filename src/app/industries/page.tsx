@@ -13,34 +13,27 @@ export const metadata: Metadata = createMetadata(
 
 export default function IndustriesPage() {
   return (
-    <main className="relative bg-slate-50 text-slate-900 overflow-hidden">
-      {/* Page Hero Section */}
-      <PageHero 
-        eyebrow="INDUSTRIES" 
-        title={
-          <>
-            Industries We <span className="text-[#E3131B]">Connect</span>
-          </>
-        } 
-        description="Focused, high-impact exhibition platforms designed to bridge emerging technologies and business expansion across global markets." 
-      />
-
-      {/* Main Grid Section with Clean Light Container */}
-      <section className="relative z-20 py-16 sm:py-24 bg-slate-100/60 border-t border-b border-slate-200">
-        {/* Subtle Architectural Pattern Background */}
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-40 z-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px'
-          }}
-          aria-hidden="true"
+    <main className="relative bg-[#FBFBFD] text-[#0A0D12] overflow-hidden selection:bg-red-600 selection:text-white">
+      {/* Editorial Page Hero */}
+      <div className="border-b border-neutral-200/80 bg-white">
+        <PageHero 
+          eyebrow="INDUSTRIAL DIRECTORY" 
+          title={
+            <>
+              Sectors We <br />
+              <span className="font-serif italic font-normal text-neutral-500">
+                Connect & Bridge
+              </span>
+              <span className="text-red-600 font-sans">.</span>
+            </>
+          } 
+          description="Focused, high-impact exhibition platforms designed to bridge emerging technologies and business expansion across global markets." 
         />
+      </div>
 
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
+      {/* Main Grid Section */}
+      <section className="relative z-20 py-20 sm:py-28 bg-[#FBFBFD] border-b border-neutral-200/80">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <IndustryGrid industries={industries} />
         </div>
       </section>

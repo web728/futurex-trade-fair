@@ -15,31 +15,40 @@ export default async function ContactPage({ searchParams }: { searchParams?: Pro
   const query = searchParams ? await searchParams : {};
 
   return (
-    <main className="relative bg-slate-50 text-slate-900 overflow-hidden">
-      <PageHero 
-        eyebrow="CONTACT US" 
-        title={
-          <>
-            Start A Business <br />
-            <span className="text-[#E3131B]">Conversation.</span>
-          </>
-        } 
-        description="Connect with Futurex Trade Fair & Events Pvt. Ltd. in New Delhi for global exhibitions and strategic partnerships." 
-      />
+    <main className="relative bg-[#FBFBFD] text-[#0A0D12] overflow-hidden selection:bg-red-600 selection:text-white">
+      
+      {/* Editorial Hero Header */}
+      <div className="border-b border-neutral-200/80 bg-white">
+        <PageHero 
+          eyebrow="CONTACT US" 
+          title={
+            <>
+              Start A Business <br />
+              <span className="font-serif italic font-normal text-neutral-500">
+                Conversation
+              </span>
+              <span className="text-red-600 font-sans">.</span>
+            </>
+          } 
+          description="Connect with Futurex Trade Fair & Events Pvt. Ltd. in New Delhi for global exhibitions and strategic partnerships." 
+        />
+      </div>
 
       {/* Main Layout Container */}
-      <section className="relative z-20 py-12 sm:py-16 bg-slate-100/60 border-t border-slate-200">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Contact Card (Compact Dark Theme) */}
+      <section className="relative z-20 py-20 sm:py-28 bg-[#FBFBFD] border-b border-neutral-200/80 select-none">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            {/* Left Contact Card (Ultra-Clean Dark Monolith) */}
             <div className="lg:col-span-5 h-full">
               <ContactCard />
             </div>
 
-            {/* Right Contact Form (Crisp Light Theme) */}
+            {/* Right Contact Form (Crisp Light Sheet) */}
             <div className="lg:col-span-7">
               <ContactForm defaultEvent={query.event || ''} />
             </div>
+
           </div>
         </div>
       </section>

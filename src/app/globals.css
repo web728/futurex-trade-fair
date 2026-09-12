@@ -1,37 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  /* Futurex Core Palette */
-  --color-ink: #07111f;
-  --color-ink-2: #0b1728;
-  --color-navy: #0a1830;
-  --color-navy-2: #11233f;
-  --color-red: #e3131b;
-  --color-red-deep: #bd0d14;
-  --color-blue: #1767a6;
-  --color-off: #f4f3ef;
-  --color-paper: #ffffff;
-  --color-line: #d9dce1;
-  --color-line-dark: #263548;
-  --color-muted: #656c76;
-  --color-muted-light: #b9c3cf;
+  /* Futurex Deep Slate & Editorial Charcoal Core */
+  --color-ink: #07080a;
+  --color-ink-2: #0e1015;
+  --color-ink-card: rgba(255, 255, 255, 0.02);
 
-  /* Font Families */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Primary Accent - Precision Industrial Red */
+  --color-red: #dc2626;
+  --color-red-deep: #b91c1c;
+  --color-red-glow: rgba(220, 38, 38, 0.25);
+
+  /* Neutral Backgrounds & Paper */
+  --color-paper: #ffffff;
+  --color-paper-muted: #f4f4f5;
+
+  /* Editorial Borders */
+  --color-line-dark: rgba(255, 255, 255, 0.08);
+  --color-line-hover: rgba(255, 255, 255, 0.16);
+
+  /* Neutral Typography Hierarchy */
+  --color-muted: #71717a;
+  --color-muted-light: #a1a1aa;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
-  /* Custom Easing */
-  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-:root {
-  --header-height: 84px;
-}
-
-@media (max-width: 920px) {
-  :root {
-    --header-height: 74px;
-  }
+  /* Curves */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -41,22 +38,25 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-ink);
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  background-color: var(--color-off);
-  color: var(--color-ink);
+  background-color: var(--color-ink);
+  color: #f3f4f6;
   overflow-x: clip;
   font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use Manrope by default with tight tracking */
+/* Precision Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   letter-spacing: -0.03em;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
 body, button, input, select, textarea {
@@ -68,55 +68,14 @@ a {
   text-decoration: none;
 }
 
-button {
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-}
-
 ::selection {
   background: var(--color-red);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-red);
+  outline: 1.5px solid var(--color-red);
   outline-offset: 3px;
-}
-
-/* Float Geometry Animations for Hero */
-@keyframes floatGeometry {
-  0%, 100% {
-    transform: skewX(-10deg) translate3d(0, 0, 0);
-  }
-  50% {
-    transform: skewX(-10deg) translate3d(18px, -13px, 0);
-  }
-}
-
-.animate-float-1 {
-  animation: floatGeometry 12s ease-in-out infinite;
-}
-
-.animate-float-2 {
-  animation: floatGeometry 16s ease-in-out -2s infinite reverse;
-}
-
-.animate-float-3 {
-  animation: floatGeometry 14s ease-in-out -4s infinite;
-}
-
-/* Spin animation for form submissions */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-fast {
-  animation: spin 0.8s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -127,6 +86,5 @@ img {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
   }
 }

@@ -2,7 +2,8 @@
 
 import React from 'react';
 import type { Metadata } from 'next';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { motion, type Variants } from 'framer-motion';
 import { 
   Building2, 
   Users2, 
@@ -11,18 +12,35 @@ import {
   Megaphone, 
   Video, 
   Building,
-  Quote,
-  CheckCircle2,
   Target,
   Compass,
   Heart,
   Award,
-  ArrowRight
+  ArrowUpRight
 } from 'lucide-react';
 
 import { PageHero } from '@/components/hero/PageHero';
 import { CTASection } from '@/components/sections/CTASection';
 import { Testimonials } from '@/components/sections/Testimonials';
+
+const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.06, delayChildren: 0.04 }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.55, ease: easeEditorial } 
+  }
+};
 
 // ==================== DATA CONFIGURATION ====================
 const services = [
@@ -30,320 +48,294 @@ const services = [
     id: 'exhibitions',
     icon: Building2,
     title: 'Exhibitions',
-    description: 'Futurex Trade Fair & Events Pvt. Ltd. Has Always Been One Of The Leading Exhibition Stand Designers, Builders And Contractors In India And SAARC Countries And Also We Provide A Wide Range Of Display And Exhibition Services For All Our Exhibitions.'
+    description: 'Leading exhibition stand design, construction, and turnkey contracting across India and SAARC corridors with end-to-end display solutions.'
   },
   {
     id: 'conferences',
     icon: Users2,
     title: 'Conferences',
-    description: 'Conferences Are Usually Composed Of Various Presentations. They Tend To Be Short And Concise, With A Time Span Of About 10 To 30 Minutes. Presentations Are Usually Followed By A Discussion. The Work May Be Bundled In Written Form As Academic Papers And Published As The Conference Proceedings.'
+    description: 'Structured, high-impact business presentations, ministerial panels, and academic proceedings publication.'
   },
   {
     id: 'events',
     icon: CalendarCheck,
     title: 'Events',
-    description: 'Creating And Implementing Purposeful Meetings/events Is Our Business! Planning With Deeper Meaning, Innovation, And Insight In Mind. Focusing On The Perfect Execution Of Logistics And Creating Memorable Moments That Engage, Inspire, And Create Long Lasting Positive Outcomes.'
+    description: 'Purposeful meetings and corporate gatherings engineered with operational precision and memorable engagement.'
   },
   {
     id: 'designing-studio',
     icon: Palette,
     title: 'Designing Studio',
-    description: 'Futurex Studio Is A Part Of Futurex Group. It Has Been Offering Quality And The Most Creative Exhibition Stand Designing In Different Profiles. Our Mission Is To Approach Every Single Day Like It Will Be Our Defining Moment.'
+    description: 'Creative spatial architecture and exhibition booth design tailored to distinct industrial brand profiles.'
   },
   {
     id: 'branding-promotions',
     icon: Megaphone,
     title: 'Branding & Promotions',
-    description: 'Press Advertisements Marketing Strategies Like T.V & Radio, Multimedia Presentations, Internet Seminars & Press Conferences, Hoardings, Proposal Letters, Journals & E-mailers, Personal Contacts & Presentations, Banners & Posters, Website Development & Maintainance.'
+    description: 'Comprehensive multi-channel campaigns spanning press media, digital seminars, outdoor publicity, and collateral design.'
   },
   {
     id: 'webinars',
     icon: Video,
     title: 'Webinars',
-    description: 'The Future Of Online Experiences Is Here Today With The Ability To Stream / Webcast Your Live Events To Viewers Anywhere In The World. You Can Take Your Business To New Heights And Dimensions By Instantly Connecting With Millions Of People Across The World In Live And Real Time Environment.'
+    description: 'Virtual and hybrid live event streaming connecting global enterprises with digital delegates in real-time.'
   }
 ];
 
 const associationLogos = [
-  { id: 1, name: 'BCCI (Bhutan Chamber)', sub: 'Bhutan Chamber of Commerce & Industry' },
-  { id: 2, name: 'PHD Chamber', sub: 'PHD Chamber of Commerce' },
-  { id: 3, name: 'CDC Events', sub: 'CDC Events & Travels' },
-  { id: 4, name: 'ASK Trade', sub: 'ASK Trade & Exhibitions' },
-  { id: 5, name: 'Alumex PLC', sub: 'Alumex Industries PLC' },
-  { id: 6, name: 'JAT Holdings', sub: 'JAT Holdings Pvt. Ltd.' }
-];
-
-const testimonials = [
-  {
-    quote: "We Met Right Buyers & Create Business Opportunities In Futurex Expo . For Us The Futurex Exhibition Is Good For All Industry Sector",
-    author: "Mr. Wasantha Gunaratne",
-    role: "Director Sales & Technical - South Asia",
-    company: "Jat Holdings Pvt. Ltd."
-  },
-  {
-    quote: "We Want To Express Our Utmost Appreciation For A Fruitful Cooperation And Partnership With Working With Futurex Trade Fairs And Events Pvt. Ltd And Proved To Be A Testament Of Their Dedication To Discipline , Professionalism And Excellence.",
-    author: "Ms. Deki Chhoden",
-    role: "Head, Events And Resource Division",
-    company: "Bhutan Chamber Of Commerce & Industry (BCCI)"
-  },
-  {
-    quote: "We Want To Express Our Utmost Appreciation For A Fruitful Cooperation And Partnership With Futurex Trade Fair And Events Pvt. Ltd. The Organisation Proved To Be A Strong And Professional Partner.",
-    author: "Mr. Imran Hasan",
-    role: "Managing Director",
-    company: "CDC Events and Travels"
-  },
-  {
-    quote: "We Were Really Impressed With The Quality Of The Visitors Who Came In Exhibitions Organised By Futurex, Futurex Exhibitions Is An Ideal Platform For Indian Participants To Penetrate In Saarc Countries.",
-    author: "Mr. Rakesh Kumar Sangrai",
-    role: "Secretary - Intl Affairs, Intl Exhibitions",
-    company: "PHD Chamber of Commerce"
-  },
-  {
-    quote: "We have been participating in the Buildcon International Exhibitions in Bangladesh, Sri Lanka & Nepal since 2019 and getting a phenomenal response.",
-    author: "Mr. Kalpesh Chitroda",
-    role: "Regional Executive",
-    company: "Maris Polymers"
-  },
-  {
-    quote: "The Series Of Buildcon International Exhibitions Has Been A Very Productive Platform For Us. All The Arrangements Were Satisfactory.",
-    author: "Mr. Sandeep Vachhani",
-    role: "Director",
-    company: "Elcon Fasteners"
-  }
+  { id: 1, name: 'BCCI', sub: 'Bhutan Chamber of Commerce', logo: '/logos/associations/bcci.png' },
+  { id: 2, name: 'PHD Chamber', sub: 'PHD Chamber of Commerce', logo: '/logos/associations/phd.png' },
+  { id: 3, name: 'CDC Events', sub: 'CDC Events & Travels', logo: '/logos/associations/cdc.png' },
+  { id: 4, name: 'ASK Trade', sub: 'ASK Trade & Exhibitions', logo: '/logos/associations/ask.png' },
+  { id: 5, name: 'Alumex PLC', sub: 'Alumex Industries PLC', logo: '/logos/associations/alumex.png' },
+  { id: 6, name: 'JAT Holdings', sub: 'JAT Holdings Pvt. Ltd.', logo: '/logos/associations/jat.png' }
 ];
 
 export default function ServicesPage() {
   return (
-    <main className="relative bg-slate-50 text-slate-900 min-h-screen overflow-hidden selection:bg-[#E3131B] selection:text-white">
+    <main className="relative bg-[#FBFBFD] text-[#0A0D12] min-h-screen overflow-hidden selection:bg-red-600 selection:text-white">
 
-      {/* ==================== 1. ORIGINAL PAGE HERO (LIGHT SECTION) ==================== */}
-      <div className="bg-white border-b border-slate-200">
+      {/* ==================== 1. EDITORIAL PAGE HERO ==================== */}
+      <div className="border-b border-neutral-200/80 bg-white">
         <PageHero 
-          eyebrow="SERVICES" 
+          eyebrow="INSTITUTIONAL SERVICES" 
           title={
             <>
-              Business experiences,<br />
-              <span className="text-[#E3131B]">built end to end.</span>
+              Business Experiences, <br />
+              <span className="font-serif italic font-normal text-neutral-500">
+                Built End to End
+              </span>
+              <span className="text-red-600 font-sans">.</span>
             </>
           } 
-          description="Exhibitions, conferences, events, creative production, promotion and virtual business experiences." 
+          description="Exhibitions, conferences, events, creative production, promotion and virtual business experiences engineered for global scale." 
         />
       </div>
 
-      {/* ==================== 2. OUR SERVICES GRID (LIGHT THEME) ==================== */}
-      <section className="py-20 px-6 sm:px-8 max-w-[1280px] mx-auto">
-        <div className="text-center max-w-[640px] mx-auto mb-16">
-          <span className="text-[11px] font-mono font-black tracking-[0.25em] uppercase text-[#E3131B] block mb-2">
-            WHAT WE DO
-          </span>
-          <h2 className="font-heading font-black text-[32px] sm:text-[44px] text-slate-900 tracking-tight uppercase">
-            Our <span className="text-[#E3131B]">Services</span>
+      {/* ==================== 2. OUR SERVICES GRID (SELF-CONTAINED) ==================== */}
+      <section className="py-20 sm:py-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 border-b border-neutral-200/80 select-none">
+        <div className="max-w-2xl mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-600 mb-4 shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+            <span>WHAT WE DO</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]">
+            Our Core <br className="hidden sm:inline" />
+            <span className="font-serif italic font-normal text-neutral-500">Services & Solutions</span>
+            <span className="text-red-600 font-sans">.</span>
           </h2>
-          <p className="text-slate-600 text-[15px] mt-2 font-medium">
-            Tailored trade show solutions, architecture, and marketing channels for global enterprises.
+          <p className="mt-4 text-neutral-500 text-sm sm:text-base font-normal leading-[1.75] max-w-xl">
+            Tailored trade show solutions, architecture, and marketing channels built for high-impact international enterprises.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
+        >
           {services.map((item) => {
             const Icon = item.icon;
             return (
-              <div 
+              <motion.div 
                 key={item.id}
-                className="group relative bg-white border border-slate-200/80 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#E3131B]/40 transition-all duration-300 flex flex-col justify-between"
+                variants={itemVariants}
+                whileHover={{ y: -4, transition: { duration: 0.3, ease: easeEditorial } }}
+                className="group relative bg-white border border-neutral-200/90 hover:border-neutral-300 rounded-3xl p-7 shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
+                {/* Top Red Laser Hairline Accent on Hover */}
+                <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-20" />
+
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-[#E3131B]/10 border border-[#E3131B]/20 flex items-center justify-center text-[#E3131B] group-hover:bg-[#E3131B] group-hover:text-white transition-all duration-300 mb-6 shadow-sm">
-                    <Icon className="w-7 h-7" />
+                  <div className="w-11 h-11 rounded-2xl bg-neutral-100 border border-neutral-200/80 flex items-center justify-center text-neutral-700 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600 transition-all duration-300 mb-5 shadow-2xs">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-heading font-black text-[22px] text-slate-900 mb-3 tracking-tight">
+                  <h3 className="text-lg font-semibold text-[#0A0D12] mb-2.5 tracking-tight group-hover:text-red-600 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-slate-600 text-[14px] leading-relaxed font-medium">
+                  <p className="text-xs sm:text-[13px] text-neutral-500 font-normal leading-[1.75]">
                     {item.description}
                   </p>
                 </div>
-              </div>
+
+                <div className="pt-5 mt-6 border-t border-neutral-100 flex items-center justify-between text-xs">
+                  <span className="text-[10px] font-mono font-bold tracking-[0.14em] uppercase text-neutral-400">
+                    DISCIPLINE SPEC
+                  </span>
+                  <div className="w-6 h-6 rounded-full bg-neutral-50 border border-neutral-200/80 flex items-center justify-center text-neutral-400 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600 transition-all duration-300">
+                    <ArrowUpRight size={12} />
+                  </div>
+                </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </section>
 
-      {/* ==================== 3. ASSOCIATIONS & ALLIANCES (LIGHT LOGO GRID) ==================== */}
-      <section className="py-16 bg-slate-100/80 border-y border-slate-200/80">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-[600px] mx-auto mb-12">
-            <span className="text-[11px] font-mono font-black tracking-[0.2em] uppercase text-[#E3131B] block mb-1">
-              STRATEGIC ALLIANCES
-            </span>
-            <h2 className="font-heading font-black text-[28px] sm:text-[36px] text-slate-900 uppercase">
-              Our Key <span className="text-[#E3131B]">Associations</span>
+      {/* ==================== 3. ASSOCIATIONS & ALLIANCES (REAL LOGO SLOTS) ==================== */}
+      <section className="py-16 sm:py-20 bg-white border-b border-neutral-200/80 select-none">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.6, ease: easeEditorial }}
+            className="text-center max-w-xl mx-auto mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200/80 text-[10px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-3">
+              <span>STRATEGIC ALLIANCES</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#0A0D12]">
+              Our Key Associations<span className="text-red-600">.</span>
             </h2>
-            <p className="text-slate-600 text-[14px] mt-1 font-medium">
-              Proud partners and co-organizers with international chambers of commerce.
+            <p className="text-neutral-500 text-xs sm:text-[13px] mt-2 font-normal">
+              Proud partners and co-organizers with leading international chambers of commerce.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-30px" }}
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5"
+          >
             {associationLogos.map((logo) => (
-              <div 
+              <motion.div 
                 key={logo.id} 
-                className="h-28 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col items-center justify-center p-4 hover:border-[#E3131B] hover:shadow-md transition-all group text-center"
+                variants={itemVariants}
+                whileHover={{ y: -3, transition: { duration: 0.25 } }}
+                className="h-28 rounded-2xl bg-[#FBFBFD] border border-neutral-200/80 shadow-2xs flex flex-col items-center justify-center p-3.5 hover:border-neutral-300 hover:bg-white hover:shadow-sm transition-all group text-center"
               >
-                {/* Logo Image Placeholder Slot */}
-                <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#E3131B] font-mono font-bold text-sm mb-2 group-hover:scale-110 transition-transform">
-                  <Building className="w-5 h-5" />
+                {/* Association Logo Slot */}
+                <div className="relative w-10 h-10 rounded-xl bg-white border border-neutral-200/80 flex items-center justify-center overflow-hidden mb-2 group-hover:scale-105 transition-transform shadow-2xs">
+                  <Image 
+                    src={logo.logo} 
+                    alt={logo.name}
+                    fill
+                    sizes="40px"
+                    className="object-contain p-1.5"
+                    onError={(e) => {
+                      // Fallback if image path is pending
+                      (e.currentTarget as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                  <Building className="w-4 h-4 text-neutral-400 absolute" />
                 </div>
-                <span className="text-[12px] font-bold text-slate-800 leading-tight block">
+                
+                <span className="text-xs font-semibold text-[#0A0D12] leading-tight block">
                   {logo.name}
                 </span>
-                <span className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
+                <span className="text-[9.5px] text-neutral-400 font-mono line-clamp-1 mt-0.5">
                   {logo.sub}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ==================== 4. DARK SECTION WITH DIAGONAL TRIANGLE FILL CUTOUT ==================== */}
-      <section className="relative bg-slate-950 text-white pt-32 pb-24 my-16 overflow-hidden">
+      {/* ==================== 4. DARK FOUNDATIONAL PILLARS SECTION ==================== */}
+      <section className="relative bg-[#07080A] text-white py-20 sm:py-28 my-8 overflow-hidden select-none">
         
-        {/* TOP DIAGONAL TRIANGLE CUTOUT WITH CONTRAST FILL (#E3131B Red Color Overlay) */}
-        <div 
-          className="absolute top-0 left-0 right-0 h-20 bg-slate-50 pointer-events-none z-20"
-          style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 0)'
-          }}
-        />
-        <div 
-          className="absolute top-0 left-0 right-0 h-20 bg-[#E3131B] pointer-events-none z-10"
-          style={{
-            clipPath: 'polygon(0 0, 100% 100%, 0 100%, 0 0)'
-          }}
-        />
+        {/* Ambient Volumetric Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-red-600/10 rounded-full blur-[130px] pointer-events-none" />
 
-        {/* Ambient Red Glow Lights */}
-        <div className="absolute top-1/2 left-[-10%] -translate-y-1/2 w-[500px] h-[500px] bg-[#E3131B]/15 rounded-full blur-[140px] pointer-events-none" />
-
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           
-          <div className="text-center max-w-[640px] mx-auto mb-16">
-            <span className="text-[11px] font-mono font-black tracking-[0.25em] uppercase text-[#E3131B] block mb-2">
-              FOUNDATIONAL PILLARS
-            </span>
-            <h2 className="font-heading font-black text-[32px] sm:text-[42px] tracking-tight text-white uppercase">
-              Guided By <span className="text-[#E3131B]">Purpose & Excellence</span>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-[10px] font-mono tracking-[0.18em] uppercase text-neutral-300 mb-3 backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              <span>FOUNDATIONAL DOCTRINE</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] text-white leading-tight">
+              Guided By Purpose <br />
+              <span className="font-serif italic font-normal text-neutral-400">& Excellence</span>
+              <span className="text-red-500">.</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-30px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"
+          >
             {/* Mission */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 backdrop-blur-xl hover:border-[#E3131B]/60 transition-all duration-300">
-              <div className="w-12 h-12 rounded-xl bg-[#E3131B]/15 border border-[#E3131B]/30 flex items-center justify-center mb-6 text-[#E3131B]">
-                <Target className="w-6 h-6" />
+            <motion.div variants={itemVariants} className="bg-white/[0.025] border border-white/[0.08] rounded-3xl p-7 backdrop-blur-xl flex flex-col justify-between">
+              <div>
+                <div className="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/[0.1] flex items-center justify-center mb-5 text-red-500">
+                  <Target className="w-5 h-5" />
+                </div>
+                <span className="text-[10.5px] font-mono tracking-[0.18em] uppercase text-red-500 block mb-2 font-semibold">
+                  MISSION
+                </span>
+                <p className="text-neutral-300 text-xs sm:text-[13.5px] leading-[1.75] mb-5 font-normal">
+                  Organizing specialized trade fairs and serving promising industries with market-driven show standards across the SAARC region.
+                </p>
               </div>
-              <span className="text-[11px] font-mono font-black tracking-[0.2em] uppercase text-[#E3131B] block mb-2">
-                MISSION
-              </span>
-              <p className="text-slate-300 text-[14px] leading-relaxed mb-4 font-medium">
-                Organizing the largest number of specialized trade fairs and serving promising industries.
-              </p>
-              <ul className="space-y-2.5 pt-3 border-t border-slate-800">
-                <li className="flex items-center gap-2 text-slate-300 text-[13px]">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3131B] shrink-0" />
+              <ul className="space-y-2.5 pt-4 border-t border-white/[0.06] text-neutral-300 text-xs font-mono">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
                   <span>Market-driven show standards</span>
                 </li>
-                <li className="flex items-center gap-2 text-slate-300 text-[13px]">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3131B] shrink-0" />
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
                   <span>SAARC Region expansion</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* Vision */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 backdrop-blur-xl hover:border-[#E3131B]/60 transition-all duration-300">
-              <div className="w-12 h-12 rounded-xl bg-[#E3131B]/15 border border-[#E3131B]/30 flex items-center justify-center mb-6 text-[#E3131B]">
-                <Compass className="w-6 h-6" />
+            <motion.div variants={itemVariants} className="bg-gradient-to-b from-red-600/[0.07] via-white/[0.03] to-white/[0.015] border border-red-500/30 rounded-3xl p-7 backdrop-blur-xl flex flex-col justify-between">
+              <div>
+                <div className="w-11 h-11 rounded-2xl bg-red-600 text-white flex items-center justify-center mb-5 shadow-[0_0_16px_rgba(220,38,38,0.4)]">
+                  <Compass className="w-5 h-5" />
+                </div>
+                <span className="text-[10.5px] font-mono tracking-[0.18em] uppercase text-red-400 block mb-2 font-semibold">
+                  VISION
+                </span>
+                <p className="text-white text-sm sm:text-[14.5px] leading-[1.75] font-normal mb-5">
+                  To be the most trusted international trade fair orchestrator across South Asia, delivering excellence through trust and perseverance.
+                </p>
               </div>
-              <span className="text-[11px] font-mono font-black tracking-[0.2em] uppercase text-[#E3131B] block mb-2">
-                VISION
-              </span>
-              <p className="text-slate-200 text-[15px] leading-relaxed font-semibold mb-4">
-                To be the most trusted international trade fair orchestrator across South Asia.
-              </p>
-              <div className="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-[13px] text-slate-300">
-                Excel in high quality service delivery through trust, commitment, and perseverance.
+              <div className="p-3.5 rounded-2xl bg-black/40 border border-white/[0.08] text-[11px] text-neutral-300 font-mono tracking-wide">
+                Excellence in service delivery through structured perseverance.
               </div>
-            </div>
+            </motion.div>
 
             {/* Core Values */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 backdrop-blur-xl hover:border-[#E3131B]/60 transition-all duration-300">
-              <div className="w-12 h-12 rounded-xl bg-[#E3131B]/15 border border-[#E3131B]/30 flex items-center justify-center mb-6 text-[#E3131B]">
-                <Heart className="w-6 h-6" />
+            <motion.div variants={itemVariants} className="bg-white/[0.025] border border-white/[0.08] rounded-3xl p-7 backdrop-blur-xl flex flex-col justify-between">
+              <div>
+                <div className="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/[0.1] flex items-center justify-center mb-5 text-red-500">
+                  <Heart className="w-5 h-5" />
+                </div>
+                <span className="text-[10.5px] font-mono tracking-[0.18em] uppercase text-red-500 block mb-2 font-semibold">
+                  CORE VALUES
+                </span>
+                <p className="text-neutral-300 text-xs sm:text-[13.5px] leading-[1.75] mb-5 font-normal">
+                  Uncompromising commitment to ethical business operations, reliability, and total client satisfaction.
+                </p>
               </div>
-              <span className="text-[11px] font-mono font-black tracking-[0.2em] uppercase text-[#E3131B] block mb-2">
-                CORE VALUES
-              </span>
-              <div className="space-y-3">
+              <div className="space-y-2 pt-4 border-t border-white/[0.06]">
                 {['Business Ethics', 'Reliability', 'Customer Satisfaction'].map((val) => (
-                  <div key={val} className="px-3.5 py-2.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-200 text-[13px] font-bold flex items-center gap-2">
-                    <Award className="w-4 h-4 text-[#E3131B]" />
+                  <div key={val} className="px-3 py-2 rounded-xl bg-white/[0.02] border border-white/[0.06] text-neutral-200 text-xs font-mono tracking-wider flex items-center gap-2">
+                    <Award className="w-3.5 h-3.5 text-red-500 shrink-0" />
                     <span>{val}</span>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-
-        {/* BOTTOM DIAGONAL TRIANGLE CUTOUT */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-20 bg-[#E3131B] pointer-events-none z-10"
-          style={{
-            clipPath: 'polygon(0 0, 100% 100%, 0 100%, 0 0)'
-          }}
-        />
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-20 bg-slate-50 pointer-events-none z-20"
-          style={{
-            clipPath: 'polygon(0 100%, 100% 0, 100% 100%, 0 100%)'
-          }}
-        />
       </section>
 
-      {/* ==================== 5. ASSOCIATES TESTIMONIALS (LIGHT SECTION) ==================== */}
-      {/* <section className="py-20 px-6 sm:px-8 max-w-[1280px] mx-auto">
-        <div className="text-center max-w-[600px] mx-auto mb-16">
-          <span className="text-[11px] font-mono font-black tracking-[0.25em] uppercase text-[#E3131B] block mb-2">
-            CLIENT FEEDBACK
-          </span>
-          <h2 className="font-heading font-black text-[32px] sm:text-[42px] text-slate-900 uppercase">
-            Our <span className="text-[#E3131B]">Associates Say</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((item, idx) => (
-            <div 
-              key={idx}
-              className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#E3131B]/40 transition-all duration-300 flex flex-col justify-between"
-            >
-              <Quote className="w-8 h-8 text-[#E3131B]/40 mb-4" />
-              <p className="text-slate-700 text-[14px] leading-relaxed italic mb-6 font-medium">
-                "{item.quote}"
-              </p>
-              <div className="pt-4 border-t border-slate-100">
-                <h4 className="text-slate-900 font-bold text-[15px]">{item.author}</h4>
-                <p className="text-[12px] text-[#E3131B] font-bold">{item.role}</p>
-                <p className="text-[12px] text-slate-500 font-medium">{item.company}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
-        <Testimonials />
+      {/* ==================== 5. TESTIMONIALS ==================== */}
+      <Testimonials />
 
       {/* ==================== 6. CTA SECTION ==================== */}
       <CTASection />
