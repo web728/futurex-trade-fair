@@ -60,3 +60,5 @@ Thumbs.db
 /cypress/videos
 /cypress/screenshots
 /test-results
+
+public/gallery/Gallery/*.zip
