@@ -1,0 +1,8 @@
+[10-Aug-2022 12:31:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home2/futurk62/futurextrade.com/images-event/pictures/past-exhibition/2016/R.php:4
+Stack trace:
+#0 {main}
+  thrown in /home2/futurk62/futurextrade.com/images-event/pictures/past-exhibition/2016/R.php on line 4
+[10-Aug-2022 12:31:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function create_function() in /home2/futurk62/futurextrade.com/images-event/pictures/past-exhibition/2016/R.php:4
+Stack trace:
+#0 {main}
+  thrown in /home2/futurk62/futurextrade.com/images-event/pictures/past-exhibition/2016/R.php on line 4

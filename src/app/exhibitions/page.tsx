@@ -17,38 +17,35 @@ export default function ExhibitionsPage() {
     <main className="relative min-h-screen bg-[#FBFBFD] text-[#0A0D12] selection:bg-red-600 selection:text-white overflow-hidden">
       
       {/* ========================================================================= */}
-      {/* MEDIUM STATIC ARCHITECTURAL SVGs (ZIGZAG CORNER ANCHORS) */}
+      {/* MEDIUM VISIBLE BACKGROUND ARCHITECTURAL SVGs (ZIGZAG PLACEMENT) */}
       {/* ========================================================================= */}
-      {/* Top Left Medium SVG */}
-      <div className="absolute top-16 left-8 pointer-events-none opacity-[0.06] z-0 hidden lg:block">
+      <div className="absolute top-28 left-8 pointer-events-none opacity-[0.09] z-0 hidden lg:block">
+        <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+          <circle cx="110" cy="110" r="100" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 6" />
+          <circle cx="110" cy="110" r="50" stroke="currentColor" strokeWidth="1.5" />
+          <line x1="110" y1="0" x2="110" y2="220" stroke="currentColor" strokeWidth="1.5" />
+          <line x1="0" y1="110" x2="220" y2="110" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="110" cy="110" r="6" fill="#dc2626" />
+        </svg>
+      </div>
+
+      <div className="absolute top-[45%] right-10 pointer-events-none opacity-[0.08] z-0 hidden lg:block">
         <svg width="240" height="240" viewBox="0 0 240 240" fill="none">
-          <circle cx="120" cy="120" r="100" stroke="currentColor" strokeWidth="1.2" strokeDasharray="5 6" />
-          <circle cx="120" cy="120" r="60" stroke="currentColor" strokeWidth="1.2" />
-          <line x1="120" y1="0" x2="120" y2="240" stroke="currentColor" strokeWidth="1.2" />
-          <line x1="0" y1="120" x2="240" y2="120" stroke="currentColor" strokeWidth="1.2" />
-          <circle cx="120" cy="120" r="5" fill="#dc2626" />
+          <rect x="20" y="20" width="200" height="200" rx="18" stroke="currentColor" strokeWidth="1.5" strokeDasharray="8 8" />
+          <circle cx="120" cy="120" r="65" stroke="currentColor" strokeWidth="1.5" />
+          <line x1="120" y1="10" x2="120" y2="230" stroke="currentColor" strokeWidth="1.5" />
         </svg>
       </div>
 
-      {/* Mid Right Medium SVG */}
-      <div className="absolute top-[38%] right-10 pointer-events-none opacity-[0.05] z-0 hidden lg:block">
-        <svg width="260" height="260" viewBox="0 0 260 260" fill="none">
-          <rect x="25" y="25" width="210" height="210" rx="20" stroke="currentColor" strokeWidth="1.2" strokeDasharray="8 6" />
-          <circle cx="130" cy="130" r="70" stroke="currentColor" strokeWidth="1.2" />
-          <line x1="130" y1="10" x2="130" y2="250" stroke="currentColor" strokeWidth="1.2" />
+      <div className="absolute top-[75%] left-10 pointer-events-none opacity-[0.08] z-0 hidden lg:block">
+        <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+          <polygon points="110,15 205,205 15,205" stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 6" />
+          <circle cx="110" cy="140" r="40" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="110" cy="140" r="6" fill="#dc2626" />
         </svg>
       </div>
 
-      {/* Lower Left Medium SVG */}
-      <div className="absolute top-[72%] left-10 pointer-events-none opacity-[0.05] z-0 hidden lg:block">
-        <svg width="250" height="250" viewBox="0 0 250 250" fill="none">
-          <polygon points="125,15 235,225 15,225" stroke="currentColor" strokeWidth="1.2" strokeDasharray="6 6" />
-          <circle cx="125" cy="150" r="45" stroke="currentColor" strokeWidth="1.2" />
-          <circle cx="125" cy="150" r="6" fill="#dc2626" />
-        </svg>
-      </div>
-
-      {/* Hero Header */}
+      {/* Hero Section */}
       <div className="relative z-10 border-b border-neutral-200/80 bg-white">
         <PageHero 
           eyebrow="EXHIBITION DIRECTORY" 

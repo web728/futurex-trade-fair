@@ -44,6 +44,260 @@ export function groupExhibitionsByYear(
 
 export const EXHIBITIONS: ExhibitionEvent[] = [
   {
+    id: "10th Bangladesh Buildcon International Expo",
+    name: "10th Bangladesh Buildcon International Expo",
+    edition: "10th Edition",
+    dates: { display: "17th to 19th September 2026", start: "2026-09-17", end: "2026-09-19" },
+    venue: { city: " ICCB Exhibition Hall, Dhaka", country: "Bangladesh" },
+    industry: "BuildCon",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/10th-Bangladesh-Buildcon-Logo-Coloured.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://bangladeshbuildcon.com/",
+      facebook: "https://www.facebook.com/bangladeshbuildconexpo/?ref=embed_page#",
+      // instagram: "https://www.instagram.com/odishaminingexpo/",
+      // linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "10th Bangladesh Wood & Metal Industries Expo",
+    name: "10th Bangladesh Wood & Metal Industries Expo",
+    edition: "10th Edition",
+   dates: { display: "17th to 19th September 2026", start: "2026-09-17", end: "2026-09-19" },
+    venue: { city: " ICCB Exhibition Hall, Dhaka", country: "Bangladesh" },
+    industry: "Wood",
+    eventType: "Exhibition",
+   heroImage: "/gallery/images-event/2026/bangladesh-wood-expo-logo.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://bangladeshwoodexpo.com/",
+      facebook: "https://www.facebook.com/Bangladeshwoodexpo",
+      // instagram: "https://www.instagram.com/odishaminingexpo/",
+      // linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "8th Edition India EV International Show",
+    name: "8th Edition India EV International Show",
+    edition: "8th Edition",
+    dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
+    venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
+    industry: "Electric",
+    eventType: "Exhibition",
+       heroImage: "/gallery/images-event/2026/india-ev-logo.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://iievshow.com/",
+      facebook: "https://www.facebook.com/iievshow",
+      instagram: "https://www.instagram.com/iievshow/",
+      linkedin: "https://www.linkedin.com/company/iievshow/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "India Battery International Show",
+    name: "India Battery International Show",
+    edition: "1st Edition",
+   dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
+    venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/mining-2026.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://www.batteryindiaexpo.com/",
+      facebook: "https://www.facebook.com/batteryindiaexpo",
+      // instagram: "https://www.instagram.com/odishaminingexpo/",
+      linkedin: "https://www.linkedin.com/company/indiabatteryshow/",
+      email: "admin@futurextrade.com"
+    },
+  }, 
+  {
+    id: "India Solar International Show",
+    name: "India Solar International Show",
+    edition: "1st Edition",
+   dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
+    venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/india-solar-logo.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://indiasolarshow.com/",
+      facebook: "https://www.facebook.com/indiasolarshow/",
+      instagram: "https://www.instagram.com/indiasolarshow/",
+      linkedin: "https://www.linkedin.com/company/indiasolarshow/",
+      email: "admin@futurextrade.com"
+    },
+  },   {
+    id: "5th Nepal Electric, Power and Lights Int'l Expo",
+    name: "5th Nepal Electric, Power and Lights Int'l Expo",
+    edition: "5th Edition",
+   dates: { display: "18th to 20th December 2026", start: "2026-12-18", end: "2026-12-20" },
+    venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
+    industry: "Power & Electric",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/nepal-electric-power-and-light.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://www.nepalpowerelec.com/",
+      facebook: "https://www.facebook.com/nepalpowerelec/#",
+      instagram: "https://www.instagram.com/indiasolarshow/",
+      linkedin: "https://www.linkedin.com/company/nepalpowerelec/",
+      email: "admin@futurextrade.com"
+    },
+  },   {
+    id: "India Solar International Show",
+    name: "India Solar International Show",
+    edition: "1st Edition",
+   dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
+    venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/india-solar-logo.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://indiasolarshow.com/",
+      facebook: "https://www.facebook.com/indiasolarshow/",
+      instagram: "https://www.instagram.com/indiasolarshow/",
+      linkedin: "https://www.linkedin.com/company/indiasolarshow/",
+      email: "admin@futurextrade.com"
+    },
+  },   {
+    id: "India Solar International Show",
+    name: "India Solar International Show",
+    edition: "1st Edition",
+   dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
+    venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/india-solar-logo.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://indiasolarshow.com/",
+      facebook: "https://www.facebook.com/indiasolarshow/",
+      instagram: "https://www.instagram.com/indiasolarshow/",
+      linkedin: "https://www.linkedin.com/company/indiasolarshow/",
+      email: "admin@futurextrade.com"
+    },
+  },   {
+    id: "India Solar International Show",
+    name: "India Solar International Show",
+    edition: "1st Edition",
+   dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
+    venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/india-solar-logo.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://indiasolarshow.com/",
+      facebook: "https://www.facebook.com/indiasolarshow/",
+      instagram: "https://www.instagram.com/indiasolarshow/",
+      linkedin: "https://www.linkedin.com/company/indiasolarshow/",
+      email: "admin@futurextrade.com"
+    },
+  },   {
+    id: "India Solar International Show",
+    name: "India Solar International Show",
+    edition: "1st Edition",
+   dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
+    venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/india-solar-logo.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://indiasolarshow.com/",
+      facebook: "https://www.facebook.com/indiasolarshow/",
+      instagram: "https://www.instagram.com/indiasolarshow/",
+      linkedin: "https://www.linkedin.com/company/indiasolarshow/",
+      email: "admin@futurextrade.com"
+    },
+  }, 
+  {
+    id: "odisha-mining-infrastructure-expo-2026",
+    name: "Odisha Mining and Infrastructure International Expo",
+    edition: "4th Edition",
+    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
+    venue: { city: "Bhubaneswar", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/images/gallery/events/mining-2026.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://odishaminingexpo.com/",
+      facebook: "https://www.facebook.com/odishaminingexpo/",
+      instagram: "https://www.instagram.com/odishaminingexpo/",
+      linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "odisha-mining-infrastructure-expo-2026",
+    name: "Odisha Mining and Infrastructure International Expo",
+    edition: "4th Edition",
+    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
+    venue: { city: "Bhubaneswar", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/images/gallery/events/mining-2026.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://odishaminingexpo.com/",
+      facebook: "https://www.facebook.com/odishaminingexpo/",
+      instagram: "https://www.instagram.com/odishaminingexpo/",
+      linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "odisha-mining-infrastructure-expo-2026",
+    name: "Odisha Mining and Infrastructure International Expo",
+    edition: "4th Edition",
+    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
+    venue: { city: "Bhubaneswar", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/images/gallery/events/mining-2026.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://odishaminingexpo.com/",
+      facebook: "https://www.facebook.com/odishaminingexpo/",
+      instagram: "https://www.instagram.com/odishaminingexpo/",
+      linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "odisha-mining-infrastructure-expo-2026",
+    name: "Odisha Mining and Infrastructure International Expo",
+    edition: "4th Edition",
+    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
+    venue: { city: "Bhubaneswar", country: "India" },
+    industry: "Mining",
+    eventType: "Exhibition",
+    heroImage: "/images/gallery/events/mining-2026.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://odishaminingexpo.com/",
+      facebook: "https://www.facebook.com/odishaminingexpo/",
+      instagram: "https://www.instagram.com/odishaminingexpo/",
+      linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
     id: "odisha-mining-infrastructure-expo-2026",
     name: "Odisha Mining and Infrastructure International Expo",
     edition: "4th Edition",

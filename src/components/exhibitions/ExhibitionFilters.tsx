@@ -32,7 +32,6 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
     [allEvents]
   );
 
-  // Filtered flat list
   const filteredEvents = useMemo(() => {
     const q = query.trim().toLowerCase();
     return allEvents.filter((event) => {
@@ -49,14 +48,13 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
     });
   }, [allEvents, query, selectedCountry, selectedIndustry]);
 
-  // Re-group filtered events by year with pagination limit support
   const filteredGrouped = useMemo(() => {
     let count = 0;
     const map = new Map<string, ExhibitionEvent[]>();
 
     for (const event of filteredEvents) {
       if (count >= visibleLimit && query === '' && selectedCountry === 'All' && selectedIndustry === 'All') {
-        break; // Stop once visible limit is reached for default view
+        break;
       }
       const year = event.dates?.start?.slice(0, 4) || '2026';
       if (!map.has(year)) map.set(year, []);
@@ -85,7 +83,7 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
   return (
     <div className="space-y-12">
       
-      {/* FILTER CONTROL DOCK */}
+      {/* Minimal Filter Dock */}
       <div className="p-5 sm:p-6 rounded-3xl bg-white border border-neutral-200/90 shadow-2xs">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="relative flex-1 max-w-md">
@@ -95,7 +93,7 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value);
-                setVisibleLimit(100); // Show all during search
+                setVisibleLimit(100);
               }}
               placeholder="Search by exhibition, city, country, or sector..."
               className="w-full pl-11 pr-4 py-2.5 bg-[#FBFBFD] border border-neutral-200/80 rounded-xl text-xs font-mono text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-red-600 transition-colors"
@@ -154,30 +152,27 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
         </div>
       </div>
 
-      {/* CHRONOLOGICAL YEAR DIVIDERS & CARDS */}
+      {/* Chronological Year Sections with Elegant Minimal Dividers */}
       <div className="space-y-16">
         {filteredGrouped.map((group) => (
           <motion.div 
             key={group.year} 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: easeEditorial }}
-            className="space-y-8"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: easeEditorial }}
+            className="space-y-6"
           >
-            {/* Prominent Premium Year Divider */}
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-3 px-5 py-2 rounded-full bg-[#0A0D12] text-white shadow-md">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
-                <span className="font-heading text-lg sm:text-xl font-black tracking-tight text-white">
-                  {group.year}
-                </span>
-                <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400 pl-1 border-l border-white/20">
-                  Edition Series
+            {/* Low-profile, Elegant Year Header */}
+            <div className="flex items-center gap-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/90 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+                <span className="font-mono text-xs font-bold tracking-[0.16em] uppercase text-[#0A0D12]">
+                  {group.year} SERIES
                 </span>
               </div>
-              <div className="flex-1 h-[2px] bg-gradient-to-r from-neutral-300 via-neutral-200 to-transparent" />
-              <span className="text-xs font-mono text-neutral-500 font-bold uppercase tracking-wider">
+              <div className="flex-1 h-px bg-neutral-200/80" />
+              <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-widest">
                 {group.events.length} {group.events.length === 1 ? 'Event' : 'Events'}
               </span>
             </div>
@@ -202,28 +197,10 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
           <button
             type="button"
             onClick={() => setVisibleLimit((prev) => prev + 6)}
-            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-xs tracking-[0.16em] uppercase transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+            className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white hover:bg-neutral-900 border border-neutral-300 hover:border-neutral-900 text-neutral-800 hover:text-white font-mono text-xs tracking-[0.16em] uppercase transition-all duration-300 shadow-2xs active:scale-95 cursor-pointer"
           >
-            <span>Load More Editions</span>
-            <ChevronDown size={15} className="transition-transform duration-200 group-hover:translate-y-0.5" />
-          </button>
-        </div>
-      )}
-
-      {/* Empty State */}
-      {filteredEvents.length === 0 && (
-        <div className="text-center py-20 bg-white border border-neutral-200/80 rounded-3xl">
-          <Layers className="w-12 h-12 text-neutral-300 mx-auto mb-3" />
-          <h3 className="text-base font-semibold text-neutral-900 mb-1">No Exhibitions Found</h3>
-          <p className="text-xs text-neutral-500 max-w-xs mx-auto mb-5 leading-relaxed">
-            No exhibitions match your search parameters.
-          </p>
-          <button
-            type="button"
-            onClick={resetFilters}
-            className="px-5 py-2.5 bg-red-600 text-white text-xs font-mono uppercase tracking-wider rounded-xl hover:bg-red-500 transition-colors shadow-2xs cursor-pointer"
-          >
-            Clear Filters
+            <span>Load More</span>
+            <ChevronDown size={14} className="transition-transform duration-200 group-hover:translate-y-0.5" />
           </button>
         </div>
       )}

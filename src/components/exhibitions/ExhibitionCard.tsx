@@ -61,7 +61,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
         <button
           type="button"
           onClick={() => onSelect(event)}
-          className="relative w-full h-56 sm:h-64 bg-gradient-to-b from-[#FBFBFD] to-[#F3F4F6] border-b border-neutral-200/80 flex items-center justify-center p-6 sm:p-8 overflow-hidden cursor-zoom-in focus:outline-none w-full"
+          className="relative w-full h-64 sm:h-72 bg-gradient-to-b from-[#FBFBFD] to-[#F3F4F6] border-b border-neutral-200/80 flex items-center justify-center p-8 overflow-hidden cursor-zoom-in focus:outline-none w-full"
         >
           {/* Subtle Radial Grid Texture */}
           <div 
@@ -75,7 +75,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
           {/* Edition Floating Badge */}
           {edition && (
             <div className="absolute top-4 right-4 z-10">
-              <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-neutral-200/90 text-neutral-800 text-[10px] font-mono tracking-widest uppercase shadow-2xs">
+              <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-neutral-200/90 text-neutral-900 text-[10px] font-mono tracking-widest uppercase shadow-2xs">
                 {edition}
               </span>
             </div>
@@ -84,14 +84,14 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
           {/* Industry Floating Pill */}
           {industry && (
             <div className="absolute bottom-4 left-4 z-10">
-              <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono tracking-wider uppercase">
+              <span className="px-3.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono tracking-wider uppercase">
                 {industry}
               </span>
             </div>
           )}
 
           {/* Large Prominent Logo Render */}
-          <div className="relative z-10 w-[90%] h-[85%] flex items-center justify-center transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105">
+          <div className="relative z-10 w-[92%] h-[88%] flex items-center justify-center transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105">
             {imageSrc ? (
               <div className="relative w-full h-full">
                 <Image
@@ -123,7 +123,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
           <div className="space-y-2.5 pt-3 border-t border-neutral-100 text-xs text-neutral-600 font-normal">
             <div className="flex items-center gap-2.5">
               <Calendar size={14} className="text-red-600 shrink-0" />
-              <span className="font-mono tracking-wide text-neutral-800 font-medium">{dates.display}</span>
+              <span className="font-mono tracking-wide text-neutral-900 font-medium">{dates.display}</span>
             </div>
 
             <div className="flex items-center gap-2.5">
@@ -135,7 +135,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
       </div>
 
       {/* ========================================================================= */}
-      {/* SOCIALS & FIXED HIGH-CONTRAST PORTAL FOOTER */}
+      {/* SOCIALS & HIGH-CONTRAST VISIBLE PORTAL FOOTER */}
       {/* ========================================================================= */}
       <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
         <div className="flex items-center gap-1.5 text-neutral-500">
@@ -208,7 +208,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
           </Link>
         </div>
 
-        {/* High-Contrast Dark Portal Button with Smooth Hover */}
+        {/* 100% Visible High-Contrast Solid Dark / Red Button */}
         {socials?.website ? (
           <Link
             href={socials.website}
@@ -216,7 +216,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
           >
-            <span>Portal</span>
+            <span className="text-white">Portal</span>
             <ArrowUpRight size={13} className="text-white" />
           </Link>
         ) : (
@@ -224,7 +224,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
             href={mailHref}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
           >
-            <span>Inquire</span>
+            <span className="text-white">Inquire</span>
             <ArrowUpRight size={13} className="text-white" />
           </Link>
         )}

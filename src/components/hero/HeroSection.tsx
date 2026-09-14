@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { ArrowUpRight, Award, Building2, Globe2, PhoneCall } from 'lucide-react';
 
@@ -128,6 +129,27 @@ function NetworkCanvas() {
 export function HeroSection() {
   return (
     <section className="relative min-h-[100vh] w-full bg-[#07080A] text-[#F3F4F6] overflow-hidden flex flex-col justify-between border-b border-white/[0.08]">
+      
+      {/* ========================================================================= */}
+      {/* ATMOSPHERIC RIGHT-SIDE FOGGY EXHIBITION BACKGROUND IMAGE */}
+      {/* ========================================================================= */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[65%] h-full opacity-35 mix-blend-luminosity filter contrast-125 select-none">
+          <Image
+            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2000&auto=format&fit=crop"
+            alt="Global Exhibition Venue Atmosphere"
+            fill
+            sizes="100vw"
+            className="object-cover object-right"
+            priority
+          />
+        </div>
+        
+        {/* Advanced Foggy Multi-Stop Gradient Mask (Heavy right, absolute fade to left) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07080A] via-[#07080A]/90 to-[#07080A]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-[#07080A]/60" />
+      </div>
+
       {/* Dynamic Animated Node Network */}
       <NetworkCanvas />
 
@@ -156,12 +178,12 @@ export function HeroSection() {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-1/2 -right-36 w-[560px] h-[560px] bg-blue-600/20 rounded-full blur-[180px]"
+          className="absolute top-1/2 right-0 w-[560px] h-[560px] bg-blue-600/15 rounded-full blur-[180px]"
         />
 
         {/* Crisp Linear Grid for Scale */}
-        <div
-          className="absolute inset-0 opacity-[0.05]"
+        {/* <div
+          className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `
               linear-gradient(to right, #ffffff 1px, transparent 1px),
@@ -169,11 +191,7 @@ export function HeroSection() {
             `,
             backgroundSize: '80px 80px',
           }}
-        />
-
-        {/* Gradient Contrast Falloffs */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-[#07080A]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07080A] via-[#07080A]/70 to-transparent" />
+        /> */}
       </div>
 
       {/* Hero Body Content */}
@@ -186,7 +204,7 @@ export function HeroSection() {
         >
           {/* Identity Tagline */}
           <motion.div variants={itemVariants} className="mb-7 flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-md text-[11px] font-mono tracking-widest text-neutral-300 uppercase">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md text-[11px] font-mono tracking-widest text-neutral-300 uppercase shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
               <span>Est. 2011 • New Delhi</span>
             </div>
@@ -242,7 +260,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 1 }}
-        className="relative border-t border-white/[0.08] bg-[#0A0B0E]/80 backdrop-blur-xl py-4 z-10"
+        className="relative border-t border-white/[0.08] bg-[#0A0B0E]/85 backdrop-blur-xl py-4 z-10"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <a
@@ -269,3 +287,5 @@ export function HeroSection() {
     </section>
   );
 }
+
+export default HeroSection;
