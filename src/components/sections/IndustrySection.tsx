@@ -48,11 +48,7 @@ export function IndustrySection() {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 sm:pb-10 border-b border-neutral-200"
         >
           <div className="max-w-2xl">
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white border border-neutral-200/90 text-[11px] font-mono tracking-widest uppercase text-neutral-600 mb-4 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-              <span>Core Industry Portfolios</span>
-            </div>
+          
 
             <h2 
               id="industries-section-heading"
@@ -67,18 +63,30 @@ export function IndustrySection() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 self-start md:self-end">
-            <Link 
-              href="/industries" 
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#0A0D12] border border-neutral-300 hover:border-[#0A0D12] text-xs font-mono tracking-wider uppercase text-neutral-800 hover:text-white transition-all duration-300 shadow-2xs active:scale-95"
-            >
-              <span>Explore All Sectors</span>
-              <ArrowUpRight 
-                size={14} 
-                className="text-neutral-400 group-hover:text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
-              />
-            </Link>
-          </div>
+        <div className="flex items-center gap-4 self-start md:self-end">
+  <Link
+    href="/industries"
+    className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full
+               bg-white hover:bg-[#0A0D12]
+               border border-neutral-300 hover:border-[#0A0D12]
+               text-xs font-mono tracking-wider uppercase
+               transition-all duration-300
+               shadow-2xs hover:shadow-md
+               active:scale-95"
+  >
+    <span className="text-neutral-800 transition-colors duration-300 group-hover:text-white">
+      Explore All Sectors
+    </span>
+
+    <ArrowUpRight
+      size={14}
+      className="text-neutral-400 transition-all duration-300
+                 group-hover:text-white
+                 group-hover:translate-x-0.5
+                 group-hover:-translate-y-0.5"
+    />
+  </Link>
+</div>
         </motion.div>
 
         {/* Dynamic Industry Grid with Stagger */}

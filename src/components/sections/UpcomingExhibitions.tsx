@@ -12,7 +12,12 @@ import {
   ChevronDown, 
   ChevronUp,
   Globe,
-  Linkedin
+  Linkedin,
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
+  X
 } from 'lucide-react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { getUpcomingEvents, type ExhibitionEvent } from '@/data/exhibitions';
@@ -57,6 +62,7 @@ const filterTabs = [
 export function UpcomingExhibitions() {
   const [activeTab, setActiveTab] = useState<string>('all');
   const [showAll, setShowAll] = useState<boolean>(false);
+  const [activeModalEvent, setActiveModalEvent] = useState<ExhibitionEvent | null>(null);
 
   const upcomingEvents: ExhibitionEvent[] = getUpcomingEvents(16);
 
@@ -113,10 +119,6 @@ export function UpcomingExhibitions() {
               Upcoming Global <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-neutral-500">Trade Exhibitions</span>
             </h2>
-
-            <p className="mt-5 text-sm sm:text-base text-neutral-600 font-normal leading-[1.85] max-w-xl">
-              Verified international industrial expos, concurrent B2B summits, and manufacturer delegations organized across high-growth international trade corridors.
-            </p>
           </div>
 
           <div className="flex items-center gap-4 self-start md:self-end">
@@ -124,7 +126,9 @@ export function UpcomingExhibitions() {
               href="/exhibitions" 
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#0A0D12] border border-neutral-200 hover:border-[#0A0D12] text-xs font-mono tracking-[0.14em] uppercase text-neutral-800 hover:text-white transition-all duration-300 shadow-2xs active:scale-95 cursor-pointer"
             >
-              <span>Full Directory</span>
+              <span className="text-neutral-800 transition-colors duration-300 group-hover:text-white">
+                Full Directory
+              </span>
               <ArrowUpRight 
                 size={14} 
                 className="text-neutral-400 group-hover:text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
@@ -155,7 +159,7 @@ export function UpcomingExhibitions() {
               >
                 {isSelected && (
                   <motion.div
-                    layoutId="activeFilterBubble"
+                    layoutId="activeUpcomingFilterBubble"
                     className="absolute inset-0 bg-[#0A0D12] rounded-full -z-10 shadow-xs"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
@@ -167,7 +171,7 @@ export function UpcomingExhibitions() {
         </div>
 
         {/* ========================================================================= */}
-        {/* EXHIBITION CARDS GRID */}
+        {/* EXHIBITION CARDS GRID WITH LARGE PROMINENT LOGOS */}
         {/* ========================================================================= */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -179,100 +183,194 @@ export function UpcomingExhibitions() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
           >
             {visibleEvents.map((event) => {
-              const eventImg = event.heroImage || event.image || '/images/placeholder.jpg';
-              const mailSubject = encodeURIComponent(`Stall Booking Inquiry: ${event.name}`);
+              const eventImg = event.heroImage || event.image;
+              const mailSubject = encodeURIComponent(`Stall & Visitor Inquiry: ${event.name}`);
               const mailHref = event.socials?.email 
                 ? `mailto:${event.socials.email}?subject=${mailSubject}`
                 : `mailto:admin@futurextrade.com?subject=${mailSubject}`;
 
               return (
-                <motion.div
+                <motion.article
                   key={event.id}
                   variants={cardVariants}
                   whileHover={{ 
                     y: -5,
                     transition: { duration: 0.3, ease: easeEditorial } 
                   }}
-                  className="group relative flex flex-col justify-between rounded-3xl bg-white border border-neutral-200/80 p-6 sm:p-7 transition-all duration-300 hover:shadow-xl hover:border-neutral-300 overflow-hidden"
+                  className="group relative flex flex-col justify-between rounded-3xl bg-white border border-neutral-200/90 hover:border-neutral-300 shadow-2xs hover:shadow-2xl transition-all duration-400 ease-[0.16,1,0.3,1] overflow-hidden select-none"
                 >
-                  {/* Subtle Red Top Laser Reveal */}
-                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left" />
+                  {/* Top Red Laser Hairline Accent on Hover */}
+                  <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-20" />
 
-                  <div className="flex flex-col flex-1 justify-between">
-                    <div>
-                      {/* Top Edition Badge Strip */}
-                      <div className="flex items-center justify-end mb-4 text-[11px] font-mono">
-                        <span className="text-neutral-400 font-normal tracking-tight">
-                          {event.edition || 'Official Edition'}
-                        </span>
+                  <div>
+                    {/* Prominent Logo Canvas */}
+                    <button
+                      type="button"
+                      onClick={() => setActiveModalEvent(event)}
+                      className="relative w-full h-64 sm:h-72 bg-gradient-to-b from-[#FBFBFD] to-[#F3F4F6] border-b border-neutral-200/80 flex items-center justify-center p-8 overflow-hidden cursor-zoom-in focus:outline-none w-full"
+                    >
+                      {/* Subtle Radial Grid Texture */}
+                      <div 
+                        className="absolute inset-0 opacity-20 pointer-events-none"
+                        style={{
+                          backgroundImage: 'radial-gradient(rgba(15, 23, 42, 0.2) 1px, transparent 1px)',
+                          backgroundSize: '20px 20px'
+                        }}
+                      />
+
+                      {event.edition && (
+                        <div className="absolute top-4 right-4 z-10">
+                          <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-neutral-200/90 text-neutral-900 text-[10px] font-mono tracking-widest uppercase shadow-2xs">
+                            {event.edition}
+                          </span>
+                        </div>
+                      )}
+
+                      {event.industry && (
+                        <div className="absolute bottom-4 left-4 z-10">
+                          <span className="px-3.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono tracking-wider uppercase">
+                            {event.industry}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Large Prominent Logo Render */}
+                      <div className="relative z-10 w-[92%] h-[88%] flex items-center justify-center transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105">
+                        {eventImg ? (
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={eventImg}
+                              alt={event.name}
+                              fill
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              className="object-contain filter drop-shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
+                              priority={false}
+                            />
+                          </div>
+                        ) : (
+                          <div className="flex flex-col items-center justify-center gap-2.5 text-neutral-400">
+                            <Building2 size={40} className="text-red-600" />
+                            <span className="font-mono text-[11px] tracking-widest uppercase">Futurex Platform</span>
+                          </div>
+                        )}
                       </div>
+                    </button>
 
-                      {/* Card Thumbnail */}
-                      <div className="relative w-full h-52 sm:h-56 rounded-2xl overflow-hidden bg-neutral-100 mb-6 border border-neutral-100">
-                        <Image
-                          src={eventImg}
-                          alt={event.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="object-cover object-center transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-[1.05]"
-                        />
-                      </div>
-
-                      {/* Title & Immediately Followed Date & Venue */}
-                      <h3 className="text-lg sm:text-xl font-semibold text-[#0A0D12] tracking-[-0.02em] leading-snug group-hover:text-red-600 transition-colors duration-200">
+                    {/* Title & Metadata */}
+                    <div className="p-6 sm:p-7 space-y-4">
+                      <h3 className="text-lg sm:text-xl font-semibold text-[#0A0D12] tracking-[-0.02em] leading-snug group-hover:text-red-600 transition-colors duration-200 line-clamp-2 m-0">
                         {event.name}
                       </h3>
 
-                      <div className="mt-3.5 space-y-2 pt-3 border-t border-neutral-100 text-xs font-mono">
-                        <div className="flex items-center gap-2 text-neutral-800 font-medium">
+                      <div className="space-y-2.5 pt-3 border-t border-neutral-100 text-xs font-mono">
+                        <div className="flex items-center gap-2.5 text-neutral-900 font-medium">
                           <Calendar className="w-3.5 h-3.5 text-red-600 shrink-0" />
-                          <span>{event.dates?.display || 'Upcoming 2026'}</span>
+                          <span className="tracking-wide">{event.dates?.display || 'Upcoming 2026'}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-neutral-500">
+                        <div className="flex items-center gap-2.5 text-neutral-500">
                           <MapPin className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
                           <span>{event.venue?.city}, {event.venue?.country}</span>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Card Footer: Socials & Inquiry Action */}
-                    <div className="mt-8 pt-5 border-t border-neutral-100 flex items-center justify-between gap-3 text-xs">
-                      <div className="flex items-center gap-2">
-                        {event.socials?.website && (
-                          <Link
-                            href={event.socials.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="Official Website"
-                            className="w-8 h-8 rounded-xl bg-neutral-100 hover:bg-neutral-900 text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                          >
-                            <Globe size={13} />
-                          </Link>
-                        )}
-                        {event.socials?.linkedin && (
-                          <Link
-                            href={event.socials.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="LinkedIn"
-                            className="w-8 h-8 rounded-xl bg-neutral-100 hover:bg-[#0A66C2] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                          >
-                            <Linkedin size={13} />
-                          </Link>
-                        )}
-                      </div>
+                  {/* Footer with Conditional Social Links */}
+                  <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-1.5 text-neutral-500">
+                      {event.socials?.website && (
+                        <Link
+                          href={event.socials.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Official Website"
+                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-900 text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                          <Globe size={13} />
+                        </Link>
+                      )}
 
+                      {event.socials?.linkedin && (
+                        <Link
+                          href={event.socials.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="LinkedIn"
+                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#0A66C2] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                          <Linkedin size={13} />
+                        </Link>
+                      )}
+
+                      {event.socials?.facebook && (
+                        <Link
+                          href={event.socials.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Facebook"
+                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#1877F2] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                          <Facebook size={13} />
+                        </Link>
+                      )}
+
+                      {event.socials?.instagram && (
+                        <Link
+                          href={event.socials.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Instagram"
+                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#E4405F] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                          <Instagram size={13} />
+                        </Link>
+                      )}
+
+                      {event.socials?.twitter && (
+                        <Link
+                          href={event.socials.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="X (Twitter)"
+                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-black text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                          <Twitter size={13} />
+                        </Link>
+                      )}
+
+                      {event.socials?.email && (
+                        <Link
+                          href={mailHref}
+                          title="Email Secretariat"
+                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-red-600 text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                        >
+                          <Mail size={13} />
+                        </Link>
+                      )}
+                    </div>
+
+                    {/* High-Contrast Portal Button */}
+                    {event.socials?.website ? (
+                      <Link
+                        href={event.socials.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 active:scale-95"
+                      >
+                        <span className="text-white">Portal</span>
+                        <ArrowUpRight size={13} className="text-white" />
+                      </Link>
+                    ) : (
                       <Link
                         href={mailHref}
-                        title="Inquire / Book Stall"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-neutral-900 hover:bg-red-600 !text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-200 shadow-2xs hover:shadow-md hover:-translate-y-0.5 active:scale-95"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 active:scale-95"
                       >
-                        <span className="!text-white">Inquire</span>
-                        <ArrowRight className="w-3 h-3 !text-white" />
+                        <span className="text-white">Inquire</span>
+                        <ArrowUpRight size={13} className="text-white" />
                       </Link>
-                    </div>
+                    )}
                   </div>
-                </motion.div>
+                </motion.article>
               );
             })}
           </motion.div>
@@ -296,52 +394,58 @@ export function UpcomingExhibitions() {
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* CORRIDOR INQUIRY BANNER */}
-        {/* ========================================================================= */}
-        <motion.div 
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-30px" }}
-          transition={{ duration: 0.7, ease: easeEditorial }}
-          className="relative mt-16 sm:mt-24 bg-[#07080A] text-white p-8 sm:p-10 lg:p-12 rounded-3xl border border-white/[0.08] overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-2xl"
-        >
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-600/15 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute -bottom-20 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-[90px] pointer-events-none" />
-
-          <div className="relative z-10 flex items-start gap-4 sm:gap-5 max-w-2xl">
-            <div className="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-red-500 shrink-0 mt-1">
-              <Building2 size={22} />
-            </div>
-            
-            <div>
-              <div className="flex items-center gap-2 mb-2.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-neutral-400">
-                  Trade Corridor Inquiries
-                </span>
-              </div>
-              
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white tracking-[-0.02em] leading-snug">
-                Planning stalls across India, Nepal, Bangladesh, or Kenya?
-              </h3>
-              
-              <p className="text-neutral-400 text-xs sm:text-sm leading-[1.8] mt-3 font-normal max-w-xl">
-                Access certified floor layouts, verified buyer demographic profiles, and direct stall reservation portals across all scheduled commercial editions.
-              </p>
-            </div>
-          </div>
-
-          <Link
-            href="/exhibitions"
-            className="relative z-10 w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-medium text-xs tracking-[0.14em] uppercase rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(220,38,38,0.3)] hover:shadow-[0_0_32px_rgba(220,38,38,0.5)] active:scale-95 cursor-pointer"
-          >
-            <span>Explore Complete Calendar</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
-
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {activeModalEvent && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveModalEvent(null)}
+              className="absolute inset-0 bg-[#050608]/85 backdrop-blur-md cursor-pointer"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: easeEditorial }}
+              className="relative z-10 w-full max-w-xl bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/20 flex flex-col items-center justify-center select-none"
+            >
+              <button
+                type="button"
+                onClick={() => setActiveModalEvent(null)}
+                aria-label="Close"
+                className="absolute top-4 right-4 p-2.5 rounded-full text-neutral-400 hover:text-black hover:bg-neutral-100 transition-colors cursor-pointer"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="relative w-full h-64 sm:h-72 flex items-center justify-center mb-4">
+                {(activeModalEvent.heroImage || activeModalEvent.image) ? (
+                  <Image
+                    src={(activeModalEvent.heroImage || activeModalEvent.image)!}
+                    alt={activeModalEvent.name}
+                    fill
+                    sizes="500px"
+                    className="object-contain"
+                    priority
+                  />
+                ) : (
+                  <span className="text-neutral-500 font-mono text-sm uppercase">
+                    {activeModalEvent.name}
+                  </span>
+                )}
+              </div>
+              <h4 className="text-center font-semibold text-neutral-900 text-base">
+                {activeModalEvent.name}
+              </h4>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

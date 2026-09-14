@@ -4,7 +4,7 @@ export const company = {
   established: 2011,
   description:
     'Futurex Trade Fair & Events Pvt. Ltd. is an international exhibition and corporate events organizer based in New Delhi, with branch offices in Mumbai, Colombo, Kathmandu and Dhaka. Futurex creates business platforms that connect manufacturers, buyers and industry professionals across focused industrial markets.',
-  address: 'E52, 1st Floor, Kalkaji, New Delhi, India 110019',
+  address: 'E-52, 1st Floor, Kalkaji, New Delhi, India 110019',
   phone: '+91-9810855697',
   email: 'info@futurextrade.com',
   offices: ['New Delhi', 'Mumbai', 'Colombo', 'Kathmandu', 'Dhaka'],
@@ -17,10 +17,10 @@ export const company = {
   vision: 'Advance specialized trade fairs to international standards while creating effective environments for business development, buyer interaction and industry knowledge.',
   values: ['Business ethics', 'Respect', 'Integrity', 'Reliability'],
   stats: [
-    { value: 220, suffix: '+', label: 'Exhibitions' },
-    { value: 16516, suffix: '+', label: 'Exhibitors' },
+    { value: 220, suffix: '+', label: 'Trade Exhibitions' },
+    { value: 16516, suffix: '+', label: 'Global Exhibitors' },
     { value: 25844, suffix: '+', label: 'Brands on display' },
-    { value: 956484, suffix: '+', label: 'Visitors' }
+    { value: 956484, suffix: '+', label: 'Trade Visitors' }
   ],
   assets: {
     logo: 'https://futurextrade.com/images-event/icon/Futurex-Trade.webp',

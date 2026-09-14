@@ -40,47 +40,58 @@ export function ServicesSection() {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 z-10">
         
-        {/* Editorial Section Header */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
-          variants={headerVariants}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 sm:pb-10 border-b border-neutral-200"
-        >
-          <div className="max-w-2xl">
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white border border-neutral-200/90 text-[11px] font-mono tracking-widest uppercase text-neutral-600 mb-4 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-              <span>Turnkey Exhibition Capabilities</span>
-            </div>
+    {/* Editorial Section Header */}
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-40px" }}
+  variants={headerVariants}
+  className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 sm:pb-10 border-b border-neutral-200"
+>
+  <div className="max-w-2xl">
 
-            <h2 
-              id="services-section-heading"
-              className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.08]"
-            >
-              Turnkey Management. <br />
-              <span className="text-neutral-500 font-normal">End-to-End Trade Execution.</span>
-            </h2>
+  
 
-            <p className="mt-4 text-sm sm:text-base text-neutral-600 font-normal leading-[1.65] max-w-xl">
-              From floor plan engineering and space architecture to international buyer delegations and multi-country operational clearances.
-            </p>
-          </div>
+   <h2
+  id="services-section-heading"
+  className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.08]"
+>
+  Exhibition Expertise. <br />
+  <span className="text-neutral-500 font-normal">
+    Built for Global Markets.
+  </span>
+</h2> 
 
-          <div className="flex items-center gap-4 self-start md:self-end">
-            <Link 
-              href="/services" 
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#0A0D12] border border-neutral-300 hover:border-[#0A0D12] text-xs font-mono tracking-wider uppercase text-neutral-800 hover:text-white transition-all duration-300 shadow-2xs active:scale-95"
-            >
-              <span>All Capabilities</span>
-              <ArrowUpRight 
-                size={14} 
-                className="text-neutral-400 group-hover:text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
-              />
-            </Link>
-          </div>
-        </motion.div>
+<p className="mt-4 text-sm sm:text-base text-neutral-600 font-normal leading-[1.65] max-w-xl">
+  Strategic planning, exhibition design, buyer programmes, and seamless event execution across international markets.
+</p>
+  </div>
+
+  <div className="flex items-center gap-4 self-start md:self-end">
+    <Link
+      href="/services"
+      className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full
+                 bg-white hover:bg-[#0A0D12]
+                 border border-neutral-300 hover:border-[#0A0D12]
+                 text-xs font-mono tracking-wider uppercase
+                 transition-all duration-300
+                 shadow-2xs hover:shadow-md
+                 active:scale-95"
+    >
+      <span className="text-neutral-800 transition-colors duration-300 group-hover:text-white">
+        All Capabilities
+      </span>
+
+      <ArrowUpRight
+        size={14}
+        className="text-neutral-400 transition-all duration-300
+                   group-hover:text-white
+                   group-hover:translate-x-0.5
+                   group-hover:-translate-y-0.5"
+      />
+    </Link>
+  </div>
+</motion.div>
 
         {/* Minimalist Architectural Services Ledger */}
         <motion.div 
@@ -100,10 +111,10 @@ export function ServicesSection() {
         </motion.div>
 
         {/* Minimal Bottom Assurance Strip */}
-        <div className="mt-12 pt-6 border-t border-neutral-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+        {/* <div className="mt-12 pt-6 border-t border-neutral-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-500">
           <span>All trade logistics handled in-house across India, Nepal, Bangladesh, Sri Lanka & Kenya</span>
           <span className="text-neutral-700 font-medium">Verified Safety & Construction Compliance</span>
-        </div>
+        </div> */}
 
       </div>
     </section>

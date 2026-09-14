@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Star, CheckCircle2, ExternalLink } from 'lucide-react';
+import { Star, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { testimonials } from '@/data/testimonials';
 
@@ -37,32 +37,32 @@ export function Testimonials() {
 
   return (
     <section 
-      className="relative z-20 w-full bg-[#FBFBFD] text-[#0A0D12] py-14 sm:py-18 lg:py-20 border-b border-neutral-200/80 overflow-hidden select-none"
+      className="relative z-20 w-full bg-[#FBFBFD] text-[#0A0D12] py-20 sm:py-24 border-b border-neutral-200/80 overflow-hidden select-none"
       aria-labelledby="testimonials-heading"
     >
-      {/* Same Unified Container Alignment */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* ========================================================================= */}
-        {/* 1. HEADER BAR */}
+        {/* MATCHING EDITORIAL HEADER BAR */}
         {/* ========================================================================= */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-neutral-200/80 mb-8 sm:mb-10">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white border border-neutral-200/90 text-[10.5px] font-mono tracking-widest uppercase text-neutral-600 mb-2.5 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-              <span>Verified Industry Feedback</span>
-            </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 sm:pb-12 border-b border-neutral-200/80 mb-12 sm:mb-16">
+          <div className="max-w-2xl">
+         
 
             <h2 
               id="testimonials-heading"
-              className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-[-0.03em] text-[#0A0D12] leading-tight"
+              className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]"
             >
-              Exhibitor & Buyer Endorsements.
+              Exhibitor & Buyer <br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-neutral-500">Endorsements</span>
+              <span className="text-red-600 font-sans">.</span>
             </h2>
+
+         
           </div>
 
           {/* Authentic Google Rating Capsule */}
-          <div className="flex items-center gap-3 bg-white border border-neutral-200/90 px-3.5 py-2 rounded-full shadow-2xs self-start sm:self-auto shrink-0">
+          <div className="flex items-center gap-3 bg-white border border-neutral-200/90 px-4 py-2.5 rounded-full shadow-2xs self-start md:self-auto shrink-0">
             <div className="w-6 h-6 rounded-full bg-neutral-50 flex items-center justify-center border border-neutral-200/80 shrink-0">
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.14z"/>
@@ -76,9 +76,9 @@ export function Testimonials() {
               <span className="font-bold text-[#0A0D12]">4.4</span>
               <div className="flex items-center text-[#FBBC05]">
                 {[...Array(4)].map((_, i) => (
-                  <Star key={i} size={11} fill="currentColor" stroke="none" />
+                  <Star key={i} size={12} fill="currentColor" stroke="none" />
                 ))}
-                <Star size={11} fill="currentColor" stroke="none" className="opacity-40" />
+                <Star size={12} fill="currentColor" stroke="none" className="opacity-40" />
               </div>
             </div>
 
@@ -97,53 +97,41 @@ export function Testimonials() {
         </div>
 
         {/* ========================================================================= */}
-        {/* 2. AUTO-SCROLLING TRACK CONFINED TO HEADING WIDTH */}
+        {/* AUTO-SCROLLING TRACK */}
         {/* ========================================================================= */}
-        <div className="relative w-full overflow-hidden rounded-2xl">
-          
-          {/* Inner Inset Gradient Masking */}
-          <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-[#FBFBFD] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-[#FBFBFD] to-transparent z-10 pointer-events-none" />
+        <div className="relative w-full overflow-hidden rounded-3xl">
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#FBFBFD] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#FBFBFD] to-transparent z-10 pointer-events-none" />
 
-          <div className="flex group/track py-1">
+          <div className="flex group/track py-2">
             <motion.div
               animate={{ x: ['0%', '-50%'] }}
               transition={{
-                duration: 28,
+                duration: 32,
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="flex gap-4 sm:gap-5 shrink-0 group-hover/track:[animation-play-state:paused]"
+              className="flex gap-5 shrink-0 group-hover/track:[animation-play-state:paused]"
             >
               {marqueeItems.map((item: any, idx: number) => (
                 <div
                   key={idx}
-                  className="w-[280px] sm:w-[340px] shrink-0 p-5 rounded-2xl bg-white border border-neutral-200/85 shadow-2xs hover:shadow-md hover:border-neutral-300 transition-all duration-300 flex flex-col justify-between"
+                  className="w-[300px] sm:w-[360px] shrink-0 p-6 sm:p-7 rounded-3xl bg-white border border-neutral-200/90 shadow-2xs hover:shadow-xl hover:border-neutral-300 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    {/* Rating & Verified Tag */}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <div className="flex items-center text-[#FBBC05]">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={12} fill="currentColor" stroke="none" />
-                        ))}
-                      </div>
-
-                      <span className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/70">
-                        <CheckCircle2 size={10} className="text-emerald-600 shrink-0" />
-                        <span>Verified</span>
-                      </span>
+                    <div className="flex items-center gap-1 text-[#FBBC05] mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={13} fill="currentColor" stroke="none" />
+                      ))}
                     </div>
 
-                    {/* Review Content */}
-                    <p className="text-xs sm:text-[13px] text-[#0A0D12] font-normal leading-[1.6] line-clamp-3 m-0">
+                    <p className="text-xs sm:text-[13.5px] text-neutral-700 font-normal leading-[1.75] line-clamp-3 m-0">
                       “{item.quote || item.content || item.text}”
                     </p>
                   </div>
 
-                  {/* Author Meta */}
-                  <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-full bg-[#0A0D12] text-white font-mono text-[11px] font-medium flex items-center justify-center shrink-0">
+                  <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[#0A0D12] text-white font-mono text-xs font-semibold flex items-center justify-center shrink-0">
                       {(item.person || item.name || 'T').charAt(0)}
                     </div>
 
@@ -151,7 +139,7 @@ export function Testimonials() {
                       <strong className="block text-xs font-semibold text-[#0A0D12] truncate leading-tight">
                         {item.person || item.name || 'Trade Delegate'}
                       </strong>
-                      <span className="block text-[10px] text-neutral-500 font-normal truncate mt-0.5">
+                      <span className="block text-[10.5px] text-neutral-500 font-mono truncate mt-0.5">
                         {[item.title, item.company].filter(Boolean).join(' • ') || 'Verified Participant'}
                       </span>
                     </div>
@@ -160,7 +148,6 @@ export function Testimonials() {
               ))}
             </motion.div>
           </div>
-
         </div>
 
       </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import { ArrowUpRight, Layers } from 'lucide-react';
 import type { Industry } from '@/types/content';
@@ -17,18 +16,24 @@ const cardItemVariants: Variants = {
   }
 };
 
-export function IndustryCard({ industry, index }: { industry: Industry; index: number }) {
+interface IndustryCardProps {
+  industry: Industry;
+  index: number;
+  onSelect?: (industry: Industry) => void;
+}
+
+export function IndustryCard({ industry, index, onSelect }: IndustryCardProps) {
   const formattedIndex = String(index + 1).padStart(2, '0');
 
   return (
     <motion.div 
       variants={cardItemVariants} 
       whileHover={{ y: -5, transition: { duration: 0.3, ease: easeEditorial } }}
-      className="h-full"
+      className="h-full select-none"
     >
-      <Link 
-        href={`/industries/${industry.slug}`} 
-        className="group relative flex flex-col justify-between h-full bg-white border border-neutral-200/80 hover:border-neutral-300 rounded-3xl p-7 sm:p-8 transition-all duration-300 hover:shadow-xl overflow-hidden select-none"
+      <div 
+        onClick={() => onSelect?.(industry)}
+        className="group relative flex flex-col justify-between h-full bg-white border border-neutral-200/90 hover:border-neutral-300 rounded-3xl p-7 sm:p-8 transition-all duration-300 hover:shadow-xl overflow-hidden cursor-pointer"
       >
         {/* Laser Red Hairline Reveal on Hover */}
         <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-20" />
@@ -54,21 +59,23 @@ export function IndustryCard({ industry, index }: { industry: Industry; index: n
             {industry.name}
           </h3>
 
-          {/* Industry Description with Open Line Height */}
+          {/* Industry Description */}
           <p className="text-xs sm:text-[13.5px] text-neutral-500 font-normal leading-[1.75] line-clamp-3 mb-8">
             {industry.description}
           </p>
         </div>
 
-        {/* Card Footer */}
+        {/* Card Footer with Clear Interactive Cue */}
         <div className="pt-4 border-t border-neutral-100 flex items-center justify-between text-[11px] font-mono text-neutral-400 group-hover:text-neutral-900 transition-colors duration-200">
           <div className="flex items-center gap-2">
             <Layers className="w-3.5 h-3.5 text-red-600 shrink-0" />
-            <span className="tracking-wide uppercase">Explore Exhibitions</span>
+            <span className="tracking-wide uppercase">Quick Overview</span>
           </div>
-          <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-red-600 transition-colors duration-300" />
+          <span className="text-[10px] font-medium tracking-wider uppercase text-neutral-400 group-hover:text-red-600 transition-colors">
+            Click to View →
+          </span>
         </div>
-      </Link>
+      </div>
     </motion.div>
   );
 }

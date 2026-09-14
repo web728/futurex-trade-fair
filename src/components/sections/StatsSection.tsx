@@ -57,16 +57,7 @@ export function StatsSection() {
       aria-label="Futurex Impact Numbers"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        {/* Sleek Minimal Status Bar */}
-        <div className="flex items-center justify-between pb-4 mb-7 sm:mb-9 border-b border-white/[0.06] text-xs font-mono">
-          <div className="flex items-center gap-2 text-neutral-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-            <span className="tracking-widest uppercase text-[10px] sm:text-[11px]">Audited Track Record</span>
-          </div>
-          <span className="text-neutral-500 text-[10px] sm:text-[11px] tracking-wider uppercase">
-            Est. 2011 • Official Metrics
-          </span>
-        </div>
+      
 
         {/* 4-Item Grid with Responsive Dividers */}
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-y divide-white/[0.08] sm:divide-y-0 sm:divide-x divide-white/[0.08]">

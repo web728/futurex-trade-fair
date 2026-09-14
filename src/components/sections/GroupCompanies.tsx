@@ -23,39 +23,40 @@ const companiesData: GroupCompanyItem[] = [
   {
     id: 'studio',
     name: 'Futurex Studio',
-    tagline: 'Turnkey Exhibition Stand Architecture',
-    role: 'STAND BUILD & FABRICATION',
+    tagline: 'World-Class Exhibition Stand Solutions',
+    role: 'EXHIBITION DESIGN & STAND BUILD',
     description:
-      'Premier exhibition design studio engineering bespoke 3D stall concepts, structural timber fabrication, and turnkey on-site assembly across major global expo venues.',
+      'A world-class exhibition stand builder delivering turnkey solutions across design, production, setup, and execution of premium exhibition stands.',
     url: 'https://futurexstudio.com/',
-    logo: '/images/group/futurex-studio.png',
-    highlight: 'Turnkey Stand Architecture',
+    logo: '/logos/futurex-logo.png',
     icon: Palette,
     accentColor: 'text-red-600'
   },
+
   {
     id: 'fdma',
     name: 'FDMA (Futurex Digital)',
-    tagline: 'Full-Service Industrial Growth Agency',
-    role: 'DIGITAL TRANSFORMATION & PR',
+    tagline: 'Full-Service Digital Marketing Company',
+    role: 'DIGITAL MARKETING & TRANSFORMATION',
     description:
-      'Corporate digital marketing and communications wing empowering industrial manufacturers with high-intent B2B lead pipelines, SEO, and executive media relations.',
+      'A full-service digital marketing company merging imagination and technology to help brands thrive in the era of digital transformation.',
     url: 'https://futurexpr.com/',
     logo: '/images/group/fdma.png',
-    highlight: 'Performance Media & PR',
+    // highlight: 'Digital Marketing & Technology',
     icon: Layers,
     accentColor: 'text-sky-600'
   },
+
   {
     id: 'healthcare',
     name: 'Futurex Healthcare',
-    tagline: 'Critical Medical Infrastructure Systems',
+    tagline: 'Healthcare Infrastructure & Execution',
     role: 'HEALTHCARE INFRASTRUCTURE',
     description:
-      'Rapid-deployment medical infrastructure arm recognized for delivering mission-critical healthcare facilities, including India’s largest Covid Care ICU in record time.',
+      'A young subsidiary of the Futurex Healthcare Group of Companies, recognized for building India’s largest Covid Care ICU in Mumbai in record time.',
     url: 'https://www.futurexhealth.com/',
     logo: '/images/group/futurex-healthcare.png',
-    highlight: 'Rapid Hospital Deployment',
+    // highlight: 'Rapid Healthcare Infrastructure',
     icon: Activity,
     accentColor: 'text-emerald-600'
   }
@@ -99,7 +100,7 @@ export function GroupCompanies() {
             {/* Live Indicator Pill */}
             <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white border border-neutral-200/90 text-[11px] font-mono tracking-widest uppercase text-neutral-600 mb-4 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-              <span>Futurex Group Ecosystem</span>
+              <span>Futurex Group</span>
             </div>
 
             <h2 
@@ -110,15 +111,11 @@ export function GroupCompanies() {
               <span className="text-neutral-500 font-normal">One Unified Network.</span>
             </h2>
 
-            <p className="mt-4 text-sm sm:text-base text-neutral-600 font-normal leading-[1.65] max-w-xl">
-              An integrated conglomerate delivering turnkey exhibition design, cross-border digital growth, and mission-critical infrastructure solutions.
-            </p>
+          
           </div>
 
           <div className="flex items-center gap-3 self-start md:self-end">
-            <span className="text-xs font-mono tracking-wider uppercase text-neutral-500">
-              Multinational MSME Conglomerate
-            </span>
+         
           </div>
         </div>
 
@@ -194,13 +191,7 @@ export function GroupCompanies() {
                     {company.description}
                   </p>
 
-                  {/* Milestone Pill */}
-                  {company.highlight && (
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-200/80 text-[11px] font-mono text-neutral-700 mb-6">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
-                      <span>{company.highlight}</span>
-                    </div>
-                  )}
+                
                 </div>
 
                 {/* Footer Action: Direct External Site Outlink */}
@@ -211,13 +202,11 @@ export function GroupCompanies() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-neutral-800 group-hover:text-red-600 transition-colors duration-200 font-medium"
                   >
-                    <span>Visit Domain</span>
+                    <span>Visit Website</span>
                     <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:rotate-45 text-neutral-400 group-hover:text-red-600" />
                   </Link>
 
-                  <span className="font-mono text-[10px] text-neutral-400 tracking-widest uppercase">
-                    Subsidiary
-                  </span>
+                 
                 </div>
               </motion.article>
             );
@@ -226,11 +215,7 @@ export function GroupCompanies() {
 
         {/* Bottom Central Coordination Strip */}
         <div className="mt-12 pt-6 border-t border-neutral-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-500">
-          <div className="flex items-center gap-2">
-            <Building2 size={14} className="text-neutral-400" />
-            <span>Unified Central Governance via Futurex New Delhi HQ</span>
-          </div>
-          <span>Cross-entity operational synergy across Asia & Africa</span>
+        
         </div>
 
       </div>

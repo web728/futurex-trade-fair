@@ -48,37 +48,48 @@ const services = [
     id: 'exhibitions',
     icon: Building2,
     title: 'Exhibitions',
-    description: 'Leading exhibition stand design, construction, and turnkey contracting across India and SAARC corridors with end-to-end display solutions.'
+    description:
+      'Exhibition stand design, construction, contracting, and complete display solutions across India and SAARC countries.'
   },
+
   {
     id: 'conferences',
     icon: Users2,
     title: 'Conferences',
-    description: 'Structured, high-impact business presentations, ministerial panels, and academic proceedings publication.'
+    description:
+      'Professional conferences featuring concise presentations, engaging discussions, academic sessions, and published proceedings.'
   },
+
   {
     id: 'events',
     icon: CalendarCheck,
     title: 'Events',
-    description: 'Purposeful meetings and corporate gatherings engineered with operational precision and memorable engagement.'
+    description:
+      'Purposeful meetings and events planned with innovation, insight, precise logistics, and memorable experiences.'
   },
+
   {
     id: 'designing-studio',
     icon: Palette,
     title: 'Designing Studio',
-    description: 'Creative spatial architecture and exhibition booth design tailored to distinct industrial brand profiles.'
+    description:
+      'Creative exhibition stand design and innovative visual solutions tailored to different industries and brand profiles.'
   },
+
   {
     id: 'branding-promotions',
     icon: Megaphone,
     title: 'Branding & Promotions',
-    description: 'Comprehensive multi-channel campaigns spanning press media, digital seminars, outdoor publicity, and collateral design.'
+    description:
+      'Integrated marketing and promotional solutions across television, radio, digital media, press, outdoor, and event collateral.'
   },
+
   {
     id: 'webinars',
     icon: Video,
     title: 'Webinars',
-    description: 'Virtual and hybrid live event streaming connecting global enterprises with digital delegates in real-time.'
+    description:
+      'Live event streaming and webcasting solutions that connect businesses with audiences anywhere in the world in real time.'
   }
 ];
 

@@ -132,7 +132,7 @@ export function AboutStory() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-neutral-300 mb-3">
               <Compass className="w-3.5 h-3.5 text-red-500" />
-              <span>Futurex Blueprint • Est. 2011 • New Delhi</span>
+              <span>Futurex Group • Est. 2011 • New Delhi</span>
             </div>
 
             <h2 
@@ -150,7 +150,7 @@ export function AboutStory() {
               target="_blank"
               className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-white/20 text-xs font-mono tracking-wider uppercase text-neutral-300 hover:text-white transition-all duration-300 active:scale-95"
             >
-              <span>Download Dossier</span>
+              <span>Company Profile</span>
               <ArrowUpRight size={14} className="text-neutral-400 group-hover:text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>

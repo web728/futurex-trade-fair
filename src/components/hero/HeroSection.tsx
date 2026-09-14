@@ -206,12 +206,12 @@ export function HeroSection() {
           <motion.div variants={itemVariants} className="mb-7 flex flex-wrap items-center gap-3">
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md text-[11px] font-mono tracking-widest text-neutral-300 uppercase shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-              <span>Est. 2011 • New Delhi</span>
+              <span>Est. 2011</span>
             </div>
 
             <div className="flex items-center gap-2 text-xs font-mono tracking-wide text-neutral-400">
               <Globe2 className="w-3.5 h-3.5 text-neutral-400" />
-              <span>Delhi • Mumbai • Colombo • Dhaka • Kathmandu</span>
+              <span>New Delhi • Mumbai • Colombo • Dhaka • Kathmandu</span>
             </div>
           </motion.div>
 
@@ -225,13 +225,16 @@ export function HeroSection() {
             <span className="text-neutral-400 font-normal">Events Private Limited</span>
           </motion.h1>
 
-          {/* Subheading */}
-          <motion.p
-            variants={itemVariants}
-            className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
-          >
-            A premier international trade exhibition and corporate events organizer. We build multidimensional, high-value platforms connecting global manufacturers, innovators, and verified industry buyers across key commercial sectors.
-          </motion.p>
+        {/* Subheading */}
+<motion.p
+  variants={itemVariants}
+  className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
+>
+  A Premier International Trade Exhibition and Corporate Events Organizer.
+  <br />
+  We Build Multidimensional, High-Value Platforms Connecting Global Manufacturers,
+  Innovators, and Verified Industry Buyers Across Key Commercial Sectors.
+</motion.p>
 
           {/* CTAs */}
           <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center gap-4">
@@ -256,34 +259,64 @@ export function HeroSection() {
       </div>
 
       {/* CIEO Membership Footer Strip */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 1 }}
-        className="relative border-t border-white/[0.08] bg-[#0A0B0E]/85 backdrop-blur-xl py-4 z-10"
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <a
-            href="https://www.cieo.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 text-neutral-300 hover:text-white transition-colors"
-          >
-            <div className="p-1.5 rounded-full bg-white/[0.05] border border-white/10 group-hover:border-red-500/40 transition-colors">
-              <Award className="w-4 h-4 text-red-500" />
-            </div>
-            <div className="text-xs font-mono">
-              <span className="text-neutral-500 uppercase tracking-widest text-[10px] block">Accreditation</span>
-              <span>Proud Member of CIEO (Confederation of Indian Exhibition Organisers)</span>
-            </div>
-          </a>
+     <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.4, duration: 1 }}
+  className="relative border-t border-white/[0.08] bg-[#0A0B0E]/85 backdrop-blur-xl py-4 z-10"
+>
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 
-          <div className="text-xs text-neutral-400 font-mono flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-neutral-500" />
-            <span>E52, 1st Floor, Kalkaji, New Delhi 110019</span>
-          </div>
-        </div>
-      </motion.div>
+    <a
+      href="https://www.cieo.in/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group inline-flex items-center gap-3 rounded-xl px-2.5 py-1.5
+                 text-neutral-300
+                 transition-all duration-300 ease-out
+                 hover:-translate-y-0.5
+                 hover:bg-white/[0.04]
+                 hover:text-white
+                 hover:shadow-[0_0_20px_rgba(239,68,68,0.08)]
+                 focus-visible:outline-none
+                 focus-visible:ring-1
+                 focus-visible:ring-red-500/50"
+    >
+      <div
+        className="p-1.5 rounded-full bg-white/[0.05] border border-white/10
+                   transition-all duration-300
+                   group-hover:border-red-500/50
+                   group-hover:bg-red-500/10
+                   group-hover:shadow-[0_0_12px_rgba(239,68,68,0.15)]"
+      >
+        <Award className="w-4 h-4 text-red-500 transition-transform duration-300 group-hover:scale-110" />
+      </div>
+
+      <div className="text-xs font-mono">
+        <span className="transition-colors duration-300 group-hover:text-red-400">
+          Member of CIEO (Council of Indian Exhibition Organisers)
+        </span>
+      </div>
+
+      {/* Hover indicator */}
+      <span
+        className="text-[10px] font-mono text-red-400/0
+                   -ml-1 translate-x-[-4px]
+                   transition-all duration-300
+                   group-hover:text-red-400/80
+                   group-hover:translate-x-0"
+      >
+        ↗
+      </span>
+    </a>
+
+    <div className="text-xs text-neutral-400 font-mono flex items-center gap-2">
+      <Building2 className="w-4 h-4 text-neutral-500" />
+      <span>E-52, 1st Floor, Kalkaji, New Delhi, India, 110019</span>
+    </div>
+
+  </div>
+</motion.div>
     </section>
   );
 }
