@@ -146,10 +146,6 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
           </div>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-neutral-100 flex items-center justify-between text-[11px] font-mono text-neutral-400">
-          <span>CHRONOLOGICAL DIRECTORY</span>
-          <span>SHOWING {Math.min(visibleLimit, filteredEvents.length)} OF {filteredEvents.length} EXHIBITIONS</span>
-        </div>
       </div>
 
       {/* Chronological Year Sections with Elegant Minimal Dividers */}
@@ -172,9 +168,7 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
                 </span>
               </div>
               <div className="flex-1 h-px bg-neutral-200/80" />
-              <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-widest">
-                {group.events.length} {group.events.length === 1 ? 'Event' : 'Events'}
-              </span>
+             
             </div>
 
             {/* Grid */}

@@ -136,7 +136,7 @@ export function HeroSection() {
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[65%] h-full opacity-35 mix-blend-luminosity filter contrast-125 select-none">
           <Image
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2000&auto=format&fit=crop"
+            src="/gallery/images-event/slider/hero.png"
             alt="Global Exhibition Venue Atmosphere"
             fill
             sizes="100vw"

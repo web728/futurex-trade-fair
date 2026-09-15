@@ -40,6 +40,6 @@ export const groupCompanies = [
   },
   {
     name: 'Futurex Studio',
-    description: 'An exhibition stand design and turnkey production company within the Futurex group.'
+    description: 'An exhibition stand design and production company within the Futurex group.'
   }
 ] as const;

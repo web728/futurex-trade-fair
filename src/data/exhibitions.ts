@@ -207,15 +207,34 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
       linkedin: "https://www.linkedin.com/company/nepal-buildcon-international-expo/",
       email: "admin@futurextrade.com"
     },
+  },   
+  {
+    id: "12th Nepal Buildcon International Expo",
+    name: "12th Nepal Buildcon International Expo",
+    edition: "4th Edition",
+   dates: { display: "25th to 28th February 2027", start: "2027-02-25", end: "2027-02-28" },
+    venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
+    industry: "Buildcon",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/12th-Nepal-Buildcon-Logo-Coloured.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://www.nepalbuildcon.com.np/",
+      facebook: "https://www.facebook.com/kenyabuildconexpo/",
+      instagram: "https://www.facebook.com/indiasolarshow/",
+      linkedin: "https://www.linkedin.com/company/kenyabuildconexpo",
+      email: "admin@futurextrade.com"
+    },
   },   {
     id: "4th Edition Kenya Buildcon International Expo",
     name: "4th Edition Kenya Buildcon International Expo",
     edition: "4th Edition",
    dates: { display: "9th to 11th June 2027", start: "2027-06-09", end: "2027-06-11" },
     venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
-    industry: "Mining",
+    industry: "Buildcon",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/india-solar-logo.png",
+    heroImage: "/gallery/images-event/2026/kenya-buildcon-expo-logo.jpg",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
@@ -227,93 +246,94 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     },
   }, 
   {
-    id: "odisha-mining-infrastructure-expo-2026",
-    name: "Odisha Mining and Infrastructure International Expo",
+    id: "4th Edition Kenya Wood International Expo",
+    name: "4th Edition Kenya Wood International Expo",
     edition: "4th Edition",
-    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
-    venue: { city: "Bhubaneswar", country: "India" },
-    industry: "Mining",
+    dates: { display: "9th to 11th June 2027", start: "2027-06-09", end: "2027-06-11" },
+    venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
+    industry: "Wood",
     eventType: "Exhibition",
-    heroImage: "/images/gallery/events/mining-2026.png",
+    heroImage: "/gallery/images-event/2026/kenya-wood-expo-logo.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
-      website: "https://odishaminingexpo.com/",
+      website: "https://kenyawoodexpo.com/",
+      facebook: "https://m.facebook.com/kenyawoodexpo",
+      // instagram: "https://www.instagram.com/odishaminingexpo/",
+      linkedin: "https://www.linkedin.com/company/kenyawoodexpo/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "3rd Kenya Solar, Electric, Power & Lights Expo",
+    name: "3rd Kenya Solar, Electric, Power & Lights Expo",
+    edition: "3rd Edition",
+    dates: { display: "9th to 11th June 2027", start: "2027-06-09", end: "2027-06-11" },
+    venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
+    industry: "Solar",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/kenya-sepl.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://www.kenyasepl.com/",
+      facebook: "https://www.facebook.com/kenyasolarelec/",
+      // instagram: "https://www.kenyasepl.com/",
+      // linkedin: "https://www.kenyasepl.com/",
+      email: "admin@futurextrade.com"
+    },
+  }, {
+    id: "6th Edition Uganda Buildcon International Expo",
+    name: "6th Edition Uganda Buildcon International Expo",
+    edition: "6th Edition",
+    dates: { display: "4th to 6th August 2027", start: "2027-08-04", end: "2027-08-06" },
+    venue: { city: "Uma Show Grounds, Kampala", country: "Uganda" },
+    industry: "Buildcon",
+    eventType: "Exhibition",
+    heroImage: "/gallery/images-event/2026/uganda-buildcon.png",
+    description:
+      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
+    socials: {
+      website: "https://www.ugandabuildcon.com/",
       facebook: "https://www.facebook.com/odishaminingexpo/",
       instagram: "https://www.instagram.com/odishaminingexpo/",
       linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
       email: "admin@futurextrade.com"
     },
   }, {
-    id: "odisha-mining-infrastructure-expo-2026",
-    name: "Odisha Mining and Infrastructure International Expo",
-    edition: "4th Edition",
-    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
-    venue: { city: "Bhubaneswar", country: "India" },
-    industry: "Mining",
+    id: "Tanzania Buildcon International Expo",
+    name: "Tanzania Buildcon International Expo",
+    edition: "1st Edition",
+    dates: { display: "25th to 27th August 2027", start: "2027-08-25", end: "2027-08-27" },
+    venue: { city: "Diamond Jubilee Expo Center, Dar-es-Salaam", country: "Tanzania" },
+    industry: "Buildcon",
     eventType: "Exhibition",
-    heroImage: "/images/gallery/events/mining-2026.png",
+    heroImage: "/gallery/images-event/2026/tanzania-buildcon-logo.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
-      website: "https://odishaminingexpo.com/",
+      website: "https://tanzaniabuildcon.com/",
       facebook: "https://www.facebook.com/odishaminingexpo/",
       instagram: "https://www.instagram.com/odishaminingexpo/",
       linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
       email: "admin@futurextrade.com"
     },
   }, {
-    id: "odisha-mining-infrastructure-expo-2026",
-    name: "Odisha Mining and Infrastructure International Expo",
-    edition: "4th Edition",
-    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
-    venue: { city: "Bhubaneswar", country: "India" },
+    id: "3rd Edition ICPMA Corru Pack Print India",
+    name: "3rd Edition ICPMA Corru Pack Print India",
+    edition: "3rd Edition",
+    dates: { display: "9th to 12th February 2028", start: "2028-02-09", end: "2028-02-12" },
+    venue: { city: "Yashobhoomi, IICC, Dwarka, New Delhi", country: "India" },
     industry: "Mining",
     eventType: "Exhibition",
-    heroImage: "/images/gallery/events/mining-2026.png",
+    heroImage: "/gallery/images-event/2026/3rd-Corrupack-Logo-2027.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
-      website: "https://odishaminingexpo.com/",
-      facebook: "https://www.facebook.com/odishaminingexpo/",
-      instagram: "https://www.instagram.com/odishaminingexpo/",
-      linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
-      email: "admin@futurextrade.com"
-    },
-  }, {
-    id: "odisha-mining-infrastructure-expo-2026",
-    name: "Odisha Mining and Infrastructure International Expo",
-    edition: "4th Edition",
-    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
-    venue: { city: "Bhubaneswar", country: "India" },
-    industry: "Mining",
-    eventType: "Exhibition",
-    heroImage: "/images/gallery/events/mining-2026.png",
-    description:
-      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
-    socials: {
-      website: "https://odishaminingexpo.com/",
-      facebook: "https://www.facebook.com/odishaminingexpo/",
-      instagram: "https://www.instagram.com/odishaminingexpo/",
-      linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
-      email: "admin@futurextrade.com"
-    },
-  }, {
-    id: "odisha-mining-infrastructure-expo-2026",
-    name: "Odisha Mining and Infrastructure International Expo",
-    edition: "4th Edition",
-    dates: { display: "8–11 January 2026", start: "2026-01-08", end: "2026-01-11" },
-    venue: { city: "Bhubaneswar", country: "India" },
-    industry: "Mining",
-    eventType: "Exhibition",
-    heroImage: "/images/gallery/events/mining-2026.png",
-    description:
-      "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
-    socials: {
-      website: "https://odishaminingexpo.com/",
-      facebook: "https://www.facebook.com/odishaminingexpo/",
-      instagram: "https://www.instagram.com/odishaminingexpo/",
-      linkedin: "https://www.linkedin.com/company/odishaminingexpo/",
+      website: "https://corrupackprintindia.org/",
+      facebook: "https://www.facebook.com/corrupackprint/",
+      instagram: "https://www.instagram.com/corrupackprint/",
+      linkedin: "https://www.linkedin.com/company/corrupackprint/",
+      // youtube:"https://www.youtube.com/@corrupackprint/",
       email: "admin@futurextrade.com"
     },
   },

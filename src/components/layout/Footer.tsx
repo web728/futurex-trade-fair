@@ -54,7 +54,7 @@ const socialLinks = [
 const explore = [
   { href: '/exhibitions', label: 'Trade Exhibitions' },
   { href: '/industries', label: 'Sectors & Industries' },
-  { href: '/services', label: 'Turnkey Services' },
+  { href: '/services', label: 'Our Services' },
   { href: '/global-presence', label: 'Global Corridors' },
 ] as const;
 
@@ -93,7 +93,7 @@ export function Footer() {
         aria-hidden="true"
       >
         <span className="font-heading font-black text-[12.5vw] tracking-[-0.04em] text-white/[0.03] uppercase leading-none whitespace-nowrap block text-center px-4">
-          FUTUREX TRADE
+          FUTUREX GROUP
         </span>
       </div>
 

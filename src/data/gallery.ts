@@ -1,10 +1,8 @@
 import type { GalleryItem } from '@/types/content';
-import { company } from './company';
+import autoGalleryData from './auto-gallery.json';
 
-export const galleryItems: GalleryItem[] = [
-  { id: 'g1', category: 'Exhibitions', title: 'Futurex exhibition floor', image: company.assets.exhibition },
-  { id: 'g2', category: 'Conferences', title: 'Futurex conference experience', image: company.assets.hero },
-  { id: 'g3', category: 'Media Coverage', title: 'Industry engagement', image: company.assets.exhibition },
-  { id: 'g4', category: 'Webinars', title: 'Professional online programming', image: company.assets.hero },
-  { id: 'g5', category: 'Virtual Platform', title: 'Virtual exhibition platform', image: company.assets.exhibition }
-];
+// Type casting the auto-generated JSON strictly to your types
+export const galleryItems: GalleryItem[] = autoGalleryData as GalleryItem[];
+
+// Pagination configuration (Set to 15 per page for optimal UX)
+export const GALLERY_ITEMS_PER_PAGE = 15;

@@ -5,13 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ArrowUpRight, 
-  ArrowRight, 
   Calendar, 
   MapPin, 
   Building2, 
   ChevronDown, 
   ChevronUp,
-  Globe,
   Linkedin,
   Facebook,
   Instagram,
@@ -83,7 +81,7 @@ export function UpcomingExhibitions() {
     >
       {/* Subtle Architectural Grid */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.2]"
+        className="absolute inset-0 pointer-events-none opacity-[0.18]"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
@@ -107,9 +105,9 @@ export function UpcomingExhibitions() {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 sm:pb-12 border-b border-neutral-200/80"
         >
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-4 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-600 mb-4 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-              <span>Official Trade Calendar • 2026—2027</span>
+              <span>Official Trade Calendar</span>
             </div>
 
             <h2 
@@ -137,41 +135,10 @@ export function UpcomingExhibitions() {
           </div>
         </motion.div>
 
-        {/* ========================================================================= */}
-        {/* CORRIDOR FILTER TABS */}
-        {/* ========================================================================= */}
-        <div className="flex items-center gap-2.5 overflow-x-auto pt-8 pb-10 scrollbar-none -mx-5 px-5 sm:mx-0 sm:px-0">
-          {filterTabs.map((tab) => {
-            const isSelected = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  setActiveTab(tab.id);
-                  setShowAll(false);
-                }}
-                type="button"
-                className={`relative px-5 py-2.5 rounded-full text-xs font-mono tracking-[0.14em] uppercase transition-all duration-200 cursor-pointer shrink-0 ${
-                  isSelected 
-                    ? 'text-white font-medium' 
-                    : 'text-neutral-600 hover:text-neutral-950 bg-white border border-neutral-200/80 hover:border-neutral-300 shadow-2xs'
-                }`}
-              >
-                {isSelected && (
-                  <motion.div
-                    layoutId="activeUpcomingFilterBubble"
-                    className="absolute inset-0 bg-[#0A0D12] rounded-full -z-10 shadow-xs"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
+    
 
         {/* ========================================================================= */}
-        {/* EXHIBITION CARDS GRID WITH LARGE PROMINENT LOGOS */}
+        {/* EXHIBITION CARDS GRID */}
         {/* ========================================================================= */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -209,7 +176,6 @@ export function UpcomingExhibitions() {
                       onClick={() => setActiveModalEvent(event)}
                       className="relative w-full h-64 sm:h-72 bg-gradient-to-b from-[#FBFBFD] to-[#F3F4F6] border-b border-neutral-200/80 flex items-center justify-center p-8 overflow-hidden cursor-zoom-in focus:outline-none w-full"
                     >
-                      {/* Subtle Radial Grid Texture */}
                       <div 
                         className="absolute inset-0 opacity-20 pointer-events-none"
                         style={{
@@ -226,15 +192,6 @@ export function UpcomingExhibitions() {
                         </div>
                       )}
 
-                      {event.industry && (
-                        <div className="absolute bottom-4 left-4 z-10">
-                          <span className="px-3.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono tracking-wider uppercase">
-                            {event.industry}
-                          </span>
-                        </div>
-                      )}
-
-                      {/* Large Prominent Logo Render */}
                       <div className="relative z-10 w-[92%] h-[88%] flex items-center justify-center transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105">
                         {eventImg ? (
                           <div className="relative w-full h-full">
@@ -275,81 +232,86 @@ export function UpcomingExhibitions() {
                     </div>
                   </div>
 
-                  {/* Footer with Conditional Social Links */}
+                  {/* Footer with 3D Floating Socials & Tooltips */}
                   <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-1.5 text-neutral-500">
-                      {event.socials?.website && (
-                        <Link
-                          href={event.socials.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Official Website"
-                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-900 text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                        >
-                          <Globe size={13} />
-                        </Link>
-                      )}
-
+                    <div className="flex items-center gap-2">
                       {event.socials?.linkedin && (
-                        <Link
-                          href={event.socials.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="LinkedIn"
-                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#0A66C2] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                        >
-                          <Linkedin size={13} />
-                        </Link>
+                        <div className="relative group/tooltip">
+                          <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                            LinkedIn
+                          </span>
+                          <Link
+                            href={event.socials.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(10,102,194,0.25)] hover:bg-white"
+                          >
+                            <Linkedin size={13} className="transition-colors duration-200" />
+                          </Link>
+                        </div>
                       )}
 
                       {event.socials?.facebook && (
-                        <Link
-                          href={event.socials.facebook}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Facebook"
-                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#1877F2] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                        >
-                          <Facebook size={13} />
-                        </Link>
+                        <div className="relative group/tooltip">
+                          <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                            Facebook
+                          </span>
+                          <Link
+                            href={event.socials.facebook}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(24,119,242,0.25)] hover:bg-white"
+                          >
+                            <Facebook size={13} className="transition-colors duration-200" />
+                          </Link>
+                        </div>
                       )}
 
                       {event.socials?.instagram && (
-                        <Link
-                          href={event.socials.instagram}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Instagram"
-                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#E4405F] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                        >
-                          <Instagram size={13} />
-                        </Link>
+                        <div className="relative group/tooltip">
+                          <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                            Instagram
+                          </span>
+                          <Link
+                            href={event.socials.instagram}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(228,64,95,0.25)] hover:bg-white"
+                          >
+                            <Instagram size={13} className="transition-colors duration-200" />
+                          </Link>
+                        </div>
                       )}
 
                       {event.socials?.twitter && (
-                        <Link
-                          href={event.socials.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="X (Twitter)"
-                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-black text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                        >
-                          <Twitter size={13} />
-                        </Link>
+                        <div className="relative group/tooltip">
+                          <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                            Twitter
+                          </span>
+                          <Link
+                            href={event.socials.twitter}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(0,0,0,0.25)] hover:bg-white"
+                          >
+                            <Twitter size={13} className="transition-colors duration-200" />
+                          </Link>
+                        </div>
                       )}
 
-                      {event.socials?.email && (
-                        <Link
-                          href={mailHref}
-                          title="Email Secretariat"
-                          className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-red-600 text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                        >
-                          <Mail size={13} />
-                        </Link>
-                      )}
+                     {event.socials?.email && (
+  <div className="relative">
+    <Link
+      href={mailHref}
+      className="relative flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:bg-white hover:shadow-[0_8px_20px_rgba(220,38,38,0.25)]"
+    >
+      <Mail size={13} className="transition-colors duration-200" />
+    </Link>
+  </div>
+)}
                     </div>
 
-                    {/* High-Contrast Portal Button */}
+                    {/* Unified High-Contrast Portal Button */}
                     {event.socials?.website ? (
                       <Link
                         href={event.socials.website}
@@ -357,7 +319,7 @@ export function UpcomingExhibitions() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 active:scale-95"
                       >
-                        <span className="text-white">Portal</span>
+                        <span className="text-white">Website</span>
                         <ArrowUpRight size={13} className="text-white" />
                       </Link>
                     ) : (

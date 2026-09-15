@@ -60,13 +60,13 @@ const strategicObjectives = [
     icon: Eye,
     tag: "MACRO TELEMETRY"
   },
-  {
-    id: "04",
-    title: "Capital Efficient Sourcing",
-    desc: "Turnkey exhibition infrastructure engineered to deliver verifiable enterprise ROI, distributor appointments, and vendor acquisition.",
-    icon: ShieldCheck,
-    tag: "COMMERCIAL IMPACT"
-  },
+ {
+  id: "04",
+  title: "Capital Efficient Sourcing",
+  desc: "Strategic exhibition infrastructure engineered to deliver verifiable enterprise ROI, distributor appointments, and vendor acquisition.",
+  icon: ShieldCheck,
+  tag: "COMMERCIAL IMPACT"
+},
   {
     id: "05",
     title: "Floor Deal Velocity",
@@ -100,6 +100,7 @@ export default function AboutPage() {
       {/* ========================================================================= */}
       <PageHero 
         eyebrow="INSTITUTIONAL DOSSIER" 
+        image="/gallery/images-event/2.webp"
         title={
           <>
             Where Industrial Capital <br />
@@ -109,7 +110,7 @@ export default function AboutPage() {
             <span className="text-red-600 font-sans">.</span>
           </>
         }
-        tagline="International Trade Fair Secretariat."
+     tagline="International Trade Fair & Exhibition Organizer."
         description="Connecting global manufacturers with sovereign buyers across South Asia and East Africa."
       />
 
@@ -178,9 +179,12 @@ export default function AboutPage() {
                 Trade exhibitions are fundamental economic catalysts. Our multi-sector portfolios spanning Building Construction, Woodworking, Garments, Power, Electric Vehicles, and Packaging are engineered to solve systemic cross-border trade friction by bringing vetted importers, government procurement bodies, and equipment makers onto a single commercial floor.
               </p>
 
-              <p>
-                From turnkey shell-scheme fabrication and heavy machinery spatial logistics to bilateral VIP buyer delegations, Futurex handles the entire execution value chain. Our operations ensure every square meter of exhibition floor space drives verified business outcomes.
-              </p>
+             <p>
+  From shell-scheme fabrication and heavy machinery spatial logistics to
+  bilateral VIP buyer delegations, Futurex handles the entire execution value
+  chain. Our operations ensure every square meter of exhibition floor space
+  drives verified business outcomes.
+</p>
 
               <div className="pt-3 border-t border-neutral-200/60">
                 <blockquote className="text-[11.5px] font-mono tracking-[0.12em] uppercase text-neutral-500 border-l-2 border-red-600 pl-4 py-0.5 leading-relaxed">
@@ -276,7 +280,7 @@ export default function AboutPage() {
    
 
       {/* ========================================================================= */}
-      {/* 6. REGIONAL SECRETARIAT STATIONS */}
+      {/* 6. REGIONAL STATIONS */}
       {/* ========================================================================= */}
       <section className="py-14 sm:py-18 bg-white border-b border-neutral-200/80 select-none">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
@@ -287,14 +291,13 @@ export default function AboutPage() {
                 <Building2 className="w-3 h-3 text-red-600" />
                 <span>Operating Stations</span>
               </div>
-              
-              <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]">
-                Regional Secretariat <br className="hidden sm:inline" />
-                <span className="font-serif italic font-normal text-neutral-500">
-                  Station Network
-                </span>
-                <span className="text-red-600 font-sans">.</span>
-              </h2>
+             <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]">
+  Regional Support <br className="hidden sm:inline" />
+  <span className="font-serif italic font-normal text-neutral-500">
+    Station Network
+  </span>
+  <span className="font-sans text-red-600">.</span>
+</h2> 
             </div>
 
             <span className="text-[11px] font-mono tracking-[0.14em] text-neutral-400 uppercase self-start sm:self-auto">

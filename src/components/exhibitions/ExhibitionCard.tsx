@@ -7,7 +7,6 @@ import { motion, type Variants } from 'framer-motion';
 import { 
   Calendar, 
   MapPin, 
-  Globe, 
   Mail, 
   Linkedin, 
   Facebook, 
@@ -135,86 +134,93 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
       </div>
 
       {/* ========================================================================= */}
-      {/* SOCIALS & HIGH-CONTRAST VISIBLE PORTAL FOOTER */}
+      {/* 3D FLOATING SOCIAL ICONS WITH TOOLTIPS & PORTAL BUTTON */}
       {/* ========================================================================= */}
       <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-1.5 text-neutral-500">
-          {socials?.website && (
-            <Link
-              href={socials.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Official Website"
-              className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-900 text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <Globe size={13} />
-            </Link>
-          )}
-
+        <div className="flex items-center gap-2">
           {socials?.linkedin && (
-            <Link
-              href={socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-              className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#0A66C2] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <Linkedin size={13} />
-            </Link>
+            <div className="relative group/tooltip">
+              <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                LinkedIn
+              </span>
+              <Link
+                href={socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(10,102,194,0.25)] hover:bg-white"
+              >
+                <Linkedin size={13} className="transition-colors duration-200" />
+              </Link>
+            </div>
           )}
 
           {socials?.facebook && (
-            <Link
-              href={socials.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Facebook"
-              className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#1877F2] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <Facebook size={13} />
-            </Link>
+            <div className="relative group/tooltip">
+              <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                Facebook
+              </span>
+              <Link
+                href={socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(24,119,242,0.25)] hover:bg-white"
+              >
+                <Facebook size={13} className="transition-colors duration-200" />
+              </Link>
+            </div>
           )}
 
           {socials?.instagram && (
-            <Link
-              href={socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Instagram"
-              className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#E4405F] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <Instagram size={13} />
-            </Link>
+            <div className="relative group/tooltip">
+              <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                Instagram
+              </span>
+              <Link
+                href={socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(228,64,95,0.25)] hover:bg-white"
+              >
+                <Instagram size={13} className="transition-colors duration-200" />
+              </Link>
+            </div>
           )}
 
           {socials?.twitter && (
-            <Link
-              href={socials.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="X (Twitter)"
-              className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-black text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <Twitter size={13} />
-            </Link>
+            <div className="relative group/tooltip">
+              <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-900 text-white font-mono text-[9.5px] uppercase tracking-wider rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-200 pointer-events-none shadow-md whitespace-nowrap z-30 translate-y-1 group-hover/tooltip:translate-y-0">
+                Twitter
+              </span>
+              <Link
+                href={socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_8px_20px_rgba(0,0,0,0.25)] hover:bg-white"
+              >
+                <Twitter size={13} className="transition-colors duration-200" />
+              </Link>
+            </div>
           )}
 
-          <Link
-            href={mailHref}
-            title="Email Secretariat"
-            className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-red-600 text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-          >
-            <Mail size={13} />
-          </Link>
+          {socials?.email && (
+  <div className="relative group/tooltip">
+    <Link
+      href={mailHref}
+      className="relative flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-all duration-300 transform hover:-translate-y-1.5 hover:scale-110 hover:bg-white hover:shadow-[0_8px_20px_rgba(220,38,38,0.25)]"
+    >
+      <Mail size={13} className="transition-colors duration-200" />
+    </Link>
+  </div>
+)}
         </div>
 
-        {/* 100% Visible High-Contrast Solid Dark / Red Button */}
+        {/* Unified High-Contrast Portal Button */}
         {socials?.website ? (
           <Link
             href={socials.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 active:scale-95"
           >
             <span className="text-white">Portal</span>
             <ArrowUpRight size={13} className="text-white" />
@@ -222,7 +228,7 @@ export function ExhibitionCard({ event, onSelect }: ExhibitionCardProps) {
         ) : (
           <Link
             href={mailHref}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 active:scale-95"
           >
             <span className="text-white">Inquire</span>
             <ArrowUpRight size={13} className="text-white" />
