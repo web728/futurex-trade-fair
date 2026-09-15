@@ -11,8 +11,7 @@ interface PageHeroProps {
   title: ReactNode;
   description?: string;
   tagline?: string;
-  image?: string; // Optional image prop for inner pages
-  imageAlt?: string;
+  backgroundImage?: string; // Optional background image prop
 }
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -154,12 +153,26 @@ function InnerPageCanvas() {
   );
 }
 
-export function PageHero({ eyebrow, title, description, tagline, image, imageAlt = "Futurex Page Hero Asset" }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, tagline, backgroundImage }: PageHeroProps) {
   return (
     <section 
       className="relative w-full min-h-[46vh] sm:min-h-[50vh] bg-[#07080A] text-[#F3F4F6] overflow-hidden flex flex-col justify-center border-b border-white/[0.08]"
       aria-label="Page Header"
     >
+      {/* Optional Background Image with Subtle Opacity */}
+      {backgroundImage && (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          <Image
+            src={backgroundImage}
+            alt="Hero Background"
+            fill
+            sizes="100vw"
+            className="object-cover object-center opacity-15 filter brightness-75 scale-105"
+            priority
+          />
+        </div>
+      )}
+
       {/* 1. Kinetic Background Canvas */}
       <InnerPageCanvas />
 
@@ -207,80 +220,54 @@ export function PageHero({ eyebrow, title, description, tagline, image, imageAlt
 
       {/* 2. Main Page Hero Content */}
       <div className="relative max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-12 pt-28 sm:pt-36 pb-14 sm:pb-20 z-10">
-        <div className={`grid grid-cols-1 ${image ? 'lg:grid-cols-12' : ''} gap-8 lg:gap-12 items-center`}>
-          
-          {/* Left Text Column */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className={`${image ? 'lg:col-span-7' : 'max-w-4xl'}`}
-          >
-            {/* Eyebrow & Navigational Breadcrumb */}
-            <motion.div variants={itemVariants} className="mb-5 sm:mb-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md text-[10px] sm:text-[11px] font-mono tracking-widest text-neutral-300 uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                <span>{eyebrow}</span>
-              </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl"
+        >
+          {/* Eyebrow & Navigational Breadcrumb */}
+          <motion.div variants={itemVariants} className="mb-5 sm:mb-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md text-[10px] sm:text-[11px] font-mono tracking-widest text-neutral-300 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              <span>{eyebrow}</span>
+            </div>
 
-              <nav aria-label="Breadcrumb" className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-neutral-400">
-                <Link href="/" className="hover:text-white transition-colors duration-200">Home</Link>
-                <ChevronRight className="w-3 h-3 text-neutral-600 shrink-0" />
-                <span className="text-neutral-300 capitalize">{eyebrow}</span>
-              </nav>
-            </motion.div>
-
-            {/* Fluid Editorial Title */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-[32px] xs:text-4xl sm:text-5xl lg:text-[60px] font-semibold tracking-[-0.03em] text-white leading-[1.12] sm:leading-[1.06]"
-            >
-              {title}
-            </motion.h1>
-
-            {/* Optional Tagline Accent */}
-            {tagline ? (
-              <motion.div variants={itemVariants} className="flex items-center gap-2.5 mt-3 sm:mt-4">
-                <span className="h-px w-5 bg-red-500 shrink-0" />
-                <p className="text-xs sm:text-sm font-mono text-neutral-400 tracking-wide">
-                  {tagline}
-                </p>
-              </motion.div>
-            ) : null}
-
-            {/* Editorial Description */}
-            {description ? (
-              <motion.p
-                variants={itemVariants}
-                className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-neutral-300/80 font-normal leading-[1.65] sm:leading-[1.7] max-w-2xl tracking-normal"
-              >
-                {description}
-              </motion.p>
-            ) : null}
+            <nav aria-label="Breadcrumb" className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-neutral-400">
+              <Link href="/" className="hover:text-white transition-colors duration-200">Home</Link>
+              <ChevronRight className="w-3 h-3 text-neutral-600 shrink-0" />
+              <span className="text-neutral-300 capitalize">{eyebrow}</span>
+            </nav>
           </motion.div>
 
-          {/* Right Optional Image Column */}
-          {image ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, ease: easeEditorial, delay: 0.2 }}
-              className="lg:col-span-5 relative w-full h-[280px] sm:h-[340px] lg:h-[380px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl group"
-            >
-              <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 z-20" />
-              <Image
-                src={image}
-                alt={imageAlt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-[0.16,1,0.3,1]"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+          {/* Fluid Editorial Title */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-[32px] xs:text-4xl sm:text-5xl lg:text-[64px] font-semibold tracking-[-0.03em] text-white leading-[1.12] sm:leading-[1.06]"
+          >
+            {title}
+          </motion.h1>
+
+          {/* Optional Tagline Accent */}
+          {tagline ? (
+            <motion.div variants={itemVariants} className="flex items-center gap-2.5 mt-3 sm:mt-4">
+              <span className="h-px w-5 bg-red-500 shrink-0" />
+              <p className="text-xs sm:text-sm font-mono text-neutral-400 tracking-wide">
+                {tagline}
+              </p>
             </motion.div>
           ) : null}
 
-        </div>
+          {/* Editorial Description */}
+          {description ? (
+            <motion.p
+              variants={itemVariants}
+              className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-neutral-300/80 font-normal leading-[1.65] sm:leading-[1.7] max-w-2xl tracking-normal"
+            >
+              {description}
+            </motion.p>
+          ) : null}
+        </motion.div>
       </div>
     </section>
   );

@@ -100,7 +100,7 @@ export default function AboutPage() {
       {/* ========================================================================= */}
       <PageHero 
         eyebrow="INSTITUTIONAL DOSSIER" 
-        image="/gallery/images-event/2.webp"
+        // image="/gallery/images-event/2.webp"
         title={
           <>
             Where Industrial Capital <br />

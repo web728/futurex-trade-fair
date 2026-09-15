@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowUpRight, Phone, Mail, ChevronRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Phone, Mail, ChevronRight, MessageSquare } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer-motion';
 import { company } from '@/data/company';
 
@@ -71,6 +71,11 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
+
+  // WhatsApp configuration
+  const whatsappNumber = "919810855697";
+  const whatsappMessage = encodeURIComponent("Hello Futurex Team, I am interested in exhibiting at your upcoming trade shows. Please share the stall booking details.");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -184,15 +189,17 @@ export function Header() {
 
           {/* Action CTA & Mobile Trigger */}
           <div className="flex items-center gap-3 shrink-0">
-            <Link 
-              href="/participants#exhibitor"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase rounded-full transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.35)] hover:shadow-[0_0_24px_rgba(220,38,38,0.5)] active:scale-95"
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase rounded-full transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.35)] hover:shadow-[0_0_24px_rgba(220,38,38,0.5)] active:scale-95 cursor-pointer"
             >
               <span>Exhibit With Us</span>
               <ArrowUpRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            </a>
 
-            {/* Pure Minimalist Hamburger Button (No Circle / No Outer Box) */}
+            {/* Pure Minimalist Hamburger Button */}
             <button 
               type="button"
               onClick={() => setMenuOpen(true)} 
@@ -229,7 +236,7 @@ export function Header() {
                   </span>
                 </div>
 
-                {/* Pure Minimal Close Icon (No Circle) */}
+                {/* Pure Minimal Close Icon */}
                 <button 
                   type="button"
                   onClick={() => setMenuOpen(false)} 
@@ -280,17 +287,20 @@ export function Header() {
               className="relative z-10 pt-8 mt-6 border-t border-white/[0.08] flex flex-col gap-5"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <Link 
-                  href="/participants#exhibitor" 
+                <a 
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
-                  className="w-full py-3.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase text-center rounded-full transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)]"
+                  className="w-full py-3.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase text-center rounded-full transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center gap-2"
                 >
-                  Become An Exhibitor
-                </Link>
+                  <MessageSquare size={14} />
+                  <span>Exhibit With Us (WhatsApp)</span>
+                </a>
                 <Link 
                   href="/participants#visitor" 
                   onClick={() => setMenuOpen(false)}
-                  className="w-full py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-neutral-300 text-xs font-mono tracking-wider uppercase text-center rounded-full transition-all"
+                  className="w-full py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-neutral-300 text-xs font-mono tracking-wider uppercase text-center rounded-full transition-all flex items-center justify-center"
                 >
                   Trade Pass Accreditation
                 </Link>
