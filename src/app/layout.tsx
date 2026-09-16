@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     template: '%s | Futurex Trade Fair'
   },
   description: company?.description || 'Futurex Trade Fair and Events Private Limited is a leading international exhibition and corporate events organizer based in Kalkaji, New Delhi, operating across 5 international hubs.',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   robots: {
     index: true,
     follow: true,
@@ -73,7 +78,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       postalCode: '110019',
       addressCountry: 'IN'
     },
-    foundingDate: '2011', // Exact establishment year
+    foundingDate: '2011',
     memberOf: {
       '@type': 'Organization',
       name: 'CIEO (Confederation of Indian Exhibition Organisers)',

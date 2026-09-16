@@ -39,14 +39,14 @@ export default async function ContactPage({ searchParams }: { searchParams?: Pro
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Contact Card (Ultra-Clean Dark Monolith) */}
-            <div className="lg:col-span-5 h-full">
-              <ContactCard />
+            {/* Right Contact Form (Crisp Light Sheet) — Appears FIRST on Mobile */}
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <ContactForm defaultEvent={query.event || ''} />
             </div>
 
-            {/* Right Contact Form (Crisp Light Sheet) */}
-            <div className="lg:col-span-7">
-              <ContactForm defaultEvent={query.event || ''} />
+            {/* Left Contact Card (Ultra-Clean Dark Monolith) — Appears SECOND on Mobile */}
+            <div className="lg:col-span-5 h-full order-2 lg:order-1">
+              <ContactCard />
             </div>
 
           </div>

@@ -7,7 +7,7 @@ export const submissionSchema = z.object({
   formType: z.enum(['contact', 'enquiry', 'exhibitor', 'visitor', 'sponsor']),
   name: z.string().trim().min(2, 'Please enter your name.').max(120),
   email: z.string().trim().email('Please enter a valid email address.').max(180),
-  phone: optionalText(40),
+  phone: z.string().trim().min(7, 'Please enter a valid phone number.').max(40), // Mandatory now
   company: optionalText(160),
   country: optionalText(100),
   event: optionalText(180),

@@ -86,6 +86,10 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  
+  // Nayi state mobile dropdowns ke liye taaki user tap karke toggle kar sake
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastScrollY = useRef(0);
 
@@ -126,6 +130,7 @@ export function Header() {
   useEffect(() => {
     setMenuOpen(false);
     setActiveDropdown(null);
+    setMobileDropdown(null);
   }, [pathname]);
 
   const handleMouseEnter = (label: string) => {
@@ -185,7 +190,7 @@ export function Header() {
             )}
           </Link>
 
-          {/* Desktop Navigation Capsule (Ultra-Compact Single Line) */}
+          {/* Desktop Navigation Capsule */}
           <nav 
             className="hidden lg:flex items-center gap-0.5 bg-white/[0.03] border border-white/[0.09] px-2 py-1.5 backdrop-blur-xl rounded-full shadow-2xs" 
             aria-label="Primary navigation"
@@ -351,40 +356,60 @@ export function Header() {
                   const currentPath = pathname || '';
                   const isActive = currentPath === item.href || (item.children && item.children.some(child => currentPath === child.href));
                   const formattedIndex = String(index + 1).padStart(2, '0');
+                  const isMobileDropdownOpen = mobileDropdown === item.label;
 
                   return (
                     <motion.div key={item.href} variants={reducedMotion ? undefined : mobileItemVariants}>
                       {item.children ? (
-                        <div className="py-3">
-                          <div className="flex items-center justify-between text-neutral-400 py-1">
+                        <div className="py-2.5">
+                          {/* Clickable Header for Mobile Dropdown */}
+                          <button
+                            type="button"
+                            onClick={() => setMobileDropdown(isMobileDropdownOpen ? null : item.label)}
+                            className="w-full flex items-center justify-between py-2 text-left group cursor-pointer"
+                          >
                             <div className="flex items-center gap-3">
-                              <span className="font-mono text-xs font-semibold text-neutral-500">
+                              <span className="font-mono text-xs font-semibold text-neutral-500 group-hover:text-red-500 transition-colors">
                                 {formattedIndex}
                               </span>
-                              <span className={`text-lg font-medium tracking-tight ${isActive ? 'text-red-500' : 'text-white'}`}>
+                              <span className={`text-lg font-medium tracking-tight ${isActive || isMobileDropdownOpen ? 'text-red-500' : 'text-white'}`}>
                                 {item.label}
                               </span>
                             </div>
-                          </div>
-                          {/* Nested Sub-links for Mobile */}
-                          <div className="pl-8 mt-1.5 flex flex-col gap-2 border-l border-white/10 ml-2">
-                            {item.children.map((child) => {
-                              const isChildActive = currentPath === child.href;
-                              return (
-                                <Link
-                                  key={child.href}
-                                  href={child.href}
-                                  onClick={() => setMenuOpen(false)}
-                                  className={`py-1 text-xs font-mono tracking-wider uppercase transition-colors flex items-center justify-between ${
-                                    isChildActive ? 'text-red-400 font-semibold' : 'text-neutral-400 hover:text-white'
-                                  }`}
-                                >
-                                  <span>{child.label}</span>
-                                  <ChevronRight size={13} className="text-neutral-600" />
-                                </Link>
-                              );
-                            })}
-                          </div>
+                            <ChevronDown size={18} className={`text-neutral-400 transition-transform duration-300 ${isMobileDropdownOpen ? 'rotate-180 text-red-500' : ''}`} />
+                          </button>
+
+                          {/* Smooth Expandable Sub-links for Mobile */}
+                          <AnimatePresence>
+                            {isMobileDropdownOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.25, ease: easeEditorial }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pl-7 mt-1 pb-2 flex flex-col gap-2.5 border-l border-white/10 ml-2">
+                                  {item.children.map((child) => {
+                                    const isChildActive = currentPath === child.href;
+                                    return (
+                                      <Link
+                                        key={child.href}
+                                        href={child.href}
+                                        onClick={() => setMenuOpen(false)}
+                                        className={`py-1.5 text-xs font-mono tracking-wider uppercase transition-colors flex items-center justify-between ${
+                                          isChildActive ? 'text-red-400 font-semibold' : 'text-neutral-400 hover:text-white'
+                                        }`}
+                                      >
+                                        <span>{child.label}</span>
+                                        <ChevronRight size={13} className="text-neutral-600" />
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       ) : (
                         <Link 
