@@ -251,10 +251,7 @@ export function AboutStory() {
       <span>HQ: Kalkaji, New Delhi</span>
     </div>
 
-    <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-neutral-400 group-hover/card:text-neutral-200 transition-colors">
-      <span>LAT: 28.5385° N</span>
-      <span>LONG: 77.2536° E</span>
-    </div>
+   
   </div>
 
   {/* Verified Legal Identity */}
