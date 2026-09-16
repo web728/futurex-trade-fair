@@ -11,45 +11,58 @@ const getTabName = (formType: SubmissionPayload['formType']) => {
     visitor: process.env.GOOGLE_SHEET_TAB_VISITOR,
     sponsor: process.env.GOOGLE_SHEET_TAB_SPONSOR
   };
-  return names[formType] || 'Enquiries';
+  return names[formType] || 'Website Enquries';
 };
 
 export async function appendToGoogleSheet(payload: SubmissionPayload, submittedAt: Date) {
-  const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-  const rawPrivateKey = process.env.GOOGLE_PRIVATE_KEY;
+  const base64Key = process.env.GOOGLE_SERVICE_ACCOUNT_BASE64;
   const spreadsheetId = process.env.GOOGLE_SHEET_ID;
 
-  if (!clientEmail || !rawPrivateKey || !spreadsheetId) {
+  if (!base64Key || !spreadsheetId) {
     throw new Error('Google Sheets environment variables are incomplete.');
   }
 
+  // Base64 string ko decode karke wapas JSON object banana
+  const credentialsJson = JSON.parse(
+    Buffer.from(base64Key, 'base64').toString('utf8')
+  );
+
   const auth = new google.auth.JWT({
-    email: clientEmail,
-    key: rawPrivateKey.replace(/\\n/g, '\n'),
+    email: credentialsJson.client_email,
+    key: credentialsJson.private_key,
     scopes: ['https://www.googleapis.com/auth/spreadsheets']
   });
+
   const sheets = google.sheets({ version: 'v4', auth });
   const tab = getTabName(payload.formType);
 
+  const rowValues = [
+    submittedAt.toLocaleString(),               // 1. Date & Time
+    payload.source || 'Website',                // 2. Platform
+    formTypeLabels[payload.formType] || 'Enquiry', // 3. Register As
+    payload.company || '',                      // 4. Company Name
+    payload.name || '',                         // 5. Contact Person
+    '',                                         // 6. Designation
+    payload.email || '',                        // 7. Email Id
+    payload.phone || '',                        // 8. Mobile No.
+    '',                                         // 9. Website
+    '',                                         // 10. Address
+    payload.country || '',                      // 11. Country
+    '',                                         // 12. Booth Size Requirement
+    payload.event || payload.subject || '',     // 13. Area of Interest
+    payload.source || '',                       // 14. Info. Get From
+    payload.message || '',                      // 15. Message
+    '',                                         // 16. Correction
+    '', '', '', '', '', '', '', '', ''          // 17-25. STATUS 1 to 9 (Blank)
+  ];
+
   await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: `'${tab}'!A:K`,
+    range: `'${tab}'!A:Z`,
     valueInputOption: 'USER_ENTERED',
     insertDataOption: 'INSERT_ROWS',
     requestBody: {
-      values: [[
-        submittedAt.toISOString(),
-        formTypeLabels[payload.formType],
-        payload.name,
-        payload.email,
-        payload.phone || '',
-        payload.company || '',
-        payload.country || '',
-        payload.event || '',
-        payload.subject || '',
-        payload.message || '',
-        payload.source || ''
-      ]]
+      values: [rowValues]
     }
   });
 }

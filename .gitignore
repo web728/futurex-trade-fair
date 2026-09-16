@@ -4,12 +4,16 @@
 /.yarn/cache
 /.yarn/unplugged
 /.pnpm-debug.log*
+.pnpm-lock.yaml
+yarn.lock
+package-lock.json
 
-# Next.js Build Outputs
+# Next.js & Framework Build Outputs
 /.next/
 /out/
 /build
 /dist
+/.turbo
 
 # Environment Variables & Secrets (Crucial for Security)
 .env
@@ -19,13 +23,21 @@
 .env.production.local
 .env.*.local
 *.pem
+*.key
+futurex-trade.json
 
-# Debug Logs
+# Service Account & Credentials (Added for security)
+*.json
+!tsconfig.json
+!jsconfig.json
+
+# Debug & Log Files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*.log
 
 # Operating System Files
 .DS_Store
@@ -61,4 +73,5 @@ Thumbs.db
 /cypress/screenshots
 /test-results
 
+# Project Specific Media & Archive Files
 public/gallery/Gallery/*.zip

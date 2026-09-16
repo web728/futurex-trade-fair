@@ -3,14 +3,15 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-"dev": "node scripts/generate-participants.js && node scripts/generate-gallery.js && next dev",
-  "build": "node scripts/generate-participants.js && node scripts/generate-gallery.js && next build",
+    "dev": "node scripts/generate-participants.js && node scripts/generate-gallery.js && next dev",
+    "build": "node scripts/generate-participants.js && node scripts/generate-gallery.js && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "verify:structure": "node scripts/verify-structure.mjs"
   },
   "dependencies": {
+    "@types/react-google-recaptcha": "^2.1.9",
     "framer-motion": "^12.23.12",
     "googleapis": "^156.0.0",
     "lucide-react": "^0.468.0",
@@ -19,6 +20,7 @@
     "nodemailer": "^7.0.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-google-recaptcha": "^3.1.0",
     "server-only": "^0.0.1",
     "zod": "^4.1.5"
   },

@@ -38,7 +38,31 @@ export async function handleFormRequest(request: NextRequest, formType: FormType
     return NextResponse.json({ success: false, message: 'Invalid request body.' }, { status: 400 });
   }
 
-  const parsed = submissionSchema.safeParse({ ...(body as Record<string, unknown>), formType });
+  // Extract recaptchaToken from request body
+  const { recaptchaToken, ...rawBody } = body as Record<string, unknown> & { recaptchaToken?: string };
+
+  // Verify reCAPTCHA token with Google
+  if (!recaptchaToken) {
+    return NextResponse.json({ success: false, message: 'Please complete the reCAPTCHA verification.' }, { status: 400 });
+  }
+
+  try {
+    const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`
+    });
+    const verifyData = await verifyRes.json() as { success: boolean };
+if (!verifyData.success) {
+      logger.error('reCAPTCHA validation failed', { formType, ip });
+      return NextResponse.json({ success: false, message: 'Robot verification failed. Please try again.' }, { status: 400 });
+    }
+  } catch (error) {
+    logger.error('reCAPTCHA verification network error', { error: error instanceof Error ? error.message : 'Unknown' });
+    return NextResponse.json({ success: false, message: 'Could not verify reCAPTCHA. Please try again.' }, { status: 500 });
+  }
+
+  const parsed = submissionSchema.safeParse({ ...rawBody, formType });
   if (!parsed.success) {
     return NextResponse.json({
       success: false,
