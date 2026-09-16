@@ -6,7 +6,7 @@ import { createMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = createMetadata(
   'Exhibitions', 
-  'Discover Futurex international B2B exhibitions portfolio.', 
+  'Discover Futurex Group international B2B exhibitions portfolio.', 
   '/exhibitions'
 );
 
@@ -58,7 +58,7 @@ export default function ExhibitionsPage() {
               <span className="text-red-600 font-sans">.</span>
             </>
           } 
-          description="Browse Futurex's verified international trade fair series across South Asia and East Africa." 
+          description="Browse Futurex Group verified international trade fair series across South Asia and East Africa." 
         />
       </div>
 

@@ -3,8 +3,8 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-  "dev": "node scripts/generate-gallery.js && next dev",
-  "build": "node scripts/generate-gallery.js && next build",
+"dev": "node scripts/generate-participants.js && node scripts/generate-gallery.js && next dev",
+  "build": "node scripts/generate-participants.js && node scripts/generate-gallery.js && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

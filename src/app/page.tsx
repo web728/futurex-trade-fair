@@ -14,7 +14,7 @@ import { createMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = createMetadata(
   'Global B2B Exhibitions & Business Events',
-  'Futurex Trade Fair & Events creates international exhibition platforms connecting manufacturers, buyers and industry professionals across global markets.',
+  'Futurex Trade Fair & Events PVT. LTD. creates international exhibition platforms connecting manufacturers, buyers and industry professionals across global markets.',
   '/'
 );
 
@@ -24,9 +24,9 @@ export default function HomePage() {
       <HeroSection />
       <StatsSection />
       <UpcomingExhibitions />
-      <GlobalPresence />
-      <IndustrySection />
       <AboutStory />
+      <IndustrySection />
+      <GlobalPresence />
       <ServicesSection />
       <Testimonials />
       <GallerySection />

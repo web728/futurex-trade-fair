@@ -247,7 +247,7 @@ export function HeroSection() {
             </Link>
 
             <Link
-              href="/company-profile.pdf"
+              href="/documents/futurex-group-company-profile.pdf"
               target="_blank"
               className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-white/30 text-white font-medium text-xs tracking-wider rounded-full backdrop-blur-xl transition-all duration-300 active:scale-[0.98]"
             >

@@ -7,7 +7,7 @@ import { createMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = createMetadata(
   'Industries', 
-  'Explore the industrial sectors connected through Futurex exhibitions and business events.', 
+  'Explore the industrial sectors connected through Futurex Group exhibitions and business events.', 
   '/industries'
 );
 

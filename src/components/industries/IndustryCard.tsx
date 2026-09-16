@@ -65,16 +65,7 @@ export function IndustryCard({ industry, index, onSelect }: IndustryCardProps) {
           </p>
         </div>
 
-        {/* Card Footer with Clear Interactive Cue */}
-        <div className="pt-4 border-t border-neutral-100 flex items-center justify-between text-[11px] font-mono text-neutral-400 group-hover:text-neutral-900 transition-colors duration-200">
-          <div className="flex items-center gap-2">
-            <Layers className="w-3.5 h-3.5 text-red-600 shrink-0" />
-            <span className="tracking-wide uppercase">Quick Overview</span>
-          </div>
-          <span className="text-[10px] font-medium tracking-wider uppercase text-neutral-400 group-hover:text-red-600 transition-colors">
-            Click to View →
-          </span>
-        </div>
+       
       </div>
     </motion.div>
   );

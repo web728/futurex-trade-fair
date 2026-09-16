@@ -7,7 +7,7 @@ import { createMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = createMetadata(
   'Contact Us', 
-  'Contact Futurex Trade Fair & Events in New Delhi for exhibition, visitor, sponsor, partnership and service enquiries.', 
+  'Contact Futurex Trade Fair & Events PVT. LTD. in New Delhi for exhibition, visitor, sponsor, partnership and service enquiries.', 
   '/contact'
 );
 

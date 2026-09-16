@@ -112,6 +112,7 @@ export default function AboutPage() {
         }
      tagline="International Trade Fair & Exhibition Organizer."
         description="Connecting global manufacturers with sovereign buyers across South Asia and East Africa."
+         backgroundImage="/gallery/images-event/slider/about-new.png"
       />
 
       {/* ========================================================================= */}
@@ -181,7 +182,7 @@ export default function AboutPage() {
 
              <p>
   From shell-scheme fabrication and heavy machinery spatial logistics to
-  bilateral VIP buyer delegations, Futurex handles the entire execution value
+  bilateral VIP buyer delegations, Futurex Group handles the entire execution value
   chain. Our operations ensure every square meter of exhibition floor space
   drives verified business outcomes.
 </p>

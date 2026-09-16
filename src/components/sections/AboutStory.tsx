@@ -146,7 +146,7 @@ export function AboutStory() {
 
           <div className="flex items-center gap-3 self-start md:self-end">
             <Link
-              href="/company-profile.pdf"
+               href="/documents/futurex-group-company-profile.pdf"
               target="_blank"
               className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-white/20 text-xs font-mono tracking-wider uppercase text-neutral-300 hover:text-white transition-all duration-300 active:scale-95"
             >
@@ -233,48 +233,50 @@ export function AboutStory() {
             {/* Top Red Laser Accent */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-600 group-hover/card:shadow-[0_0_12px_rgba(220,38,38,0.7)] transition-all duration-300" />
 
-            {/* Inner Blueprint Graphic Preview with Image Hover Zoom */}
-            <div>
-              <div className="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden bg-neutral-900 mb-5 border border-white/[0.08]">
-                <Image
-                  src={company?.assets?.exhibition || "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop"}
-                  alt="Futurex Trade Stage"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-center brightness-[0.75] contrast-[1.15] transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover/card:scale-105 group-hover/card:brightness-[0.85]"
-                />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-transparent" />
-                
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9.5px] font-mono text-white">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                  <span>HQ: Kalkaji, New Delhi</span>
-                </div>
+          {/* Inner Blueprint Graphic Preview with Image Hover Zoom */}
+<div>
+  <div className="relative w-full h-64 sm:h-72 lg:h-80 rounded-xl overflow-hidden bg-neutral-900 mb-5 border border-white/[0.08]">
+    <Image
+      src="/gallery/images-event/slider/about.png"
+      alt="Futurex Trade Fair and Events"
+      fill
+      sizes="(max-width: 1024px) 100vw, 40vw"
+      className="object-cover object-center brightness-[0.75] contrast-[1.15] transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover/card:scale-105 group-hover/card:brightness-[0.85]"
+    />
 
-                <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-neutral-400 group-hover/card:text-neutral-200 transition-colors">
-                  <span>LAT: 28.5385° N</span>
-                  <span>LONG: 77.2536° E</span>
-                </div>
-              </div>
+    <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-transparent" />
 
-              {/* Verified Legal Identity */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Award size={15} className="text-red-500 shrink-0" />
-                  <span className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider font-semibold">
-                    CIEO Accredited Organizer
-                  </span>
-                </div>
+    <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9.5px] font-mono text-white">
+      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+      <span>HQ: Kalkaji, New Delhi</span>
+    </div>
 
-                <h4 className="text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug">
-                  Futurex Trade Fair and Events Private Limited
-                </h4>
+    <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-neutral-400 group-hover/card:text-neutral-200 transition-colors">
+      <span>LAT: 28.5385° N</span>
+      <span>LONG: 77.2536° E</span>
+    </div>
+  </div>
 
-                <p className="text-xs text-neutral-400 font-normal leading-relaxed">
-                  Incorporated in 2011 to bridge global equipment manufacturers with verified enterprise buyers across Asia&apos;s key industrial sectors.
-                </p>
-              </div>
-            </div>
+  {/* Verified Legal Identity */}
+  <div className="space-y-2">
+    <div className="flex items-center gap-2">
+      <Award size={15} className="text-red-500 shrink-0" />
+
+      <span className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider font-semibold">
+        CIEO Accredited Organizer
+      </span>
+    </div>
+
+    <h4 className="text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug">
+      Futurex Trade Fair and Events Private Limited
+    </h4>
+
+    <p className="text-xs text-neutral-400 font-normal leading-relaxed">
+      Incorporated in 2011 to bridge global equipment manufacturers with
+      verified enterprise buyers across Asia&apos;s key industrial sectors.
+    </p>
+  </div>
+</div>
 
             {/* Bottom Actions */}
             <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3">

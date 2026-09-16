@@ -272,27 +272,22 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <a 
-              href="https://futurextrade.com/PrivacyPolicy.php" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="/privacy-policy" 
+            
               className="hover:text-slate-200 transition-colors"
             >
               Privacy Policy
             </a>
             <span className="text-white/20">|</span>
             <a 
-              href="https://futurextrade.com/Terms%26Conditons.php" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="/terms-and-conditions" 
               className="hover:text-slate-200 transition-colors"
             >
               Terms & Conditions
             </a>
           </div>
 
-          <div className="text-slate-500 hidden lg:block">
-            International Trade Platform Standards
-          </div>
+         
         </div>
 
       </div>

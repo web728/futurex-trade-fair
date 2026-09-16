@@ -159,7 +159,7 @@ export function PageHero({ eyebrow, title, description, tagline, backgroundImage
       className="relative w-full min-h-[46vh] sm:min-h-[50vh] bg-[#07080A] text-[#F3F4F6] overflow-hidden flex flex-col justify-center border-b border-white/[0.08]"
       aria-label="Page Header"
     >
-      {/* Optional Background Image with Subtle Opacity */}
+      {/* Optional Background Image with Adjusted Opacity & Custom Gradient Mask */}
       {backgroundImage && (
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <Image
@@ -167,9 +167,11 @@ export function PageHero({ eyebrow, title, description, tagline, backgroundImage
             alt="Hero Background"
             fill
             sizes="100vw"
-            className="object-cover object-center opacity-15 filter brightness-75 scale-105"
+            className="object-cover object-center opacity-30 filter brightness-90 scale-105"
             priority
           />
+          {/* Custom Gradient overlay: lighter on the right side to make it prominent, softer on the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07080A] via-[#07080A]/60 to-[#07080A]/20" />
         </div>
       )}
 
@@ -215,7 +217,6 @@ export function PageHero({ eyebrow, title, description, tagline, backgroundImage
 
         {/* Falloff Vignette */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-[#07080A]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07080A] via-[#07080A]/70 to-transparent" />
       </div>
 
       {/* 2. Main Page Hero Content */}

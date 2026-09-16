@@ -4,36 +4,54 @@ import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowUpRight, Phone, Mail, ChevronRight, MessageSquare } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Phone, Mail, ChevronRight, MessageSquare, ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer-motion';
 import { company } from '@/data/company';
+
+interface NavChild {
+  href: string;
+  label: string;
+  description: string;
+}
 
 interface NavItem {
   href: string;
   label: string;
+  children?: NavChild[];
 }
 
 const navItems: NavItem[] = [
   { href: '/about', label: 'About' },
-  { href: '/exhibitions', label: 'Exhibitions' },
+  { 
+    href: '/exhibitions', 
+    label: 'Exhibitions',
+    children: [
+      { href: '/exhibitions', label: 'Exhibition Directory', description: 'Explore global B2B trade show portfolios' },
+      { href: '/conferences', label: 'Conferences & Summits', description: 'Industry keynotes & expert dialogues' }
+    ]
+  },
   { href: '/industries', label: 'Industries' },
   { href: '/global-presence', label: 'Global Hubs' },
   { href: '/services', label: 'Services' },
-  { href: '/gallery', label: 'Media' },
+  { href: '/participants', label: 'Participants' },
+  { 
+    href: '/gallery', 
+    label: 'Media',
+    children: [
+      { href: '/gallery', label: 'Media Gallery', description: 'Trade floor photos & highlights' },
+      { href: '/webinars', label: 'Virtual Webinars', description: 'Virtual programming & broadcasts' }
+    ]
+  },
   { href: '/contact', label: 'Contact' }
 ];
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-// Buttery-smooth fluid slide-down & slide-up animation
 const mobileNavVariants: Variants = {
   hidden: { 
     opacity: 0, 
     y: '-100%',
-    transition: { 
-      duration: 0.4, 
-      ease: [0.32, 0, 0.67, 0] 
-    } 
+    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] } 
   },
   visible: {
     opacity: 1,
@@ -48,10 +66,7 @@ const mobileNavVariants: Variants = {
   exit: {
     opacity: 0,
     y: '-100%',
-    transition: { 
-      duration: 0.45, 
-      ease: [0.32, 0, 0.67, 0] 
-    }
+    transition: { duration: 0.45, ease: [0.32, 0, 0.67, 0] }
   }
 };
 
@@ -70,9 +85,10 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastScrollY = useRef(0);
 
-  // WhatsApp configuration
   const whatsappNumber = "919810855697";
   const whatsappMessage = encodeURIComponent("Hello Futurex Team, I am interested in exhibiting at your upcoming trade shows. Please share the stall booking details.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
@@ -84,6 +100,7 @@ export function Header() {
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 90) {
         setVisible(false);
+        setActiveDropdown(null);
       } else {
         setVisible(true);
       }
@@ -108,7 +125,19 @@ export function Header() {
 
   useEffect(() => {
     setMenuOpen(false);
+    setActiveDropdown(null);
   }, [pathname]);
+
+  const handleMouseEnter = (label: string) => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  };
 
   const companyLogo = (company as any)?.assets?.logo;
   const companyName = (company as any)?.name || (company as any)?.legalName || "Futurex Trade Fair and Events";
@@ -125,51 +154,122 @@ export function Header() {
             : 'bg-gradient-to-b from-[#050608]/95 via-[#050608]/60 to-transparent py-5 sm:py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4">
           
-          {/* Brand Identity / Big Distinct Logo */}
+          {/* Brand Logo */}
           <Link 
             href="/" 
-            className="flex items-center gap-2.5 group focus:outline-none shrink-0" 
+            className="flex items-center gap-2 group focus:outline-none shrink-0" 
             aria-label="Futurex Home"
           >
             {companyLogo ? (
-              <div className="relative h-11 sm:h-14 w-44 sm:w-56 transition-transform duration-200 group-hover:scale-[0.99]">
+              <div className="relative h-10 sm:h-12 w-36 sm:w-48 transition-transform duration-200 group-hover:scale-[0.99]">
                 <Image 
                   src={companyLogo} 
                   alt={companyName} 
                   fill 
                   priority 
-                  sizes="260px"
+                  sizes="220px"
                   className="object-contain object-left filter brightness-110"
                 />
               </div>
             ) : (
-              <div className="flex items-center gap-3">
-                <span className="w-9 h-9 rounded-xl bg-red-600 flex items-center justify-center font-mono font-bold text-white text-sm shadow-[0_0_18px_rgba(220,38,38,0.5)]">
+              <div className="flex items-center gap-2.5">
+                <span className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center font-mono font-bold text-white text-xs shadow-[0_0_15px_rgba(220,38,38,0.5)]">
                   F
                 </span>
-                <span className="text-2xl font-semibold tracking-[-0.03em] text-white">
+                <span className="text-xl font-semibold tracking-[-0.03em] text-white">
                   FUTUREX<span className="text-red-500 font-normal">.</span>
                 </span>
               </div>
             )}
           </Link>
 
-          {/* Desktop Navigation Capsule */}
+          {/* Desktop Navigation Capsule (Ultra-Compact Single Line) */}
           <nav 
-            className="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-white/[0.09] px-2.5 py-1.5 backdrop-blur-xl rounded-full shadow-2xs" 
+            className="hidden lg:flex items-center gap-0.5 bg-white/[0.03] border border-white/[0.09] px-2 py-1.5 backdrop-blur-xl rounded-full shadow-2xs" 
             aria-label="Primary navigation"
           >
             {navItems.map((item) => {
               const currentPath = pathname || '';
-              const isActive = currentPath === item.href || currentPath.startsWith(`${item.href}/`);
+              const isActive = currentPath === item.href || (item.children && item.children.some(child => currentPath === child.href));
+              const isDropdownOpen = activeDropdown === item.label;
               
+              if (item.children) {
+                return (
+                  <div 
+                    key={item.label} 
+                    className="relative group py-1"
+                    onMouseEnter={() => handleMouseEnter(item.label)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`relative inline-flex items-center gap-1 px-3 py-1 text-[11.5px] font-mono tracking-[0.12em] uppercase whitespace-nowrap transition-colors duration-200 ${
+                        isActive ? 'text-white font-medium' : 'text-neutral-400 hover:text-white'
+                      }`}
+                    >
+                      <span className="relative z-10">{item.label}</span>
+                      <ChevronDown size={11} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-red-500' : ''}`} />
+
+                      {isActive && (
+                        <motion.span 
+                          layoutId="activeHeaderPill"
+                          className="absolute inset-0 rounded-full bg-white/[0.08] border border-white/[0.12] -z-0"
+                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+
+                    {/* Smooth Hover Dropdown Menu */}
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                          transition={{ duration: 0.18, ease: easeEditorial }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-60 z-50"
+                        >
+                          <div className="bg-[#0A0D12]/95 border border-white/12 rounded-2xl shadow-2xl p-1.5 backdrop-blur-2xl">
+                            <div className="flex flex-col gap-0.5">
+                              {item.children.map((child) => {
+                                const isChildActive = currentPath === child.href;
+                                return (
+                                  <Link
+                                    key={child.href}
+                                    href={child.href}
+                                    onClick={() => setActiveDropdown(null)}
+                                    className={`group/item flex flex-col px-3 py-2 rounded-xl transition-all ${
+                                      isChildActive ? 'bg-red-600/20 border border-red-500/30' : 'hover:bg-white/[0.06]'
+                                    }`}
+                                  >
+                                    <span className={`text-[11px] font-mono font-medium tracking-wider uppercase flex items-center justify-between ${
+                                      isChildActive ? 'text-red-400' : 'text-white group-hover/item:text-red-400'
+                                    }`}>
+                                      {child.label}
+                                      <ChevronRight size={11} className="opacity-0 group-hover/item:opacity-100 transition-opacity -translate-x-1 group-hover/item:translate-x-0" />
+                                    </span>
+                                    <span className="text-[10px] text-neutral-400 mt-0.5 leading-snug">
+                                      {child.description}
+                                    </span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <Link 
                   key={item.href} 
                   href={item.href} 
-                  className={`group relative px-3.5 py-1 text-xs font-mono tracking-[0.14em] uppercase transition-colors duration-200 ${
+                  className={`relative px-3 py-1 text-[11.5px] font-mono tracking-[0.12em] uppercase whitespace-nowrap transition-colors duration-200 ${
                     isActive ? 'text-white font-medium' : 'text-neutral-400 hover:text-white'
                   }`}
                 >
@@ -188,18 +288,17 @@ export function Header() {
           </nav>
 
           {/* Action CTA & Mobile Trigger */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0">
             <a 
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase rounded-full transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.35)] hover:shadow-[0_0_24px_rgba(220,38,38,0.5)] active:scale-95 cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-[11px] font-medium tracking-wider uppercase rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(220,38,38,0.35)] hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] active:scale-95 cursor-pointer"
             >
               <span>Exhibit With Us</span>
-              <ArrowUpRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight size={12} />
             </a>
 
-            {/* Pure Minimalist Hamburger Button */}
             <button 
               type="button"
               onClick={() => setMenuOpen(true)} 
@@ -208,7 +307,7 @@ export function Header() {
               aria-label="Open navigation menu" 
               className="lg:hidden p-1.5 text-white hover:text-red-500 transition-colors cursor-pointer active:scale-90"
             >
-              <Menu size={24} className="stroke-[2.2]" />
+              <Menu size={22} className="stroke-[2.2]" />
             </button>
           </div>
 
@@ -228,53 +327,86 @@ export function Header() {
           >
             {/* Top Bar */}
             <div className="relative z-10">
-              <div className="flex justify-between items-center pb-6 border-b border-white/[0.08]">
-                <div className="flex items-center gap-2.5">
+              <div className="flex justify-between items-center pb-5 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                   <span className="font-mono text-[11px] tracking-widest text-neutral-300 uppercase">
                     Futurex Directory
                   </span>
                 </div>
 
-                {/* Pure Minimal Close Icon */}
                 <button 
                   type="button"
                   onClick={() => setMenuOpen(false)} 
                   aria-label="Close menu" 
                   className="p-1.5 text-white hover:text-red-500 transition-colors cursor-pointer active:scale-90"
                 >
-                  <X size={24} className="stroke-[2.2]" />
+                  <X size={22} className="stroke-[2.2]" />
                 </button>
               </div>
 
               {/* Navigation Links */}
-              <nav aria-label="Mobile navigation" className="flex flex-col mt-8 divide-y divide-white/[0.04]">
+              <nav aria-label="Mobile navigation" className="flex flex-col mt-4 divide-y divide-white/[0.04]">
                 {navItems.map((item, index) => {
                   const currentPath = pathname || '';
-                  const isActive = currentPath === item.href || currentPath.startsWith(`${item.href}/`);
+                  const isActive = currentPath === item.href || (item.children && item.children.some(child => currentPath === child.href));
                   const formattedIndex = String(index + 1).padStart(2, '0');
 
                   return (
                     <motion.div key={item.href} variants={reducedMotion ? undefined : mobileItemVariants}>
-                      <Link 
-                        href={item.href}
-                        onClick={() => setMenuOpen(false)}
-                        className={`flex items-center justify-between py-4 group transition-colors ${
-                          isActive ? 'text-white' : 'text-neutral-400 hover:text-white'
-                        }`}
-                      >
-                        <div className="flex items-center gap-4">
-                          <span className="font-mono text-xs font-semibold text-neutral-500 group-hover:text-red-500 transition-colors">
-                            {formattedIndex}
-                          </span>
-                          <span className={`text-xl font-medium tracking-tight group-hover:translate-x-1 transition-transform ${
-                            isActive ? 'text-red-500' : 'text-white'
-                          }`}>
-                            {item.label}
-                          </span>
+                      {item.children ? (
+                        <div className="py-3">
+                          <div className="flex items-center justify-between text-neutral-400 py-1">
+                            <div className="flex items-center gap-3">
+                              <span className="font-mono text-xs font-semibold text-neutral-500">
+                                {formattedIndex}
+                              </span>
+                              <span className={`text-lg font-medium tracking-tight ${isActive ? 'text-red-500' : 'text-white'}`}>
+                                {item.label}
+                              </span>
+                            </div>
+                          </div>
+                          {/* Nested Sub-links for Mobile */}
+                          <div className="pl-8 mt-1.5 flex flex-col gap-2 border-l border-white/10 ml-2">
+                            {item.children.map((child) => {
+                              const isChildActive = currentPath === child.href;
+                              return (
+                                <Link
+                                  key={child.href}
+                                  href={child.href}
+                                  onClick={() => setMenuOpen(false)}
+                                  className={`py-1 text-xs font-mono tracking-wider uppercase transition-colors flex items-center justify-between ${
+                                    isChildActive ? 'text-red-400 font-semibold' : 'text-neutral-400 hover:text-white'
+                                  }`}
+                                >
+                                  <span>{child.label}</span>
+                                  <ChevronRight size={13} className="text-neutral-600" />
+                                </Link>
+                              );
+                            })}
+                          </div>
                         </div>
-                        <ChevronRight size={16} className="text-neutral-500 group-hover:text-red-500 group-hover:translate-x-1 transition-all" />
-                      </Link>
+                      ) : (
+                        <Link 
+                          href={item.href}
+                          onClick={() => setMenuOpen(false)}
+                          className={`flex items-center justify-between py-3.5 group transition-colors ${
+                            isActive ? 'text-white' : 'text-neutral-400 hover:text-white'
+                          }`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs font-semibold text-neutral-500 group-hover:text-red-500 transition-colors">
+                              {formattedIndex}
+                            </span>
+                            <span className={`text-lg font-medium tracking-tight group-hover:translate-x-1 transition-transform ${
+                              isActive ? 'text-red-500' : 'text-white'
+                            }`}>
+                              {item.label}
+                            </span>
+                          </div>
+                          <ChevronRight size={15} className="text-neutral-500 group-hover:text-red-500 group-hover:translate-x-1 transition-all" />
+                        </Link>
+                      )}
                     </motion.div>
                   );
                 })}
@@ -284,37 +416,37 @@ export function Header() {
             {/* Bottom Actions & Contacts */}
             <motion.div 
               variants={reducedMotion ? undefined : mobileItemVariants}
-              className="relative z-10 pt-8 mt-6 border-t border-white/[0.08] flex flex-col gap-5"
+              className="relative z-10 pt-5 mt-3 border-t border-white/[0.08] flex flex-col gap-3.5"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <a 
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
-                  className="w-full py-3.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase text-center rounded-full transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase text-center rounded-full transition-all shadow-[0_0_15px_rgba(220,38,38,0.4)] flex items-center justify-center gap-2"
                 >
-                  <MessageSquare size={14} />
+                  <MessageSquare size={13} />
                   <span>Exhibit With Us (WhatsApp)</span>
                 </a>
                 <Link 
                   href="/participants#visitor" 
                   onClick={() => setMenuOpen(false)}
-                  className="w-full py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-neutral-300 text-xs font-mono tracking-wider uppercase text-center rounded-full transition-all flex items-center justify-center"
+                  className="w-full py-3 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-neutral-300 text-xs font-mono tracking-wider uppercase text-center rounded-full transition-all flex items-center justify-center"
                 >
                   Trade Pass Accreditation
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neutral-400 pt-3">
-                <div className="flex items-center gap-2">
-                  <Phone size={13} className="text-red-500" />
+              <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neutral-400 pt-1">
+                <div className="flex items-center gap-1.5">
+                  <Phone size={12} className="text-red-500" />
                   <a href="tel:+911140538400" className="hover:text-white transition-colors">
                     +91-11-4053-8400
                   </a>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Mail size={13} className="text-red-500" />
+                <div className="flex items-center gap-1.5">
+                  <Mail size={12} className="text-red-500" />
                   <a href="mailto:admin@futurextrade.com" className="hover:text-white transition-colors">
                     admin@futurextrade.com
                   </a>

@@ -1,0 +1,2936 @@
+[
+  {
+    "id": "auto-part-1",
+    "name": "AIPIA",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/AIPIA.webp"
+  },
+  {
+    "id": "auto-part-2",
+    "name": "ASK",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/ASK.webp"
+  },
+  {
+    "id": "auto-part-3",
+    "name": "ASSOCHAM",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/ASSOCHAM.webp"
+  },
+  {
+    "id": "auto-part-4",
+    "name": "CIEO LOGO",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/CIEO-LOGO.webp"
+  },
+  {
+    "id": "auto-part-5",
+    "name": "CII",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/CII.webp"
+  },
+  {
+    "id": "auto-part-6",
+    "name": "Etsipl",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/etsipl.webp"
+  },
+  {
+    "id": "auto-part-7",
+    "name": "FIEO LOGO",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/FIEO-LOGO.webp"
+  },
+  {
+    "id": "auto-part-8",
+    "name": "HITEXS",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/HITEXS.webp"
+  },
+  {
+    "id": "auto-part-9",
+    "name": "MEDIA SPACE",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/MEDIA-SPACE.webp"
+  },
+  {
+    "id": "auto-part-10",
+    "name": "PHD CHAMBERS",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/PHD-CHAMBERS.webp"
+  },
+  {
+    "id": "auto-part-11",
+    "name": "SHOWCRAFT",
+    "category": "Our Associates",
+    "logo": "/gallery/participants/Our-Associates/SHOWCRAFT.webp"
+  },
+  {
+    "id": "auto-part-12",
+    "name": "ASK",
+    "category": "Our Partners",
+    "logo": "/gallery/participants/our-partners/ASK.webp"
+  },
+  {
+    "id": "auto-part-13",
+    "name": "CII",
+    "category": "Our Partners",
+    "logo": "/gallery/participants/our-partners/CII.webp"
+  },
+  {
+    "id": "auto-part-14",
+    "name": "Etsipl",
+    "category": "Our Partners",
+    "logo": "/gallery/participants/our-partners/etsipl.webp"
+  },
+  {
+    "id": "auto-part-15",
+    "name": "EXPOSALE",
+    "category": "Our Partners",
+    "logo": "/gallery/participants/our-partners/EXPOSALE.webp"
+  },
+  {
+    "id": "auto-part-16",
+    "name": "IIA",
+    "category": "Our Partners",
+    "logo": "/gallery/participants/our-partners/IIA.webp"
+  },
+  {
+    "id": "auto-part-17",
+    "name": "PHD",
+    "category": "Our Partners",
+    "logo": "/gallery/participants/our-partners/PHD.webp"
+  },
+  {
+    "id": "auto-part-18",
+    "name": "AA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AA.webp"
+  },
+  {
+    "id": "auto-part-19",
+    "name": "ABRO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ABRO.webp"
+  },
+  {
+    "id": "auto-part-20",
+    "name": "ACCLITE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ACCLITE.webp"
+  },
+  {
+    "id": "auto-part-21",
+    "name": "ACCUTEC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ACCUTEC.webp"
+  },
+  {
+    "id": "auto-part-22",
+    "name": "ACE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ACE.webp"
+  },
+  {
+    "id": "auto-part-23",
+    "name": "ACINACO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ACINACO.webp"
+  },
+  {
+    "id": "auto-part-24",
+    "name": "ACTION TESA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ACTION-TESA.webp"
+  },
+  {
+    "id": "auto-part-25",
+    "name": "AERO BRICKS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AERO-BRICKS.webp"
+  },
+  {
+    "id": "auto-part-26",
+    "name": "AERO FIBR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AERO-FIBR.webp"
+  },
+  {
+    "id": "auto-part-27",
+    "name": "AGM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AGM.webp"
+  },
+  {
+    "id": "auto-part-28",
+    "name": "AGROSAW",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AGROSAW.webp"
+  },
+  {
+    "id": "auto-part-29",
+    "name": "AHLADA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AHLADA.webp"
+  },
+  {
+    "id": "auto-part-30",
+    "name": "AIMIL LTD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AIMIL-LTD.webp"
+  },
+  {
+    "id": "auto-part-31",
+    "name": "AJAX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AJAX.webp"
+  },
+  {
+    "id": "auto-part-32",
+    "name": "AKG",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AKG.webp"
+  },
+  {
+    "id": "auto-part-33",
+    "name": "ALFAPEN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALFAPEN.webp"
+  },
+  {
+    "id": "auto-part-34",
+    "name": "ALIM LINE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALIM-LINE.webp"
+  },
+  {
+    "id": "auto-part-35",
+    "name": "ALLANA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALLANA.webp"
+  },
+  {
+    "id": "auto-part-36",
+    "name": "ALLTECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALLTECH.webp"
+  },
+  {
+    "id": "auto-part-37",
+    "name": "ALMED",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALMED.webp"
+  },
+  {
+    "id": "auto-part-38",
+    "name": "ALPHA DOORMAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALPHA-DOORMAN.webp"
+  },
+  {
+    "id": "auto-part-39",
+    "name": "ALSTONE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALSTONE.webp"
+  },
+  {
+    "id": "auto-part-40",
+    "name": "ALSTRONG",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALSTRONG.webp"
+  },
+  {
+    "id": "auto-part-41",
+    "name": "ALTERNATIVE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALTERNATIVE.webp"
+  },
+  {
+    "id": "auto-part-42",
+    "name": "ALU DECOR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALU-DECOR.webp"
+  },
+  {
+    "id": "auto-part-43",
+    "name": "ALU MAX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALU-MAX.webp"
+  },
+  {
+    "id": "auto-part-44",
+    "name": "ALULANKA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ALULANKA.webp"
+  },
+  {
+    "id": "auto-part-45",
+    "name": "AMBER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AMBER.webp"
+  },
+  {
+    "id": "auto-part-46",
+    "name": "AMBICA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AMBICA.webp"
+  },
+  {
+    "id": "auto-part-47",
+    "name": "AMULYA MICA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AMULYA-MICA.webp"
+  },
+  {
+    "id": "auto-part-48",
+    "name": "AMW",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AMW.webp"
+  },
+  {
+    "id": "auto-part-49",
+    "name": "AND GLOBAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AND-GLOBAL.webp"
+  },
+  {
+    "id": "auto-part-50",
+    "name": "ANGEL PRINT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ANGEL-PRINT.webp"
+  },
+  {
+    "id": "auto-part-51",
+    "name": "ANGLE SOLUTION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ANGLE-SOLUTION.webp"
+  },
+  {
+    "id": "auto-part-52",
+    "name": "ANYWAY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ANYWAY.webp"
+  },
+  {
+    "id": "auto-part-53",
+    "name": "AP ROYAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AP-ROYAL.webp"
+  },
+  {
+    "id": "auto-part-54",
+    "name": "APLAPOLLO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/APLAPOLLO.webp"
+  },
+  {
+    "id": "auto-part-55",
+    "name": "APOLLO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/APOLLO.webp"
+  },
+  {
+    "id": "auto-part-56",
+    "name": "APURVA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/APURVA.webp"
+  },
+  {
+    "id": "auto-part-57",
+    "name": "ASHTVINAYAK",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ASHTVINAYAK.webp"
+  },
+  {
+    "id": "auto-part-58",
+    "name": "ASIAN GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ASIAN-GROUP.webp"
+  },
+  {
+    "id": "auto-part-59",
+    "name": "ASIS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ASIS.webp"
+  },
+  {
+    "id": "auto-part-60",
+    "name": "ASSOCIATE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ASSOCIATE.webp"
+  },
+  {
+    "id": "auto-part-61",
+    "name": "ATC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ATC.webp"
+  },
+  {
+    "id": "auto-part-62",
+    "name": "AUM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AUM.webp"
+  },
+  {
+    "id": "auto-part-63",
+    "name": "AVEVA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AVEVA.webp"
+  },
+  {
+    "id": "auto-part-64",
+    "name": "AWESOME SCREENS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AWESOME-SCREENS.webp"
+  },
+  {
+    "id": "auto-part-65",
+    "name": "AXARDEEP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/AXARDEEP.webp"
+  },
+  {
+    "id": "auto-part-66",
+    "name": "B.R",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/B.R.-FABRICATION.webp"
+  },
+  {
+    "id": "auto-part-67",
+    "name": "BALAJI CEMENT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BALAJI-CEMENT.webp"
+  },
+  {
+    "id": "auto-part-68",
+    "name": "BANGLADESH DAIRY POULTRY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BANGLADESH-DAIRY-POULTRY.webp"
+  },
+  {
+    "id": "auto-part-69",
+    "name": "BARCODE NEPAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BARCODE-NEPAL.webp"
+  },
+  {
+    "id": "auto-part-70",
+    "name": "BASCO TOOL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BASCO-TOOL.webp"
+  },
+  {
+    "id": "auto-part-71",
+    "name": "BATH N ROOM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BATH-N-ROOM.webp"
+  },
+  {
+    "id": "auto-part-72",
+    "name": "BATH SENSE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BATH-SENSE.webp"
+  },
+  {
+    "id": "auto-part-73",
+    "name": "BATI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BATI.webp"
+  },
+  {
+    "id": "auto-part-74",
+    "name": "BB",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BB.webp"
+  },
+  {
+    "id": "auto-part-75",
+    "name": "BCS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BCS.webp"
+  },
+  {
+    "id": "auto-part-76",
+    "name": "BECKER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BECKER.webp"
+  },
+  {
+    "id": "auto-part-77",
+    "name": "BEJ CERAMIC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BEJ-CERAMIC.webp"
+  },
+  {
+    "id": "auto-part-78",
+    "name": "BELLAARTE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BELLAARTE.webp"
+  },
+  {
+    "id": "auto-part-79",
+    "name": "BELLACASA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BELLACASA.webp"
+  },
+  {
+    "id": "auto-part-80",
+    "name": "BESSEY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BESSEY.webp"
+  },
+  {
+    "id": "auto-part-81",
+    "name": "BHAGAT METAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BHAGAT-METAL.webp"
+  },
+  {
+    "id": "auto-part-82",
+    "name": "BIG DUTCMAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BIG-DUTCMAN.webp"
+  },
+  {
+    "id": "auto-part-83",
+    "name": "BOBCAT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BOBCAT.webp"
+  },
+  {
+    "id": "auto-part-84",
+    "name": "BONDING TOGETHER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BONDING-TOGETHER.webp"
+  },
+  {
+    "id": "auto-part-85",
+    "name": "BOSCH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BOSCH.webp"
+  },
+  {
+    "id": "auto-part-86",
+    "name": "BOSS LOCKS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BOSS-LOCKS.webp"
+  },
+  {
+    "id": "auto-part-87",
+    "name": "BR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BR.webp"
+  },
+  {
+    "id": "auto-part-88",
+    "name": "BRICKWELL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BRICKWELL.webp"
+  },
+  {
+    "id": "auto-part-89",
+    "name": "BRIDGE TECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BRIDGE-TECH.webp"
+  },
+  {
+    "id": "auto-part-90",
+    "name": "BRMM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BRMM.webp"
+  },
+  {
+    "id": "auto-part-91",
+    "name": "BUTTERFLY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/BUTTERFLY.webp"
+  },
+  {
+    "id": "auto-part-92",
+    "name": "CAMRY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CAMRY.webp"
+  },
+  {
+    "id": "auto-part-93",
+    "name": "CATA PORTA IMPEX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CATA-PORTA-IMPEX.webp"
+  },
+  {
+    "id": "auto-part-94",
+    "name": "CENTEPOINT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CENTEPOINT.webp"
+  },
+  {
+    "id": "auto-part-95",
+    "name": "CENTURY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CENTURY.webp"
+  },
+  {
+    "id": "auto-part-96",
+    "name": "CERAMIX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CERAMIX.webp"
+  },
+  {
+    "id": "auto-part-97",
+    "name": "CHANDRANCHAL GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CHANDRANCHAL-GROUP.webp"
+  },
+  {
+    "id": "auto-part-98",
+    "name": "CLADING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CLADING.webp"
+  },
+  {
+    "id": "auto-part-99",
+    "name": "CLANDING STEEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CLANDING-STEEL.webp"
+  },
+  {
+    "id": "auto-part-100",
+    "name": "CLICK VISION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CLICK-VISION.webp"
+  },
+  {
+    "id": "auto-part-101",
+    "name": "CLOSMA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CLOSMA.webp"
+  },
+  {
+    "id": "auto-part-102",
+    "name": "CMS GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CMS-GROUP.webp"
+  },
+  {
+    "id": "auto-part-103",
+    "name": "COBRA PLY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/COBRA-PLY.webp"
+  },
+  {
+    "id": "auto-part-104",
+    "name": "COLAMBIA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/COLAMBIA.webp"
+  },
+  {
+    "id": "auto-part-105",
+    "name": "COLORS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/COLORS.webp"
+  },
+  {
+    "id": "auto-part-106",
+    "name": "COMET",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/COMET.webp"
+  },
+  {
+    "id": "auto-part-107",
+    "name": "COMFORT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/COMFORT.webp"
+  },
+  {
+    "id": "auto-part-108",
+    "name": "CONEQUIP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CONEQUIP.webp"
+  },
+  {
+    "id": "auto-part-109",
+    "name": "CONTROL PRINT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CONTROL-PRINT.webp"
+  },
+  {
+    "id": "auto-part-110",
+    "name": "CPCE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CPCE.webp"
+  },
+  {
+    "id": "auto-part-111",
+    "name": "CPL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CPL.webp"
+  },
+  {
+    "id": "auto-part-112",
+    "name": "CPT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CPT.webp"
+  },
+  {
+    "id": "auto-part-113",
+    "name": "CROM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CROM.webp"
+  },
+  {
+    "id": "auto-part-114",
+    "name": "CSIR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CSIR.webp"
+  },
+  {
+    "id": "auto-part-115",
+    "name": "CTC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/CTC.webp"
+  },
+  {
+    "id": "auto-part-116",
+    "name": "DAEWOO NDDIA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DAEWOO-NDDIA.webp"
+  },
+  {
+    "id": "auto-part-117",
+    "name": "DARSHAN SOLUTION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DARSHAN-SOLUTION.webp"
+  },
+  {
+    "id": "auto-part-118",
+    "name": "DARSHAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DARSHAN.webp"
+  },
+  {
+    "id": "auto-part-119",
+    "name": "DD BRASS KRISHU",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DD-BRASS-KRISHU.webp"
+  },
+  {
+    "id": "auto-part-120",
+    "name": "DECOR LAND",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DECOR-LAND.webp"
+  },
+  {
+    "id": "auto-part-121",
+    "name": "DECORA GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DECORA-GROUP.webp"
+  },
+  {
+    "id": "auto-part-122",
+    "name": "DECORA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DECORA.webp"
+  },
+  {
+    "id": "auto-part-123",
+    "name": "DEEPALI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DEEPALI.webp"
+  },
+  {
+    "id": "auto-part-124",
+    "name": "DEERA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DEERA.webp"
+  },
+  {
+    "id": "auto-part-125",
+    "name": "DELL CERAMIC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DELL-CERAMIC.webp"
+  },
+  {
+    "id": "auto-part-126",
+    "name": "DELL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DELL.webp"
+  },
+  {
+    "id": "auto-part-127",
+    "name": "DEV",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DEV.webp"
+  },
+  {
+    "id": "auto-part-128",
+    "name": "DHANRAJ",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DHANRAJ.webp"
+  },
+  {
+    "id": "auto-part-129",
+    "name": "DOORSAFE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DOORSAFE.webp"
+  },
+  {
+    "id": "auto-part-130",
+    "name": "DOOSAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DOOSAN.webp"
+  },
+  {
+    "id": "auto-part-131",
+    "name": "DORFIX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DORFIX.webp"
+  },
+  {
+    "id": "auto-part-132",
+    "name": "DORMA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DORMA.webp"
+  },
+  {
+    "id": "auto-part-133",
+    "name": "DORMASTER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DORMASTER.webp"
+  },
+  {
+    "id": "auto-part-134",
+    "name": "DORSAFE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DORSAFE.webp"
+  },
+  {
+    "id": "auto-part-135",
+    "name": "DOW",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DOW.webp"
+  },
+  {
+    "id": "auto-part-136",
+    "name": "DOWSIL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DOWSIL.webp"
+  },
+  {
+    "id": "auto-part-137",
+    "name": "DURAROOF",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/DURAROOF.webp"
+  },
+  {
+    "id": "auto-part-138",
+    "name": "E3",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/E3.webp"
+  },
+  {
+    "id": "auto-part-139",
+    "name": "ECMAS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ECMAS.webp"
+  },
+  {
+    "id": "auto-part-140",
+    "name": "ECO ROOFING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ECO-ROOFING.webp"
+  },
+  {
+    "id": "auto-part-141",
+    "name": "ECOPEB",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ECOPEB.webp"
+  },
+  {
+    "id": "auto-part-142",
+    "name": "EEGGER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EEGGER.webp"
+  },
+  {
+    "id": "auto-part-143",
+    "name": "EG INFRA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EG-INFRA.webp"
+  },
+  {
+    "id": "auto-part-144",
+    "name": "EIE INSRUMENTS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EIE-INSRUMENTS.webp"
+  },
+  {
+    "id": "auto-part-145",
+    "name": "ELCON FASTNERS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ELCON-FASTNERS.webp"
+  },
+  {
+    "id": "auto-part-146",
+    "name": "ELECTROMEC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ELECTROMEC.webp"
+  },
+  {
+    "id": "auto-part-147",
+    "name": "ELUMATEC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ELUMATEC.webp"
+  },
+  {
+    "id": "auto-part-148",
+    "name": "EMICON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EMICON.webp"
+  },
+  {
+    "id": "auto-part-149",
+    "name": "EMMEGI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EMMEGI.webp"
+  },
+  {
+    "id": "auto-part-150",
+    "name": "ENDICO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ENDICO.webp"
+  },
+  {
+    "id": "auto-part-151",
+    "name": "EP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EP.webp"
+  },
+  {
+    "id": "auto-part-152",
+    "name": "EPACK",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EPACK.webp"
+  },
+  {
+    "id": "auto-part-153",
+    "name": "EVEREST FIBR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EVEREST-FIBR.webp"
+  },
+  {
+    "id": "auto-part-154",
+    "name": "EVEREST",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/EVEREST.webp"
+  },
+  {
+    "id": "auto-part-155",
+    "name": "FA FAUNDATION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FA-FAUNDATION.webp"
+  },
+  {
+    "id": "auto-part-156",
+    "name": "FAB INDIA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FAB-INDIA.webp"
+  },
+  {
+    "id": "auto-part-157",
+    "name": "FANESTA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FANESTA.webp"
+  },
+  {
+    "id": "auto-part-158",
+    "name": "FELDER GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FELDER-GROUP.webp"
+  },
+  {
+    "id": "auto-part-159",
+    "name": "FG GLASS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FG-GLASS.webp"
+  },
+  {
+    "id": "auto-part-160",
+    "name": "FLIP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FLIP.webp"
+  },
+  {
+    "id": "auto-part-161",
+    "name": "FMT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FMT.webp"
+  },
+  {
+    "id": "auto-part-162",
+    "name": "FOM INDUSTRIE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FOM-INDUSTRIE.webp"
+  },
+  {
+    "id": "auto-part-163",
+    "name": "FOREST PRESS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FOREST-PRESS.webp"
+  },
+  {
+    "id": "auto-part-164",
+    "name": "FOSROC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FOSROC.webp"
+  },
+  {
+    "id": "auto-part-165",
+    "name": "FREEDOM SCREENS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FREEDOM-SCREENS.webp"
+  },
+  {
+    "id": "auto-part-166",
+    "name": "FREUD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FREUD.webp"
+  },
+  {
+    "id": "auto-part-167",
+    "name": "FRIGOR TECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/FRIGOR-TECH.webp"
+  },
+  {
+    "id": "auto-part-168",
+    "name": "G & C INFRA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/G-&-C-INFRA.webp"
+  },
+  {
+    "id": "auto-part-169",
+    "name": "GABBAR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GABBAR.webp"
+  },
+  {
+    "id": "auto-part-170",
+    "name": "GAINWELL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GAINWELL.webp"
+  },
+  {
+    "id": "auto-part-171",
+    "name": "GAMINI ENTERPRISES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GAMINI-ENTERPRISES.webp"
+  },
+  {
+    "id": "auto-part-172",
+    "name": "GARTEC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GARTEC.webp"
+  },
+  {
+    "id": "auto-part-173",
+    "name": "GCI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GCI.webp"
+  },
+  {
+    "id": "auto-part-174",
+    "name": "GE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GE.webp"
+  },
+  {
+    "id": "auto-part-175",
+    "name": "GEETA INDUSTRIES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GEETA-INDUSTRIES.webp"
+  },
+  {
+    "id": "auto-part-176",
+    "name": "GINZA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GINZA.webp"
+  },
+  {
+    "id": "auto-part-177",
+    "name": "GL LAM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GL-LAM.webp"
+  },
+  {
+    "id": "auto-part-178",
+    "name": "GLAMAC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GLAMAC.webp"
+  },
+  {
+    "id": "auto-part-179",
+    "name": "GLASS WALL SYSTEM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GLASS-WALL-SYSTEM.webp"
+  },
+  {
+    "id": "auto-part-180",
+    "name": "GLOBAL TRADING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GLOBAL-TRADING.webp"
+  },
+  {
+    "id": "auto-part-181",
+    "name": "GOLCHHA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GOLCHHA.webp"
+  },
+  {
+    "id": "auto-part-182",
+    "name": "GOLKING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GOLKING.webp"
+  },
+  {
+    "id": "auto-part-183",
+    "name": "GORKA PRECAST",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GORKA-PRECAST.webp"
+  },
+  {
+    "id": "auto-part-184",
+    "name": "GORKHA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GORKHA.webp"
+  },
+  {
+    "id": "auto-part-185",
+    "name": "GOSAI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GOSAI.webp"
+  },
+  {
+    "id": "auto-part-186",
+    "name": "GOURAV NEPAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GOURAV-NEPAL.webp"
+  },
+  {
+    "id": "auto-part-187",
+    "name": "GRAIN TECHNIK",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GRAIN-TECHNIK.webp"
+  },
+  {
+    "id": "auto-part-188",
+    "name": "GRAN TON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GRAN-TON.webp"
+  },
+  {
+    "id": "auto-part-189",
+    "name": "GRANCIER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GRANCIER.webp"
+  },
+  {
+    "id": "auto-part-190",
+    "name": "GRAPHIC INSTRUMENTS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GRAPHIC-INSTRUMENTS.webp"
+  },
+  {
+    "id": "auto-part-191",
+    "name": "GREEN LAM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GREEN-LAM.webp"
+  },
+  {
+    "id": "auto-part-192",
+    "name": "GREEN PANEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GREEN-PANEL.webp"
+  },
+  {
+    "id": "auto-part-193",
+    "name": "GREEN SMART WOOD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GREEN-SMART-WOOD.webp"
+  },
+  {
+    "id": "auto-part-194",
+    "name": "GS CONSORTIUM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GS-CONSORTIUM.webp"
+  },
+  {
+    "id": "auto-part-195",
+    "name": "GSEZ",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GSEZ.webp"
+  },
+  {
+    "id": "auto-part-196",
+    "name": "GUJCON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GUJCON.webp"
+  },
+  {
+    "id": "auto-part-197",
+    "name": "GURIND",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GURIND.webp"
+  },
+  {
+    "id": "auto-part-198",
+    "name": "GURUCHARAN INDUSTRIES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GURUCHARAN-INDUSTRIES.webp"
+  },
+  {
+    "id": "auto-part-199",
+    "name": "GUTAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/GUTAL.webp"
+  },
+  {
+    "id": "auto-part-200",
+    "name": "HALFEN MOMENT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HALFEN-MOMENT.webp"
+  },
+  {
+    "id": "auto-part-201",
+    "name": "HANDY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HANDY.webp"
+  },
+  {
+    "id": "auto-part-202",
+    "name": "HARDYWYN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HARDYWYN.webp"
+  },
+  {
+    "id": "auto-part-203",
+    "name": "HARI IMPEX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HARI-IMPEX.webp"
+  },
+  {
+    "id": "auto-part-204",
+    "name": "HARISON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HARISON.webp"
+  },
+  {
+    "id": "auto-part-205",
+    "name": "HB",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HB.webp"
+  },
+  {
+    "id": "auto-part-206",
+    "name": "HD LUX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HD-LUX.webp"
+  },
+  {
+    "id": "auto-part-207",
+    "name": "HERITAGE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HERITAGE.webp"
+  },
+  {
+    "id": "auto-part-208",
+    "name": "HITECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HITECH.webp"
+  },
+  {
+    "id": "auto-part-209",
+    "name": "HNS GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HNS-GROUP.webp"
+  },
+  {
+    "id": "auto-part-210",
+    "name": "HOCAH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HOCAH.webp"
+  },
+  {
+    "id": "auto-part-211",
+    "name": "HORMANN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HORMANN.webp"
+  },
+  {
+    "id": "auto-part-212",
+    "name": "HORSE POWER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HORSE-POWER.webp"
+  },
+  {
+    "id": "auto-part-213",
+    "name": "HS DIGITAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HS-DIGITAL.webp"
+  },
+  {
+    "id": "auto-part-214",
+    "name": "HULAS STEEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HULAS-STEEL.webp"
+  },
+  {
+    "id": "auto-part-215",
+    "name": "HYLUX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HYLUX.webp"
+  },
+  {
+    "id": "auto-part-216",
+    "name": "HYUNDAI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/HYUNDAI.webp"
+  },
+  {
+    "id": "auto-part-217",
+    "name": "I PRODUCTS MARKETING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/I-PRODUCTS-MARKETING.webp"
+  },
+  {
+    "id": "auto-part-218",
+    "name": "ICON WORLD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ICON-WORLD.webp"
+  },
+  {
+    "id": "auto-part-219",
+    "name": "ICON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ICON.webp"
+  },
+  {
+    "id": "auto-part-220",
+    "name": "IDEAL LAMINATES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/IDEAL-LAMINATES.webp"
+  },
+  {
+    "id": "auto-part-221",
+    "name": "IDEX NEPAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/IDEX-NEPAL.webp"
+  },
+  {
+    "id": "auto-part-222",
+    "name": "IMOS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/IMOS.webp"
+  },
+  {
+    "id": "auto-part-223",
+    "name": "INCREDIBLE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/INCREDIBLE.webp"
+  },
+  {
+    "id": "auto-part-224",
+    "name": "INDIGRAM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/INDIGRAM.webp"
+  },
+  {
+    "id": "auto-part-225",
+    "name": "INSTA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/INSTA.webp"
+  },
+  {
+    "id": "auto-part-226",
+    "name": "INTER SOLAR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/INTER-SOLAR.webp"
+  },
+  {
+    "id": "auto-part-227",
+    "name": "INTERFACE FHARMA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/INTERFACE-FHARMA.webp"
+  },
+  {
+    "id": "auto-part-228",
+    "name": "IONA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/IONA.webp"
+  },
+  {
+    "id": "auto-part-229",
+    "name": "IPM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/IPM.webp"
+  },
+  {
+    "id": "auto-part-230",
+    "name": "JAI VIJAY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JAI-VIJAY.webp"
+  },
+  {
+    "id": "auto-part-231",
+    "name": "JAI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JAI.webp"
+  },
+  {
+    "id": "auto-part-232",
+    "name": "JAT PAINTS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JAT-PAINTS.webp"
+  },
+  {
+    "id": "auto-part-233",
+    "name": "JAYPEE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JAYPEE.webp"
+  },
+  {
+    "id": "auto-part-234",
+    "name": "JB ENT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JB-ENT.webp"
+  },
+  {
+    "id": "auto-part-235",
+    "name": "JINDAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JINDAL.webp"
+  },
+  {
+    "id": "auto-part-236",
+    "name": "JJ MARBLE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JJ-MARBLE.webp"
+  },
+  {
+    "id": "auto-part-237",
+    "name": "JK CEMENT INDUSTRIES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JK-CEMENT-INDUSTRIES.webp"
+  },
+  {
+    "id": "auto-part-238",
+    "name": "JK CEMENT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JK-CEMENT.webp"
+  },
+  {
+    "id": "auto-part-239",
+    "name": "JMA ALUMINIUM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JMA-ALUMINIUM.webp"
+  },
+  {
+    "id": "auto-part-240",
+    "name": "JOHN DEERE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JOHN-DEERE.webp"
+  },
+  {
+    "id": "auto-part-241",
+    "name": "JOWAT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JOWAT.webp"
+  },
+  {
+    "id": "auto-part-242",
+    "name": "JSSC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JSSC.webp"
+  },
+  {
+    "id": "auto-part-243",
+    "name": "JYOTI STICKERS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/JYOTI-STICKERS.webp"
+  },
+  {
+    "id": "auto-part-244",
+    "name": "KALPATARU",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KALPATARU.webp"
+  },
+  {
+    "id": "auto-part-245",
+    "name": "KALYAN INDUSTRIES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KALYAN-INDUSTRIES.webp"
+  },
+  {
+    "id": "auto-part-246",
+    "name": "KANGARU",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KANGARU.webp"
+  },
+  {
+    "id": "auto-part-247",
+    "name": "KAUSHIK",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KAUSHIK.webp"
+  },
+  {
+    "id": "auto-part-248",
+    "name": "KAYMO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KAYMO.webp"
+  },
+  {
+    "id": "auto-part-249",
+    "name": "KEN BOARD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KEN-BOARD.webp"
+  },
+  {
+    "id": "auto-part-250",
+    "name": "KENBOARD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KENBOARD.webp"
+  },
+  {
+    "id": "auto-part-251",
+    "name": "KEW KANWAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KEW-KANWAL.webp"
+  },
+  {
+    "id": "auto-part-252",
+    "name": "KICH STEEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KICH-STEEL.webp"
+  },
+  {
+    "id": "auto-part-253",
+    "name": "KIN LONG",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KIN-LONG.webp"
+  },
+  {
+    "id": "auto-part-254",
+    "name": "KINBON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KINBON.webp"
+  },
+  {
+    "id": "auto-part-255",
+    "name": "KINGSTON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KINGSTON.webp"
+  },
+  {
+    "id": "auto-part-256",
+    "name": "KIPPER PIPES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KIPPER-PIPES.webp"
+  },
+  {
+    "id": "auto-part-257",
+    "name": "KIRLOSKAR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KIRLOSKAR.webp"
+  },
+  {
+    "id": "auto-part-258",
+    "name": "KISSAN CARE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KISSAN-CARE.webp"
+  },
+  {
+    "id": "auto-part-259",
+    "name": "KNAT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KNAT.webp"
+  },
+  {
+    "id": "auto-part-260",
+    "name": "KOEL GREEN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KOEL-GREEN.webp"
+  },
+  {
+    "id": "auto-part-261",
+    "name": "KOOLER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KOOLER.webp"
+  },
+  {
+    "id": "auto-part-262",
+    "name": "KOTAPA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KOTAPA.webp"
+  },
+  {
+    "id": "auto-part-263",
+    "name": "KRISHNA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KRISHNA.webp"
+  },
+  {
+    "id": "auto-part-264",
+    "name": "KRISHU",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KRISHU.webp"
+  },
+  {
+    "id": "auto-part-265",
+    "name": "KRRISH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KRRISH.webp"
+  },
+  {
+    "id": "auto-part-266",
+    "name": "KS ENGG",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KS-ENGG.webp"
+  },
+  {
+    "id": "auto-part-267",
+    "name": "KSM SERVICES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KSM-SERVICES.webp"
+  },
+  {
+    "id": "auto-part-268",
+    "name": "KULDEVI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KULDEVI.webp"
+  },
+  {
+    "id": "auto-part-269",
+    "name": "KURARAY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/KURARAY.webp"
+  },
+  {
+    "id": "auto-part-270",
+    "name": "LAES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LAES.webp"
+  },
+  {
+    "id": "auto-part-271",
+    "name": "LAHOOTI PRINTECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LAHOOTI-PRINTECH.webp"
+  },
+  {
+    "id": "auto-part-272",
+    "name": "LANDMARK TILES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LANDMARK-TILES.webp"
+  },
+  {
+    "id": "auto-part-273",
+    "name": "LESSO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LESSO.webp"
+  },
+  {
+    "id": "auto-part-274",
+    "name": "LG",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LG.webp"
+  },
+  {
+    "id": "auto-part-275",
+    "name": "LGFSYSMAC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LGFSYSMAC.webp"
+  },
+  {
+    "id": "auto-part-276",
+    "name": "LION MAX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LION-MAX.webp"
+  },
+  {
+    "id": "auto-part-277",
+    "name": "LITTLE NAP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LITTLE-NAP.webp"
+  },
+  {
+    "id": "auto-part-278",
+    "name": "LM ENGINEERING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LM-ENGINEERING.webp"
+  },
+  {
+    "id": "auto-part-279",
+    "name": "LOYA PAB",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/LOYA-PAB.webp"
+  },
+  {
+    "id": "auto-part-280",
+    "name": "MAA PLASTIC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAA-PLASTIC.webp"
+  },
+  {
+    "id": "auto-part-281",
+    "name": "MAGNUM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAGNUM.webp"
+  },
+  {
+    "id": "auto-part-282",
+    "name": "MAGNUS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAGNUS.webp"
+  },
+  {
+    "id": "auto-part-283",
+    "name": "MAHINDRA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAHINDRA.webp"
+  },
+  {
+    "id": "auto-part-284",
+    "name": "MANGLAM PIPES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MANGLAM-PIPES.webp"
+  },
+  {
+    "id": "auto-part-285",
+    "name": "MARUTI BOARDS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MARUTI-BOARDS.webp"
+  },
+  {
+    "id": "auto-part-286",
+    "name": "MARUTI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MARUTI.webp"
+  },
+  {
+    "id": "auto-part-287",
+    "name": "MAV",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAV.webp"
+  },
+  {
+    "id": "auto-part-288",
+    "name": "MAX BLOCKS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAX-BLOCKS.webp"
+  },
+  {
+    "id": "auto-part-289",
+    "name": "MAXBLOCKS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAXBLOCKS.webp"
+  },
+  {
+    "id": "auto-part-290",
+    "name": "MAXMECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAXMECH.webp"
+  },
+  {
+    "id": "auto-part-291",
+    "name": "MAXWELL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MAXWELL.webp"
+  },
+  {
+    "id": "auto-part-292",
+    "name": "MB CATING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MB-CATING.webp"
+  },
+  {
+    "id": "auto-part-293",
+    "name": "MEHTA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MEHTA.webp"
+  },
+  {
+    "id": "auto-part-294",
+    "name": "MERCHAN TILE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MERCHAN-TILE.webp"
+  },
+  {
+    "id": "auto-part-295",
+    "name": "METROTILE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/METROTILE.webp"
+  },
+  {
+    "id": "auto-part-296",
+    "name": "MICROGREEN TEC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MICROGREEN-TEC.webp"
+  },
+  {
+    "id": "auto-part-297",
+    "name": "MINERAL AND LOGISTICS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MINERAL-AND-LOGISTICS.webp"
+  },
+  {
+    "id": "auto-part-298",
+    "name": "MODERN PACKAGING INDUSTRY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MODERN-PACKAGING-INDUSTRY.webp"
+  },
+  {
+    "id": "auto-part-299",
+    "name": "MOHUBAR PARTICLE PARTS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MOHUBAR-PARTICLE-PARTS.webp"
+  },
+  {
+    "id": "auto-part-300",
+    "name": "MOMENTIVE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MOMENTIVE.webp"
+  },
+  {
+    "id": "auto-part-301",
+    "name": "MOZARK TURKEY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MOZARK-TURKEY.webp"
+  },
+  {
+    "id": "auto-part-302",
+    "name": "MT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MT.webp"
+  },
+  {
+    "id": "auto-part-303",
+    "name": "MTC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MTC.webp"
+  },
+  {
+    "id": "auto-part-304",
+    "name": "MUCCHINA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MUCCHINA.webp"
+  },
+  {
+    "id": "auto-part-305",
+    "name": "MWUD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MWUD.webp"
+  },
+  {
+    "id": "auto-part-306",
+    "name": "MYK ARMENT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MYK-ARMENT.webp"
+  },
+  {
+    "id": "auto-part-307",
+    "name": "MYTAO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/MYTAO.webp"
+  },
+  {
+    "id": "auto-part-308",
+    "name": "NAFFCO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NAFFCO.webp"
+  },
+  {
+    "id": "auto-part-309",
+    "name": "NAPH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NAPH.webp"
+  },
+  {
+    "id": "auto-part-310",
+    "name": "NATURAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NATURAL.webp"
+  },
+  {
+    "id": "auto-part-311",
+    "name": "NATURE GOLD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NATURE-GOLD.webp"
+  },
+  {
+    "id": "auto-part-312",
+    "name": "NEMAX NEPAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NEMAX-NEPAL.webp"
+  },
+  {
+    "id": "auto-part-313",
+    "name": "NEPTUNE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NEPTUNE.webp"
+  },
+  {
+    "id": "auto-part-314",
+    "name": "NEST",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NEST.webp"
+  },
+  {
+    "id": "auto-part-315",
+    "name": "NEW ALUTECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NEW-ALUTECH.webp"
+  },
+  {
+    "id": "auto-part-316",
+    "name": "NEW SHAMA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NEW-SHAMA.webp"
+  },
+  {
+    "id": "auto-part-317",
+    "name": "NIHAR INDUSTRIES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NIHAR-INDUSTRIES.webp"
+  },
+  {
+    "id": "auto-part-318",
+    "name": "NOAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NOAN.webp"
+  },
+  {
+    "id": "auto-part-319",
+    "name": "NORTH PACKAGING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NORTH-PACKAGING.webp"
+  },
+  {
+    "id": "auto-part-320",
+    "name": "NOVA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NOVA.webp"
+  },
+  {
+    "id": "auto-part-321",
+    "name": "NUPLAST",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/NUPLAST.webp"
+  },
+  {
+    "id": "auto-part-322",
+    "name": "OCTIVA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/OCTIVA.webp"
+  },
+  {
+    "id": "auto-part-323",
+    "name": "OMKAR TRADERS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/OMKAR-TRADERS.webp"
+  },
+  {
+    "id": "auto-part-324",
+    "name": "ORBIT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ORBIT.webp"
+  },
+  {
+    "id": "auto-part-325",
+    "name": "ORIENT MICRO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ORIENT-MICRO.webp"
+  },
+  {
+    "id": "auto-part-326",
+    "name": "ORITHAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ORITHAN.webp"
+  },
+  {
+    "id": "auto-part-327",
+    "name": "ORNARE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ORNARE.webp"
+  },
+  {
+    "id": "auto-part-328",
+    "name": "OSAKA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/OSAKA.webp"
+  },
+  {
+    "id": "auto-part-329",
+    "name": "PADMAVATI SOLUTION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PADMAVATI-SOLUTION.webp"
+  },
+  {
+    "id": "auto-part-330",
+    "name": "PAKONA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PAKONA.webp"
+  },
+  {
+    "id": "auto-part-331",
+    "name": "PANAMAX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PANAMAX.webp"
+  },
+  {
+    "id": "auto-part-332",
+    "name": "PANCHOKANYA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PANCHOKANYA.webp"
+  },
+  {
+    "id": "auto-part-333",
+    "name": "PANS ARCHITECTURAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PANS-ARCHITECTURAL.webp"
+  },
+  {
+    "id": "auto-part-334",
+    "name": "PARAMOUNT GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PARAMOUNT-GROUP.webp"
+  },
+  {
+    "id": "auto-part-335",
+    "name": "PARIJATHA MACHINERY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PARIJATHA-MACHINERY.webp"
+  },
+  {
+    "id": "auto-part-336",
+    "name": "PARQUET",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PARQUET.webp"
+  },
+  {
+    "id": "auto-part-337",
+    "name": "PATEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PATEL.webp"
+  },
+  {
+    "id": "auto-part-338",
+    "name": "PB HOLOTEC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PB-HOLOTEC.webp"
+  },
+  {
+    "id": "auto-part-339",
+    "name": "PENTAGON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PENTAGON.webp"
+  },
+  {
+    "id": "auto-part-340",
+    "name": "PEP CEE PACK",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PEP-CEE-PACK.webp"
+  },
+  {
+    "id": "auto-part-341",
+    "name": "PICSON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PICSON.webp"
+  },
+  {
+    "id": "auto-part-342",
+    "name": "PLASTIC TOMAROW",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PLASTIC-TOMAROW.webp"
+  },
+  {
+    "id": "auto-part-343",
+    "name": "PLATINUM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PLATINUM.webp"
+  },
+  {
+    "id": "auto-part-344",
+    "name": "PLUMBER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PLUMBER.webp"
+  },
+  {
+    "id": "auto-part-345",
+    "name": "PLUS POINT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PLUS-POINT.webp"
+  },
+  {
+    "id": "auto-part-346",
+    "name": "POLY LEAF",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/POLY-LEAF.webp"
+  },
+  {
+    "id": "auto-part-347",
+    "name": "POLYBOND",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/POLYBOND.webp"
+  },
+  {
+    "id": "auto-part-348",
+    "name": "POLYTECH TRADING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/POLYTECH-TRADING.webp"
+  },
+  {
+    "id": "auto-part-349",
+    "name": "POWERROL MAHINDRA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/POWERROL-MAHINDRA.webp"
+  },
+  {
+    "id": "auto-part-350",
+    "name": "PRD RIGS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PRD-RIGS.webp"
+  },
+  {
+    "id": "auto-part-351",
+    "name": "PREMIRE STEEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PREMIRE-STEEL.webp"
+  },
+  {
+    "id": "auto-part-352",
+    "name": "PRERMA CONSTRUCTION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PRERMA-CONSTRUCTION.webp"
+  },
+  {
+    "id": "auto-part-353",
+    "name": "PRIMO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PRIMO.webp"
+  },
+  {
+    "id": "auto-part-354",
+    "name": "PROMISE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PROMISE.webp"
+  },
+  {
+    "id": "auto-part-355",
+    "name": "PROPEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PROPEL.webp"
+  },
+  {
+    "id": "auto-part-356",
+    "name": "PS DRILL TECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PS-DRILL-TECH.webp"
+  },
+  {
+    "id": "auto-part-357",
+    "name": "PSP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PSP.webp"
+  },
+  {
+    "id": "auto-part-358",
+    "name": "PSPL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PSPL.webp"
+  },
+  {
+    "id": "auto-part-359",
+    "name": "PUTZMEISTER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/PUTZMEISTER.webp"
+  },
+  {
+    "id": "auto-part-360",
+    "name": "Q GREEN TECHON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/Q-GREEN-TECHON.webp"
+  },
+  {
+    "id": "auto-part-361",
+    "name": "Q GREEN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/Q-GREEN.webp"
+  },
+  {
+    "id": "auto-part-362",
+    "name": "QUTONE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/QUTONE.webp"
+  },
+  {
+    "id": "auto-part-363",
+    "name": "RADHEKRISHNA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/RADHEKRISHNA.webp"
+  },
+  {
+    "id": "auto-part-364",
+    "name": "REE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/REE.webp"
+  },
+  {
+    "id": "auto-part-365",
+    "name": "REIT Q GREEN MACHINE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/REIT-Q-GREEN-MACHINE.webp"
+  },
+  {
+    "id": "auto-part-366",
+    "name": "REIT Q GREEN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/REIT-Q-GREEN.webp"
+  },
+  {
+    "id": "auto-part-367",
+    "name": "REKERS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/REKERS.webp"
+  },
+  {
+    "id": "auto-part-368",
+    "name": "RELINQUO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/RELINQUO.webp"
+  },
+  {
+    "id": "auto-part-369",
+    "name": "RENAERS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/RENAERS.webp"
+  },
+  {
+    "id": "auto-part-370",
+    "name": "REVES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/REVES.webp"
+  },
+  {
+    "id": "auto-part-371",
+    "name": "RICH FILE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/RICH-FILE.webp"
+  },
+  {
+    "id": "auto-part-372",
+    "name": "RMX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/RMX.webp"
+  },
+  {
+    "id": "auto-part-373",
+    "name": "ROASTFREI STEELS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ROASTFREI-STEELS.webp"
+  },
+  {
+    "id": "auto-part-374",
+    "name": "ROJACK",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ROJACK.webp"
+  },
+  {
+    "id": "auto-part-375",
+    "name": "ROTHO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ROTHO.webp"
+  },
+  {
+    "id": "auto-part-376",
+    "name": "RP METAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/RP-METAL.webp"
+  },
+  {
+    "id": "auto-part-377",
+    "name": "RYAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/RYAN.webp"
+  },
+  {
+    "id": "auto-part-378",
+    "name": "S GRIP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/S-GRIP.webp"
+  },
+  {
+    "id": "auto-part-379",
+    "name": "SA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SA.webp"
+  },
+  {
+    "id": "auto-part-380",
+    "name": "SADWITCH PUF",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SADWITCH-PUF.webp"
+  },
+  {
+    "id": "auto-part-381",
+    "name": "SAGAR",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SAGAR.webp"
+  },
+  {
+    "id": "auto-part-382",
+    "name": "SAI ENGG.",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SAI-ENGG..webp"
+  },
+  {
+    "id": "auto-part-383",
+    "name": "SALON CERAMIC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SALON-CERAMIC.webp"
+  },
+  {
+    "id": "auto-part-384",
+    "name": "SALT TRADING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SALT-TRADING.webp"
+  },
+  {
+    "id": "auto-part-385",
+    "name": "SAN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SAN.webp"
+  },
+  {
+    "id": "auto-part-386",
+    "name": "SANA DIOMAND",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SANA-DIOMAND.webp"
+  },
+  {
+    "id": "auto-part-387",
+    "name": "SANDWITCH HOME SOLUTION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SANDWITCH-HOME-SOLUTION.webp"
+  },
+  {
+    "id": "auto-part-388",
+    "name": "SANY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SANY.webp"
+  },
+  {
+    "id": "auto-part-389",
+    "name": "SAPE ROADTECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SAPE-ROADTECH.webp"
+  },
+  {
+    "id": "auto-part-390",
+    "name": "SAPTAM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SAPTAM.webp"
+  },
+  {
+    "id": "auto-part-391",
+    "name": "SARIKA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SARIKA.webp"
+  },
+  {
+    "id": "auto-part-392",
+    "name": "SATYAM STEEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SATYAM-STEEL.webp"
+  },
+  {
+    "id": "auto-part-393",
+    "name": "SAVE GREEN LIVE SCREN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SAVE-GREEN-LIVE-SCREN.webp"
+  },
+  {
+    "id": "auto-part-394",
+    "name": "SCM GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SCM-GROUP.webp"
+  },
+  {
+    "id": "auto-part-395",
+    "name": "SEMITRON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SEMITRON.webp"
+  },
+  {
+    "id": "auto-part-396",
+    "name": "SHALIGRAM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SHALIGRAM.webp"
+  },
+  {
+    "id": "auto-part-397",
+    "name": "SHANKAR FOOD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SHANKAR-FOOD.webp"
+  },
+  {
+    "id": "auto-part-398",
+    "name": "SHIV INDUSTRIES",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SHIV-INDUSTRIES.webp"
+  },
+  {
+    "id": "auto-part-399",
+    "name": "SHIVAM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SHIVAM.webp"
+  },
+  {
+    "id": "auto-part-400",
+    "name": "SHIVVAYY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SHIVVAYY.webp"
+  },
+  {
+    "id": "auto-part-401",
+    "name": "SIDDHARTHA LOGISTICS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SIDDHARTHA-LOGISTICS.webp"
+  },
+  {
+    "id": "auto-part-402",
+    "name": "SIESTO SYSTEMS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SIESTO-SYSTEMS.webp"
+  },
+  {
+    "id": "auto-part-403",
+    "name": "SIFON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SIFON.webp"
+  },
+  {
+    "id": "auto-part-404",
+    "name": "SIGNUM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SIGNUM.webp"
+  },
+  {
+    "id": "auto-part-405",
+    "name": "SILOS CORDOBA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SILOS-CORDOBA.webp"
+  },
+  {
+    "id": "auto-part-406",
+    "name": "SIMTHA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SIMTHA.webp"
+  },
+  {
+    "id": "auto-part-407",
+    "name": "SINGLA PUMPS & MOTORS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SINGLA-PUMPS-&-MOTORS.webp"
+  },
+  {
+    "id": "auto-part-408",
+    "name": "Sintex",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/sintex.webp"
+  },
+  {
+    "id": "auto-part-409",
+    "name": "SKC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SKC.webp"
+  },
+  {
+    "id": "auto-part-410",
+    "name": "SMARTPOWER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SMARTPOWER.webp"
+  },
+  {
+    "id": "auto-part-411",
+    "name": "SMI",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SMI.webp"
+  },
+  {
+    "id": "auto-part-412",
+    "name": "SN HARDWARE AND BATHROOM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SN-HARDWARE-AND-BATHROOM.webp"
+  },
+  {
+    "id": "auto-part-413",
+    "name": "SOFITEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SOFITEL.webp"
+  },
+  {
+    "id": "auto-part-414",
+    "name": "SOLWOOD",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SOLWOOD.webp"
+  },
+  {
+    "id": "auto-part-415",
+    "name": "SOUTHEST MACHINERY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SOUTHEST-MACHINERY.webp"
+  },
+  {
+    "id": "auto-part-416",
+    "name": "SPACE MEDIA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SPACE-MEDIA.webp"
+  },
+  {
+    "id": "auto-part-417",
+    "name": "SPECTO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SPECTO.webp"
+  },
+  {
+    "id": "auto-part-418",
+    "name": "SPIDER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SPIDER.webp"
+  },
+  {
+    "id": "auto-part-419",
+    "name": "SPL TECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SPL-TECH.webp"
+  },
+  {
+    "id": "auto-part-420",
+    "name": "SPRECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SPRECH.webp"
+  },
+  {
+    "id": "auto-part-421",
+    "name": "SQUIRE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SQUIRE.webp"
+  },
+  {
+    "id": "auto-part-422",
+    "name": "SRI CHAKRA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SRI-CHAKRA.webp"
+  },
+  {
+    "id": "auto-part-423",
+    "name": "SRONS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SRONS.webp"
+  },
+  {
+    "id": "auto-part-424",
+    "name": "STANLEY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/STANLEY.webp"
+  },
+  {
+    "id": "auto-part-425",
+    "name": "STAR PLYWOOD MACHINERY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/STAR-PLYWOOD-MACHINERY.webp"
+  },
+  {
+    "id": "auto-part-426",
+    "name": "SUDDHA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SUDDHA.webp"
+  },
+  {
+    "id": "auto-part-427",
+    "name": "SUZU STEEL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SUZU-STEEL.webp"
+  },
+  {
+    "id": "auto-part-428",
+    "name": "SWAGATH URETHANE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/SWAGATH-URETHANE.webp"
+  },
+  {
+    "id": "auto-part-429",
+    "name": "TATER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TATER.webp"
+  },
+  {
+    "id": "auto-part-430",
+    "name": "TATVA HEALTH AND WELLNESS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TATVA-HEALTH-AND-WELLNESS.webp"
+  },
+  {
+    "id": "auto-part-431",
+    "name": "TECE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TECE.webp"
+  },
+  {
+    "id": "auto-part-432",
+    "name": "TELMAT MATERIALS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TELMAT-MATERIALS.webp"
+  },
+  {
+    "id": "auto-part-433",
+    "name": "THE MARK OF QUALITY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/THE-MARK-OF-QUALITY.webp"
+  },
+  {
+    "id": "auto-part-434",
+    "name": "THERMAL WRAP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/THERMAL-WRAP.webp"
+  },
+  {
+    "id": "auto-part-435",
+    "name": "TITAN JET",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TITAN-JET.webp"
+  },
+  {
+    "id": "auto-part-436",
+    "name": "TRADE JINDAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TRADE-JINDAL.webp"
+  },
+  {
+    "id": "auto-part-437",
+    "name": "TREECASA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TREECASA.webp"
+  },
+  {
+    "id": "auto-part-438",
+    "name": "TRU BOND",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TRU-BOND.webp"
+  },
+  {
+    "id": "auto-part-439",
+    "name": "TUFLEX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/TUFLEX.webp"
+  },
+  {
+    "id": "auto-part-440",
+    "name": "UCS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/UCS.webp"
+  },
+  {
+    "id": "auto-part-441",
+    "name": "ULTRA INTERIO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ULTRA-INTERIO.webp"
+  },
+  {
+    "id": "auto-part-442",
+    "name": "UMISONS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/UMISONS.webp"
+  },
+  {
+    "id": "auto-part-443",
+    "name": "UMRAO V",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/UMRAO-V.webp"
+  },
+  {
+    "id": "auto-part-444",
+    "name": "UNIMATE ENGG.",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/UNIMATE-ENGG..webp"
+  },
+  {
+    "id": "auto-part-445",
+    "name": "UNIVERSAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/UNIVERSAL.webp"
+  },
+  {
+    "id": "auto-part-446",
+    "name": "URBAN STUDIO",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/URBAN-STUDIO.webp"
+  },
+  {
+    "id": "auto-part-447",
+    "name": "V TECH MAKERS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/V-TECH-MAKERS.webp"
+  },
+  {
+    "id": "auto-part-448",
+    "name": "VAALVE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VAALVE.webp"
+  },
+  {
+    "id": "auto-part-449",
+    "name": "VARUNA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VARUNA.webp"
+  },
+  {
+    "id": "auto-part-450",
+    "name": "VED INDIA PUBLICATION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VED-INDIA-PUBLICATION.webp"
+  },
+  {
+    "id": "auto-part-451",
+    "name": "VEDANTA POLYTECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VEDANTA-POLYTECH.webp"
+  },
+  {
+    "id": "auto-part-452",
+    "name": "VENTONA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VENTONA.webp"
+  },
+  {
+    "id": "auto-part-453",
+    "name": "VENUS ENQUIPMENTS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VENUS-ENQUIPMENTS.webp"
+  },
+  {
+    "id": "auto-part-454",
+    "name": "VH GROUP",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VH-GROUP.webp"
+  },
+  {
+    "id": "auto-part-455",
+    "name": "VIBRANT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VIBRANT.webp"
+  },
+  {
+    "id": "auto-part-456",
+    "name": "VIBROPRESS SYSTEM",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VIBROPRESS-SYSTEM.webp"
+  },
+  {
+    "id": "auto-part-457",
+    "name": "VINAY",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VINAY.webp"
+  },
+  {
+    "id": "auto-part-458",
+    "name": "VINAYAK ULTRAFLEX",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VINAYAK-ULTRAFLEX.webp"
+  },
+  {
+    "id": "auto-part-459",
+    "name": "VIPUL INFRA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VIPUL-INFRA.webp"
+  },
+  {
+    "id": "auto-part-460",
+    "name": "VISAKA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VISAKA.webp"
+  },
+  {
+    "id": "auto-part-461",
+    "name": "VNS SOLUTION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VNS-SOLUTION.webp"
+  },
+  {
+    "id": "auto-part-462",
+    "name": "VOLLMER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VOLLMER.webp"
+  },
+  {
+    "id": "auto-part-463",
+    "name": "VRUNDRA",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/VRUNDRA.webp"
+  },
+  {
+    "id": "auto-part-464",
+    "name": "WAGNER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WAGNER.webp"
+  },
+  {
+    "id": "auto-part-465",
+    "name": "WINTRA PEB & ROOFING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WINTRA-PEB-&-ROOFING.webp"
+  },
+  {
+    "id": "auto-part-466",
+    "name": "WKB",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WKB.webp"
+  },
+  {
+    "id": "auto-part-467",
+    "name": "WOOD MAC",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WOOD-MAC.webp"
+  },
+  {
+    "id": "auto-part-468",
+    "name": "WOOD MASTER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WOOD-MASTER.webp"
+  },
+  {
+    "id": "auto-part-469",
+    "name": "WOOD MIZER",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WOOD-MIZER.webp"
+  },
+  {
+    "id": "auto-part-470",
+    "name": "WOOD TECH DIMENION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WOOD-TECH-DIMENION.webp"
+  },
+  {
+    "id": "auto-part-471",
+    "name": "WOOD TECH SOLUTION",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WOOD-TECH-SOLUTION.webp"
+  },
+  {
+    "id": "auto-part-472",
+    "name": "WOOD TECH",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WOOD-TECH.webp"
+  },
+  {
+    "id": "auto-part-473",
+    "name": "WOODTECH2",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WOODTECH2.webp"
+  },
+  {
+    "id": "auto-part-474",
+    "name": "WORLD OF TEXTURE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/WORLD-OF-TEXTURE.webp"
+  },
+  {
+    "id": "auto-part-475",
+    "name": "YORK PRINT",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/YORK-PRINT.webp"
+  },
+  {
+    "id": "auto-part-476",
+    "name": "ZAHA HARDWARE FITTING",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ZAHA-HARDWARE-FITTING.webp"
+  },
+  {
+    "id": "auto-part-477",
+    "name": "ZEAL INTERNATIONAL",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ZEAL-INTERNATIONAL.webp"
+  },
+  {
+    "id": "auto-part-478",
+    "name": "ZENITH ENGG.",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ZENITH-ENGG..webp"
+  },
+  {
+    "id": "auto-part-479",
+    "name": "ZEUS",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ZEUS.webp"
+  },
+  {
+    "id": "auto-part-480",
+    "name": "ZHEN PHEN",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ZHEN-PHEN.webp"
+  },
+  {
+    "id": "auto-part-481",
+    "name": "ZIBON",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ZIBON.webp"
+  },
+  {
+    "id": "auto-part-482",
+    "name": "ZONE",
+    "category": "Participants",
+    "logo": "/gallery/participants/participants/ZONE.webp"
+  },
+  {
+    "id": "auto-part-483",
+    "name": "BANGLORE CENTRE LOGO",
+    "category": "Supporting Associations",
+    "logo": "/gallery/participants/supporting-association/BANGLORE-CENTRE-LOGO.webp"
+  },
+  {
+    "id": "auto-part-484",
+    "name": "CREDAI",
+    "category": "Supporting Associations",
+    "logo": "/gallery/participants/supporting-association/CREDAI.png"
+  },
+  {
+    "id": "auto-part-485",
+    "name": "JONES LANG LASALLE",
+    "category": "Supporting Associations",
+    "logo": "/gallery/participants/supporting-association/JONES-LANG-LASALLE.png"
+  },
+  {
+    "id": "auto-part-486",
+    "name": "LRCA",
+    "category": "Supporting Associations",
+    "logo": "/gallery/participants/supporting-association/LRCA.webp"
+  },
+  {
+    "id": "auto-part-487",
+    "name": "PBMA LOGO",
+    "category": "Supporting Associations",
+    "logo": "/gallery/participants/supporting-association/PBMA-LOGO.webp"
+  },
+  {
+    "id": "auto-part-488",
+    "name": "SONA",
+    "category": "Supporting Associations",
+    "logo": "/gallery/participants/supporting-association/SONA.webp"
+  },
+  {
+    "id": "auto-part-489",
+    "name": "TSIA",
+    "category": "Supporting Associations",
+    "logo": "/gallery/participants/supporting-association/TSIA.webp"
+  }
+]
