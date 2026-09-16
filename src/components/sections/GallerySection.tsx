@@ -171,29 +171,30 @@ export function GallerySection({ full = false }: { full?: boolean }) {
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
           >
-            {paginatedItems.map((item, index) => (
-              <motion.button 
-                key={item.id || index} 
-                type="button" 
-                variants={itemVariants}
-                onClick={() => setSelectedImage(item)}
-                className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden text-left bg-neutral-100 border border-neutral-200/90 hover:border-neutral-400 shadow-2xs hover:shadow-xl transition-all duration-400 ease-[0.16,1,0.3,1] cursor-zoom-in active:scale-[0.99]"
-                aria-label="View Fullscreen Asset"
-              >
-                {/* Top Red Accent Line on Hover */}
-                <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-30" />
+         {paginatedItems.map((item, index) => (
+  <motion.button 
+    key={item.id || index} 
+    type="button" 
+    variants={itemVariants}
+    onClick={() => setSelectedImage(item)}
+    className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden text-left bg-neutral-100 border border-neutral-200/90 hover:border-neutral-400 shadow-2xs hover:shadow-xl transition-all duration-400 ease-[0.16,1,0.3,1] cursor-pointer sm:cursor-zoom-in active:scale-[0.99]"
+    aria-label="View Fullscreen Asset"
+  >
+    {/* Top Red Accent Line on Hover */}
+    <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-30 pointer-events-none" />
 
-                {/* High Quality Image with Smooth Hover Zoom */}
-                <Image 
-                  src={item.image} 
-                  alt={item.title || "Futurex Gallery Asset"} 
-                  fill 
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover object-center transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
-                />
-
-              </motion.button>
-            ))}
+    {/* High Quality Image with Smooth Hover Zoom */}
+    <div className="relative w-full h-full overflow-hidden">
+      <Image 
+        src={item.image} 
+        alt={item.title || "Futurex Gallery Asset"} 
+        fill 
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover object-center transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
+      />
+    </div>
+  </motion.button>
+))}
           </motion.div>
         </AnimatePresence>
 

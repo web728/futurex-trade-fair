@@ -160,31 +160,32 @@ export default function ParticipantsPage() {
               exit={{ opacity: 0, transition: { duration: 0.2 } }}
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-7"
             >
-              {paginatedItems.map((item, index) => (
-                <motion.button 
-                  key={item.id || index}
-                  type="button"
-                  variants={itemVariants}
-                  onClick={() => setSelectedLogo(item)}
-                  className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-neutral-200/90 hover:border-neutral-400 shadow-2xs hover:shadow-xl p-6 flex flex-col items-center justify-center transition-all duration-400 ease-[0.16,1,0.3,1] cursor-zoom-in active:scale-[0.99]"
-                >
-                  <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-20" />
+            {paginatedItems.map((item, index) => (
+  <motion.button 
+    key={item.id || index}
+    type="button"
+    variants={itemVariants}
+    onClick={() => setSelectedLogo(item)}
+    className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-neutral-200/90 hover:border-neutral-400 shadow-2xs hover:shadow-xl p-6 flex flex-col items-center justify-center transition-all duration-400 ease-[0.16,1,0.3,1] cursor-pointer sm:cursor-zoom-in active:scale-[0.99]"
+  >
+    <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-20" />
 
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <Image 
-                      src={item.logo} 
-                      alt={item.name} 
-                      fill 
-                      sizes="(max-width: 640px) 100vw, 25vw"
-                      className="object-contain p-4 filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  <div className="absolute bottom-3 left-4 right-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  
-                  </div>
-                </motion.button>
-              ))}
+    <div className="relative w-full h-full flex items-center justify-center">
+      <Image 
+        src={item.logo} 
+        alt={item.name} 
+        fill 
+        sizes="(max-width: 640px) 100vw, 25vw"
+        /* 
+          Changes made here: 
+          - 'grayscale sm:grayscale' keeps them in color on mobile screens.
+          - 'sm:group-hover:grayscale-0' transitions them on desktop hover.
+        */
+        className="object-contain p-4 sm:filter sm:grayscale sm:group-hover:grayscale-0 transition-all duration-500 sm:group-hover:scale-105"
+      />
+    </div>
+  </motion.button>
+))}
             </motion.div>
           </AnimatePresence>
 
