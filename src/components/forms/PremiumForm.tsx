@@ -4,6 +4,7 @@ import { CheckCircle2, AlertCircle, Sparkles, ArrowRight, ArrowLeft } from 'luci
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { AnimatePresence, motion } from 'framer-motion';
 import type { FormType } from '@/types/enquiry';
 import { EXHIBITIONS } from '@/data/exhibitions';
 import { submissionSchema } from '@/lib/validations';
@@ -40,7 +41,7 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
     company: '',
     country: '',
     event: defaultEvent || '',
-    subject: '',
+    subject: formType !== 'contact' ? formType : 'exhibitor', // Default selection
     message: '',
     website: '' // honeypot
   });
@@ -55,6 +56,9 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
       if (!formData.name.trim()) newErrors.name = 'Full name is required';
       if (!formData.email.trim() || !formData.email.includes('@')) newErrors.email = 'Valid email is required';
       if (!formData.phone.trim() || formData.phone.length < 7) newErrors.phone = 'Valid phone number is required';
+    } else if (step === 2) {
+      if (!formData.company.trim()) newErrors.company = 'Company name is required';
+      if (!formData.country.trim()) newErrors.country = 'Country is required';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -114,7 +118,7 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-neutral-200/90 shadow-[0_10px_40px_rgba(0,0,0,0.04)] select-none">
+    <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-neutral-200/90 shadow-[0_10px_40px_rgba(0,0,0,0.04)] select-none relative overflow-hidden">
       <div className="mb-6 sm:mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 border border-red-200 rounded-full mb-3">
           <Sparkles className="w-3 h-3 text-red-600" />
@@ -161,9 +165,24 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
         {/* STEP 2 */}
         {currentStep === 2 && (
           <div className="space-y-4 animate-fadeIn">
-            <FormField label="Company Name" name="company" error={errors.company} inputProps={{ value: formData.company, onChange: handleChange, autoComplete: 'organization', maxLength: 160, placeholder: 'Company Pvt Ltd' }} />
-            <FormField label="Country" name="country" error={errors.country} inputProps={{ value: formData.country, onChange: handleChange, autoComplete: 'country-name', maxLength: 100, placeholder: 'India' }} />
+            <FormField label="Company Name" name="company" required error={errors.company} inputProps={{ value: formData.company, onChange: handleChange, autoComplete: 'organization', maxLength: 160, placeholder: 'Company Pvt Ltd' }} />
+            <FormField label="Country" name="country" required error={errors.country} inputProps={{ value: formData.country, onChange: handleChange, autoComplete: 'country-name', maxLength: 100, placeholder: 'India' }} />
             
+            {/* Enquiry Category Selection */}
+            <FormField 
+              label="Register As / Participation Type" 
+              name="subject" 
+              as="select" 
+              options={[
+                { value: 'exhibitor', label: 'Exhibitor (Book a Stall / Space)' },
+                { value: 'visitor', label: 'Trade Visitor (Business Pass)' },
+                { value: 'sponsor', label: 'Sponsor & Partner' },
+                { value: 'speaker', label: 'Conference Speaker / Delegate' },
+                { value: 'general', label: 'General Enquiry' }
+              ]} 
+              selectProps={{ value: formData.subject, onChange: handleChange }} 
+            />
+
             {showEvent ? (
               <FormField label="Exhibition / Event" name="event" error={errors.event} as="select" options={EXHIBITIONS.map((item) => ({ value: item.name, label: `${item.name} — ${item.venue.city}` }))} selectProps={{ value: formData.event, onChange: handleChange }} />
             ) : null}
@@ -184,8 +203,7 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
         {/* STEP 3 */}
         {currentStep === 3 && (
           <div className="space-y-4 animate-fadeIn">
-            <FormField label="Subject" name="subject" error={errors.subject} inputProps={{ value: formData.subject, onChange: handleChange, maxLength: 180, placeholder: 'Exhibition Booth Enquiry / Sponsorship' }} />
-            <FormField label="Message" name="message" error={errors.message} as="textarea" textareaProps={{ value: formData.message, onChange: handleChange, rows: 4, maxLength: 3000, placeholder: 'Please describe your query or requirement in detail...' }} />
+            <FormField label="Message / Specific Requirements" name="message" error={errors.message} as="textarea" textareaProps={{ value: formData.message, onChange: handleChange, rows: 4, maxLength: 3000, placeholder: 'Please describe your booth size, queries or requirements in detail...' }} />
 
             {/* reCAPTCHA v2 Responsive Container */}
             <div className="py-2 w-full overflow-x-auto flex justify-center">
@@ -210,16 +228,6 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
         )}
 
         <div className="pt-2" aria-live="polite">
-          {status === 'success' && (
-            <div className="flex items-start gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-800 text-xs sm:text-sm font-mono">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <div>
-                <strong className="block font-bold mb-0.5">Thank you!</strong>
-                <span>{message}</span>
-              </div>
-            </div>
-          )}
-
           {status === 'error' && (
             <div className="flex items-start gap-3 p-4 bg-rose-50 border border-rose-200 rounded-2xl text-rose-800 text-xs sm:text-sm font-mono">
               <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
@@ -231,6 +239,65 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
           )}
         </div>
       </form>
+
+      {/* Gorgeous Success Popup Modal */}
+      <AnimatePresence>
+        {status === 'success' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 20, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-neutral-100 text-center relative"
+            >
+              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
+                <CheckCircle2 size={36} className="stroke-[2.5]" />
+              </div>
+
+              <span className="text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">
+                SUCCESSFULLY SENT
+              </span>
+
+              <h3 className="text-2xl font-semibold tracking-tight text-[#0A0D12] mt-3 mb-2">
+                Thank You!
+              </h3>
+
+              <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed mb-6">
+                {message}
+              </p>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setStatus('idle');
+                  setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    company: '',
+                    country: '',
+                    event: defaultEvent || '',
+                    subject: 'exhibitor',
+                    message: '',
+                    website: ''
+                  });
+                  setCurrentStep(1);
+                  setRecaptchaToken(null);
+                }}
+                className="w-full py-3.5 bg-[#0A0D12] hover:bg-neutral-800 text-white rounded-full text-xs font-mono tracking-wider uppercase transition-all shadow-md cursor-pointer"
+              >
+                Submit Another Enquiry
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
