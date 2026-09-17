@@ -5,16 +5,22 @@ const optionalText = (max: number) => z.string().trim().max(max).optional().or(z
 
 export const submissionSchema = z.object({
   formType: z.enum(['contact', 'enquiry', 'exhibitor', 'visitor', 'sponsor']),
-  name: z.string().trim().min(2, 'Please enter your name.').max(120),
-  email: z.string().trim().email('Please enter a valid email address.').max(180),
-  phone: z.string().trim().min(7, 'Please enter a valid phone number.').max(40),
-  company: z.string().trim().min(2, 'Company name is required.').max(160), // Mandatory
-  country: z.string().trim().min(2, 'Country is required.').max(100),       // Mandatory
-  event: optionalText(180),
-  subject: optionalText(180),
+  platform: optionalText(100),
+  registerAs: z.string().trim().min(2, 'Please select registration type.').max(100),
+  company: z.string().trim().min(2, 'Company name is required.').max(160),
+  name: z.string().trim().min(2, 'Contact person name is required.').max(120), // Contact Person
+  designation: optionalText(120),
+  email: z.string().trim().email('Please enter a valid email address.').max(180), // Email Id
+  phone: z.string().trim().min(7, 'Please enter a valid phone number.').max(40),  // Mobile No.
+  website: optionalText(300),
+  address: optionalText(500),
+  country: z.string().trim().min(2, 'Country is required.').max(100),
+  boothSizeRequirement: optionalText(100),
+  areaOfInterest: optionalText(300),
+  infoGetFrom: optionalText(200), // Info. Get From
   message: optionalText(3000),
-  source: optionalText(300),
-  website: optionalText(300)
+  event: optionalText(180),
+  source: optionalText(300)
 });
 
 export type SubmissionInput = z.infer<typeof submissionSchema>;

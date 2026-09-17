@@ -36,25 +36,25 @@ export async function appendToGoogleSheet(payload: SubmissionPayload, submittedA
     const sheets = google.sheets({ version: 'v4', auth });
     const tab = getTabName(payload.formType);
 
-    // Aapki sheet ke 25 columns ke exact order ke mutabiq mapping
+    // Exact 25-column row mapping matching your sheet headers
     const rowValues = [
-      submittedAt.toLocaleString(),                // 1. Date & Time
-      payload.source || 'Website',                 // 2. Platform
-      formTypeLabels[payload.formType] || 'Enquiry', // 3. Register As
-      payload.company || '',                       // 4. Company Name
-      payload.name || '',                          // 5. Contact Person
-      '',                                          // 6. Designation
-      payload.email || '',                         // 7. Email Id
-      payload.phone || '',                         // 8. Mobile No.
-      '',                                          // 9. Website
-      '',                                          // 10. Address
-      payload.country || '',                       // 11. Country
-      '',                                          // 12. Booth Size Requirement
-      payload.event || payload.subject || '',      // 13. Area of Interest
-      payload.source || '',                        // 14. Info. Get From
-      payload.message || '',                       // 15. Message
-      '',                                          // 16. Correction
-      '', '', '', '', '', '', '', '', ''           // 17-25. STATUS 1 to 9 (Blank)
+      submittedAt.toLocaleString(),                    // 1. Date & Time
+      payload.platform || 'Website',                   // 2. Platform
+      payload.registerAs || formTypeLabels[payload.formType] || 'Enquiry', // 3. Register As
+      payload.company || '',                           // 4. Company Name
+      payload.name || '',                              // 5. Contact Person
+      payload.designation || '',                       // 6. Designation
+      payload.email || '',                             // 7. Email Id
+      payload.phone || '',                             // 8. Mobile No.
+      payload.website || '',                           // 9. Website
+      payload.address || '',                           // 10. Address
+      payload.country || '',                           // 11. Country
+      payload.boothSizeRequirement || '',              // 12. Booth Size Requirement
+      payload.areaOfInterest || '',                    // 13. Area of Interest
+      payload.infoGetFrom || '',                       // 14. Info. Get From
+      payload.message || '',                           // 15. Message
+      '',                                              // 16. Correction
+      '', '', '', '', '', '', '', '', ''               // 17-25. STATUS 1 to 9 (Blank for tracking)
     ];
 
     const rangeName = `'${tab}'!A:Y`;

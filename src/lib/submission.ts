@@ -53,7 +53,7 @@ export async function handleFormRequest(request: NextRequest, formType: FormType
       body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`
     });
     const verifyData = await verifyRes.json() as { success: boolean };
-if (!verifyData.success) {
+    if (!verifyData.success) {
       logger.error('reCAPTCHA validation failed', { formType, ip });
       return NextResponse.json({ success: false, message: 'Robot verification failed. Please try again.' }, { status: 400 });
     }
@@ -71,21 +71,29 @@ if (!verifyData.success) {
     }, { status: 422 });
   }
 
-  if (parsed.data.website) {
+  // Check honeypot field (honeypotWebsite)
+  if (rawBody.honeypotWebsite) {
     logger.info('Spam honeypot triggered', { formType, ip });
     return NextResponse.json({ success: true, message: 'Thank you. Your enquiry has been received.' }, { status: 201 });
   }
 
   const payload: SubmissionPayload = {
     formType,
+    platform: sanitizeText(parsed.data.platform || 'Website'),
+    registerAs: sanitizeText(parsed.data.registerAs),
+    company: sanitizeText(parsed.data.company),
     name: sanitizeText(parsed.data.name),
+    designation: sanitizeText(parsed.data.designation),
     email: parsed.data.email.toLowerCase(),
     phone: sanitizeText(parsed.data.phone),
-    company: sanitizeText(parsed.data.company),
+    website: sanitizeText(parsed.data.website),
+    address: sanitizeText(parsed.data.address),
     country: sanitizeText(parsed.data.country),
-    event: sanitizeText(parsed.data.event),
-    subject: sanitizeText(parsed.data.subject),
+    boothSizeRequirement: sanitizeText(parsed.data.boothSizeRequirement),
+    areaOfInterest: sanitizeText(parsed.data.areaOfInterest),
+    infoGetFrom: sanitizeText(parsed.data.infoGetFrom),
     message: sanitizeText(parsed.data.message),
+    event: sanitizeText(parsed.data.event),
     source: sanitizeText(parsed.data.source || request.headers.get('referer') || '')
   };
 
@@ -100,7 +108,16 @@ if (!verifyData.success) {
     await connectToMongoDB();
     document = await models[formType].create({
       ...payload,
-      status: 'new',
+      overallStatus: 'new',
+      status1: '',
+      status2: '',
+      status3: '',
+      status4: '',
+      status5: '',
+      status6: '',
+      status7: '',
+      status8: '',
+      status9: '',
       integrations: { googleSheets: 'pending', email: 'pending' }
     }) as unknown as typeof document;
   } catch (error) {
