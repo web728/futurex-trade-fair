@@ -11,7 +11,7 @@ const getTabName = (formType: SubmissionPayload['formType']) => {
     visitor: process.env.GOOGLE_SHEET_TAB_VISITOR,
     sponsor: process.env.GOOGLE_SHEET_TAB_SPONSOR
   };
-  return names[formType] || 'Website Enquries';
+  return names[formType] || 'Website Enquiries';
 };
 
 export async function appendToGoogleSheet(payload: SubmissionPayload, submittedAt: Date) {
