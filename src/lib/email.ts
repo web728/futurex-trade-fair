@@ -8,15 +8,15 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
+    pass: process.env.SMTP_PASSWORD,  
   },
 });
 
 export async function sendNotificationEmail(payload: SubmissionPayload, submittedAt: Date) {
   const adminEmails = [
-    process.env.ADMIN_NOTIFICATION_EMAIL || 'admin@futurex.in',
-    process.env.SECONDARY_NOTIFICATION_EMAIL || 'leads@futurex.in'
-  ];
+    process.env.NOTIFICATION_EMAIL_1 || 'admin@futurextrade.com',
+    process.env.NOTIFICATION_EMAIL_2 || 'web@futurexpr.com'
+  ].filter(Boolean); // Blank emails ko filter out karne ke liye
 
   const htmlContent = `
     <div style="font-family: sans-serif; padding: 20px; color: #111; max-width: 600px; margin: auto; border: 1px solid #eaeaea; border-radius: 12px;">
@@ -29,12 +29,11 @@ export async function sendNotificationEmail(payload: SubmissionPayload, submitte
       <p><strong>Event:</strong> ${payload.event || 'N/A'}</p>
       <p><strong>Subject:</strong> ${payload.subject || 'N/A'}</p>
       <p><strong>Message:</strong><br/>${payload.message || 'N/A'}</p>
-      <hr style="border: none; border-top: 1px solid #eaeayu; margin: 20px 0;" />
+      <hr style="border: none; border-top: 1px solid #eaeaea; margin: 20px 0;" />
       <p style="font-size: 11px; color: #666;">Submitted at: ${submittedAt.toLocaleString()}</p>
     </div>
   `;
 
-  // Send to multiple admin emails simultaneously
   await Promise.all(
     adminEmails.map(email =>
       transporter.sendMail({
