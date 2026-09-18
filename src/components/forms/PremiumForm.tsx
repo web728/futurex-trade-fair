@@ -10,6 +10,7 @@ import { EXHIBITIONS } from '@/data/exhibitions';
 import { submissionSchema } from '@/lib/validations';
 import { FormField } from './FormField';
 import { SubmitButton } from './SubmitButton';
+import Image from 'next/image';
 
 interface PremiumFormProps {
   formType: FormType;
@@ -134,7 +135,14 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
     <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-neutral-200/90 shadow-[0_10px_40px_rgba(0,0,0,0.04)] select-none relative overflow-hidden">
       <div className="mb-6 sm:mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 border border-red-200 rounded-full mb-3">
-          <Sparkles className="w-3 h-3 text-red-600" />
+            <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                  <Image
+                                    src="/logos/svg/logo-arrow.png"
+                                    alt="Icon"
+                                    fill
+                                    className="object-contain"
+                                  />
+                                </div>
           <span className="text-[10px] font-mono font-bold tracking-[0.16em] uppercase text-red-600">
             {formType.toUpperCase()} ENQUIRY — STEP {currentStep} OF 3
           </span>

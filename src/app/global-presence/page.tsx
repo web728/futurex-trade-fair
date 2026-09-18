@@ -9,6 +9,7 @@ import { StatsSection } from '@/components/sections/StatsSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { markets } from '@/data/locations';
 import { Globe, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -90,7 +91,14 @@ export default function GlobalPresencePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 sm:pb-12 border-b border-neutral-200/80 mb-14 sm:mb-18">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-600 mb-4 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+           <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                          <Image
+                            src="/logos/svg/logo-arrow.png"
+                            alt="Icon"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
                 <span>Regional Command Matrix</span>
               </div>
 

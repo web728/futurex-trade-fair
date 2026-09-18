@@ -2,6 +2,7 @@
 
 import { MapPin, Navigation } from 'lucide-react';
 import { company } from '@/data/company';
+import Image from 'next/image';
 
 export function MapSection() {
   // Updated with exact coordinates: 28.5442742, 77.2541014 (Kalkaji, New Delhi)
@@ -19,7 +20,14 @@ export function MapSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 sm:pb-12 border-b border-neutral-200/80 mb-12">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-4 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+                <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                      <Image
+                                        src="/logos/svg/logo-arrow.png"
+                                        alt="Icon"
+                                        fill
+                                        className="object-contain"
+                                      />
+                                    </div>
               <span>LOCATION DIRECTORY</span>
             </div>
 

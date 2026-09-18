@@ -56,17 +56,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           </span>
 
           <div>
-            <div className="flex flex-wrap items-center gap-3 mb-2">
-              <h3 className="text-lg sm:text-xl font-semibold text-[#0A0D12] tracking-tight leading-snug group-hover:text-red-600 transition-colors duration-200">
-                {service.title}
-              </h3>
-
-              {/* Minimal Tag */}
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-[10.5px] font-mono text-neutral-600 group-hover:text-red-600 group-hover:border-red-200 group-hover:bg-red-50/60 transition-colors duration-200">
-                <CheckCircle2 size={11} className="text-red-600 shrink-0" />
-                <span>{service.scope}</span>
-              </span>
-            </div>
+          
 
             {/* Description with Open Breathing Line-Height */}
             <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-[1.68] tracking-normal m-0">

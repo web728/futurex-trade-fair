@@ -51,7 +51,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " ICCB Exhibition Hall, Dhaka", country: "Bangladesh" },
     industry: "BuildCon",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/10th-Bangladesh-Buildcon-Logo-Coloured.png",
+    heroImage: "/gallery/images-event/2026/10th-Bangladesh-Buildcon-Logo.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
@@ -160,7 +160,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " Baramunda Ground, Bhubaneswar, Odisha", country: "India" },
     industry: "Mining",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/5th-Odisha-Logo_White.png",
+    heroImage: "/gallery/images-event/2026/5th-Odisha-logo.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
@@ -307,7 +307,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Diamond Jubilee Expo Center, Dar-es-Salaam", country: "Tanzania" },
     industry: "Buildcon",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/tanzania-buildcon-logo.png",
+    heroImage: "/gallery/images-event/2026/tanzania-buildcon.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {

@@ -14,6 +14,7 @@ import {
   Clock,
   Flame
 } from 'lucide-react';
+import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -62,7 +63,14 @@ export function PillarsSection({ visionText }: PillarsSectionProps) {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-white/[0.08] mb-10 sm:mb-12">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10.5px] font-mono tracking-widest uppercase text-neutral-300 mb-4 backdrop-blur-md shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-red-500" />
+             <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                   <Image
+                     src="/logos/svg/logo-arrow-white.png"
+                     alt="Icon"
+                     fill
+                     className="object-contain"
+                   />
+                 </div>
               <span>CORE STRATEGY & FOUNDATION</span>
               <span className="w-1 h-1 rounded-full bg-red-500" />
             </div>

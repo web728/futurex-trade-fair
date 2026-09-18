@@ -72,6 +72,12 @@ export function Footer() {
   const companyName = (company as any)?.name || (company as any)?.legalName || "Futurex Trade Fair and Events Pvt. Ltd.";
   const logoSrc = (company as any)?.assets?.logo;
 
+  // Pre-filled mailto parameters
+  const mailToEmail = "admin@futurextrade.com";
+  const mailSubject = encodeURIComponent("Inquiry via Futurex Official Website - Partnership / General");
+  const mailBody = encodeURIComponent("Hello Mr. SHaswat Suman,\n\nI am reaching out regarding an inquiry from the Futurex website.\n\nDetails:\nName:\nPhone:\nMessage:\n\nLooking forward to hearing from you.");
+  const mailtoLink = `mailto:${mailToEmail}?subject=${mailSubject}&body=${mailBody}`;
+
   return (
     <footer 
       className="relative z-20 w-full bg-ink text-white border-t border-line-dark overflow-hidden pt-20 sm:pt-28 pb-12 select-none"
@@ -84,9 +90,7 @@ export function Footer() {
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[160px] bg-red/[0.08] rounded-full blur-[130px] pointer-events-none" />
 
       {/* 
-        GIANT WATERMARK TYPOGRAPHY
-        Uses negative tracking, viewport-width alignment, and horizontal clamping 
-        so the final 'E' NEVER gets clipped on any screen size.
+        GIANT WATERMARK TYPOGRAPHY & Custom SVG Logo Watermark on Bottom Right
       */}
       <div 
         className="absolute bottom-2 sm:bottom-0 left-1/2 -translate-x-1/2 w-screen pointer-events-none select-none overflow-hidden z-0 flex justify-center items-end"
@@ -96,6 +100,7 @@ export function Footer() {
           FUTUREX GROUP
         </span>
       </div>
+
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-8">
         
@@ -129,7 +134,7 @@ export function Footer() {
                   </Link>
                 )}
               </div>
-
+              
               {/* Exact Corporate Portfolio Profile */}
               <p className="text-slate-300 text-xs sm:text-[13.5px] leading-[1.85] font-normal mb-8 max-w-[480px] tracking-normal">
                 Futurex Trade Fair & Events Pvt. Ltd. is a renowned international exhibition and corporate events organizer headquartered in New Delhi with branch offices in Mumbai, Colombo, Kathmandu, and Dhaka. With a global track record of 220+ successful trade exhibitions and conferences, Futurex delivers specialized platforms across Building & Infra, Woodworking, Electric Vehicles, Pharma, Garments, Power, Education, and Packaging & Plastics.
@@ -177,7 +182,6 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h3 className="font-mono text-[11px] font-bold text-slate-200 uppercase tracking-[0.2em] mb-7 pb-3 border-b border-line-dark flex items-center justify-between">
               <span>EXPLORE</span>
-              <span className="text-red font-mono text-[10px] tracking-wider">01</span>
             </h3>
             <ul className="space-y-4 p-0 m-0 list-none text-xs sm:text-[13px]">
               {explore.map((item) => (
@@ -198,7 +202,6 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h3 className="font-mono text-[11px] font-bold text-slate-200 uppercase tracking-[0.2em] mb-7 pb-3 border-b border-line-dark flex items-center justify-between">
               <span>COMPANY</span>
-              <span className="text-red font-mono text-[10px] tracking-wider">02</span>
             </h3>
             <ul className="space-y-4 p-0 m-0 list-none text-xs sm:text-[13px]">
               {companyLinks.map((item) => (
@@ -219,10 +222,11 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h3 className="font-mono text-[11px] font-bold text-slate-200 uppercase tracking-[0.2em] mb-7 pb-3 border-b border-line-dark flex items-center justify-between">
               <span>HEADQUARTERS</span>
-              <span className="text-red font-mono text-[10px] tracking-wider">DEL</span>
             </h3>
 
             <div className="space-y-4 text-xs sm:text-[13px] text-slate-400">
+             
+
               <div className="flex items-start gap-3">
                 <MapPin size={15} className="text-red shrink-0 mt-1" />
                 <address className="not-italic leading-[1.8] text-slate-300 font-normal">
@@ -233,17 +237,17 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Phone size={14} className="text-red shrink-0" />
                 <a 
-                  href="tel:+911140538400" 
+                  href="tel:+919810855697" 
                   className="hover:text-white transition-colors font-mono tracking-wide text-slate-300"
                 >
-                  {(company as any)?.phone || "+91-11-4053-8400"}
+                  +91 9810855697
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail size={14} className="text-red shrink-0" />
                 <a 
-                  href="mailto:admin@futurextrade.com" 
+                  href={mailtoLink} 
                   className="hover:text-white transition-colors font-mono tracking-wide text-slate-300"
                 >
                   admin@futurextrade.com
@@ -273,7 +277,6 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <a 
               href="/privacy-policy" 
-            
               className="hover:text-slate-200 transition-colors"
             >
               Privacy Policy
@@ -286,8 +289,6 @@ export function Footer() {
               Terms & Conditions
             </a>
           </div>
-
-         
         </div>
 
       </div>

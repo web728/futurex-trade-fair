@@ -11,6 +11,7 @@ import {
   AlertTriangle, 
   Layers
 } from 'lucide-react';
+import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -101,7 +102,14 @@ export function GlobalPresence() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 sm:pb-16 border-b border-white/[0.08]">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-300 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+          <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                <Image
+                  src="/logos/svg/logo-arrow-white.png"
+                  alt="Icon"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span>STRATEGIC POSITIONING</span>
             </div>
 
@@ -132,13 +140,8 @@ export function GlobalPresence() {
 
         {/* ========================================================================= */}
         <div>
-          <div className="pt-14 sm:pt-18 mb-10 flex items-center justify-between">
-            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-red-500 block">
-              OPERATIONAL DOMAINS
-            </span>
-            <span className="text-xs font-mono text-neutral-500 uppercase tracking-widest">
-              05 Core Pillars
-            </span>
+          <div className="pt-4 sm:pt-18 mb-10 flex items-center justify-between">
+          
           </div>
 
           <motion.div 
@@ -179,10 +182,7 @@ export function GlobalPresence() {
                     </p>
                   </div>
 
-                  <div className="pt-5 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[10.5px] font-mono text-neutral-500 uppercase tracking-widest">
-                    <span>MANDATE VERIFIED</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 group-hover:bg-red-500 transition-colors" />
-                  </div>
+                 
                 </motion.div>
               );
             })}

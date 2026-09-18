@@ -2,6 +2,7 @@
 
 import { Mail, Phone, Building2, Globe2, Clock, Linkedin, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { company } from '@/data/company';
+import Image from 'next/image';
 
 const socialLinks = [
   {
@@ -58,7 +59,14 @@ export function ContactCard() {
         
         {/* Header Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/[0.05] border border-white/10 rounded-full backdrop-blur-md">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+           <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                 <Image
+                                   src="/logos/svg/logo-arrow-white.png"
+                                   alt="Icon"
+                                   fill
+                                   className="object-contain"
+                                 />
+                               </div>
           <span className="text-[10px] font-mono font-bold tracking-[0.18em] uppercase text-neutral-300">
             HEADQUARTERS // NEW DELHI
           </span>

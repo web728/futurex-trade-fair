@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -26,7 +27,14 @@ export function CTASection() {
           transition={{ duration: 0.6, ease: easeEditorial }}
           className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-neutral-300 mb-6"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+         <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+               <Image
+                 src="/logos/svg/logo-arrow-white.png"
+                 alt="Icon"
+                 fill
+                 className="object-contain"
+               />
+             </div>
           <span>Exhibitor Registrations 2026 — 2027</span>
         </motion.div>
 

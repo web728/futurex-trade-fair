@@ -18,6 +18,7 @@ import {
   Sparkles,
   ArrowUpRight
 } from 'lucide-react';
+import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -146,7 +147,14 @@ export default function AboutPage() {
             {/* Left Sticky Identity Anchor */}
             <motion.div variants={itemVariants} className="lg:col-span-5 lg:sticky lg:top-24">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+               <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                     <Image
+                       src="/logos/svg/logo-arrow.png"
+                       alt="Icon"
+                       fill
+                       className="object-contain"
+                     />
+                   </div>
                 <span>Established {company.established || "2011"} • New Delhi</span>
               </div>
 
@@ -211,6 +219,14 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-5 border-b border-neutral-200/80 mb-8 sm:mb-10">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-white border border-neutral-200/90 text-[10.5px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-2 shadow-2xs">
+                <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                      <Image
+                        src="/logos/svg/logo-arrow.png"
+                        alt="Icon"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                 <span>Execution Framework</span>
               </div>
 
@@ -289,7 +305,14 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-5 border-b border-neutral-200/80 mb-6 sm:mb-8">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-neutral-50 border border-neutral-200/90 text-[10.5px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-2 shadow-2xs">
-                <Building2 className="w-3 h-3 text-red-600" />
+                  <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                        <Image
+                          src="/logos/svg/logo-arrow.png"
+                          alt="Icon"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                 <span>Operating Stations</span>
               </div>
              <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]">

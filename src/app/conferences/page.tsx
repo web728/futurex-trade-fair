@@ -8,6 +8,7 @@ import { CTASection } from '@/components/sections/CTASection';
 import { conferences } from '@/data/conferences';
 import { createMetadata } from '@/lib/metadata';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -99,7 +100,14 @@ export default function ConferencesPage() {
 
             <div className="lg:col-span-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-100 border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-5 shadow-2xs">
-                <Sparkles size={13} className="text-red-600 animate-pulse" />
+               <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                     <Image
+                       src="/logos/svg/logo-arrow.png"
+                       alt="Icon"
+                       fill
+                       className="object-contain"
+                     />
+                   </div>
                 <span>EXCHANGE FORMAT</span>
               </div>
 
@@ -145,7 +153,14 @@ export default function ConferencesPage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-neutral-200/80 mb-14">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-3 shadow-2xs">
-                <Layers size={13} className="text-red-600" />
+                 <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                       <Image
+                         src="/logos/svg/logo-arrow.png"
+                         alt="Icon"
+                         fill
+                         className="object-contain"
+                       />
+                     </div>
                 <span>CHRONOLOGICAL SUMMITS CATALOG ({filteredConferences.length} SESSIONS)</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-[-0.035em] text-[#0A0D12]">

@@ -162,7 +162,14 @@ export function ExhibitionFilters({ groupedEvents }: ExhibitionFiltersProps) {
             {/* Low-profile, Elegant Year Header */}
             <div className="flex items-center gap-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/90 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+               <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                     <Image
+                       src="/logos/svg/logo-arrow.png"
+                       alt="Icon"
+                       fill
+                       className="object-contain"
+                     />
+                   </div>
                 <span className="font-mono text-xs font-bold tracking-[0.16em] uppercase text-[#0A0D12]">
                   {group.year} SERIES
                 </span>

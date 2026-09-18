@@ -101,7 +101,14 @@ export default function ParticipantsPage() {
           {/* Header & Single-Line Aligned Category Tabs */}
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto pb-12 sm:pb-16 border-b border-neutral-200/80 mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-600 mb-4 shadow-2xs">
-              <Sparkles size={12} className="text-red-600 animate-pulse" />
+                 <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                       <Image
+                                         src="/logos/svg/logo-arrow.png"
+                                         alt="Icon"
+                                         fill
+                                         className="object-contain"
+                                       />
+                                     </div>
               <span>PARTICIPANT & PARTNER DIRECTORY</span>
             </div>
 

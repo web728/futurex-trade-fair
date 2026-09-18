@@ -27,7 +27,7 @@ const companiesData: GroupCompanyItem[] = [
  description:
   'A world-class exhibition stand builder delivering end-to-end solutions across design, production, setup, and execution of premium exhibition stands.',
 url: 'https://futurexstudio.com/',
-logo: '/gallery/images-event/2026/Futurex-Studio-Logo.png',
+logo: '/logos/studio.png',
     icon: Palette,
     accentColor: 'text-red-600'
   },
@@ -39,7 +39,7 @@ logo: '/gallery/images-event/2026/Futurex-Studio-Logo.png',
     description:
       'A full-service digital marketing company merging imagination and technology to help brands thrive in the era of digital transformation.',
     url: 'https://futurexpr.com/',
-    logo: '/gallery/images-event/2026/fdma.png',
+    logo: '/logos/fdma.png',
     icon: Layers,
     accentColor: 'text-sky-600'
   },
@@ -51,7 +51,7 @@ logo: '/gallery/images-event/2026/Futurex-Studio-Logo.png',
     description:
       'A young subsidiary of the Futurex Healthcare Group of Companies, recognized for building India’s largest Covid Care ICU in Mumbai in record time.',
     url: 'https://www.futurexhealth.com/',
-    logo: '/gallery/images-event/2026/healthcare.png',
+    logo: '/logos/healthcare.png',
     icon: Activity,
     accentColor: 'text-emerald-600'
   }
@@ -94,7 +94,14 @@ export function GroupCompanies() {
           <div className="max-w-2xl">
             {/* Live Indicator Pill */}
             <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white border border-neutral-200/90 text-[11px] font-mono tracking-widest uppercase text-neutral-600 mb-4 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+              <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                    <Image
+                      src="/logos/svg/logo-arrow.png"
+                      alt="Icon"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
               <span>Futurex Group</span>
             </div>
 

@@ -150,7 +150,14 @@ export function GallerySection({ full = false }: { full?: boolean }) {
                     />
                   )}
                   <div className="flex items-center gap-2">
-                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />}
+                    {isSelected &&     <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                              <Image
+                                                src="/logos/svg/logo-arrow-white.png"
+                                                alt="Icon"
+                                                fill
+                                                className="object-contain"
+                                              />
+                                            </div>}
                     <span>{tab.label}</span>
                   </div>
                 </button>

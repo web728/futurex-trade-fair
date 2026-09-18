@@ -94,47 +94,54 @@ export function UpcomingExhibitions() {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         
-        {/* ========================================================================= */}
-        {/* HEADER BAR */}
-        {/* ========================================================================= */}
-        <motion.div 
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6, ease: easeEditorial }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 sm:pb-12 border-b border-neutral-200/80"
-        >
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-600 mb-4 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-              <span>Official Trade Calendar</span>
-            </div>
+      {/* ========================================================================= */}
+{/* HEADER BAR */}
+{/* ========================================================================= */}
+<motion.div 
+  initial={{ opacity: 0, y: 14 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-40px" }}
+  transition={{ duration: 0.6, ease: easeEditorial }}
+  className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 sm:pb-12 border-b border-neutral-200/80"
+>
+  <div className="max-w-2xl">
+    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-600 mb-4 shadow-2xs">
+      {/* Custom PNG Icon Replaced Instead of Red Dot */}
+      <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+        <Image
+          src="/logos/svg/logo-arrow.png"
+          alt="Icon"
+          fill
+          className="object-contain"
+        />
+      </div>
+      <span>Official Trade Calendar</span>
+    </div>
 
-            <h2 
-              id="upcoming-exhibitions-title"
-              className="text-3xl sm:text-5xl lg:text-[52px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.08]"
-            >
-              Upcoming Global <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-neutral-500">Trade Exhibitions</span>
-            </h2>
-          </div>
+    <h2 
+      id="upcoming-exhibitions-title"
+      className="text-3xl sm:text-5xl lg:text-[52px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.08]"
+    >
+      Upcoming Global <br className="hidden sm:inline" />
+      <span className="font-serif italic font-normal text-neutral-500">Trade Exhibitions</span>
+    </h2>
+  </div>
 
-          <div className="flex items-center gap-4 self-start md:self-end">
-            <Link 
-              href="/exhibitions" 
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#0A0D12] border border-neutral-200 hover:border-[#0A0D12] text-xs font-mono tracking-[0.14em] uppercase text-neutral-800 hover:text-white transition-all duration-300 shadow-2xs active:scale-95 cursor-pointer"
-            >
-              <span className="text-neutral-800 transition-colors duration-300 group-hover:text-white">
-                Full Directory
-              </span>
-              <ArrowUpRight 
-                size={14} 
-                className="text-neutral-400 group-hover:text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
-              />
-            </Link>
-          </div>
-        </motion.div>
-
+  <div className="flex items-center gap-4 self-start md:self-end">
+    <Link 
+      href="/exhibitions" 
+      className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#0A0D12] border border-neutral-200 hover:border-[#0A0D12] text-xs font-mono tracking-[0.14em] uppercase text-neutral-800 hover:text-white transition-all duration-300 shadow-2xs active:scale-95 cursor-pointer"
+    >
+      <span className="text-neutral-800 transition-colors duration-300 group-hover:text-white">
+        Full Directory
+      </span>
+      <ArrowUpRight 
+        size={14} 
+        className="text-neutral-400 group-hover:text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+      />
+    </Link>
+  </div>
+</motion.div>
     
 
         {/* ========================================================================= */}
@@ -192,25 +199,25 @@ export function UpcomingExhibitions() {
                         </div>
                       )}
 
-                      <div className="relative z-10 w-[92%] h-[88%] flex items-center justify-center transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105">
-                        {eventImg ? (
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={eventImg}
-                              alt={event.name}
-                              fill
-                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                              className="object-contain filter drop-shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
-                              priority={false}
-                            />
-                          </div>
-                        ) : (
-                          <div className="flex flex-col items-center justify-center gap-2.5 text-neutral-400">
-                            <Building2 size={40} className="text-red-600" />
-                            <span className="font-mono text-[11px] tracking-widest uppercase">Futurex Platform</span>
-                          </div>
-                        )}
-                      </div>
+                 <div className="relative z-10 w-full h-[180px] sm:h-[210px] flex items-center justify-center overflow-hidden rounded-xl transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105 bg-neutral-100">
+  {eventImg ? (
+    <div className="relative w-full h-full">
+      <Image
+        src={eventImg}
+        alt={event.name}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-contain p-4 filter transition-transform duration-700 group-hover:scale-105"
+        priority={false}
+      />
+    </div>
+  ) : (
+    <div className="flex flex-col items-center justify-center gap-2.5 text-neutral-400">
+      <Building2 size={36} className="text-red-600" />
+      <span className="font-mono text-[11px] tracking-widest uppercase">Futurex Platform</span>
+    </div>
+  )}
+</div>
                     </button>
 
                     {/* Title & Metadata */}

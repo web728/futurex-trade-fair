@@ -5,6 +5,7 @@ import { motion, type Variants } from 'framer-motion';
 import { ShieldCheck, Lock, Eye, Database, Mail } from 'lucide-react';
 import { PageHero } from '@/components/hero/PageHero';
 import { CTASection } from '@/components/sections/CTASection';
+import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -71,7 +72,14 @@ export default function PrivacyPolicyPage() {
           >
             {/* Last Updated Badge */}
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-neutral-200/80 text-xs font-mono tracking-widest uppercase text-neutral-500 shadow-2xs">
-              <ShieldCheck size={14} className="text-red-600" />
+                <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                      <Image
+                                        src="/logos/svg/logo-arrow.png"
+                                        alt="Icon"
+                                        fill
+                                        className="object-contain"
+                                      />
+                                    </div>
               <span>Effective Date: June 2026 </span>
             </motion.div>
 

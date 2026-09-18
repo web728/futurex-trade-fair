@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
-import { ArrowUpRight, Award, Building2, Globe2, PhoneCall } from 'lucide-react';
+import { ArrowUpRight, Award, Building2, Globe2, PhoneCall, MapPin } from 'lucide-react';
 
 const easeLuxury: [number, number, number, number] = [0.19, 1, 0.22, 1];
 
@@ -145,7 +145,7 @@ export function HeroSection() {
           />
         </div>
         
-        {/* Advanced Foggy Multi-Stop Gradient Mask (Heavy right, absolute fade to left) */}
+        {/* Advanced Foggy Multi-Stop Gradient Mask */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#07080A] via-[#07080A]/90 to-[#07080A]/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-[#07080A]/60" />
       </div>
@@ -180,18 +180,6 @@ export function HeroSection() {
           }}
           className="absolute top-1/2 right-0 w-[560px] h-[560px] bg-blue-600/15 rounded-full blur-[180px]"
         />
-
-        {/* Crisp Linear Grid for Scale */}
-        {/* <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #ffffff 1px, transparent 1px),
-              linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-            `,
-            backgroundSize: '80px 80px',
-          }}
-        /> */}
       </div>
 
       {/* Hero Body Content */}
@@ -202,10 +190,18 @@ export function HeroSection() {
           animate="visible"
           className="max-w-4xl"
         >
-          {/* Identity Tagline */}
+          {/* Identity Tagline with Custom PNG Icon instead of Red Dot */}
           <motion.div variants={itemVariants} className="mb-7 flex flex-wrap items-center gap-3">
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md text-[11px] font-mono tracking-widest text-neutral-300 uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              {/* Custom PNG Icon Added Here */}
+              <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                <Image
+                  src="/logos/svg/logo-arrow-white.png"
+                  alt="Icon"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span>Est. 2011</span>
             </div>
 
@@ -225,16 +221,16 @@ export function HeroSection() {
             <span className="text-neutral-400 font-normal">Events Private Limited</span>
           </motion.h1>
 
-        {/* Subheading */}
-<motion.p
-  variants={itemVariants}
-  className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
->
-  A Premier International Trade Exhibition and Corporate Events Organizer.
-  <br />
-  We Build Multidimensional, High-Value Platforms Connecting Global Manufacturers,
-  Innovators, and Verified Industry Buyers Across Key Commercial Sectors.
-</motion.p>
+          {/* Subheading */}
+          <motion.p
+            variants={itemVariants}
+            className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
+          >
+            A Premier International Trade Exhibition and Corporate Events Organizer.
+            <br />
+            We Build Multidimensional, High-Value Platforms Connecting Global Manufacturers,
+            Innovators, and Verified Industry Buyers Across Key Commercial Sectors.
+          </motion.p>
 
           {/* CTAs */}
           <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center gap-4">
@@ -259,64 +255,33 @@ export function HeroSection() {
       </div>
 
       {/* CIEO Membership Footer Strip */}
-     <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 0.4, duration: 1 }}
-  className="relative border-t border-white/[0.08] bg-[#0A0B0E]/85 backdrop-blur-xl py-4 z-10"
->
-  <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-
-    <a
-      href="https://www.cieo.in/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group inline-flex items-center gap-3 rounded-xl px-2.5 py-1.5
-                 text-neutral-300
-                 transition-all duration-300 ease-out
-                 hover:-translate-y-0.5
-                 hover:bg-white/[0.04]
-                 hover:text-white
-                 hover:shadow-[0_0_20px_rgba(239,68,68,0.08)]
-                 focus-visible:outline-none
-                 focus-visible:ring-1
-                 focus-visible:ring-red-500/50"
-    >
-      <div
-        className="p-1.5 rounded-full bg-white/[0.05] border border-white/10
-                   transition-all duration-300
-                   group-hover:border-red-500/50
-                   group-hover:bg-red-500/10
-                   group-hover:shadow-[0_0_12px_rgba(239,68,68,0.15)]"
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 1 }}
+        className="relative border-t border-white/[0.08] bg-[#0A0B0E]/85 backdrop-blur-xl py-4 z-10"
       >
-        <Award className="w-4 h-4 text-red-500 transition-transform duration-300 group-hover:scale-110" />
-      </div>
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 
-      <div className="text-xs font-mono">
-        <span className="transition-colors duration-300 group-hover:text-red-400">
-          Member of CIEO (Council of Indian Exhibition Organisers)
-        </span>
-      </div>
+          {/* CIEO Membership Section without Link */}
+          <div className="inline-flex items-center gap-3 rounded-xl px-2.5 py-1.5 text-neutral-300">
+            <div className="p-1.5 rounded-full bg-white/[0.05] border border-white/10">
+              <Award className="w-4 h-4 text-red-500" />
+            </div>
 
-      {/* Hover indicator */}
-      <span
-        className="text-[10px] font-mono text-red-400/0
-                   -ml-1 translate-x-[-4px]
-                   transition-all duration-300
-                   group-hover:text-red-400/80
-                   group-hover:translate-x-0"
-      >
-        ↗
-      </span>
-    </a>
+            <div className="text-xs font-mono">
+              <span>Member of CIEO (Council of Indian Exhibition Organisers)</span>
+            </div>
+          </div>
 
-    <div className="text-xs text-neutral-400 font-mono flex items-center gap-2">
-      <Building2 className="w-4 h-4 text-neutral-500" />
-      <span>E-52, 1st Floor, Kalkaji, New Delhi, India, 110019</span>
-    </div>
+          {/* Structured Address Format */}
+          <div className="text-xs text-neutral-400 font-mono flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-red-500 shrink-0" />
+            <span>E-52, 1st Floor, Kalkaji, New Delhi, India - 110019</span>
+          </div>
 
-  </div>
-</motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 }

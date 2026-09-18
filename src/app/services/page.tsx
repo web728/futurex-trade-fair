@@ -127,7 +127,14 @@ export default function ServicesPage() {
       <section className="py-20 sm:py-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 border-b border-neutral-200/80 select-none">
         <div className="max-w-2xl mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-neutral-200/80 text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-600 mb-4 shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+            <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                  <Image
+                                    src="/logos/svg/logo-arrow.png"
+                                    alt="Icon"
+                                    fill
+                                    className="object-contain"
+                                  />
+                                </div>
             <span>WHAT WE DO</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]">
@@ -197,6 +204,14 @@ export default function ServicesPage() {
             className="text-center max-w-xl mx-auto mb-12"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200/80 text-[10px] font-mono tracking-[0.16em] uppercase text-neutral-600 mb-3">
+                <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                      <Image
+                                        src="/logos/svg/logo-arrow.png"
+                                        alt="Icon"
+                                        fill
+                                        className="object-contain"
+                                      />
+                                    </div>
               <span>STRATEGIC ALLIANCES</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#0A0D12]">
@@ -259,7 +274,14 @@ export default function ServicesPage() {
           
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-[10px] font-mono tracking-[0.18em] uppercase text-neutral-300 mb-3 backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+               <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                     <Image
+                                       src="/logos/svg/logo-arrow-white.png"
+                                       alt="Icon"
+                                       fill
+                                       className="object-contain"
+                                     />
+                                   </div>
               <span>FOUNDATIONAL DOCTRINE</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] text-white leading-tight">

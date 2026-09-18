@@ -49,14 +49,16 @@ export function Testimonials() {
           <div className="max-w-2xl">
          
 
-            <h2 
-              id="testimonials-heading"
-              className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]"
-            >
-              Exhibitor & Buyer <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-neutral-500">Endorsements</span>
-              <span className="text-red-600 font-sans">.</span>
-            </h2>
+        <h2
+  id="testimonials-heading"
+  className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]"
+>
+  Real Voices. <br className="hidden sm:inline" />
+  <span className="font-serif italic font-normal text-neutral-500">
+    Real Experiences
+  </span>
+  <span className="text-red-600 font-sans">.</span>
+</h2>
 
          
           </div>

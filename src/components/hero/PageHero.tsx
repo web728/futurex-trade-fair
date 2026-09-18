@@ -230,7 +230,14 @@ export function PageHero({ eyebrow, title, description, tagline, backgroundImage
           {/* Eyebrow & Navigational Breadcrumb */}
           <motion.div variants={itemVariants} className="mb-5 sm:mb-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md text-[10px] sm:text-[11px] font-mono tracking-widest text-neutral-300 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+             <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                   <Image
+                     src="/logos/svg/logo-arrow-white.png"
+                     alt="Icon"
+                     fill
+                     className="object-contain"
+                   />
+                 </div>
               <span>{eyebrow}</span>
             </div>
 
