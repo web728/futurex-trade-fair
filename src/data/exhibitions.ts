@@ -80,8 +80,8 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
       email: "admin@futurextrade.com"
     },
   }, {
-    id: "8th Edition India EV International Show",
-    name: "8th Edition India EV International Show",
+    id: "8th India EV International Show",
+    name: "8th India EV International Show",
     edition: "8th Edition",
     dates: { display: "2nd to 4th October 2026", start: "2026-10-02", end: "2026-10-04" },
     venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
@@ -171,15 +171,15 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
       email: "admin@futurextrade.com"
     },
   },   {
-    id: "12th Edition Nepal Wood International Expo",
-    name: "12th Edition Nepal Wood International Expo",
+    id: "12th Nepal Wood International Expo",
+    name: "12th Nepal Wood International Expo",
     edition: "12th Edition",
    dates: { display: "28th to 31st January 2027", start: "2027-01-28", end: "2027-01-31" },
     venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Wood",
 
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/nepal-wood-expo-logo.jpg",
+    heroImage: "/gallery/images-event/2026/nepal-wood-expo-logo.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
@@ -197,7 +197,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Agritech",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/Artboard.png",
+    heroImage: "/gallery/images-event/2026/nepal-agritech.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
@@ -227,14 +227,14 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
       email: "admin@futurextrade.com"
     },
   },   {
-    id: "4th Edition Kenya Buildcon International Expo",
-    name: "4th Edition Kenya Buildcon International Expo",
+    id: "4th Kenya Buildcon International Expo",
+    name: "4th Kenya Buildcon International Expo",
     edition: "4th Edition",
    dates: { display: "9th to 11th June 2027", start: "2027-06-09", end: "2027-06-11" },
     venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
     industry: "Buildcon",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/kenya-buildcon-expo-logo.jpg",
+    heroImage: "/gallery/images-event/2026/kenya-buildcon-expo-logo.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
@@ -246,8 +246,8 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     },
   }, 
   {
-    id: "4th Edition Kenya Wood International Expo",
-    name: "4th Edition Kenya Wood International Expo",
+    id: "4th Kenya Wood International Expo",
+    name: "4th Kenya Wood International Expo",
     edition: "4th Edition",
     dates: { display: "9th to 11th June 2027", start: "2027-06-09", end: "2027-06-11" },
     venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
@@ -282,8 +282,8 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
       email: "admin@futurextrade.com"
     },
   }, {
-    id: "6th Edition Uganda Buildcon International Expo",
-    name: "6th Edition Uganda Buildcon International Expo",
+    id: "6th Uganda Buildcon International Expo",
+    name: "6th Uganda Buildcon International Expo",
     edition: "6th Edition",
     dates: { display: "4th to 6th August 2027", start: "2027-08-04", end: "2027-08-06" },
     venue: { city: "Uma Show Grounds, Kampala", country: "Uganda" },
@@ -318,8 +318,8 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
       email: "admin@futurextrade.com"
     },
   }, {
-    id: "3rd Edition ICPMA Corru Pack Print India",
-    name: "3rd Edition ICPMA Corru Pack Print India",
+    id: "3rd ICPMA Corru Pack Print India",
+    name: "3rd ICPMA Corru Pack Print India",
     edition: "3rd Edition",
     dates: { display: "9th to 12th February 2028", start: "2028-02-09", end: "2028-02-12" },
     venue: { city: "Yashobhoomi, IICC, Dwarka, New Delhi", country: "India" },

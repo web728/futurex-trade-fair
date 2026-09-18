@@ -199,7 +199,7 @@ export function UpcomingExhibitions() {
                         </div>
                       )}
 
-                 <div className="relative z-10 w-full h-[180px] sm:h-[210px] flex items-center justify-center overflow-hidden rounded-xl transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105 bg-neutral-100">
+             <div className="relative z-10 w-full h-[180px] sm:h-[210px] flex items-center justify-center overflow-hidden rounded-xl transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-105 bg-neutral-100">
   {eventImg ? (
     <div className="relative w-full h-full">
       <Image
