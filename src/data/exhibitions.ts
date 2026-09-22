@@ -160,7 +160,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " Baramunda Ground, Bhubaneswar, Odisha", country: "India" },
     industry: "Mining",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/5th-odisha-logo.png",
+    heroImage: "/gallery/images-event/2026/odisha-logo.png",
     description:
       "A focused B2B platform connecting mining and infrastructure manufacturers, technology providers and buyers across Eastern India.",
     socials: {
