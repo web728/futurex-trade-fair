@@ -31,9 +31,9 @@ const navItems: NavItem[] = [
     ]
   },
   { href: '/industries', label: 'Industries' },
-  { href: '/global-presence', label: 'Global Hubs' },
+  { href: '/global-presence', label: 'OUR PRESENCE' },
   { href: '/services', label: 'Services' },
-  { href: '/participants', label: 'Participants' },
+  { href: '/participants', label: 'EXHIBITORS' },
   { 
     href: '/gallery', 
     label: 'Media',
