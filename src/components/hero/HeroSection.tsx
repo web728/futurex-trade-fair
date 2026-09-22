@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
-import { ArrowUpRight, Award, Building2, Globe2, PhoneCall, MapPin } from 'lucide-react';
+import { ArrowUpRight, Award, Building2, Globe2, PhoneCall, MapPin, ArrowRight, Download } from 'lucide-react';
 
 const easeLuxury: [number, number, number, number] = [0.19, 1, 0.22, 1];
 
@@ -222,35 +222,49 @@ export function HeroSection() {
           </motion.h1>
 
           {/* Subheading */}
-          <motion.p
-            variants={itemVariants}
-            className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
-          >
-            A Premier International Trade Exhibition and Corporate Events Organizer.
-            <br />
-            We Build Multidimensional, High-Value Platforms Connecting Global Manufacturers,
-            Innovators, and Verified Industry Buyers Across Key Commercial Sectors.
-          </motion.p>
+         <motion.p
+  variants={itemVariants}
+  className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
+>
+  We organise sector-focused B2B trade exhibitions across India, South Asia and East Africa — bringing manufacturers face to face with distributors, buyers and industry networks in each market.
+</motion.p>
 
           {/* CTAs */}
-          <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-red-600 hover:bg-red-500 text-white font-medium text-xs tracking-wider rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(220,38,38,0.28)] hover:shadow-[0_0_32px_rgba(220,38,38,0.45)] active:scale-[0.98]"
-            >
-              <PhoneCall className="w-4 h-4" />
-              <span>Connect With Organizers</span>
-            </Link>
+        <motion.div
+  variants={itemVariants}
+  className="mt-10 flex flex-wrap items-center gap-4"
+>
+  {/* Primary CTA */}
+  <Link
+    href="/exhibitions"
+    className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-red-600 hover:bg-red-500 text-white !text-white font-medium text-xs tracking-wider rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(220,38,38,0.28)] hover:shadow-[0_0_32px_rgba(220,38,38,0.45)] active:scale-[0.98]"
+  >
+    <span className="!text-white">EXPLORE EXHIBITIONS</span>
+    <ArrowRight className="w-4 h-4 !text-white" />
+  </Link>
 
-            <Link
-              href="/documents/futurex-group-company-profile.pdf"
-              target="_blank"
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-white/30 text-white font-medium text-xs tracking-wider rounded-full backdrop-blur-xl transition-all duration-300 active:scale-[0.98]"
-            >
-              <span>Download Company Profile</span>
-              <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors duration-200" />
-            </Link>
-          </motion.div>
+  {/* Secondary CTA */}
+  <Link
+    href="/contact"
+    className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-white/30 text-white !text-white font-medium text-xs tracking-wider rounded-full backdrop-blur-xl transition-all duration-300 active:scale-[0.98]"
+  >
+    <span className="!text-white">EXHIBIT WITH FUTUREX</span>
+    <ArrowUpRight className="w-4 h-4 !text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+  </Link>
+
+  {/* Tertiary Link */}
+ <Link
+  href="/documents/futurex-group-company-profile.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center gap-1.5 ml-1 text-xs text-neutral-400 hover:text-white !text-neutral-400 hover:!text-white font-medium tracking-wide transition-colors duration-200"
+>
+  <span>Download Company Profile</span>
+  <Download
+    className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-y-0.5"
+  />
+</Link>
+</motion.div>
         </motion.div>
       </div>
 
