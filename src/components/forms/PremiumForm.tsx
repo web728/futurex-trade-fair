@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle2, AlertCircle, Sparkles, ArrowRight, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, AlertCircle, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -39,10 +39,10 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
     platform: 'Website',
     registerAs: 'Exhibitor',
     company: '',
-    name: '', // Contact Person
+    name: '', // Full Name
     designation: '',
-    email: '', // Email Id
-    phone: '', // Mobile No.
+    email: '', 
+    phone: '', 
     website: '',
     address: '',
     country: '',
@@ -51,20 +51,25 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
     infoGetFrom: '',
     message: '',
     event: defaultEvent || '',
-    honeypotWebsite: '' // Spam protection honeypot
+    honeypotWebsite: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const isVisitor = formData.registerAs === 'Trade Visitor';
+  const isExhibitorOrSponsor = ['Exhibitor', 'Sponsor'].includes(formData.registerAs);
+
   const validateStep = (step: number): boolean => {
     const newErrors: FieldErrors = {};
     if (step === 1) {
-      if (!formData.company.trim()) newErrors.company = 'Company name is required';
-      if (!formData.name.trim()) newErrors.name = 'Contact person name is required';
+      if (!formData.name.trim()) newErrors.name = 'Full name is required';
       if (!formData.email.trim() || !formData.email.includes('@')) newErrors.email = 'Valid email is required';
       if (!formData.phone.trim() || formData.phone.length < 7) newErrors.phone = 'Valid phone number is required';
+      if (isExhibitorOrSponsor && !formData.company.trim()) {
+        newErrors.company = 'Company name is required for exhibitors/sponsors';
+      }
     } else if (step === 2) {
       if (!formData.country.trim()) newErrors.country = 'Country is required';
       if (!formData.registerAs.trim()) newErrors.registerAs = 'Please select registration type';
@@ -135,14 +140,14 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
     <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-neutral-200/90 shadow-[0_10px_40px_rgba(0,0,0,0.04)] select-none relative overflow-hidden">
       <div className="mb-6 sm:mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 border border-red-200 rounded-full mb-3">
-            <div className="relative w-3.5 h-3.5 flex items-center justify-center">
-                                  <Image
-                                    src="/logos/svg/logo-arrow.png"
-                                    alt="Icon"
-                                    fill
-                                    className="object-contain"
-                                  />
-                                </div>
+          <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+            <Image
+              src="/logos/svg/logo-arrow.png"
+              alt="Icon"
+              fill
+              className="object-contain"
+            />
+          </div>
           <span className="text-[10px] font-mono font-bold tracking-[0.16em] uppercase text-red-600">
             {formType.toUpperCase()} ENQUIRY — STEP {currentStep} OF 3
           </span>
@@ -167,38 +172,11 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
           <label>Website<input name="honeypotWebsite" value={formData.honeypotWebsite} onChange={handleChange} tabIndex={-1} autoComplete="off" /></label>
         </div>
 
-        {/* STEP 1: Company & Contact Information */}
+        {/* STEP 1: Core Personal & Organization Details */}
         {currentStep === 1 && (
           <div className="space-y-4 animate-fadeIn">
-            <FormField label="Company Name" name="company" required error={errors.company} inputProps={{ value: formData.company, onChange: handleChange, autoComplete: 'organization', maxLength: 160, placeholder: 'Company Pvt Ltd' }} />
-            <FormField label="Contact Person Name" name="name" required error={errors.name} inputProps={{ value: formData.name, onChange: handleChange, autoComplete: 'name', maxLength: 120, placeholder: 'e.g. John Doe' }} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <FormField label="Designation" name="designation" error={errors.designation} inputProps={{ value: formData.designation, onChange: handleChange, maxLength: 120, placeholder: 'e.g. Marketing Director' }} />
-              <FormField label="Mobile No." name="phone" required error={errors.phone} inputProps={{ type: 'tel', value: formData.phone, onChange: handleChange, autoComplete: 'tel', maxLength: 40, placeholder: '+91 98765 43210' }} />
-            </div>
-            <FormField label="Email Id" name="email" required error={errors.email} inputProps={{ type: 'email', value: formData.email, onChange: handleChange, autoComplete: 'email', maxLength: 180, placeholder: 'john@company.com' }} />
-
-            <div className="pt-3 flex justify-end">
-              <button type="button" onClick={nextStep} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0A0D12] text-white rounded-full text-xs font-mono tracking-wider uppercase hover:bg-neutral-800 transition-all cursor-pointer shadow-md">
-                <span>Next Step</span>
-                <ArrowRight size={14} />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* STEP 2: Location, Participation Type & Requirements */}
-        {currentStep === 2 && (
-          <div className="space-y-4 animate-fadeIn">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <FormField label="Country" name="country" required error={errors.country} inputProps={{ value: formData.country, onChange: handleChange, autoComplete: 'country-name', maxLength: 100, placeholder: 'India' }} />
-              <FormField label="Website URL" name="website" error={errors.website} inputProps={{ type: 'url', value: formData.website, onChange: handleChange, maxLength: 300, placeholder: 'https://company.com' }} />
-            </div>
-
-            <FormField label="Address" name="address" error={errors.address} inputProps={{ value: formData.address, onChange: handleChange, maxLength: 500, placeholder: 'Street address, City, State' }} />
-
             <FormField 
-              label="Register As / Participation Type" 
+              label="Participation / Registration Type" 
               name="registerAs" 
               as="select" 
               options={[
@@ -211,9 +189,51 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
               selectProps={{ value: formData.registerAs, onChange: handleChange }} 
             />
 
+            <FormField label="Full Name" name="name" required error={errors.name} inputProps={{ value: formData.name, onChange: handleChange, autoComplete: 'name', maxLength: 120, placeholder: 'e.g. John Doe' }} />
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <FormField label="Booth Size Requirement" name="boothSizeRequirement" error={errors.boothSizeRequirement} inputProps={{ value: formData.boothSizeRequirement, onChange: handleChange, placeholder: 'e.g. 3x3m, 6x4m' }} />
-              <FormField label="Area of Interest" name="areaOfInterest" error={errors.areaOfInterest} inputProps={{ value: formData.areaOfInterest, onChange: handleChange, placeholder: 'e.g. Machinery, Packaging' }} />
+              <FormField label="Work Email" name="email" required error={errors.email} inputProps={{ type: 'email', value: formData.email, onChange: handleChange, autoComplete: 'email', maxLength: 180, placeholder: 'john@company.com' }} />
+              <FormField label="Mobile Number" name="phone" required error={errors.phone} inputProps={{ type: 'tel', value: formData.phone, onChange: handleChange, autoComplete: 'tel', maxLength: 40, placeholder: '+91 98765 43210' }} />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <FormField label="Job Designation" name="designation" error={errors.designation} inputProps={{ value: formData.designation, onChange: handleChange, maxLength: 120, placeholder: 'e.g. Marketing Director' }} />
+              <FormField 
+                label="Company Name" 
+                name="company" 
+                required={isExhibitorOrSponsor} 
+                error={errors.company} 
+                inputProps={{ value: formData.company, onChange: handleChange, autoComplete: 'organization', maxLength: 160, placeholder: 'Company Pvt Ltd' }} 
+              />
+            </div>
+
+            <div className="pt-3 flex justify-end">
+              <button type="button" onClick={nextStep} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0A0D12] text-white rounded-full text-xs font-mono tracking-wider uppercase hover:bg-neutral-800 transition-all cursor-pointer shadow-md">
+                <span>Next Step</span>
+                <ArrowRight size={14} />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 2: Location & Dynamic Requirements */}
+        {currentStep === 2 && (
+          <div className="space-y-4 animate-fadeIn">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <FormField label="Country" name="country" required error={errors.country} inputProps={{ value: formData.country, onChange: handleChange, autoComplete: 'country-name', maxLength: 100, placeholder: 'India' }} />
+              <FormField label="Website URL" name="website" error={errors.website} inputProps={{ type: 'url', value: formData.website, onChange: handleChange, maxLength: 300, placeholder: 'https://company.com' }} />
+            </div>
+
+            <FormField label="Office / Residential Address" name="address" error={errors.address} inputProps={{ value: formData.address, onChange: handleChange, maxLength: 500, placeholder: 'Street address, City, State' }} />
+
+            {/* Dynamic fields: Booth size shown for Exhibitors/Sponsors, Area of Interest shown for everyone cleanly */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-neutral-50 rounded-2xl border border-neutral-200/60">
+              {!isVisitor && (
+                <FormField label="Booth Size Requirement" name="boothSizeRequirement" error={errors.boothSizeRequirement} inputProps={{ value: formData.boothSizeRequirement, onChange: handleChange, placeholder: 'e.g. 3x3m, 6x4m' }} />
+              )}
+              <div className={isVisitor ? "sm:col-span-2" : ""}>
+                <FormField label="Area of Interest / Product Category" name="areaOfInterest" error={errors.areaOfInterest} inputProps={{ value: formData.areaOfInterest, onChange: handleChange, placeholder: 'e.g. Machinery, Packaging' }} />
+              </div>
             </div>
 
             {showEvent ? (
@@ -233,11 +253,11 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
           </div>
         )}
 
-        {/* STEP 3: Message & Verification */}
+        {/* STEP 3: Message & reCAPTCHA Verification */}
         {currentStep === 3 && (
           <div className="space-y-4 animate-fadeIn">
             <FormField 
-              label="Info. Get From (How did you hear about us?)" 
+              label="How did you hear about us?" 
               name="infoGetFrom" 
               error={errors.infoGetFrom} 
               as="select" 
@@ -251,9 +271,8 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
               selectProps={{ value: formData.infoGetFrom, onChange: handleChange }}
             />
 
-            <FormField label="Message / Specific Requirements" name="message" error={errors.message} as="textarea" textareaProps={{ value: formData.message, onChange: handleChange, rows: 4, maxLength: 3000, placeholder: 'Please describe any extra requirements...' }} />
+            <FormField label="Message / Specific Requirements" name="message" error={errors.message} as="textarea" textareaProps={{ value: formData.message, onChange: handleChange, rows: 4, maxLength: 3000, placeholder: 'Please describe any extra requirements or comments...' }} />
 
-            {/* reCAPTCHA v2 Responsive Container */}
             <div className="py-2 w-full overflow-x-auto flex justify-center">
               <div className="scale-[0.85] sm:scale-100 origin-center">
                 <ReCAPTCHA
@@ -288,7 +307,7 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
         </div>
       </form>
 
-      {/* Success Popup Modal */}
+      {/* Premium Success Popup Modal */}
       <AnimatePresence>
         {status === 'success' && (
           <motion.div

@@ -4,22 +4,21 @@ const submissionFields = {
   formType: { type: String, required: true, index: true },
   platform: { type: String, default: '' },
   registerAs: { type: String, required: true },
-  company: { type: String, required: true, index: true },
-  name: { type: String, required: true }, // Contact Person
+  company: { type: String, default: '', index: true }, // Optional for visitors
+  name: { type: String, required: true }, // Full Name / Contact Person
   designation: { type: String, default: '' },
-  email: { type: String, required: true, index: true }, // Email Id
-  phone: { type: String, default: '' }, // Mobile No.
+  email: { type: String, required: true, index: true },
+  phone: { type: String, required: true },
   website: { type: String, default: '' },
   address: { type: String, default: '' },
   country: { type: String, default: '' },
   boothSizeRequirement: { type: String, default: '' },
   areaOfInterest: { type: String, default: '' },
-  infoGetFrom: { type: String, default: '' }, // Info. Get From
+  infoGetFrom: { type: String, default: '' },
   message: { type: String, default: '' },
   event: { type: String, default: '' },
   source: { type: String, default: '' },
   
-  // Custom status columns matching your spreadsheet headers (STATUS 1 - 9)
   status1: { type: String, default: '' },
   status2: { type: String, default: '' },
   status3: { type: String, default: '' },

@@ -20,9 +20,9 @@ export async function sendNotificationEmail(payload: SubmissionPayload, submitte
   ].filter(Boolean);
 
   const formLabel = payload.registerAs || formTypeLabels[payload.formType] || 'Enquiry';
-  const companyInfo = payload.company ? `from ${payload.company}` : '';
+  const companyInfo = payload.company ? `from ${payload.company}` : '(Visitor/Individual)';
   
-  // High-visibility subject line for notification inbox
+  // High-visibility subject line for admin inbox
   const emailSubject = `[Futurex Lead] [${formLabel.toUpperCase()}] — ${payload.name} ${companyInfo} (${payload.country || 'Global'})`;
 
   const htmlContent = `
@@ -30,10 +30,10 @@ export async function sendNotificationEmail(payload: SubmissionPayload, submitte
       <div style="border-bottom: 2px solid #dc2626; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
         <div>
           <span style="font-size: 10px; font-family: monospace; font-weight: 700; letter-spacing: 0.15em; background-color: #fef2f2; color: #dc2626; padding: 4px 10px; border-radius: 20px; text-transform: uppercase;">
-            NEW ${payload.formType.toUpperCase()} LEAD
+            NEW ${payload.formType.toUpperCase()} LEAD — ${payload.registerAs.toUpperCase()}
           </span>
           <h2 style="color: #0A0D12; margin: 8px 0 0 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em;">
-            ${formLabel} Registration
+            ${formLabel} Submission
           </h2>
         </div>
         <div style="text-align: right; font-size: 11px; color: #6b7280; font-family: monospace;">
@@ -43,11 +43,15 @@ export async function sendNotificationEmail(payload: SubmissionPayload, submitte
 
       <table style="width: 100%; border-collapse: collapse; font-size: 13.5px;">
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; width: 35%;">Company Name</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #0A0D12;">${payload.company || 'N/A'}</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; width: 35%;">Registration Type</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #dc2626;">${payload.registerAs}</td>
         </tr>
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Contact Person</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Company Name</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #0A0D12;">${payload.company || 'N/A (Visitor)'}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Full Name</td>
           <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #0A0D12;">${payload.name}</td>
         </tr>
         <tr>
@@ -55,7 +59,7 @@ export async function sendNotificationEmail(payload: SubmissionPayload, submitte
           <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #0A0D12;">${payload.designation || 'N/A'}</td>
         </tr>
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Business Email</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Work Email</td>
           <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #dc2626;"><a href="mailto:${payload.email}" style="color: #dc2626; text-decoration: none;">${payload.email}</a></td>
         </tr>
         <tr>
@@ -72,10 +76,10 @@ export async function sendNotificationEmail(payload: SubmissionPayload, submitte
         </tr>
         <tr>
           <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Booth Size Req.</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #0A0D12;">${payload.boothSizeRequirement || 'N/A'}</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #0A0D12;">${payload.boothSizeRequirement || 'N/A (Visitor)'}</td>
         </tr>
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Area of Interest</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280;">Area of Interest / Event</td>
           <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-weight: 600; color: #0A0D12;">${payload.areaOfInterest || payload.event || 'N/A'}</td>
         </tr>
         <tr>
@@ -96,6 +100,7 @@ export async function sendNotificationEmail(payload: SubmissionPayload, submitte
     </div>
   `;
 
+  // Send ONLY to admin emails. The user filling the form receives no automated email.
   await Promise.all(
     adminEmails.map(email =>
       transporter.sendMail({

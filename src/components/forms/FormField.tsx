@@ -56,7 +56,7 @@ export function FormField({
           className={`${baseControlClasses} ${borderClass} appearance-none cursor-pointer`}
           {...selectProps}
         >
-          <option value="">Select an exhibition option...</option>
+          <option value="">Select option...</option>
           {options.map((opt) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}
