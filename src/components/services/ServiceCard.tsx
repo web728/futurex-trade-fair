@@ -3,14 +3,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export interface ServiceType {
   title: string;
   description: string;
+  name?: string;
   slug?: string;
   id?: string | number;
-  scope?: string;
   [key: string]: any;
 }
 
@@ -24,6 +24,7 @@ const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const formattedIndex = String(index + 1).padStart(2, '0');
   const serviceSlug = service.slug || service.id || `service-${index}`;
+  const titleText = service.name || service.title;
 
   return (
     <motion.div 
@@ -50,15 +51,15 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
         {/* Left: Index & Service Details */}
         <div className="flex items-start gap-5 sm:gap-7 max-w-3xl">
-          {/* Clean Editorial Numbering (No Clunky Box) */}
           <span className="font-mono text-sm sm:text-base font-semibold text-neutral-400 group-hover:text-red-600 transition-colors duration-200 shrink-0 mt-0.5">
             {formattedIndex}
           </span>
 
           <div>
-          
+            <h3 className="text-base sm:text-lg font-semibold text-[#0A0D12] tracking-[-0.01em] mb-2 group-hover:text-red-600 transition-colors duration-200">
+              {titleText}
+            </h3>
 
-            {/* Description with Open Breathing Line-Height */}
             <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-[1.68] tracking-normal m-0">
               {service.description}
             </p>

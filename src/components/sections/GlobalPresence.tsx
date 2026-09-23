@@ -5,46 +5,46 @@ import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import { 
   ArrowUpRight, 
-  ShieldCheck, 
-  Building2, 
-  Users2, 
-  AlertTriangle, 
-  Layers
+  Compass, 
+  Store, 
+  Megaphone, 
+  Handshake, 
+  CheckCircle2
 } from 'lucide-react';
 import Image from 'next/image';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const strategicPillars = [
+const exhibitionSteps = [
   {
     id: '01',
-    icon: ShieldCheck,
-    title: 'Government & Institutional Platforms',
-    description: 'Structured execution aligned with administrative frameworks and authority protocols.'
+    icon: Compass,
+    title: 'Market & Sector Planning',
+    description: 'Choosing the right market, industry focus and buyer profile before an exhibition takes shape.'
   },
   {
     id: '02',
-    icon: Building2,
-    title: 'Trade Fairs, Exhibitions & Conferences',
-    description: 'Complete ecosystem management from planning to closure.'
+    icon: Store,
+    title: 'Exhibitor Development',
+    description: 'Bringing together manufacturers, suppliers, technology providers and solution companies relevant to that market.'
   },
   {
     id: '03',
-    icon: Users2,
-    title: 'Public-Facing & High-Footfall Environments',
-    description: 'Safety, dignity, and visitor experience management at scale.'
+    icon: Megaphone,
+    title: 'Buyer & Visitor Outreach',
+    description: 'Reaching distributors, dealers, contractors, consultants, procurement teams and other trade professionals.'
   },
   {
     id: '04',
-    icon: AlertTriangle,
-    title: 'Emergency & Time-Critical Execution',
-    description: 'Zero-panic response with contingency-driven preparedness.'
+    icon: Handshake,
+    title: 'Industry Partnerships',
+    description: 'Working with associations, chambers, institutions and local partners that strengthen the exhibition.'
   },
   {
     id: '05',
-    icon: Layers,
-    title: 'Multi-Phase & Long-Duration Projects',
-    description: 'Sustained operations with continuity and control.'
+    icon: CheckCircle2,
+    title: 'On-Ground Delivery',
+    description: 'Managing venue coordination, exhibitor support, registration, production and show-day operations.'
   }
 ];
 
@@ -102,7 +102,7 @@ export function GlobalPresence() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 sm:pb-16 border-b border-white/[0.08]">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10.5px] font-mono tracking-[0.18em] uppercase text-neutral-300 mb-4">
-          <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+              <div className="relative w-3.5 h-3.5 flex items-center justify-center">
                 <Image
                   src="/logos/svg/logo-arrow-white.png"
                   alt="Icon"
@@ -110,29 +110,29 @@ export function GlobalPresence() {
                   className="object-contain"
                 />
               </div>
-              <span>STRATEGIC POSITIONING</span>
+              <span>HOW FUTUREX GROUP WORKS</span>
             </div>
 
             <h2 
               id="strategic-positioning-heading"
               className="text-3xl sm:text-5xl lg:text-[52px] font-semibold tracking-[-0.035em] text-white leading-[1.08]"
             >
-              Executive Summary & <br />
-              <span className="font-serif italic font-normal text-neutral-400">Strategic Role</span>
+              How Futurex Group builds a <br />
+              <span className="font-serif italic font-normal text-neutral-400">trade exhibition</span>
               <span className="text-red-500 font-sans">.</span>
             </h2>
 
             <p className="mt-5 text-neutral-300 text-sm sm:text-base font-normal leading-[1.85] max-w-2xl">
-              Futurex Group operates at the intersection of execution, infrastructure, public interface, and institutional coordination—delivering disciplined execution and zero-failure accountability across high-impact projects.
+              From choosing the right sector and market to bringing exhibitors, buyers, industry bodies and on-ground operations together, each exhibition is planned and delivered as a complete B2B trade platform.
             </p>
           </div>
 
           <div className="flex items-center gap-4 self-start md:self-end">
             <Link
-              href="/global-presence"
+              href="/about"
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] hover:border-white/20 text-xs font-mono tracking-[0.14em] uppercase text-neutral-300 hover:text-white transition-all duration-300 active:scale-95"
             >
-              <span>Explore Full Profile</span>
+              <span>ABOUT FUTUREX GROUP</span>
               <ArrowUpRight size={14} className="text-neutral-400 group-hover:text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
@@ -151,7 +151,7 @@ export function GlobalPresence() {
             viewport={{ once: true, margin: "-40px" }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {strategicPillars.map((pillar) => {
+            {exhibitionSteps.map((pillar) => {
               const Icon = pillar.icon;
               return (
                 <motion.div

@@ -47,20 +47,20 @@ export function Testimonials() {
         {/* ========================================================================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 sm:pb-12 border-b border-neutral-200/80 mb-12 sm:mb-16">
           <div className="max-w-2xl">
-         
+            <h2
+              id="testimonials-heading"
+              className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]"
+            >
+              What exhibitors and  <br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-neutral-500">
+              industry partner say
+              </span>
+              <span className="text-red-600 font-sans">.</span>
+            </h2>
 
-        <h2
-  id="testimonials-heading"
-  className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.1]"
->
-  Real Voices. <br className="hidden sm:inline" />
-  <span className="font-serif italic font-normal text-neutral-500">
-    Real Experiences
-  </span>
-  <span className="text-red-600 font-sans">.</span>
-</h2>
-
-         
+            <p className="mt-4 text-sm sm:text-base text-neutral-600 font-normal leading-[1.65] max-w-xl">
+              Feedback from companies, associations and partners that have worked with Futurex Group across different exhibitions and markets.
+            </p>
           </div>
 
           {/* Authentic Google Rating Capsule */}

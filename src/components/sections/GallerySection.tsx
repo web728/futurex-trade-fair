@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { motion, type Variants, AnimatePresence } from 'framer-motion';
-import { Download, X, ChevronLeft, ChevronRight, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Download, X, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { galleryItems, GALLERY_ITEMS_PER_PAGE } from '@/data/gallery';
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -26,7 +26,6 @@ const itemVariants: Variants = {
   }
 };
 
-// Premium Curated Categories (All Archives removed, refined labels)
 const TABS = [
   { id: 'Exhibitions', label: 'Trade Exhibitions' },
   { id: 'Media Coverage', label: 'Media Coverage' },
@@ -36,23 +35,20 @@ const TABS = [
 ] as const;
 
 export function GallerySection({ full = false }: { full?: boolean }) {
-  // Prioritize Exhibitions tab by default
   const [activeTab, setActiveTab] = useState<string>('Exhibitions');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[number] | null>(null);
 
-  // Filter items based on active tab category
   const filteredItems = useMemo(() => {
     const raw = galleryItems || [];
     if (activeTab === 'ALL') return raw;
     return raw.filter(item => item.category?.toLowerCase() === activeTab.toLowerCase());
   }, [activeTab]);
 
-  // Pagination calculation
   const totalPages = Math.ceil(filteredItems.length / GALLERY_ITEMS_PER_PAGE);
   
   const paginatedItems = useMemo(() => {
-    if (!full) return filteredItems.slice(0, 6); // Homepage preview limit (6 items)
+    if (!full) return filteredItems.slice(0, 6);
     const start = (currentPage - 1) * GALLERY_ITEMS_PER_PAGE;
     return filteredItems.slice(start, start + GALLERY_ITEMS_PER_PAGE);
   }, [filteredItems, currentPage, full]);
@@ -67,7 +63,6 @@ export function GallerySection({ full = false }: { full?: boolean }) {
       className="relative z-20 w-full bg-[#FBFBFD] text-[#0A0D12] py-20 sm:py-28 lg:py-32 border-b border-neutral-200/80 overflow-hidden select-none"
       aria-labelledby="gallery-section-heading"
     >
-      {/* Background Architectural Grid Pattern matching other sections */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.35]"
         style={{
@@ -82,30 +77,24 @@ export function GallerySection({ full = false }: { full?: boolean }) {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 z-10">
         
-        {/* ========================================================================= */}
-        {/* SIDE-BY-SIDE BALANCED HEADER */}
-        {/* ========================================================================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 sm:pb-10 border-b border-neutral-200 mb-10 sm:mb-14">
           <div className="max-w-2xl">
-          
-
             <h2 
               id="gallery-section-heading"
               className="text-3xl sm:text-5xl lg:text-[52px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.08]"
             >
-              Visual Moments From <br />
+              Moments From <br />
               <span className="font-serif italic font-normal text-neutral-500">
-                The Trade Floor & Exhibitions
+                The Trade Floor
               </span>
               <span className="text-red-600 font-sans">.</span>
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-neutral-600 font-normal leading-[1.65] max-w-xl">
-              Explore curated photographic records from international trade exhibitions, high-level pavilions, and global commercial platforms.
+              A closer look at exhibitor booths, buyer meetings, product displays and activity across our trade exhibitions and markets.
             </p>
           </div>
 
-          {/* Optional Action / Link button if preview mode */}
           {!full && (
             <div className="flex items-center gap-4 self-start md:self-end">
               <a
@@ -124,9 +113,6 @@ export function GallerySection({ full = false }: { full?: boolean }) {
           )}
         </div>
 
-        {/* ========================================================================= */}
-        {/* PREMIUM ULTRA-REFINED CATEGORY PILL TABS (Without All Archives) */}
-        {/* ========================================================================= */}
         {full && (
           <div className="flex flex-wrap items-center justify-center gap-2.5 mb-14 sm:mb-18">
             {TABS.map((tab) => {
@@ -150,14 +136,16 @@ export function GallerySection({ full = false }: { full?: boolean }) {
                     />
                   )}
                   <div className="flex items-center gap-2">
-                    {isSelected &&     <div className="relative w-3.5 h-3.5 flex items-center justify-center">
-                                              <Image
-                                                src="/logos/svg/logo-arrow-white.png"
-                                                alt="Icon"
-                                                fill
-                                                className="object-contain"
-                                              />
-                                            </div>}
+                    {isSelected && (
+                      <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                        <Image
+                          src="/logos/svg/logo-arrow-white.png"
+                          alt="Icon"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
                     <span>{tab.label}</span>
                   </div>
                 </button>
@@ -166,9 +154,6 @@ export function GallerySection({ full = false }: { full?: boolean }) {
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* UNIFORM GRID WITH CRISP LIGHT MODE CARDS */}
-        {/* ========================================================================= */}
         <AnimatePresence mode="wait">
           <motion.div 
             key={`${activeTab}-${currentPage}`}
@@ -178,36 +163,31 @@ export function GallerySection({ full = false }: { full?: boolean }) {
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
           >
-         {paginatedItems.map((item, index) => (
-  <motion.button 
-    key={item.id || index} 
-    type="button" 
-    variants={itemVariants}
-    onClick={() => setSelectedImage(item)}
-    className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden text-left bg-neutral-100 border border-neutral-200/90 hover:border-neutral-400 shadow-2xs hover:shadow-xl transition-all duration-400 ease-[0.16,1,0.3,1] cursor-pointer sm:cursor-zoom-in active:scale-[0.99]"
-    aria-label="View Fullscreen Asset"
-  >
-    {/* Top Red Accent Line on Hover */}
-    <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-30 pointer-events-none" />
+            {paginatedItems.map((item, index) => (
+              <motion.button 
+                key={item.id || index} 
+                type="button" 
+                variants={itemVariants}
+                onClick={() => setSelectedImage(item)}
+                className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden text-left bg-neutral-100 border border-neutral-200/90 hover:border-neutral-400 shadow-2xs hover:shadow-xl transition-all duration-400 ease-[0.16,1,0.3,1] cursor-pointer sm:cursor-zoom-in active:scale-[0.99]"
+                aria-label="View Fullscreen Asset"
+              >
+                <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-[0.16,1,0.3,1] origin-left z-30 pointer-events-none" />
 
-    {/* High Quality Image with Smooth Hover Zoom */}
-    <div className="relative w-full h-full overflow-hidden">
-      <Image 
-        src={item.image} 
-        alt={item.title || "Futurex Gallery Asset"} 
-        fill 
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        className="object-cover object-center transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
-      />
-    </div>
-  </motion.button>
-))}
+                <div className="relative w-full h-full overflow-hidden">
+                  <Image 
+                    src={item.image} 
+                    alt={item.title || "Futurex Gallery Asset"} 
+                    fill 
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
+                  />
+                </div>
+              </motion.button>
+            ))}
           </motion.div>
         </AnimatePresence>
 
-        {/* ========================================================================= */}
-        {/* PAGINATION CONTROLS */}
-        {/* ========================================================================= */}
         {full && totalPages > 1 && (
           <div className="flex items-center justify-center gap-3 mt-14 sm:mt-18">
             <button
@@ -240,13 +220,9 @@ export function GallerySection({ full = false }: { full?: boolean }) {
 
       </div>
 
-      {/* ========================================================================= */}
-      {/* FULLSCREEN LIGHTBOX WITH DOWNLOAD BUTTON */}
-      {/* ========================================================================= */}
       <AnimatePresence>
         {selectedImage && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 select-none">
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -255,7 +231,6 @@ export function GallerySection({ full = false }: { full?: boolean }) {
               className="absolute inset-0 bg-[#050608]/90 backdrop-blur-xl cursor-pointer"
             />
 
-            {/* Lightbox Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -263,14 +238,12 @@ export function GallerySection({ full = false }: { full?: boolean }) {
               transition={{ duration: 0.3, ease: easeEditorial }}
               className="relative z-10 w-full max-w-5xl max-h-[90vh] bg-neutral-950 rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col"
             >
-              {/* Top Bar with Category & Download */}
               <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-between z-20 bg-gradient-to-b from-black/80 to-transparent">
                 <span className="text-xs font-mono text-neutral-300 uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md">
                   {selectedImage.category || 'Exhibition'}
                 </span>
 
                 <div className="flex items-center gap-3">
-                  {/* Download Button */}
                   <a
                     href={selectedImage.image}
                     download="Futurex-Media-Asset.jpg"
@@ -282,7 +255,6 @@ export function GallerySection({ full = false }: { full?: boolean }) {
                     <span>Download</span>
                   </a>
 
-                  {/* Close Button */}
                   <button
                     type="button"
                     onClick={() => setSelectedImage(null)}
@@ -294,7 +266,6 @@ export function GallerySection({ full = false }: { full?: boolean }) {
                 </div>
               </div>
 
-              {/* Large Image View */}
               <div className="relative w-full h-[75vh] flex items-center justify-center p-4">
                 <Image
                   src={selectedImage.image}
