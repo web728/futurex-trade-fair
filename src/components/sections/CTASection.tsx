@@ -35,7 +35,7 @@ export function CTASection() {
                  className="object-contain"
                />
              </div>
-          <span>Exhibitor Registrations 2026 — 2027</span>
+          <span>EXHIBITOR ENQUIRIES · 2026–27</span>
         </motion.div>
 
         {/* Big Crisp Editorial Heading */}
@@ -47,8 +47,8 @@ export function CTASection() {
           transition={{ duration: 0.7, delay: 0.05, ease: easeEditorial }}
           className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.035em] text-white leading-[1.08] mb-5"
         >
-          Put your business where <br />
-          <span className="font-serif italic font-normal text-neutral-400">global trade transpires</span>
+          Planning to exhibit in<br />
+          <span className="font-serif italic font-normal text-neutral-400">one of our markets?</span>
           <span className="text-red-500 font-sans">.</span>
         </motion.h2>
 
@@ -60,7 +60,7 @@ export function CTASection() {
           transition={{ duration: 0.7, delay: 0.1, ease: easeEditorial }}
           className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed max-w-lg mx-auto mb-8 sm:mb-10"
         >
-          Connect with high-intent buyers, secure country pavilion space, and expand across South Asia & East Africa.
+          Explore upcoming B2B exhibitions across India, South Asia and East Africa, or speak with our team about the right show for your sector and market.
         </motion.p>
 
         {/* 2 Clean Magnetic Actions */}
@@ -72,10 +72,10 @@ export function CTASection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4"
         >
           <Link
-            href="/participants#exhibitor"
+            href="/exhibitions"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(220,38,38,0.35)] hover:shadow-[0_0_32px_rgba(220,38,38,0.5)] active:scale-95"
           >
-            <span>Book Your Stall</span>
+            <span>VIEW UPCOMING EXHIBITIONS</span>
             <ArrowRight size={14} />
           </Link>
 
@@ -83,7 +83,7 @@ export function CTASection() {
             href="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] text-neutral-300 hover:text-white border border-white/[0.1] hover:border-white/20 text-xs font-mono tracking-wider uppercase rounded-full transition-all duration-300 active:scale-95"
           >
-            <span>Contact Desk</span>
+            <span>SPEAK WITH OUR TEAM</span>
             <ArrowUpRight size={14} className="text-neutral-400" />
           </Link>
         </motion.div>
