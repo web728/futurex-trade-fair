@@ -52,18 +52,7 @@ export function ServicesSection() {
           <div className="max-w-2xl">
              {/* Headline & Badge */}
                      <div className="max-w-2xl">
-                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200/90 text-[10px] sm:text-[11px] font-mono tracking-[0.16em] uppercase text-neutral-700 mb-3.5 shadow-2xs">
-                     
-                             <div className="relative w-3.5 h-3.5 flex items-center justify-center">
-                                         <Image
-                                           src="/logos/svg/logo-arrow.png"
-                                           alt="Icon"
-                                           fill
-                                           className="object-contain"
-                                         />
-                                       </div>
-                         <span className="font-semibold text-neutral-800">Official Trade Calendar</span>
-                       </div>
+                      
            
                    <h2
              id="upcoming-events-title"
