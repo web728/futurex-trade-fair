@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Star, ExternalLink } from 'lucide-react';
+import { Star, ExternalLink, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { testimonials } from '@/data/testimonials';
 
@@ -133,8 +133,8 @@ export function Testimonials() {
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[#0A0D12] text-white font-mono text-xs font-semibold flex items-center justify-center shrink-0">
-                      {(item.person || item.name || 'T').charAt(0)}
+                    <div className="w-8 h-8 rounded-full bg-[#0A0D12] text-white flex items-center justify-center shrink-0">
+                      <User size={14} strokeWidth={2} />
                     </div>
 
                     <div className="overflow-hidden">

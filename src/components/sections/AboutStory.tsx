@@ -6,14 +6,11 @@ import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import {
   ArrowUpRight,
-  Globe2,
-  ShieldCheck,
-  Award,
   Layers,
-  Briefcase,
-  Compass,
+  Globe2,
+  Repeat,
+  Grid,
 } from "lucide-react";
-import { company } from "@/data/company";
 
 const easeEditorial: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -39,39 +36,28 @@ const itemVariants: Variants = {
 
 const blueprintPillars = [
   {
-    title: "Platform Architecture",
-    subtitle: "B2B Trade Ecosystems",
-    desc: "Connecting industrial equipment makers with institutional trade buyers across South Asia & East Africa.",
+    title: "Sector-Focused Exhibitions",
+    desc: "Construction, woodworking, energy, electric mobility, mining, agriculture, packaging and other industrial sectors.",
     icon: Layers,
-    accent: "text-red-500",
-    meta: "220+ Global Expos",
+    meta: "220+ Exhibitions",
   },
   {
-    index: "02",
-    title: "Cross-Border Execution",
-    subtitle: "Permanent Ground Desks",
-    desc: "Eliminating customs, logistics, and stall fabrication friction via active offices in 5 key capital hubs.",
+    title: "Regional Market Execution",
+    desc: "Local teams and partners help us manage exhibitors, venues, promotion and on-ground delivery across multiple markets.",
     icon: Globe2,
-    accent: "text-sky-400",
-    meta: "5 Regional Hubs",
+    meta: "South Asia · East Africa",
   },
   {
-    index: "03",
-    title: "Institutional Governance",
-    subtitle: "Audited Trade Standards",
-    desc: "Operating strictly under verified international exhibition guidelines with certified buyer demographics.",
-    icon: ShieldCheck,
-    accent: "text-emerald-400",
-    meta: "CIEO Accredited",
+    title: "Recurring Exhibition Brands",
+    desc: "Many Futurex shows return year after year, building stronger exhibitor and buyer communities with every edition.",
+    icon: Repeat,
+    meta: "Multi-Edition Portfolios",
   },
   {
-    index: "04",
-    title: "Capital Sourcing",
-    subtitle: "Procurement Platforms",
-    desc: "Focused on high-growth sectors: Woodtech, Packaging, Clean Energy, Infra, Agro, and Pharma Machinery.",
-    icon: Briefcase,
-    accent: "text-amber-400",
-    meta: "1.2M+ Trade Visitors",
+    title: "End-to-End Organisation",
+    desc: "From exhibitor acquisition and visitor marketing to partnerships, production and show-day operations.",
+    icon: Grid,
+    meta: "One Organising Team",
   },
 ];
 
@@ -84,20 +70,17 @@ export function AboutStory() {
       aria-labelledby="about-blueprint-heading"
     >
       {/* ========================================================================= */}
-      {/* 1. STATIC CORNER ARCHITECTURAL RADIAN BEACON (NO ROTATION, CRISP CONTRAST) */}
+      {/* 1. STATIC CORNER ARCHITECTURAL RADIAN BEACON */}
       {/* ========================================================================= */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-        {/* Soft Controlled Red Ambient Glow focused behind corner beacon */}
         <div className="absolute -top-16 -right-16 w-[480px] h-[480px] bg-red-600/[0.12] rounded-full blur-[120px]" />
         <div className="absolute -bottom-20 left-10 w-[380px] h-[380px] bg-blue-600/[0.05] rounded-full blur-[130px]" />
 
-        {/* Static Corner Architectural Vector Arc */}
         <svg
           viewBox="0 0 500 500"
           className="absolute top-0 right-0 w-[360px] h-[360px] sm:w-[500px] sm:h-[500px] opacity-[0.42]"
           aria-hidden="true"
         >
-          {/* Concentric Quarter Arcs radiating from Top-Right (500, 0) */}
           <path
             d="M 500,100 A 400,400 0 0,0 100,500"
             fill="none"
@@ -132,7 +115,6 @@ export function AboutStory() {
             strokeOpacity="0.7"
           />
 
-          {/* Precision Angular Radial Rays from origin (500, 0) */}
           <line
             x1="500"
             y1="0"
@@ -168,14 +150,12 @@ export function AboutStory() {
             strokeWidth="0.8"
           />
 
-          {/* Anchor Node Marker Points on Arcs */}
           <circle cx="260" cy="500" r="3.5" fill="#dc2626" />
           <circle cx="340" cy="500" r="2.5" fill="#ffffff" />
           <circle cx="330" cy="270" r="3" fill="#ffffff" />
           <circle cx="410" cy="180" r="3.5" fill="#dc2626" />
         </svg>
 
-        {/* Falloff Contrast Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-[#07080A]/40" />
       </div>
 
@@ -185,25 +165,27 @@ export function AboutStory() {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 pb-6 sm:pb-8 border-b border-white/[0.08]">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-neutral-300 mb-3">
-              <div className="relative w-3.5 h-3.5 flex items-center justify-center">
-                <Image
-                  src="/logos/svg/logo-arrow-white.png"
-                  alt="Icon"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span>Futurex Group • Est. 2011 • New Delhi</span>
+            {/* Small Label */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono tracking-widest uppercase text-neutral-300 mb-4">
+               <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                                          <Image
+                                            src="/logos/svg/logo-arrow-white.png"
+                                            alt="Icon"
+                                            fill
+                                            className="object-contain"
+                                          />
+                                        </div>
+              <span>FUTUREX TRADE FAIR &amp; EVENTS · EST. 2011</span>
             </div>
 
+            {/* Final Section Heading */}
             <h2
               id="about-blueprint-heading"
               className="text-2xl sm:text-4xl lg:text-[46px] font-semibold tracking-[-0.035em] text-white leading-[1.1]"
             >
-              The Architecture Behind <br />
+              15+ years of building <br />
               <span className="text-neutral-400 font-normal">
-                220+ International Trade Fairs.
+                trade exhibitions across markets.
               </span>
             </h2>
           </div>
@@ -224,7 +206,7 @@ export function AboutStory() {
         </div>
 
         {/* ========================================================================= */}
-        {/* 3. 4-PILLAR MATRIX & VISUAL COMMAND ANCHOR */}
+        {/* 3. FOUR CARDS & RIGHT-SIDE COMPANY CARD */}
         {/* ========================================================================= */}
         <motion.div
           variants={containerVariants}
@@ -233,15 +215,14 @@ export function AboutStory() {
           viewport={{ once: true, margin: "-30px" }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 mt-8 sm:mt-10 items-stretch"
         >
-          {/* Left Column: 4 Strategic Pillars */}
+          {/* Left Column: Four Cards Matrix */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
             {blueprintPillars.map((pillar, idx) => {
-              const Icon = pillar.icon;
               const isActive = activePillar === idx;
 
               return (
                 <motion.div
-                  key={pillar.index}
+                  key={idx}
                   variants={itemVariants}
                   onMouseEnter={() => setActivePillar(idx)}
                   whileHover={{
@@ -254,7 +235,6 @@ export function AboutStory() {
                       : "bg-white/[0.015] border-white/[0.06] hover:bg-white/[0.03] hover:border-white/[0.14]"
                   }`}
                 >
-                  {/* Subtle Red Left Marker */}
                   <span
                     className={`absolute left-0 top-3 bottom-3 w-1 rounded-r-full transition-all duration-300 ${
                       isActive
@@ -264,22 +244,15 @@ export function AboutStory() {
                   />
 
                   <div>
-                    {/* Index & Pillar Icon */}
-
                     <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight leading-snug group-hover:text-red-400 transition-colors duration-200">
                       {pillar.title}
                     </h3>
-
-                    <span className="block text-[10px] font-mono text-neutral-400 mt-0.5 uppercase tracking-wider">
-                      {pillar.subtitle}
-                    </span>
 
                     <p className="mt-2.5 text-xs text-neutral-400 font-normal leading-relaxed">
                       {pillar.desc}
                     </p>
                   </div>
 
-                  {/* Micro Metric Tag */}
                   <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[10.5px] font-mono">
                     <span className="text-neutral-200 font-medium">
                       {pillar.meta}
@@ -290,17 +263,15 @@ export function AboutStory() {
             })}
           </div>
 
-          {/* Right Column: Central Institutional Command Anchor */}
+          {/* Right Column: Right-side Company Card */}
           <motion.div
             variants={itemVariants}
             className="group/card lg:col-span-5 relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.03] border border-white/[0.08] hover:border-white/[0.18] p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-xl backdrop-blur-xl transition-all duration-300"
           >
-            {/* Top Red Laser Accent */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-600 group-hover/card:shadow-[0_0_12px_rgba(220,38,38,0.7)] transition-all duration-300" />
 
-            {/* Inner Blueprint Graphic Preview with Image Hover Zoom */}
             <div>
-              <div className="relative w-full h-64 sm:h-72 lg:h-80 rounded-xl overflow-hidden bg-neutral-900 mb-5 border border-white/[0.08]">
+              <div className="relative w-full h-56 sm:h-64 rounded-xl overflow-hidden bg-neutral-900 mb-5 border border-white/[0.08]">
                 <Image
                   src="/gallery/images-event/slider/about-new.png"
                   alt="Futurex Trade Fair and Events"
@@ -308,37 +279,31 @@ export function AboutStory() {
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover object-center brightness-[0.75] contrast-[1.15] transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover/card:scale-105 group-hover/card:brightness-[0.85]"
                 />
-
                 <div className="absolute inset-0 bg-gradient-to-t from-[#07080A] via-transparent to-transparent" />
               </div>
 
-              {/* Verified Legal Identity */}
               <div className="space-y-2">
-             
-
                 <h4 className="text-lg sm:text-xl font-semibold text-white tracking-tight leading-snug">
-                  Futurex Trade Fair and Events Private Limited
+                  Futurex Trade Fair &amp; Events Private Limited
                 </h4>
 
                 <p className="text-xs text-neutral-400 font-normal leading-relaxed">
-                  Incorporated in 2011 to bridge global equipment manufacturers
-                  with verified enterprise buyers across Asia&apos;s key
-                  industrial sectors.
+                  Established in 2011, Futurex organises B2B trade exhibitions across India, South Asia and East Africa, with a portfolio built around focused industries and recurring regional markets.
                 </p>
               </div>
             </div>
 
-            {/* Bottom Actions */}
+            {/* Bottom Line & Button */}
             <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3">
               <span className="text-[10.5px] font-mono text-neutral-400">
-                15+ Years Commercial Leadership
+                Member of CIEO · Established 2011
               </span>
 
               <Link
                 href="/about"
                 className="group inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-medium tracking-wider uppercase rounded-full transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.28)] hover:shadow-[0_0_24px_rgba(220,38,38,0.45)] active:scale-95 shrink-0"
               >
-                <span>Read Story</span>
+                <span>ABOUT FUTUREX</span>
                 <ArrowUpRight
                   size={13}
                   className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
