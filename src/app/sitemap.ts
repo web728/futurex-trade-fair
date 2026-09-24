@@ -32,26 +32,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  const exhibitionMap = (EXHIBITIONS || []).map((event) => {
-    let lastMod = new Date();
-    try {
-      if (event?.dates?.start) {
-        const parsedDate = new Date(event.dates.start);
-        if (!isNaN(parsedDate.getTime())) {
-          lastMod = parsedDate;
+  // Filtered and safe exhibition mapping to prevent any parsing error at specific lines
+  const exhibitionMap = (EXHIBITIONS || [])
+    .filter((event) => event && event.id && typeof event.id === 'string' && event.id.trim() !== '')
+    .map((event) => {
+      let lastMod = new Date();
+      try {
+        if (event?.dates?.start) {
+          const parsedDate = new Date(event.dates.start);
+          if (!isNaN(parsedDate.getTime())) {
+            lastMod = parsedDate;
+          }
         }
+      } catch {
+        lastMod = new Date();
       }
-    } catch {
-      lastMod = new Date();
-    }
 
-    return {
-      url: `${baseUrl}/exhibitions/${event?.id || ''}`,
-      lastModified: lastMod,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    };
-  });
+      // Clean ID to ensure no spaces or invalid characters break XML parsing
+      const cleanId = encodeURIComponent(event.id.trim());
+
+      return {
+        url: `${baseUrl}/exhibitions/${cleanId}`,
+        lastModified: lastMod,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      };
+    });
 
   return [
     ...staticMap,
