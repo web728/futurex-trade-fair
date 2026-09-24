@@ -32,10 +32,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // Filtered and safe exhibition mapping to prevent any parsing error at specific lines
+  // Type safety ke liye (event: any) use kiya hai taaki TypeScript error na aaye
   const exhibitionMap = (EXHIBITIONS || [])
-    .filter((event) => event && event.id && typeof event.id === 'string' && event.id.trim() !== '')
-    .map((event) => {
+    .filter((event: any) => event && (event.id || event.slug))
+    .map((event: any) => {
       let lastMod = new Date();
       try {
         if (event?.dates?.start) {
@@ -48,11 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastMod = new Date();
       }
 
-      // Clean ID to ensure no spaces or invalid characters break XML parsing
-      const cleanId = encodeURIComponent(event.id.trim());
+      // Slug ho toh slug use karein, nahi toh id
+      const rawIdentifier = event.slug || event.id;
+      const safeIdentifier = encodeURIComponent(String(rawIdentifier).trim());
 
       return {
-        url: `${baseUrl}/exhibitions/${cleanId}`,
+        url: `${baseUrl}/exhibitions/${safeIdentifier}`,
         lastModified: lastMod,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
