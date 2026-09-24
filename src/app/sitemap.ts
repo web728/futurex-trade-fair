@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
 import { EXHIBITIONS } from '@/data/exhibitions';
-import { industries } from '@/data/industries';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.futurextrade.com';
@@ -16,7 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/gallery', 
     '/conferences', 
     '/webinars', 
-    '/contact'
+    '/contact',
+    '/privacy-policy',
+    '/terms-and-conditions'
   ];
 
   const staticMap = staticRoutes.map((route) => {
@@ -31,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // Safe mapping for exhibitions with robust date parsing and fallback
   const exhibitionMap = (EXHIBITIONS || []).map((event) => {
     let lastMod = new Date();
     try {
@@ -53,16 +53,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  const industryMap = (industries || []).map((industry) => ({
-    url: `${baseUrl}/industries/${industry?.slug || ''}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
-
   return [
     ...staticMap,
     ...exhibitionMap,
-    ...industryMap,
   ];
 }
