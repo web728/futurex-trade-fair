@@ -1,10 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { EXHIBITIONS } from '@/data/exhibitions';
 import { industries } from '@/data/industries';
-import { absoluteUrl } from '@/lib/utils';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Base domain enforced strictly to https://www.futurextrade.com
   const baseUrl = 'https://www.futurextrade.com';
 
   const staticRoutes = [
@@ -22,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const staticMap = staticRoutes.map((route) => {
-    // Ensuring exact URL mapping matching canonical preferences
     const cleanRoute = route.startsWith('/') ? route : `/${route}`;
     const url = route === '' ? `${baseUrl}/` : `${baseUrl}${cleanRoute}`;
     
@@ -34,15 +31,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  const exhibitionMap = (EXHIBITIONS || []).map((event) => ({
-    url: `${baseUrl}/exhibitions/${event.id}`,
-    lastModified: new Date(event.dates?.start || Date.now()),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  // Safe mapping for exhibitions with robust date parsing and fallback
+  const exhibitionMap = (EXHIBITIONS || []).map((event) => {
+    let lastMod = new Date();
+    try {
+      if (event?.dates?.start) {
+        const parsedDate = new Date(event.dates.start);
+        if (!isNaN(parsedDate.getTime())) {
+          lastMod = parsedDate;
+        }
+      }
+    } catch {
+      lastMod = new Date();
+    }
+
+    return {
+      url: `${baseUrl}/exhibitions/${event?.id || ''}`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    };
+  });
 
   const industryMap = (industries || []).map((industry) => ({
-    url: `${baseUrl}/industries/${industry.slug}`,
+    url: `${baseUrl}/industries/${industry?.slug || ''}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
