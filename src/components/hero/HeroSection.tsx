@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
-import { ArrowUpRight, Award, Building2, Globe2, PhoneCall, MapPin, ArrowRight, Download } from 'lucide-react';
+import { ArrowUpRight, Award, Globe2, MapPin, ArrowRight, Download } from 'lucide-react';
 
 const easeLuxury: [number, number, number, number] = [0.19, 1, 0.22, 1];
 
@@ -130,9 +130,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[100vh] w-full bg-[#07080A] text-[#F3F4F6] overflow-hidden flex flex-col justify-between border-b border-white/[0.08]">
       
-      {/* ========================================================================= */}
       {/* ATMOSPHERIC RIGHT-SIDE FOGGY EXHIBITION BACKGROUND IMAGE */}
-      {/* ========================================================================= */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[65%] h-full opacity-35 mix-blend-luminosity filter contrast-125 select-none">
           <Image
@@ -190,10 +188,9 @@ export function HeroSection() {
           animate="visible"
           className="max-w-4xl"
         >
-          {/* Identity Tagline with Custom PNG Icon instead of Red Dot */}
+          {/* Identity Tagline */}
           <motion.div variants={itemVariants} className="mb-7 flex flex-wrap items-center gap-3">
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md text-[11px] font-mono tracking-widest text-neutral-300 uppercase shadow-xs">
-              {/* Custom PNG Icon Added Here */}
               <div className="relative w-3.5 h-3.5 flex items-center justify-center">
                 <Image
                   src="/logos/svg/logo-arrow-white.png"
@@ -211,60 +208,55 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Clean Main Title */}
+          {/* Point 6: Homepage H1 exactly as specified */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-6xl lg:text-[76px] font-semibold tracking-[-0.03em] text-white leading-[1.08]"
+            className="text-4xl sm:text-5xl lg:text-[68px] font-semibold tracking-[-0.03em] text-white leading-[1.08]"
           >
             Futurex Trade Fair &
             <br />
-            <span className="text-neutral-400 font-normal">Events Private Limited</span>
+            <span className="text-neutral-300 font-normal">Events Private Limited</span>
           </motion.h1>
 
-          {/* Subheading */}
-         <motion.p
-  variants={itemVariants}
-  className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
->
-  We organise sector-focused B2B trade exhibitions across India, South Asia and East Africa — bringing manufacturers face to face with distributors, buyers and industry networks in each market.
-</motion.p>
+          {/* Point 6: Opening copy immediately below H1 */}
+          <motion.p
+            variants={itemVariants}
+            className="mt-7 text-base sm:text-lg text-neutral-300/90 font-normal leading-[1.7] max-w-2xl tracking-normal"
+          >
+            We organise sector-focused B2B trade exhibitions across India, South Asia and East Africa, bringing manufacturers face to face with distributors, buyers and industry networks in each market.
+          </motion.p>
 
           {/* CTAs */}
-        <motion.div
-  variants={itemVariants}
-  className="mt-10 flex flex-wrap items-center gap-4"
->
-  {/* Primary CTA */}
-  <Link
-    href="/exhibitions"
-    className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-red-600 hover:bg-red-500 text-white !text-white font-medium text-xs tracking-wider rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(220,38,38,0.28)] hover:shadow-[0_0_32px_rgba(220,38,38,0.45)] active:scale-[0.98]"
-  >
-    <span className="!text-white">EXPLORE EXHIBITIONS</span>
-    <ArrowRight className="w-4 h-4 !text-white" />
-  </Link>
+          <motion.div
+            variants={itemVariants}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            <Link
+              href="/exhibitions"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-red-600 hover:bg-red-500 text-white !text-white font-medium text-xs tracking-wider rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(220,38,38,0.28)] hover:shadow-[0_0_32px_rgba(220,38,38,0.45)] active:scale-[0.98]"
+            >
+              <span className="!text-white">EXPLORE EXHIBITIONS</span>
+              <ArrowRight className="w-4 h-4 !text-white" />
+            </Link>
 
-  {/* Secondary CTA */}
-  <Link
-    href="/contact"
-    className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-white/30 text-white !text-white font-medium text-xs tracking-wider rounded-full backdrop-blur-xl transition-all duration-300 active:scale-[0.98]"
-  >
-    <span className="!text-white">EXHIBIT WITH FUTUREX</span>
-    <ArrowUpRight className="w-4 h-4 !text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-  </Link>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-white/30 text-white !text-white font-medium text-xs tracking-wider rounded-full backdrop-blur-xl transition-all duration-300 active:scale-[0.98]"
+            >
+              <span className="!text-white">EXHIBIT WITH FUTUREX</span>
+              <ArrowUpRight className="w-4 h-4 !text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
 
-  {/* Tertiary Link */}
- <Link
-  href="/documents/futurex-group-company-profile.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group inline-flex items-center gap-1.5 ml-1 text-xs text-neutral-400 hover:text-white !text-neutral-400 hover:!text-white font-medium tracking-wide transition-colors duration-200"
->
-  <span>Download Company Profile</span>
-  <Download
-    className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-y-0.5"
-  />
-</Link>
-</motion.div>
+            <Link
+              href="/documents/futurex-group-company-profile.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 ml-1 text-xs text-neutral-400 hover:text-white !text-neutral-400 hover:!text-white font-medium tracking-wide transition-colors duration-200"
+            >
+              <span>Download Company Profile</span>
+              <Download className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-y-0.5" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -276,24 +268,19 @@ export function HeroSection() {
         className="relative border-t border-white/[0.08] bg-[#0A0B0E]/85 backdrop-blur-xl py-4 z-10"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-
-          {/* CIEO Membership Section without Link */}
           <div className="inline-flex items-center gap-3 rounded-xl px-2.5 py-1.5 text-neutral-300">
             <div className="p-1.5 rounded-full bg-white/[0.05] border border-white/10">
               <Award className="w-4 h-4 text-red-500" />
             </div>
-
             <div className="text-xs font-mono">
               <span>Member of CIEO (Council of Indian Exhibition Organisers)</span>
             </div>
           </div>
 
-          {/* Structured Address Format */}
           <div className="text-xs text-neutral-400 font-mono flex items-center gap-2">
             <MapPin className="w-4 h-4 text-red-500 shrink-0" />
             <span>E-52, 1st Floor, Kalkaji, New Delhi, India - 110019</span>
           </div>
-
         </div>
       </motion.div>
     </section>

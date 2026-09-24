@@ -26,16 +26,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://futurextrade.com'),
+  metadataBase: new URL('https://www.futurextrade.com'),
+  alternates: {
+    canonical: 'https://www.futurextrade.com/',
+  },
   title: {
-    default: 'Futurex Trade Fair & Events | International B2B Exhibitions',
+    default: 'B2B Exhibition & Trade Fair Organizer in India | Futurex Group',
     template: '%s | Futurex Trade Fair'
   },
-  description: company?.description || 'Futurex Trade Fair and Events Private Limited is a leading international exhibition and corporate events organizer based in Kalkaji, New Delhi, operating across 5 international hubs.',
+  description: 'Futurex Group organises sector-focused B2B trade exhibitions across India, South Asia and East Africa, connecting manufacturers, suppliers and trade buyers.',
+  verification: {
+    google: 'Sbcwikppx9v24BQUPleD5NRINXmzONz2bW3Yau6gYXE',
+  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    apple: '/apple-touch-icon.png',   
   },
   robots: {
     index: true,
@@ -50,24 +56,28 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'Futurex Trade Fair & Events Pvt. Ltd.',
-    title: 'Futurex Trade Fair & Events | International B2B Exhibitions',
-    description: company?.description || 'Leading organizer of 220+ international industrial trade exhibitions across India and South Asia.',
+    siteName: 'Futurex Group',
+    url: 'https://www.futurextrade.com/',
+    title: 'B2B Exhibition & Trade Fair Organizer in India | Futurex Group',
+    description: 'Futurex Group organises sector-focused B2B trade exhibitions across India, South Asia and East Africa, connecting manufacturers, suppliers and trade buyers.',
     locale: 'en_IN',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Futurex Trade Fair & Events',
-    description: company?.description,
+    title: 'B2B Exhibition & Trade Fair Organizer in India | Futurex Group',
+    description: 'Futurex Group organises sector-focused B2B trade exhibitions across India, South Asia and East Africa, connecting manufacturers, suppliers and trade buyers.',
   }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  // Point 7: Detailed Organization Schema with all requested parameters
   const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: company?.legalName || 'Futurex Trade Fair & Events Pvt. Ltd.',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://futurextrade.com',
+    name: 'Futurex Group',
+    legalName: 'Futurex Trade Fair & Events Private Limited',
+    url: 'https://www.futurextrade.com/',
+    logo: 'https://www.futurextrade.com/logo.png',
     email: company?.email || 'info@futurextrade.com',
     telephone: company?.phone || '+91-9810855697',
     address: {
@@ -79,6 +89,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       addressCountry: 'IN'
     },
     foundingDate: '2011',
+    sameAs: [
+      // Add official social profile links here if available
+    ],
     memberOf: {
       '@type': 'Organization',
       name: 'CIEO (Confederation of Indian Exhibition Organisers)',

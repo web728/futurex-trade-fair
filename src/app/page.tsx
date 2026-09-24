@@ -10,31 +10,34 @@ import { Testimonials } from '@/components/sections/Testimonials';
 import { GallerySection } from '@/components/sections/GallerySection';
 import { GroupCompanies } from '@/components/sections/GroupCompanies';
 import { CTASection } from '@/components/sections/CTASection';
-import { createMetadata } from '@/lib/metadata';
-import { company } from '@/data/company';
+import { SEOFAQSection } from '@/components/sections/SEOFAQSection'; // Added for PAA optimization
 
-export const metadata: Metadata = createMetadata(
-  'International Trade Fairs & B2B Exhibitions Organizer',
-  'Futurex Trade Fair & Events is a premier international B2B exhibitions and trade show organizer in New Delhi, India, connecting global manufacturers, buyers, and industry leaders across 220+ successful industrial expos.',
-  '/'
-);
+export const metadata: Metadata = {
+  title: 'B2B Exhibition & Trade Fair Organizer in India | Futurex Group',
+  description: 'Futurex Group organises sector-focused B2B trade exhibitions across India, South Asia and East Africa, connecting manufacturers, suppliers and trade buyers.',
+  alternates: {
+    canonical: 'https://www.futurextrade.com/',
+  },
+};
 
 export default function HomePage() {
-  // Structured Data (JSON-LD) for Homepage - Corporate Event Organizer & Exhibition Series
+  // Structured Data (JSON-LD) for Homepage - WebSite name set to Futurex Group with alternateName
   const homeJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Futurex Trade Fair & Events',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://futurextrade.com',
+    name: 'Futurex Group',
+    alternateName: 'Futurex Trade Fair & Events',
+    url: 'https://www.futurextrade.com/',
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://futurextrade.com'}/exhibitions?q={search_term_string}`,
+      target: 'https://www.futurextrade.com/exhibitions?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
     publisher: {
       '@type': 'Organization',
-      name: company?.legalName || 'Futurex Trade Fair & Events Pvt. Ltd.',
-      logo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://futurextrade.com'}/logo.png`,
+      name: 'Futurex Group',
+      legalName: 'Futurex Trade Fair & Events Private Limited',
+      logo: 'https://www.futurextrade.com/logo.png',
     },
   };
 
@@ -56,6 +59,7 @@ export default function HomePage() {
       <Testimonials />
       <GallerySection />
       <GroupCompanies />
+      <SEOFAQSection /> {/* Naturally answers PAA queries for Google */}
       <CTASection />
     </>
   );
