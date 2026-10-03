@@ -36,28 +36,29 @@ export async function appendToGoogleSheet(payload: SubmissionPayload, submittedA
     const sheets = google.sheets({ version: 'v4', auth });
     const tab = getTabName(payload.formType);
 
-    // Exact 25-column row mapping matching sheet headers
+    // 26-column row mapping, exactly matching the sheet headers (A:Z)
     const rowValues = [
-      submittedAt.toLocaleString(),                        // 1. Date & Time
-      payload.platform || 'Website',                       // 2. Platform
+      submittedAt.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }), // 1.  Date & Time
+      payload.platform || 'Website',                                      // 2.  Platform
       payload.registerAs || formTypeLabels[payload.formType] || 'Enquiry', // 3. Register As
-      payload.company || '',                               // 4. Company Name
-      payload.name || '',                                  // 5. Contact Person / Name
-      payload.designation || '',                           // 6. Designation
-      payload.email || '',                                 // 7. Email Id
-      payload.phone || '',                                 // 8. Mobile No.
-      payload.website || '',                               // 9. Website
-      payload.address || '',                               // 10. Address
-      payload.country || '',                               // 11. Country
-      payload.boothSizeRequirement || '',                  // 12. Booth Size Requirement
-      payload.areaOfInterest || '',                        // 13. Area of Interest
-      payload.infoGetFrom || '',                           // 14. Info. Get From
-      payload.message || '',                               // 15. Message
-      '',                                                  // 16. Correction
-      '', '', '', '', '', '', '', '', ''                   // 17-25. STATUS 1 to 9 (Blank for tracking)
+      payload.company || '',                                              // 4.  Company Name
+      payload.name || '',                                                 // 5.  Contact Person
+      payload.designation || '',                                          // 6.  Designation
+      payload.email || '',                                                // 7.  Email Id
+      payload.phone || '',                                                // 8.  Mobile No.
+      payload.website || '',                                              // 9.  Website
+      payload.event || '',                                                // 10. Exhibition  <-- NEW
+      payload.address || '',                                              // 11. Address
+      payload.country || '',                                              // 12. Country
+      payload.boothSizeRequirement || '',                                 // 13. Booth Size Requirement
+      payload.areaOfInterest || '',                                       // 14. Area of Interest
+      payload.infoGetFrom || '',                                          // 15. Info. Get From
+      payload.message || '',                                              // 16. Message
+      '',                                                                 // 17. Correction
+      '', '', '', '', '', '', '', '', ''                                  // 18-26. STATUS 1 to 9
     ];
 
-    const rangeName = `'${tab}'!A:Y`;
+    const rangeName = `'${tab}'!A:Z`;
 
     await sheets.spreadsheets.values.append({
       spreadsheetId,
