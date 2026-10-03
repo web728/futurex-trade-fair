@@ -1,12 +1,12 @@
 'use client';
 
 import { CheckCircle2, AlertCircle, ArrowRight, ArrowLeft } from 'lucide-react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { FormType } from '@/types/enquiry';
-import { EXHIBITIONS } from '@/data/exhibitions';
+import { getAllUpcomingEvents } from '@/data/exhibitions';
 import { submissionSchema } from '@/lib/validations';
 import { FormField } from './FormField';
 import { SubmitButton } from './SubmitButton';
@@ -35,14 +35,31 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
   const [errors, setErrors] = useState<FieldErrors>({});
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
-  const [formData, setFormData] = useState({
+  // Only upcoming + ongoing exhibitions
+  const upcomingEvents = useMemo(() => getAllUpcomingEvents(), []);
+
+  // defaultEvent sirf tab use hoga jab wo upcoming list me ho (past event pre-select nahi hoga)
+  const safeDefaultEvent = upcomingEvents.some((e) => e.name === defaultEvent) ? defaultEvent : '';
+
+  const eventOptions = useMemo(
+    () => [
+      { value: '', label: 'Select an exhibition' },
+      ...upcomingEvents.map((item) => ({
+        value: item.name,
+        label: `${item.name} — ${item.venue.city.trim()}`,
+      })),
+    ],
+    [upcomingEvents],
+  );
+
+  const getInitialFormData = () => ({
     platform: 'Website',
     registerAs: 'Exhibitor',
     company: '',
     name: '', // Full Name
     designation: '',
-    email: '', 
-    phone: '', 
+    email: '',
+    phone: '',
     website: '',
     address: '',
     country: '',
@@ -50,9 +67,11 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
     areaOfInterest: '',
     infoGetFrom: '',
     message: '',
-    event: defaultEvent || '',
+    event: safeDefaultEvent,
     honeypotWebsite: ''
   });
+
+  const [formData, setFormData] = useState(getInitialFormData);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -101,11 +120,11 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
       return;
     }
 
-    const parsed = submissionSchema.safeParse({ 
-      ...formData, 
-      website: formData.website, 
-      formType, 
-      source: window.location.href 
+    const parsed = submissionSchema.safeParse({
+      ...formData,
+      website: formData.website,
+      formType,
+      source: window.location.href
     });
 
     if (!parsed.success) {
@@ -161,7 +180,7 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
       </div>
 
       <div className="w-full bg-neutral-100 h-1.5 rounded-full mb-6 sm:mb-8 overflow-hidden">
-        <div 
+        <div
           className="bg-red-600 h-full transition-all duration-500 ease-out"
           style={{ width: `${(currentStep / 3) * 100}%` }}
         />
@@ -175,22 +194,22 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
         {/* STEP 1: Core Personal & Organization Details */}
         {currentStep === 1 && (
           <div className="space-y-4 animate-fadeIn">
-            <FormField 
-              label="Participation / Registration Type" 
-              name="registerAs" 
-              as="select" 
+            <FormField
+              label="Participation / Registration Type"
+              name="registerAs"
+              as="select"
               options={[
                 { value: 'Exhibitor', label: 'Exhibitor (Book a Stall / Space)' },
                 { value: 'Trade Visitor', label: 'Trade Visitor (Business Pass)' },
                 { value: 'Sponsor', label: 'Sponsor & Partner' },
                 { value: 'Speaker', label: 'Conference Speaker / Delegate' },
                 { value: 'General Enquiry', label: 'General Enquiry' }
-              ]} 
-              selectProps={{ value: formData.registerAs, onChange: handleChange }} 
+              ]}
+              selectProps={{ value: formData.registerAs, onChange: handleChange }}
             />
 
             <FormField label="Full Name" name="name" required error={errors.name} inputProps={{ value: formData.name, onChange: handleChange, autoComplete: 'name', maxLength: 120, placeholder: 'e.g. John Doe' }} />
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField label="Work Email" name="email" required error={errors.email} inputProps={{ type: 'email', value: formData.email, onChange: handleChange, autoComplete: 'email', maxLength: 180, placeholder: 'john@company.com' }} />
               <FormField label="Mobile Number" name="phone" required error={errors.phone} inputProps={{ type: 'tel', value: formData.phone, onChange: handleChange, autoComplete: 'tel', maxLength: 40, placeholder: '+91 98765 43210' }} />
@@ -198,12 +217,12 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField label="Job Designation" name="designation" error={errors.designation} inputProps={{ value: formData.designation, onChange: handleChange, maxLength: 120, placeholder: 'e.g. Marketing Director' }} />
-              <FormField 
-                label="Company Name" 
-                name="company" 
-                required={isExhibitorOrSponsor} 
-                error={errors.company} 
-                inputProps={{ value: formData.company, onChange: handleChange, autoComplete: 'organization', maxLength: 160, placeholder: 'Company Pvt Ltd' }} 
+              <FormField
+                label="Company Name"
+                name="company"
+                required={isExhibitorOrSponsor}
+                error={errors.company}
+                inputProps={{ value: formData.company, onChange: handleChange, autoComplete: 'organization', maxLength: 160, placeholder: 'Company Pvt Ltd' }}
               />
             </div>
 
@@ -226,7 +245,6 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
 
             <FormField label="Office / Residential Address" name="address" error={errors.address} inputProps={{ value: formData.address, onChange: handleChange, maxLength: 500, placeholder: 'Street address, City, State' }} />
 
-            {/* Dynamic fields: Booth size shown for Exhibitors/Sponsors, Area of Interest shown for everyone cleanly */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-neutral-50 rounded-2xl border border-neutral-200/60">
               {!isVisitor && (
                 <FormField label="Booth Size Requirement" name="boothSizeRequirement" error={errors.boothSizeRequirement} inputProps={{ value: formData.boothSizeRequirement, onChange: handleChange, placeholder: 'e.g. 3x3m, 6x4m' }} />
@@ -237,7 +255,14 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
             </div>
 
             {showEvent ? (
-              <FormField label="Exhibition / Event" name="event" error={errors.event} as="select" options={EXHIBITIONS.map((item) => ({ value: item.name, label: `${item.name} — ${item.venue.city}` }))} selectProps={{ value: formData.event, onChange: handleChange }} />
+              <FormField
+                label="Exhibition / Event"
+                name="event"
+                error={errors.event}
+                as="select"
+                options={eventOptions}
+                selectProps={{ value: formData.event, onChange: handleChange }}
+              />
             ) : null}
 
             <div className="pt-3 flex items-center justify-between gap-3">
@@ -256,11 +281,11 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
         {/* STEP 3: Message & reCAPTCHA Verification */}
         {currentStep === 3 && (
           <div className="space-y-4 animate-fadeIn">
-            <FormField 
-              label="How did you hear about us?" 
-              name="infoGetFrom" 
-              error={errors.infoGetFrom} 
-              as="select" 
+            <FormField
+              label="How did you hear about us?"
+              name="infoGetFrom"
+              error={errors.infoGetFrom}
+              as="select"
               options={[
                 { value: 'Social Media', label: 'Social Media' },
                 { value: 'Email Campaign', label: 'Email Campaign' },
@@ -343,24 +368,7 @@ export function PremiumForm({ formType, endpoint, title, intro, submitLabel, def
                 type="button"
                 onClick={() => {
                   setStatus('idle');
-                  setFormData({
-                    platform: 'Website',
-                    registerAs: 'Exhibitor',
-                    company: '',
-                    name: '',
-                    designation: '',
-                    email: '',
-                    phone: '',
-                    website: '',
-                    address: '',
-                    country: '',
-                    boothSizeRequirement: '',
-                    areaOfInterest: '',
-                    infoGetFrom: '',
-                    message: '',
-                    event: defaultEvent || '',
-                    honeypotWebsite: ''
-                  });
+                  setFormData(getInitialFormData());
                   setCurrentStep(1);
                   setRecaptchaToken(null);
                 }}

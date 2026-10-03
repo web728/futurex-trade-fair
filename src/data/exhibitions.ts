@@ -1655,10 +1655,27 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     },
   },
 ];
+
+
+
+
+
 export function isEventUpcoming(event: ExhibitionEvent, referenceDate = new Date()): boolean {
-  if (!event?.dates?.end) return false;
-  return new Date(event.dates.end) >= referenceDate;
+  const endStr = event?.dates?.end || event?.dates?.start;
+  if (!endStr) return false;
+  const [y, m, d] = endStr.split("-").map(Number);
+  const endOfDay = new Date(y, m - 1, d, 23, 59, 59, 999); // local time
+  return endOfDay >= referenceDate;
 }
+
+export function getAllUpcomingEvents(): ExhibitionEvent[] {
+  const now = new Date();
+  return EXHIBITIONS.filter((e) => isEventUpcoming(e, now)).sort((a, b) =>
+    a.dates.start.localeCompare(b.dates.start),
+  );
+}
+
+
 
 export function getUpcomingEvents(limit = 3): ExhibitionEvent[] {
   const now = new Date();
