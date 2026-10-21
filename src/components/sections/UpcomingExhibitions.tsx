@@ -3,14 +3,16 @@
 import React, { useState, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  ArrowUpRight, 
-  MapPin, 
-  ChevronLeft, 
+import {
+  ArrowUpRight,
+  MapPin,
+  ChevronLeft,
   ChevronRight,
   Linkedin,
   Facebook,
   Instagram,
+  Twitter,
+  Youtube,
   Mail,
   X,
   Calendar
@@ -31,6 +33,46 @@ const cardVariants: Variants = {
     },
   },
 };
+
+// Naya social icon add karna ho to bas yahan ek line add karo
+const socialItems = [
+  {
+    key: 'linkedin',
+    label: 'LinkedIn',
+    Icon: Linkedin,
+    hover: 'hover:bg-sky-50 hover:text-[#0A66C2] hover:border hover:border-sky-200/80 hover:shadow-[0_4px_14px_rgba(10,102,194,0.18)]',
+  },
+  {
+    key: 'facebook',
+    label: 'Facebook',
+    Icon: Facebook,
+    hover: 'hover:bg-blue-50 hover:text-[#1877F2] hover:border hover:border-blue-200/80 hover:shadow-[0_4px_14px_rgba(24,119,242,0.18)]',
+  },
+  {
+    key: 'instagram',
+    label: 'Instagram',
+    Icon: Instagram,
+    hover: 'hover:bg-pink-50 hover:text-[#e1306c] hover:border hover:border-pink-200/80 hover:shadow-[0_4px_14px_rgba(225,48,108,0.18)]',
+  },
+  {
+    key: 'twitter',
+    label: 'Twitter',
+    Icon: Twitter,
+    hover: 'hover:bg-neutral-200/70 hover:text-black hover:border hover:border-neutral-300 hover:shadow-[0_4px_14px_rgba(0,0,0,0.15)]',
+  },
+  {
+    key: 'youtube',
+    label: 'YouTube',
+    Icon: Youtube,
+    hover: 'hover:bg-red-50 hover:text-[#FF0000] hover:border hover:border-red-200/80 hover:shadow-[0_4px_14px_rgba(255,0,0,0.18)]',
+  },
+  {
+    key: 'email',
+    label: 'Email',
+    Icon: Mail,
+    hover: 'hover:bg-red-50 hover:text-red-600 hover:border hover:border-red-200/80 hover:shadow-[0_4px_14px_rgba(220,38,38,0.18)]',
+  },
+] as const;
 
 export function UpcomingExhibitions() {
   const [activeModalEvent, setActiveModalEvent] = useState<ExhibitionEvent | null>(null);
@@ -90,14 +132,14 @@ export function UpcomingExhibitions() {
   };
 
   return (
-    <section 
+    <section
       className="relative z-20 w-full bg-[#FAFAFC] text-[#0A0D12] py-14 sm:py-20 md:py-28 border-b border-neutral-200/80 overflow-hidden select-none"
       aria-labelledby="upcoming-events-title"
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* PREMIUM HEADER SECTION */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
@@ -107,35 +149,34 @@ export function UpcomingExhibitions() {
           {/* Headline & Badge */}
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200/90 text-[10px] sm:text-[11px] font-mono tracking-[0.16em] uppercase text-neutral-700 mb-3.5 shadow-2xs">
-          
-                  <div className="relative w-3.5 h-3.5 flex items-center justify-center">
-                              <Image
-                                src="/logos/svg/logo-arrow.png"
-                                alt="Icon"
-                                fill
-                                className="object-contain"
-                              />
-                            </div>
+
+              <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+                <Image
+                  src="/logos/svg/logo-arrow.png"
+                  alt="Icon"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span className="font-semibold text-neutral-800">Official Trade Calendar</span>
             </div>
 
-        <h2
-  id="upcoming-events-title"
-  className="text-3xl sm:text-5xl lg:text-[50px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.08]"
->
-  <span className="whitespace-nowrap">
-    NEXT ON THE TRADE CALENDAR
-  </span>
-  <br />
-  <span className="font-serif italic font-normal text-neutral-500">
-    Upcoming Trade Exhibitions
-  </span>
-</h2>
+            <h2
+              id="upcoming-events-title"
+              className="text-3xl sm:text-5xl lg:text-[50px] font-semibold tracking-[-0.035em] text-[#0A0D12] leading-[1.08]"
+            >
+              <span className="whitespace-nowrap">
+                NEXT ON THE TRADE CALENDAR
+              </span>
+              <br />
+              <span className="font-serif italic font-normal text-neutral-500">
+                Upcoming Trade Exhibitions
+              </span>
+            </h2>
           </div>
 
           {/* Action Area & View All Button */}
           <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto">
-          
 
             <Link
               href="/exhibitions"
@@ -157,7 +198,7 @@ export function UpcomingExhibitions() {
         </motion.div>
 
         {/* CAROUSEL CONTAINER - PERFECT MOBILE CENTERING */}
-        <div 
+        <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
           className="mt-8 sm:mt-12 flex gap-4 sm:gap-5 md:gap-6 overflow-x-auto pb-8 pt-3 scrollbar-none snap-x snap-mandatory scroll-smooth -mx-4 px-[calc(50vw-132.5px)] sm:mx-0 sm:px-0"
@@ -171,9 +212,16 @@ export function UpcomingExhibitions() {
             upcomingEvents.map((event) => {
               const eventImg = event.heroImage || event.image;
               const mailSubject = encodeURIComponent(`Stall & Visitor Inquiry: ${event.name}`);
-              const mailHref = event.socials?.email 
+              const mailHref = event.socials?.email
                 ? `mailto:${event.socials.email}?subject=${mailSubject}`
                 : `mailto:admin@futurextrade.com?subject=${mailSubject}`;
+
+              // Sirf wahi icons jinka link data mein hai
+              const socialLinks = socialItems.flatMap((item) => {
+                const value = event.socials?.[item.key];
+                if (!value) return [];
+                return [{ ...item, href: item.key === 'email' ? mailHref : value.trim() }];
+              });
 
               let startDay = "01";
               let monthYearStr = "";
@@ -195,19 +243,19 @@ export function UpcomingExhibitions() {
                 monthYearStr = event.dates.display.replace(dayMatch ? dayMatch[0] : '', '').replace(/^th|st|nd|rd/i, '').replace(/to\s+\d+(th|st|nd|rd)?/i, '').trim();
               }
 
-              return (  
+              return (
                 <motion.article
                   key={event.id}
                   variants={cardVariants}
-                  whileHover={{ 
+                  whileHover={{
                     y: -6,
-                    transition: { duration: 0.35, ease: easeEditorial } 
+                    transition: { duration: 0.35, ease: easeEditorial }
                   }}
-                  className="group relative flex flex-col justify-between rounded-2xl bg-white border border-neutral-200/90 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden w-[265px] h-[400px] shrink-0 snap-center select-none cursor-pointer"
+                  className="group relative flex flex-col justify-between rounded-2xl bg-white border border-neutral-200/90 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden w-[265px] min-h-[400px] shrink-0 snap-center select-none cursor-pointer"
                   onClick={() => setActiveModalEvent(event)}
                 >
                   {/* Top Red Accent Accent Line */}
-                  <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-[0.16,1,0.3,1] origin-left z-30 pointer-events-none" />
+                  <span className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-left z-30 pointer-events-none" />
 
                   {/* LOGO CONTAINER */}
                   <div className="relative w-full h-[180px] shrink-0 overflow-hidden bg-neutral-50/70 p-5 flex items-center justify-center border-b border-neutral-100">
@@ -218,7 +266,7 @@ export function UpcomingExhibitions() {
                           alt={event.name}
                           fill
                           sizes="265px"
-                          className="object-contain object-center transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
+                          className="object-contain object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                           priority={false}
                         />
                       </div>
@@ -254,91 +302,35 @@ export function UpcomingExhibitions() {
                       </div>
                     </div>
 
-                    {/* BOTTOM ACTION TRAY - SOFT LIGHT GLOW ON HOVER */}
-                    <div className="pt-3.5 border-t border-neutral-100 flex items-center justify-between gap-2 mt-auto">
-                      <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
-                        
-                        {/* LINKEDIN */}
-                        {event.socials?.linkedin && (
-                          <div className="relative group/tooltip">
-                            <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-neutral-900 text-white font-mono text-[9px] uppercase tracking-wider rounded shadow-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-30 transform translate-y-1 group-hover/tooltip:translate-y-0">
-                              LinkedIn
+                    {/* BOTTOM ACTION TRAY - icons wrap hote hain, button neeche shift ho jata hai agar jagah kam ho */}
+                    <div className="pt-3.5 border-t border-neutral-100 flex flex-wrap items-center justify-between gap-x-2 gap-y-2.5 mt-auto">
+                      <div className="flex flex-wrap items-center gap-1" onClick={(e) => e.stopPropagation()}>
+                        {socialLinks.map(({ key, label, Icon, hover, href }) => (
+                          <div key={key} className="relative group/tooltip">
+                            <span className="max-sm:hidden absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-neutral-900 text-white font-mono text-[9px] uppercase tracking-wider rounded shadow-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-30 transform translate-y-1 group-hover/tooltip:translate-y-0">
+                              {label}
                             </span>
                             <Link
-                              href={event.socials.linkedin}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-7 h-7 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 hover:bg-sky-50 hover:text-[#0A66C2] hover:border hover:border-sky-200/80 hover:shadow-[0_4px_14px_rgba(10,102,194,0.18)]"
-                              aria-label="LinkedIn"
+                              href={href}
+                              aria-label={label}
+                              {...(key !== 'email' && { target: '_blank', rel: 'noopener noreferrer' })}
+                              className={`w-6 h-6 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 ${hover}`}
                             >
-                              <Linkedin size={12} />
+                              <Icon size={11} />
                             </Link>
                           </div>
-                        )}
-
-                        {/* FACEBOOK */}
-                        {event.socials?.facebook && (
-                          <div className="relative group/tooltip">
-                            <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-neutral-900 text-white font-mono text-[9px] uppercase tracking-wider rounded shadow-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-30 transform translate-y-1 group-hover/tooltip:translate-y-0">
-                              Facebook
-                            </span>
-                            <Link
-                              href={event.socials.facebook}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-7 h-7 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 hover:bg-blue-50 hover:text-[#1877F2] hover:border hover:border-blue-200/80 hover:shadow-[0_4px_14px_rgba(24,119,242,0.18)]"
-                              aria-label="Facebook"
-                            >
-                              <Facebook size={12} />
-                            </Link>
-                          </div>
-                        )}
-
-                        {/* INSTAGRAM */}
-                        {event.socials?.instagram && (
-                          <div className="relative group/tooltip">
-                            <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-neutral-900 text-white font-mono text-[9px] uppercase tracking-wider rounded shadow-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-30 transform translate-y-1 group-hover/tooltip:translate-y-0">
-                              Instagram
-                            </span>
-                            <Link
-                              href={event.socials.instagram}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-7 h-7 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 hover:bg-pink-50 hover:text-[#e1306c] hover:border hover:border-pink-200/80 hover:shadow-[0_4px_14px_rgba(225,48,108,0.18)]"
-                              aria-label="Instagram"
-                            >
-                              <Instagram size={12} />
-                            </Link>
-                          </div>
-                        )}
-
-                        {/* EMAIL */}
-                        {event.socials?.email && (
-                          <div className="relative group/tooltip">
-                            <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-neutral-900 text-white font-mono text-[9px] uppercase tracking-wider rounded shadow-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-30 transform translate-y-1 group-hover/tooltip:translate-y-0">
-                              Email
-                            </span>
-                            <Link
-                              href={mailHref}
-                              className="w-7 h-7 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 hover:bg-red-50 hover:text-red-600 hover:border hover:border-red-200/80 hover:shadow-[0_4px_14px_rgba(220,38,38,0.18)]"
-                              aria-label="Email"
-                            >
-                              <Mail size={12} />
-                            </Link>
-                          </div>
-                        )}
-
+                        ))}
                       </div>
 
                       {/* VISIT / INQUIRE BUTTON */}
                       <div onClick={(e) => e.stopPropagation()}>
                         <Link
-                          href={event.socials?.website || mailHref}
+                          href={event.socials?.website?.trim() || mailHref}
                           target={event.socials?.website ? "_blank" : "_self"}
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-neutral-900 hover:bg-red-600 text-white hover:text-white font-mono text-[10.5px] font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs active:scale-95"
                         >
-                          <span className="text-white"> 
+                          <span className="text-white">
                             {event.socials?.website ? "Visit" : "Inquire"}
                           </span>
                           <ArrowUpRight size={11} className="text-white" />
@@ -373,8 +365,8 @@ export function UpcomingExhibitions() {
                   onClick={() => scrollToPage(dotIdx)}
                   aria-label={`Go to page ${dotIdx + 1}`}
                   className={`transition-all duration-300 rounded-full cursor-pointer ${
-                    activeIndex === dotIdx 
-                      ? 'w-7 sm:w-8 h-2 bg-red-600' 
+                    activeIndex === dotIdx
+                      ? 'w-7 sm:w-8 h-2 bg-red-600'
                       : 'w-2 h-2 bg-neutral-300 hover:bg-neutral-400'
                   }`}
                 />
@@ -438,7 +430,7 @@ export function UpcomingExhibitions() {
                   </span>
                 )}
               </div>
-              
+
               <div className="px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 font-mono text-[10px] uppercase font-bold tracking-widest mb-3">
                 {activeModalEvent.edition || 'Global Event'}
               </div>
