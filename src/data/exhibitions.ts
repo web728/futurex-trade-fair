@@ -205,6 +205,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
       website: "https://www.ugandabuildcon.com/",
       facebook: "https://www.facebook.com/ugandabuildcon/",
       instagram: "https://www.instagram.com/ugandabuildcon/",
+      linkedin: "https://www.linkedin.com/company/ugandabuildcon",
       twitter: "https://x.com/ugandabuildcon/",
       email: "admin@futurextrade.com"
     },
@@ -223,6 +224,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     socials: {
       website: "https://tanzaniabuildcon.com/",
       instagram: "https://www.instagram.com/tanzaniabuildconexpo/",
+      linkedin:"https://www.linkedin.com/company/tanzaniabuildconexpo/",
       email: "admin@futurextrade.com"
     },
   },
@@ -234,7 +236,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
     industry: "Electric Vehicles",
     eventType: "Exhibition",
-       heroImage: "/gallery/images-event/2026/india-ev-logo.png",
+       heroImage: "/logos/upcoming/ev.png",
     description:
       "A business-to-business exhibition focused on electric vehicles, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -253,7 +255,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
     industry: "Solar & Renewable Energy",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/india-solar-logo.png",
+    heroImage: "/logos/upcoming/solar.png",
     description:
       "A business-to-business exhibition focused on solar & renewable energy, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -272,7 +274,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
     industry: "Battery & Energy Storage",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/india-battery-expo-logo.png",
+    heroImage: "/logos/upcoming/battery.png",
     description:
       "A business-to-business exhibition focused on battery & energy storage, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -290,7 +292,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " ICCB Exhibition Hall, Dhaka", country: "Bangladesh" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2026/10th-Bangladesh-Buildcon-Logo.png",
+    heroImage: "/logos/upcoming/bangla.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in Bangladesh.",
     socials: {
