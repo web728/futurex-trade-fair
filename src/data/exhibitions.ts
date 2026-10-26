@@ -437,7 +437,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Mumbai", country: "India" },
     industry: "Printing & Packaging",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/corrupack.png",
+    heroImage: "/gallery/images-event/corru-pac.png",
     description:
       "A specialized platform for the corrugation, packaging and printing industry, showcasing machinery, materials and packaging innovation.",
     socials: {
@@ -456,7 +456,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Kathmandu", country: "Nepal" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/Nepalbuildconexpo.png",
+    heroImage: "/gallery/images-event/build-nepal.png",
     description:
       "Nepal's leading construction and building materials exhibition, bringing manufacturers, suppliers and contractors together under one roof.",
     socials: {
@@ -475,7 +475,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bharatpur", country: "Nepal" },
     industry: "Agriculture & Agritech",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/agri.png",
+    heroImage: "/gallery/images-event/agri-tech.png",
     description:
       "Nepal's dedicated agri-technology exhibition connecting farm equipment, agri-input and agri-tech brands with the region's growing agricultural sector.",
     socials: {
@@ -494,7 +494,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "UMA Show Grounds, Kampala", country: "Uganda" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-      heroImage: "/gallery/images-event/uganda-build.png",
+      heroImage: "/gallery/images-event/2024/4-uganda-build.png",
     description: "A building and construction industry trade exhibition held in Kampala, Uganda.",
     socials: {
       website: "https://www.ugandabuildcon.com/",
@@ -511,7 +511,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Baramunda Ground, Bhubaneswar", country: "India" },
     industry: "Mining & Infrastructure",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/mining.png",
+    heroImage: "/gallery/images-event/3-odisha-expo.png",
     description:
       "A business-to-business exhibition focused on mining & infrastructure, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -529,7 +529,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Kathmandu", country: "Nepal" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalbuildcon.png",
+    heroImage: "/gallery/images-event/nepal-wood.png",
     description:
       "Nepal's leading construction and building materials exhibition, bringing manufacturers, suppliers and contractors together under one roof.",
     socials: {
@@ -548,7 +548,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Kathmandu", country: "Nepal" },
     industry: "Agriculture & Agritech",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalagritech.png",
+    heroImage: "/gallery/images-event/7-nepal-agri.png",
     description:
       "Connecting agricultural machinery, seeds, irrigation and agri-tech brands with buyers across Nepal.",
     socials: {
@@ -601,7 +601,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Dhaka", country: "Bangladesh" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/bangladeshb.png",
+    heroImage: "/gallery/images-event/8-bangla-build.png",
     description:
       "Bangladesh's construction and building materials exhibition connecting manufacturers, developers and contractors.",
     socials: {
@@ -619,7 +619,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Dhaka", country: "Bangladesh" },
     industry: "Power & Electrical",
     eventType: "Exhibition",
-    heroImage: "/gallery/exhibitions/bangladesh-elprotech.jpg",
+    heroImage: "/gallery/images-event/bangladesh-elprotech.jpg",
     description:
       "An electrical, power and lighting technology exhibition serving Bangladesh's growing energy and infrastructure sector.",
     socials: {
@@ -636,7 +636,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Kathmandu", country: "Nepal" },
     industry: "Wood & Woodworking",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalwood.png",
+    heroImage: "/gallery/images-event/nepal-wood.png",
     description:
       "Nepal's premier woodworking machinery and furniture manufacturing exhibition connecting regional buyers with global suppliers.",
     socials: {
@@ -873,7 +873,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/kenyab.png",
+    heroImage: "/gallery/images-event/3-kenya-build.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in Kenya.",
     socials: {
