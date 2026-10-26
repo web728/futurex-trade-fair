@@ -675,11 +675,11 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Pharmaceuticals",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalpharma.webp",
+    heroImage: "/gallery/images-event/2024/nepalpharma.webp",
     description:
       "A business-to-business exhibition focused on pharmaceuticals, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
-      website: "https://nepalpharmatech.com/",
+      website: "https://nepalpharmahealth.com/",
       facebook: "https://www.facebook.com/nepalpharmatech/",
       linkedin: "https://www.linkedin.com/company/nepal-pharma-health-international-expo/",
       twitter: "https://x.com/nepalpharmatech/",
@@ -932,7 +932,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     description:
       "A business-to-business exhibition focused on pharmaceuticals, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
-      website: "https://nepalpharmatech.com/",
+      website: "https://nepalpharmahealth.com/",
       linkedin: "https://www.linkedin.com/company/nepalpharmatech/",
       email: "admin@futurextrade.com"
     },
@@ -1144,7 +1144,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     description:
       "A business-to-business exhibition focused on pharmaceuticals, connecting exhibitors, industry professionals and trade visitors in its host market.",
     socials: {
-      website: "https://nepalpharmatech.com/",
+      website: "https://nepalpharmahealth.com/",
       linkedin: "https://www.linkedin.com/company/nepalpharmatech/",
       email: "admin@futurextrade.com"
     },
