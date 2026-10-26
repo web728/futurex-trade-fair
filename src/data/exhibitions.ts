@@ -494,6 +494,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "UMA Show Grounds, Kampala", country: "Uganda" },
     industry: "Building & Construction",
     eventType: "Exhibition",
+      heroImage: "/gallery/images-event/uganda-build.png",
     description: "A building and construction industry trade exhibition held in Kampala, Uganda.",
     socials: {
       website: "https://www.ugandabuildcon.com/",
@@ -618,7 +619,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Dhaka", country: "Bangladesh" },
     industry: "Power & Electrical",
     eventType: "Exhibition",
-    heroImage: "/gallery/exhibitions/nepal-power-electric-light-expo-1.webp",
+    heroImage: "/gallery/exhibitions/bangladesh-elprotech.jpg",
     description:
       "An electrical, power and lighting technology exhibition serving Bangladesh's growing energy and infrastructure sector.",
     socials: {
