@@ -23,7 +23,7 @@ export const company = {
     { value: 956484, suffix: '+', label: 'Trade Visitors' }
   ],
   assets: {
-    logo: 'https://futurextrade.com/images-event/icon/Futurex-Trade.webp',
+    logo: '/logos/futurex-trade-logo.png',
     hero: '/images/gallery/hero.png',
     exhibition: 'https://futurextrade.com/images-event/futurextrade.webp'
   }
