@@ -505,7 +505,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "odisha-mining-and-infrastructure-international-expo-2025-03-06",
-    name: "Odisha Mining and Infrastructure International Expo",
+    name: "3rd Odisha Mining and Infrastructure International Expo",
     edition: "3rd Edition",
     dates: { display: "6–9 March 2025", start: "2025-03-06", end: "2025-03-09" },
     venue: { city: "Baramunda Ground, Bhubaneswar", country: "India" },
@@ -523,13 +523,13 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "nepal-buildcon-international-expo-2025-02-20",
-    name: "Nepal Buildcon International Expo",
+    name: "10th Nepal Buildcon International Expo",
     edition: "10th Edition",
     dates: { display: "20–23 February 2025", start: "2025-02-20", end: "2025-02-23" },
     venue: { city: "Kathmandu", country: "Nepal" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepal-wood.png",
+    heroImage: "/gallery/images-event/10-nepal-build.png",
     description:
       "Nepal's leading construction and building materials exhibition, bringing manufacturers, suppliers and contractors together under one roof.",
     socials: {
@@ -782,7 +782,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti mandap, Kathmandu", country: "Nepal" },
     industry: "Power & Electrical",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalpower--.png",
+    heroImage: "/gallery/images-event/3-nepal-elec.png",
     description:
       "A business-to-business exhibition focused on power & electrical, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -849,13 +849,13 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "uganda-buildcon-international-expo-2024-08-06",
-    name: "Uganda Buildcon International Expo",
+    name: "3rd Uganda Buildcon International Expo",
     edition: "3rd Edition",
     dates: { display: "6–8 August 2024", start: "2024-08-06", end: "2024-08-08" },
     venue: { city: "Kampala", country: "Uganda" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/ugandabuild.webp",
+    heroImage: "/gallery/images-event/3-uganda-build.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in Uganda.",
     socials: {
@@ -867,7 +867,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "kenya-buildcon-international-expo-2024-06-06",
-    name: "Kenya Buildcon International Expo",
+    name: "3rd Kenya Buildcon International Expo",
     edition: "3rd Edition",
     dates: { display: "6–8 June 2024", start: "2024-06-06", end: "2024-06-08" },
     venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
@@ -886,7 +886,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "kenya-wood-international-expo-2024-06-06",
-    name: "Kenya Wood International Expo",
+    name: "3rd Kenya Wood International Expo",
     edition: "3rd Edition",
     dates: { display: "6–8 June 2024", start: "2024-06-06", end: "2024-06-08" },
     venue: { city: "The Sarit Expo Centre, Nairobi", country: "Kenya" },
