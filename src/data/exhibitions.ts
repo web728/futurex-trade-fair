@@ -431,7 +431,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "corru-pack-print-india-2026-03-19",
-    name: "Corru Pack Print India",
+    name: "2nd Corru Pack Print India",
     edition: "2nd Edition",
     dates: { display: "19–22 March 2026", start: "2026-03-19", end: "2026-03-22" },
     venue: { city: "Mumbai", country: "India" },
@@ -450,7 +450,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "nepal-buildcon-international-expo-2026-02-05",
-    name: "Nepal Buildcon International Expo",
+    name: "11th Nepal Buildcon International Expo",
     edition: "11th Edition",
     dates: { display: "5–8 February 2026", start: "2026-02-05", end: "2026-02-08" },
     venue: { city: "Kathmandu", country: "Nepal" },
@@ -469,7 +469,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "nepal-agritech-international-expo-2026-01-16",
-    name: "Nepal Agritech International Expo",
+    name: "8th Nepal Agritech International Expo",
     edition: "8th Edition",
     dates: { display: "16–18 January 2026", start: "2026-01-16", end: "2026-01-18" },
     venue: { city: "Bharatpur", country: "Nepal" },
@@ -542,7 +542,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "nepal-agritech-international-expo-2025-02-14",
-    name: "Nepal Agritech International Expo",
+    name: "7th Nepal Agritech International Expo",
     edition: "7th Edition",
     dates: { display: "14–16 February 2025", start: "2025-02-14", end: "2025-02-16" },
     venue: { city: "Kathmandu", country: "Nepal" },
@@ -578,7 +578,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "bangladesh-wood-international-expo-2025-01-23",
-    name: "Bangladesh Wood International Expo",
+    name: "8th Bangladesh Wood International Expo",
     edition: "8th Edition",
     dates: { display: "23–25 January 2025", start: "2025-01-23", end: "2025-01-25" },
     venue: { city: "Dhaka", country: "Bangladesh" },
@@ -595,7 +595,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "bangladesh-buildcon-international-expo-2025-01-23",
-    name: "Bangladesh Buildcon International Expo",
+    name: "8th Bangladesh Buildcon International Expo",
     edition: "8th Edition",
     dates: { display: "23–25 January 2025", start: "2025-01-23", end: "2025-01-25" },
     venue: { city: "Dhaka", country: "Bangladesh" },
@@ -613,7 +613,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "bangladesh-elprotech-international-expo-2025-01-23",
-    name: "Bangladesh Elprotech International Expo",
+    name: "3rd Bangladesh Elprotech International Expo",
     edition: "3rd Edition",
     dates: { display: "23–25 January 2025", start: "2025-01-23", end: "2025-01-25" },
     venue: { city: "Dhaka", country: "Bangladesh" },
@@ -630,7 +630,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "nepal-wood-international-expo-2025-01-17",
-    name: "Nepal Wood International Expo",
+    name: "10th Nepal Wood International Expo",
     edition: "10th Edition",
     dates: { display: "17–19 January 2025", start: "2025-01-17", end: "2025-01-19" },
     venue: { city: "Kathmandu", country: "Nepal" },
@@ -675,7 +675,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Pharmaceuticals",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2024/nepalpharma.webp",
+    heroImage: "/gallery/images-event/2024/nepalpharma.png",
     description:
       "A business-to-business exhibition focused on pharmaceuticals, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -694,7 +694,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Healthcare & Medical Equipment",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nhsm.webp",
+    heroImage: "/gallery/images-event/nhsm.png",
     description:
       "A business-to-business exhibition focused on healthcare & medical equipment, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -710,7 +710,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Auto Cluster Exhibition Centre, Pune", country: "India" },
     industry: "Electric Vehicles",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/6thev.webp",
+    heroImage: "/gallery/images-event/6thev.png",
     description:
       "A business-to-business exhibition focused on electric vehicles, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -729,7 +729,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Janata Maidan, Bhubaneswar, Odisha", country: "India" },
     industry: "Plastics & Polymers",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/opalst.webp",
+    heroImage: "/gallery/images-event/opalst.png",
     description:
       "A business-to-business exhibition focused on plastics & polymers, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -747,7 +747,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Janata Maidan, Bhubaneswar, Odisha", country: "India" },
     industry: "Printing & Packaging",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/propack.webp",
+    heroImage: "/gallery/images-event/propack.png",
     description:
       "A business-to-business exhibition focused on printing & packaging, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -765,7 +765,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Changlimithang Stadium Parking, Thimphu", country: "Bhutan" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/BCCII.png",
+    heroImage: "/gallery/images-event/bcci.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in Bhutan.",
     socials: {
@@ -801,7 +801,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti mandap, Kathmandu", country: "Nepal" },
     industry: "Consumer Electronics",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalconsumer.webp",
+    heroImage: "/gallery/images-event/nepalconsumer.png",
     description:
       "A business-to-business exhibition focused on consumer electronics, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -818,7 +818,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Chennai Trade Centre, Nandambakkam, Chennai", country: "India" },
     industry: "Electric Vehicles",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/5ev.webp",
+    heroImage: "/gallery/images-event/5ev.png",
     description:
       "A business-to-business exhibition focused on electric vehicles, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -831,13 +831,13 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "auto-component-international-expo-2024-09-06",
-    name: "Auto Component International Expo",
-    edition: "",
+    name: "2nd Auto Component International Expo",
+    edition: "2nd Edition",
     dates: { display: "6–8 September 2024", start: "2024-09-06", end: "2024-09-08" },
     venue: { city: "Chennai Trade Centre, Nandambakkam, Chennai, Tamil Nadu", country: "India" },
     industry: "Automotive Components",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/autocompoent.webp",
+    heroImage: "/gallery/images-event/autocompoent.png",
     description:
       "A business-to-business exhibition focused on automotive components, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -911,7 +911,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Printing & Packaging",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepal5p-1.webp",
+    heroImage: "/gallery/images-event/nepal5p-1.png",
     description:
       "A business-to-business exhibition focused on printing & packaging, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -964,7 +964,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Auto Cluster Exhibition Centre, Chinchwad, Pune", country: "India" },
     industry: "Automotive Components",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/autocompoent.webp",
+    heroImage: "/gallery/images-event/autocompoent.png",
     description:
       "A business-to-business exhibition focused on automotive components, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
@@ -999,7 +999,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " ICCB, Dhaka", country: "Bangladesh" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/bangladeshbuildcon.webp",
+    heroImage: "/gallery/images-event/bangladeshbuildcon.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in Bangladesh.",
     socials: {
@@ -1051,7 +1051,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti mandap, Kathmandu", country: "Nepal" },
     industry: "Electric Vehicles",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalev.webp",
+    heroImage: "/gallery/images-event/nepalev.png",
     description:
       "A business-to-business exhibition focused on electric vehicles, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1062,13 +1062,13 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
   },
   {
     id: "nepal-electric-power-and-light-international-expo-2023-09-01",
-    name: "Nepal Electric, Power and Light International Expo",
-    edition: "",
+    name: "2nd Nepal Electric, Power and Light International Expo",
+    edition: "2nd Edition",
     dates: { display: "01-03 September 2023", start: "2023-09-01", end: "2023-09-03" },
     venue: { city: "Bhrikuti mandap, Kathmandu", country: "Nepal" },
     industry: "Power & Electrical",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalpower.webp",
+    heroImage: "/gallery/images-event/nepalpower.png",
     description:
       "A business-to-business exhibition focused on power & electrical, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1087,7 +1087,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti mandap, Kathmandu", country: "Nepal" },
     industry: "Consumer Electronics",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/consume.webp",
+    heroImage: "/gallery/images-event/consume.png",
     description:
       "A business-to-business exhibition focused on consumer electronics, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1104,7 +1104,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti mandap, Kathmandu", country: "Nepal" },
     industry: "Mobile & Electronics",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/mobile.jpg",
+    heroImage: "/gallery/images-event/mobile.png",
     description:
       "A business-to-business exhibition focused on mobile & electronics, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1120,7 +1120,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "UMA Show Grounds Lugogo, Kampala", country: "Uganda" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/uganda-buildcon.webp",
+    heroImage: "/gallery/images-event/uganda-buildcon.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in Uganda.",
     socials: {
@@ -1174,7 +1174,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Chitwan EXPO Center, Bharatpur", country: "Nepal" },
     industry: "Agriculture & Agritech",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/NEPAL-AGRICULTURE.webp",
+    heroImage: "/gallery/images-event/nepal-agri.png",
     description:
       "A business-to-business exhibition focused on agriculture & agritech, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1210,7 +1210,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/Nepal-Buildcon.webp",
+    heroImage: "/gallery/images-event/nepal-buildcon-expo.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1229,7 +1229,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Wood & Woodworking",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/Nepal-Wood.webp",
+    heroImage: "/gallery/images-event/7-nepal-wood.png",
     description:
       "A business-to-business exhibition focused on wood & woodworking, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
