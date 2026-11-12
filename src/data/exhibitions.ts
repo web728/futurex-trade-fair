@@ -1367,7 +1367,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Futurex Virtual Platform", country: "" },
     industry: "Building & Construction",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/VIRTUAL-BUILDCON.webp",
+    heroImage: "/gallery/images-event/virtual-buildcon.png",
     description:
       "A business-to-business exhibition focused on building & construction, connecting exhibitors, industry professionals and trade visitors in its host market.",
     socials: {
@@ -1401,7 +1401,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Futurex Virtual Platform", country: "" },
     industry: "Mining",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/Mnaufacturing-Asia-Logo.webp",
+    heroImage: "/gallery/images-event/manufacrueing-asia.png",
     description:
       "A business-to-business exhibition focused on mining, connecting exhibitors, industry professionals and trade visitors in its host market.",
     socials: {
