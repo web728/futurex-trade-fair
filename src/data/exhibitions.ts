@@ -475,7 +475,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bharatpur", country: "Nepal" },
     industry: "Agriculture & Agritech",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/agri-tech.png",
+    heroImage: "/gallery/images-event/agri.png",
     description:
       "Nepal's dedicated agri-technology exhibition connecting farm equipment, agri-input and agri-tech brands with the region's growing agricultural sector.",
     socials: {
@@ -928,7 +928,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Pharmaceuticals",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepalpharma-1.webp",
+    heroImage: "/gallery/images-event/nepalpharma-1.png",
     description:
       "A business-to-business exhibition focused on pharmaceuticals, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1140,7 +1140,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Futurex Virtual Platform.", country: "" },
     industry: "Pharmaceuticals",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/nepal-pharmatech.jpg",
+    heroImage: "/gallery/images-event/nepalpharma.png",
     description:
       "A business-to-business exhibition focused on pharmaceuticals, connecting exhibitors, industry professionals and trade visitors in its host market.",
     socials: {
@@ -1157,7 +1157,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: " Bhrikuti Mandap, Kathmandu", country: "Nepal" },
     industry: "Printing & Packaging",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/2ND-NEPAL-5P.webp",
+    heroImage: "/gallery/images-event/2nd-nepal-5p.png",
     description:
       "A business-to-business exhibition focused on printing & packaging, connecting exhibitors, industry professionals and trade visitors in Nepal.",
     socials: {
@@ -1435,7 +1435,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Futurex Virtual Platform", country: "" },
     industry: "Printing & Packaging",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/bangladesh-printpack.webp",
+    heroImage: "/gallery/images-event/bangladesh-printpack.png",
     description:
       "A business-to-business exhibition focused on printing & packaging, connecting exhibitors, industry professionals and trade visitors in its host market.",
     socials: {
@@ -1453,7 +1453,7 @@ export const EXHIBITIONS: ExhibitionEvent[] = [
     venue: { city: "Hitech City Hyderabad", country: "India" },
     industry: "Mining",
     eventType: "Exhibition",
-    heroImage: "/gallery/images-event/Business-Women-Expo.webp",
+    heroImage: "/gallery/images-event/Business-Women-Expo.png",
     description:
       "A business-to-business exhibition focused on mining, connecting exhibitors, industry professionals and trade visitors in India.",
     socials: {
