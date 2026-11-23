@@ -51,10 +51,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
         {/* Left: Index & Service Details */}
         <div className="flex items-start gap-5 sm:gap-7 max-w-3xl">
-          <span className="font-mono text-sm sm:text-base font-semibold text-neutral-400 group-hover:text-red-600 transition-colors duration-200 shrink-0 mt-0.5">
-            {formattedIndex}
-          </span>
-
+        
           <div>
             <h3 className="text-base sm:text-lg font-semibold text-[#0A0D12] tracking-[-0.01em] mb-2 group-hover:text-red-600 transition-colors duration-200">
               {titleText}

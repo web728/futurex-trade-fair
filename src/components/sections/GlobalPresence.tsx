@@ -168,9 +168,7 @@ export function GlobalPresence() {
                       <div className="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-red-500 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300 shadow-2xs">
                         <Icon size={20} />
                       </div>
-                      <span className="font-mono text-xs font-bold text-neutral-500 group-hover:text-red-400 transition-colors">
-                         {pillar.id}
-                      </span>
+                    
                     </div>
 
                     <h3 className="text-lg sm:text-xl font-semibold text-white tracking-[-0.02em] leading-snug mb-3 group-hover:text-red-400 transition-colors">

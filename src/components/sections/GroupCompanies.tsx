@@ -141,16 +141,7 @@ export function GroupCompanies() {
                 <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-[0.16,1,0.3,1] origin-left z-20" />
 
                 <div>
-                  {/* Top Metadata Strip: Index & Division Tag */}
-                  <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="font-mono text-xs font-semibold text-neutral-400 tracking-wider uppercase group-hover:text-red-600 transition-colors">
-                      {formattedIndex}
-                    </span>
-
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200/80 text-[10px] font-mono tracking-wider uppercase text-neutral-600">
-                      {company.role}
-                    </span>
-                  </div>
+                  
 
                   {/* ========================================================================= */}
                   {/* LARGE PROMINENT CENTERED LOGO SHOWCASE BOX */}

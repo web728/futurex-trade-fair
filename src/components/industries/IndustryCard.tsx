@@ -42,7 +42,7 @@ export function IndustryCard({ industry, index, onSelect }: IndustryCardProps) {
           {/* Card Top Metadata */}
           <div className="flex items-center justify-between gap-4 mb-6">
             <span className="font-mono text-xs font-semibold text-neutral-400 group-hover:text-red-600 transition-colors duration-200">
-              {formattedIndex}
+            
             </span>
 
             <div className="w-8 h-8 rounded-full bg-neutral-100 border border-neutral-200/80 flex items-center justify-center text-neutral-500 group-hover:text-white group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-300 shadow-2xs">

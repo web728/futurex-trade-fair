@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/gallery', 
     '/conferences', 
     '/webinars', 
+    '/news',
     '/contact',
     '/privacy-policy',
     '/terms-and-conditions'
