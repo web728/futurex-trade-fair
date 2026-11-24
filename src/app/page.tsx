@@ -61,7 +61,7 @@ import { NewsSection } from '../components/sections/NewsSection';
         <NewsSection />
         <GallerySection />
         <GroupCompanies />
-        <SEOFAQSection /> {/* Naturally answers PAA queries for Google */}
+        <SEOFAQSection />  
         <CTASection />
       </>
     );
