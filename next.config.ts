@@ -2,13 +2,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Existing lint configuration
   eslint: {
     ignoreDuringBuilds: true,
   },
 
-  // Serve original images directly.
-  // Avoids requests to /_next/image and its 402 errors.
   images: {
     unoptimized: true,
 
@@ -26,6 +23,26 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/partners",
+        destination: "/participants",
+        permanent: true,
+      },
+      {
+        source: "/presence",
+        destination: "/global-presence",
+        permanent: true,
+      },
+      {
+        source: "/media",
+        destination: "/news",
+        permanent: true,
+      },
+    ];
   },
 
   poweredByHeader: false,
