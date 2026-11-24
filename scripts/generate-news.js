@@ -2,7 +2,11 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const ROOT = process.cwd();
+// ==========================================
+// CONFIGURATION
+// ==========================================
+
+const ROOT = path.resolve(__dirname, "..");
 
 const NEWS_DIR = path.join(
   ROOT,
@@ -26,41 +30,84 @@ const IMAGE_EXT = new Set([
   ".gif",
 ]);
 
-const PDF_EXT = new Set([".pdf"]);
-
 const CATEGORIES = new Set([
   "Announcement",
   "Media Coverage",
   "Event Update",
 ]);
 
-const FOLDER_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
+const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 
-function readDirectory(directory) {
-  if (!fs.existsSync(directory)) {
-    return [];
-  }
+// ==========================================
+// DIRECTORY UTILITIES
+// ==========================================
 
-  return fs.readdirSync(directory, {
-    withFileTypes: true,
-  });
+function entries(directory) {
+  return fs
+    .readdirSync(directory, {
+      withFileTypes: true,
+    })
+    .filter(
+      (entry) => !entry.name.startsWith(".")
+    )
+    .sort((a, b) =>
+      a.name.localeCompare(b.name, "en")
+    );
 }
 
-function readJSON(filename) {
-  if (!fs.existsSync(filename)) {
-    return null;
+// ==========================================
+// CASE-INSENSITIVE JSON READER
+// Windows + Linux + Vercel compatible
+// ==========================================
+
+function readJSON(directory, name) {
+  const matches = entries(directory).filter(
+    (entry) =>
+      entry.isFile() &&
+      entry.name.toLowerCase() ===
+        name.toLowerCase()
+  );
+
+  if (matches.length > 1) {
+    throw new Error(
+      `Ambiguous ${name} in ${directory}`
+    );
+  }
+
+  if (matches.length === 0) {
+    return undefined;
+  }
+
+  const filename = path.join(
+    directory,
+    matches[0].name
+  );
+
+  if (matches[0].name !== name) {
+    console.warn(
+      `[News] Filename casing detected: ${filename}`
+    );
   }
 
   try {
-    return JSON.parse(
-      fs.readFileSync(filename, "utf8")
-    );
+    const content = fs
+      .readFileSync(filename, "utf8")
+      .replace(/^\uFEFF/, "");
+
+    return {
+      filename,
+      data: JSON.parse(content),
+    };
   } catch (error) {
     throw new Error(
       `Invalid JSON: ${filename}\n${error.message}`
     );
   }
 }
+
+// ==========================================
+// TITLE FORMATTER
+// ==========================================
 
 function niceTitle(value) {
   return value
@@ -73,183 +120,159 @@ function niceTitle(value) {
     );
 }
 
-function getDirectory(folder) {
-  return folder === "general"
-    ? NEWS_DIR
-    : path.join(NEWS_DIR, folder);
+// ==========================================
+// SAFE URL SLUG GENERATOR
+// ==========================================
+
+function slugify(value) {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
-function encodePath(relativePath) {
-  return relativePath
-    .split(/[\\/]+/)
-    .map((part) => encodeURIComponent(part))
-    .join("/");
+// ==========================================
+// PRODUCTION-SAFE ASSET URL
+// ==========================================
+
+function assetURL(filename) {
+  const relativePath = path.relative(
+    NEWS_DIR,
+    filename
+  );
+
+  return (
+    "/news/" +
+    relativePath
+      .split(path.sep)
+      .map(encodeURIComponent)
+      .join("/")
+  );
 }
 
-function assetURL(folder, relativePath) {
-  const prefix =
-    folder === "general"
-      ? "/news"
-      : `/news/${encodeURIComponent(folder)}`;
+// ==========================================
+// DISCOVER IMAGES AND PDF FILES
+// ==========================================
 
-  return `${prefix}/${encodePath(relativePath)}`;
-}
+function getAssets(directory, recursive = true) {
+  const files = [];
 
-function collectFiles(directory, baseDirectory) {
-  const results = [];
-
-  for (const entry of readDirectory(directory)) {
-    if (entry.name.startsWith(".")) {
-      continue;
-    }
-
-    const absolutePath = path.join(
-      directory,
-      entry.name
-    );
-
-    if (entry.isDirectory()) {
-      results.push(
-        ...collectFiles(absolutePath, baseDirectory)
+  function walk(currentDirectory) {
+    for (const entry of entries(currentDirectory)) {
+      const filename = path.join(
+        currentDirectory,
+        entry.name
       );
-      continue;
+
+      if (
+        entry.isDirectory() &&
+        recursive
+      ) {
+        walk(filename);
+      }
+
+      if (!entry.isFile()) {
+        continue;
+      }
+
+      const extension = path
+        .extname(entry.name)
+        .toLowerCase();
+
+      if (
+        IMAGE_EXT.has(extension) ||
+        extension === ".pdf"
+      ) {
+        files.push(filename);
+      }
     }
-
-    if (!entry.isFile()) {
-      continue;
-    }
-
-    const extension = path
-      .extname(entry.name)
-      .toLowerCase();
-
-    if (
-      !IMAGE_EXT.has(extension) &&
-      !PDF_EXT.has(extension)
-    ) {
-      continue;
-    }
-
-    results.push({
-      absolutePath,
-      relativePath: path.relative(
-        baseDirectory,
-        absolutePath
-      ),
-      extension,
-    });
   }
 
-  return results;
-}
-
-function getAssets(folder) {
-  const directory = getDirectory(folder);
-
-  // The "general" collection must not scan
-  // other exhibition folders.
-  const files =
-    folder === "general"
-      ? readDirectory(directory)
-          .filter((entry) => entry.isFile())
-          .map((entry) => ({
-            absolutePath: path.join(
-              directory,
-              entry.name
-            ),
-            relativePath: entry.name,
-            extension: path
-              .extname(entry.name)
-              .toLowerCase(),
-          }))
-          .filter(
-            (item) =>
-              IMAGE_EXT.has(item.extension) ||
-              PDF_EXT.has(item.extension)
-          )
-      : collectFiles(directory, directory);
+  walk(directory);
 
   return files
     .sort((a, b) =>
-      a.relativePath.localeCompare(
-        b.relativePath,
-        undefined,
-        {
-          numeric: true,
-          sensitivity: "base",
-        }
-      )
+      a.localeCompare(b, "en", {
+        numeric: true,
+        sensitivity: "base",
+      })
     )
-    .map((file) => ({
+    .map((filename) => ({
       title: niceTitle(
-        path.basename(file.relativePath)
+        path.basename(filename)
       ),
-      url: assetURL(
-        folder,
-        file.relativePath
-      ),
-      type: PDF_EXT.has(file.extension)
-        ? "pdf"
-        : "image",
+
+      url: assetURL(filename),
+
+      type:
+        path.extname(filename).toLowerCase() ===
+        ".pdf"
+          ? "pdf"
+          : "image",
     }));
 }
 
-function getLinks(folder) {
-  const filename = path.join(
-    getDirectory(folder),
+// ==========================================
+// EXTERNAL MEDIA LINKS
+// ==========================================
+
+function getLinks(directory) {
+  const source = readJSON(
+    directory,
     "links.json"
   );
 
-  const data = readJSON(filename);
-
-  if (data === null) {
+  if (!source) {
     return [];
   }
 
-  if (!Array.isArray(data)) {
+  if (!Array.isArray(source.data)) {
     throw new Error(
-      `links.json must be an array: ${filename}`
+      `links.json must be an array: ${source.filename}`
     );
   }
 
   const links = new Map();
 
-  for (const item of data) {
+  for (const item of source.data) {
     if (
       !item ||
-      typeof item.publisher !== "string" ||
-      typeof item.title !== "string" ||
-      typeof item.url !== "string"
+      !["publisher", "title", "url"].every(
+        (key) => typeof item[key] === "string"
+      )
     ) {
       console.warn(
-        `Skipping malformed media link in ${folder}`
+        `[News] Skipping malformed media link in ${source.filename}`
       );
+
       continue;
     }
 
     try {
-      const parsed = new URL(
+      const parsedURL = new URL(
         item.url.trim()
       );
 
       if (
-        parsed.protocol !== "https:" &&
-        parsed.protocol !== "http:"
+        !["http:", "https:"].includes(
+          parsedURL.protocol
+        )
       ) {
-        console.warn(
-          `Skipping unsupported URL in ${folder}`
+        throw new Error(
+          "Unsupported URL protocol"
         );
-        continue;
       }
 
-      links.set(parsed.href, {
+      links.set(parsedURL.href, {
         publisher: item.publisher.trim(),
         title: item.title.trim(),
-        url: parsed.href,
+        url: parsedURL.href,
       });
     } catch {
       console.warn(
-        `Skipping invalid media URL in ${folder}: ${item.url}`
+        `[News] Skipping invalid media URL: ${item.url}`
       );
     }
   }
@@ -257,41 +280,72 @@ function getLinks(folder) {
   return Array.from(links.values());
 }
 
+// ==========================================
+// ARTICLE VALIDATION
+// ==========================================
+
 function validateArticle(config, filename) {
-  if (
-    !config ||
-    typeof config !== "object" ||
-    typeof config.title !== "string" ||
-    !config.title.trim() ||
-    typeof config.excerpt !== "string" ||
-    typeof config.date !== "string" ||
-    !/^\d{4}-\d{2}-\d{2}$/.test(config.date) ||
-    Number.isNaN(Date.parse(config.date)) ||
-    !CATEGORIES.has(config.category) ||
-    typeof config.event !== "string" ||
-    typeof config.country !== "string" ||
-    typeof config.edition !== "string" ||
-    !Array.isArray(config.paragraphs) ||
-    !config.paragraphs.every(
-      (p) => typeof p === "string"
-    ) ||
+  const valid =
+    config &&
+    typeof config === "object" &&
+    !Array.isArray(config) &&
+
+    [
+      "title",
+      "excerpt",
+      "date",
+      "event",
+      "country",
+      "edition",
+    ].every(
+      (key) => typeof config[key] === "string"
+    ) &&
+
+    config.title.trim() &&
+
+    /^\d{4}-\d{2}-\d{2}$/.test(
+      config.date
+    ) &&
+
+    !Number.isNaN(
+      Date.parse(config.date)
+    ) &&
+
+    new Date(config.date)
+      .toISOString()
+      .slice(0, 10) === config.date &&
+
+    CATEGORIES.has(config.category) &&
+
+    Array.isArray(config.paragraphs) &&
+
+    config.paragraphs.every(
+      (paragraph) =>
+        typeof paragraph === "string"
+    ) &&
+
     (
-      config.dignitaries !== undefined &&
+      config.dignitaries === undefined ||
       (
-        !Array.isArray(config.dignitaries) ||
-        !config.dignitaries.every(
+        Array.isArray(config.dignitaries) &&
+        config.dignitaries.every(
           (name) => typeof name === "string"
         )
       )
-    )
-  ) {
+    );
+
+  if (!valid) {
     throw new Error(
       `Invalid article configuration: ${filename}`
     );
   }
 }
 
-function getCover(folder, assets, requested) {
+// ==========================================
+// AUTOMATIC COVER IMAGE
+// ==========================================
+
+function getCover(directory, assets, requested) {
   const images = assets.filter(
     (asset) => asset.type === "image"
   );
@@ -300,210 +354,377 @@ function getCover(folder, assets, requested) {
     typeof requested === "string" &&
     requested.trim()
   ) {
+    const requestedPath = requested
+      .trim()
+      .replace(/\\/g, "/");
+
     const expectedURL = assetURL(
-      folder,
-      requested.trim()
+      path.resolve(directory, requestedPath)
     );
 
-    const match = images.find(
+    // Exact filename match.
+    const exactMatch = images.find(
       (image) => image.url === expectedURL
     );
 
-    if (match) {
-      return match.url;
+    if (exactMatch) {
+      return exactMatch.url;
+    }
+
+    // Case-insensitive filename match.
+    const insensitiveMatches = images.filter(
+      (image) =>
+        image.url.toLowerCase() ===
+        expectedURL.toLowerCase()
+    );
+
+    if (insensitiveMatches.length === 1) {
+      return insensitiveMatches[0].url;
     }
 
     console.warn(
-      `Cover not found in ${folder}: ${requested}`
+      `[News] Cover missing or ambiguous in ${directory}: ${requested}`
     );
   }
 
+  // Automatically use first available image.
   return images[0]?.url;
 }
 
-function getFolders() {
-  return readDirectory(NEWS_DIR)
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .filter(
-      (name) =>
-        name !== "general" &&
-        FOLDER_PATTERN.test(name)
-    )
-    .sort();
-}
+// ==========================================
+// MAIN NEWS GENERATOR
+// ==========================================
 
 function generate() {
+  console.log("");
+  console.log("==========================================");
+  console.log("Futurex Newsroom Generator");
+  console.log("==========================================");
+
+  console.log(
+    `[News] Environment: ${process.env.NODE_ENV || "default"}`
+  );
+
+  console.log(
+    `[News] Project root: ${ROOT}`
+  );
+
+  console.log(
+    `[News] Scanning: ${NEWS_DIR}`
+  );
+
+  // Check source directory.
   if (!fs.existsSync(NEWS_DIR)) {
     throw new Error(
-      `Missing news directory: ${NEWS_DIR}`
+      `[News] Missing news directory: ${NEWS_DIR}`
     );
   }
 
-  const folders = [
-    "general",
-    ...getFolders(),
-  ];
+  // Discover all non-hidden folders.
+  // Supports lowercase, uppercase, spaces,
+  // underscores and hyphens.
+  const folders = entries(NEWS_DIR)
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
+
+  console.log(
+    `[News] Folders found: ${folders.length}`
+  );
+
+  console.log(
+    `[News] Folder names: ${JSON.stringify(folders)}`
+  );
 
   const articles = [];
   const collections = [];
   const usedSlugs = new Set();
 
+  // General assets directly inside public/news.
+  const generalAssets = getAssets(
+    NEWS_DIR,
+    false
+  );
+
+  // Also supports article.json in news root.
+  const rootSource = readJSON(
+    NEWS_DIR,
+    "article.json"
+  );
+
+  const locations = [
+    {
+      folder: "general",
+      dir: NEWS_DIR,
+      assets: generalAssets,
+      source: rootSource,
+    },
+  ];
+
+  // Discover exhibition folders.
   for (const folder of folders) {
-    const directory = getDirectory(folder);
+    const directory = path.join(
+      NEWS_DIR,
+      folder
+    );
 
-    const assets = getAssets(folder);
+    // Preserve reserved general collection behavior.
+    if (folder === "general") {
+      if (entries(directory).length > 0) {
+        console.warn(
+          `[News] Reserved folder: ${directory}. Move its contents to an exhibition folder or news root.`
+        );
+      }
 
-    const configPath = path.join(
+      continue;
+    }
+
+    console.log(
+      `[News] Processing folder: ${folder}`
+    );
+
+    const assets = getAssets(
+      directory,
+      true
+    );
+
+    const source = readJSON(
       directory,
       "article.json"
     );
 
-    const config =
-      folder === "general"
-        ? null
-        : readJSON(configPath);
-
-    if (config !== null) {
-      validateArticle(config, configPath);
-    }
-
-    const slug =
-      config === null
-        ? undefined
-        : typeof config.slug === "string" &&
-            config.slug.trim()
-          ? config.slug.trim()
-          : folder;
-
-    if (
-      slug &&
-      !FOLDER_PATTERN.test(slug)
-    ) {
-      throw new Error(
-        `Invalid article slug: ${slug}`
-      );
-    }
-
-    if (slug && usedSlugs.has(slug)) {
-      throw new Error(
-        `Duplicate article slug: ${slug}`
-      );
-    }
-
-    if (slug) {
-      usedSlugs.add(slug);
-    }
-
-    const image = getCover(
+    locations.push({
       folder,
+      dir: directory,
+      assets,
+      source,
+    });
+  }
+
+  // Generate articles and media collections.
+  for (const {
+    folder,
+    dir,
+    assets,
+    source,
+  } of locations) {
+    const config = source?.data;
+
+    let slug;
+
+    if (source) {
+      console.log(
+        `[News] Article found: ${source.filename}`
+      );
+
+      validateArticle(
+        config,
+        source.filename
+      );
+
+      // Preserve explicitly configured valid slugs.
+      // Automatically normalize folder-based slugs.
+      slug =
+        typeof config.slug === "string" &&
+        config.slug.trim()
+          ? config.slug.trim()
+          : slugify(folder);
+
+      if (!SLUG_PATTERN.test(slug)) {
+        throw new Error(
+          `Invalid article slug: ${slug} (${source.filename})`
+        );
+      }
+
+      if (usedSlugs.has(slug)) {
+        throw new Error(
+          `Duplicate article slug: ${slug}`
+        );
+      }
+
+      usedSlugs.add(slug);
+    } else {
+      console.log(
+        `[News] No article.json in ${dir}. Checking media assets.`
+      );
+    }
+
+    // Resolve cover image.
+    const image = getCover(
+      dir,
       assets,
       config?.cover
     );
 
+    // Generate media collection even if
+    // article.json does not exist.
     if (assets.length > 0) {
       collections.push({
         folder,
+
         title:
           folder === "general"
             ? "General Press & Media"
             : config?.event ||
               niceTitle(folder),
+
         image,
+
         assets,
+
         articleSlug: slug,
       });
     }
 
-    if (config === null) {
+    // Media-only folder.
+    if (!source) {
       continue;
     }
 
+    // Generate article.
     articles.push({
       slug,
+
       folder,
+
       title: config.title,
+
       excerpt: config.excerpt,
+
       date: config.date,
+
       category: config.category,
+
       event: config.event,
+
       country: config.country,
+
       edition: config.edition,
-      featured: config.featured === true,
+
+      featured:
+        config.featured === true,
+
       image,
+
       eventUrl:
         typeof config.eventUrl === "string"
           ? config.eventUrl
           : undefined,
+
       paragraphs: config.paragraphs,
-      dignitaries: config.dignitaries || [],
-      mediaLinks: getLinks(folder),
+
+      dignitaries:
+        config.dignitaries || [],
+
+      mediaLinks: getLinks(dir),
+
       assets,
     });
+
+    console.log(
+      `[News] Article generated: ${slug}`
+    );
   }
 
+  // Sort newest articles first.
   articles.sort(
     (a, b) =>
       b.date.localeCompare(a.date) ||
       a.title.localeCompare(b.title)
   );
 
+  // Prevent deployment with missing article data.
   if (articles.length === 0) {
+    console.error("");
+    console.error("==========================================");
+    console.error("[News] ERROR: No articles found.");
+    console.error("==========================================");
+
+    console.error(
+      "Check that article.json files exist inside public/news/<folder>/."
+    );
+
+    console.error(
+      "Check that all article.json files are committed to GitHub."
+    );
+
+    console.error(
+      "Inspect the folder diagnostics printed above."
+    );
+
     throw new Error(
-      "No news articles found. Check article.json files."
+      "No news articles found. Check committed article.json files."
     );
   }
 
+  // Final JSON structure.
   const result = {
     articles,
     collections,
   };
 
+  // Ensure output directory exists.
   fs.mkdirSync(
     path.dirname(OUTPUT_FILE),
-    { recursive: true }
+    {
+      recursive: true,
+    }
   );
 
+  // Write generated news data.
   fs.writeFileSync(
     OUTPUT_FILE,
     JSON.stringify(result, null, 2) + "\n",
     "utf8"
   );
 
-  const totalImages = collections.reduce(
-    (count, collection) =>
-      count +
-      collection.assets.filter(
-        (asset) => asset.type === "image"
-      ).length,
-    0
+  // Asset statistics.
+  const allAssets = collections.flatMap(
+    (collection) => collection.assets
   );
 
-  const totalPDFs = collections.reduce(
-    (count, collection) =>
-      count +
-      collection.assets.filter(
-        (asset) => asset.type === "pdf"
-      ).length,
-    0
-  );
+  const totalImages = allAssets.filter(
+    (asset) => asset.type === "image"
+  ).length;
 
-  console.log("Futurex Newsroom generated");
+  const totalPDFs = allAssets.filter(
+    (asset) => asset.type === "pdf"
+  ).length;
+
+  console.log("");
+  console.log("==========================================");
+  console.log("Futurex Newsroom Generated Successfully");
+  console.log("==========================================");
+
   console.log(
     `Articles: ${articles.length}`
   );
+
   console.log(
     `Media collections: ${collections.length}`
   );
+
   console.log(
     `Images: ${totalImages}`
   );
+
   console.log(
     `PDFs: ${totalPDFs}`
   );
+
   console.log(
-    `Total media assets: ${totalImages + totalPDFs}`
+    `Total media assets: ${allAssets.length}`
   );
+
+  console.log(
+    `Output: ${OUTPUT_FILE}`
+  );
+
+  console.log("==========================================");
+  console.log("");
 }
+
+// ==========================================
+// EXECUTE GENERATOR
+// ==========================================
 
 generate();
