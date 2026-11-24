@@ -1,4 +1,3 @@
-
 import "server-only";
 
 import newsData from "@/data/auto-news.json";
@@ -11,7 +10,7 @@ import type {
   MediaLink,
 } from "./news-types";
 
-// Re-export types for existing server-side imports.
+// Re-export existing types.
 export type {
   NewsAsset,
   NewsCategory,
@@ -20,47 +19,46 @@ export type {
   MediaLink,
 } from "./news-types";
 
-// Compatibility alias.
 export type NewsArticle = NewsItem;
 
-/**
- * News data is generated before next dev / next build.
- *
- * Source:
- * public/news/[folder]/article.json
- * public/news/[folder]/links.json
- * public/news/[folder]/*.{jpg,jpeg,png,webp,avif,gif,pdf}
- *
- * Generated:
- * src/data/auto-news.json
- *
- * No runtime filesystem scanning is needed.
- */
+// Validate and sort generated articles.
+const articles: NewsItem[] = Array.isArray(newsData.articles)
+  ? [...(newsData.articles as NewsItem[])].sort(
+      (a, b) =>
+        new Date(b.date).getTime() -
+        new Date(a.date).getTime()
+    )
+  : [];
 
-const articles: NewsItem[] =
-  newsData.articles as NewsItem[];
+// Validate generated media collections.
+const collections: NewsCollection[] = Array.isArray(
+  newsData.collections
+)
+  ? (newsData.collections as NewsCollection[])
+  : [];
 
-const collections: NewsCollection[] =
-  newsData.collections as NewsCollection[];
+// Server-side diagnostics.
+console.log("[Futurex News] Environment:", process.env.NODE_ENV);
+console.log("[Futurex News] Articles loaded:", articles.length);
+console.log("[Futurex News] Collections loaded:", collections.length);
 
-/**
- * Return all news articles, newest first.
- */
+if (articles.length === 0) {
+  console.warn(
+    "[Futurex News] WARNING: auto-news.json contains no articles."
+  );
+}
+
+// Return all news articles.
 export function getAllNews(): NewsItem[] {
   return articles;
 }
 
-/**
- * Return all automatically discovered
- * exhibition media collections.
- */
+// Return all media collections.
 export function getNewsCollections(): NewsCollection[] {
   return collections;
 }
 
-/**
- * Find a news article by its URL slug.
- */
+// Find article by slug.
 export function getNewsBySlug(
   slug: string
 ): NewsItem | undefined {
@@ -69,9 +67,7 @@ export function getNewsBySlug(
   );
 }
 
-/**
- * Find an exhibition media gallery by folder name.
- */
+// Find media collection by folder.
 export function getNewsCollection(
   folder: string
 ): NewsCollection | undefined {
@@ -80,9 +76,7 @@ export function getNewsCollection(
   );
 }
 
-/**
- * Optional exports for existing components.
- */
+// Compatibility exports.
 export const sortedNews: NewsItem[] = articles;
 
 export const newsArticles: NewsItem[] = articles;
@@ -93,16 +87,9 @@ export const newsEvents: string[] = Array.from(
   )
 );
 
-/**
- * Format an article date:
- * 2026-11-23 -> 23 Nov 2026
- */
-export function formatNewsDate(
-  date: string
-): string {
-  const parsedDate = new Date(
-    `${date}T12:00:00Z`
-  );
+// Safe date formatting.
+export function formatNewsDate(date: string): string {
+  const parsedDate = new Date(`${date}T12:00:00Z`);
 
   if (Number.isNaN(parsedDate.getTime())) {
     return date;

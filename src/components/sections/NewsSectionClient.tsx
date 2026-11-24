@@ -91,7 +91,7 @@ export function NewsSectionClient({
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <motion.div
           initial={
-            reduceMotion ? false : { opacity: 0, y: 22 }
+            reduceMotion ? false : { opacity: 1, y: 22 }
           }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -140,7 +140,7 @@ export function NewsSectionClient({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mt-10">
           <motion.div
             initial={
-              reduceMotion ? false : { opacity: 0, y: 25 }
+              reduceMotion ? false : { opacity: 1, y: 25 }
             }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -210,7 +210,7 @@ export function NewsSectionClient({
 
           <motion.aside
             initial={
-              reduceMotion ? false : { opacity: 0, x: 20 }
+              reduceMotion ? false : { opacity: 1, x: 20 }
             }
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
