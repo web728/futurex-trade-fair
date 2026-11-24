@@ -1,4 +1,7 @@
+# ==========================================
 # Dependencies
+# ==========================================
+
 /node_modules
 /.pnpm-store
 /.yarn/cache
@@ -6,16 +9,26 @@
 /.pnpm-debug.log*
 .pnpm-lock.yaml
 yarn.lock
-package-lock.json
 
+# Keep npm lockfile tracked
+!package-lock.json
+
+
+# ==========================================
 # Next.js & Framework Build Outputs
+# ==========================================
+
 /.next/
 /out/
 /build
 /dist
 /.turbo
 
-# Environment Variables & Secrets (Crucial for Security)
+
+# ==========================================
+# Environment Variables & Secrets
+# ==========================================
+
 .env
 .env.local
 .env.development.local
@@ -24,14 +37,42 @@ package-lock.json
 .env.*.local
 *.pem
 *.key
-futurex-trade.json
 
-# Service Account & Credentials (Added for security)
+
+# ==========================================
+# JSON Files & Credentials Protection
+# ==========================================
+
 *.json
-!tsconfig.json
-!jsconfig.json
 
+# Required project configuration
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+!/jsconfig.json
+!/vercel.json
+
+# Futurex News Source Files
+!/public/news/**/article.json
+!/public/news/**/links.json
+
+# Generated data - created during build
+/src/data/auto-news.json
+/src/data/auto-gallery.json
+/src/data/auto-participants.json
+
+# Private credentials must never be committed
+futurex-trade.json
+**/service-account*.json
+**/serviceAccount*.json
+**/credentials*.json
+**/firebase-adminsdk*.json
+
+
+# ==========================================
 # Debug & Log Files
+# ==========================================
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -39,7 +80,11 @@ pnpm-debug.log*
 lerna-debug.log*
 *.log
 
+
+# ==========================================
 # Operating System Files
+# ==========================================
+
 .DS_Store
 .DS_Store?
 ._*
@@ -48,12 +93,17 @@ lerna-debug.log*
 ehthumbs.db
 Thumbs.db
 
+
+# ==========================================
 # IDE / Code Editors
+# ==========================================
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
 .idea
 *.suo
 *.ntvs*
@@ -61,17 +111,33 @@ Thumbs.db
 *.sln
 *.sw?
 
+
+# ==========================================
 # Vercel Deployment Configs
+# ==========================================
+
 .vercel
 
+
+# ==========================================
 # TypeScript & Coverage
+# ==========================================
+
 *.tsbuildinfo
 /coverage
 
+
+# ==========================================
 # Testing / Playwright / Cypress
+# ==========================================
+
 /cypress/videos
 /cypress/screenshots
 /test-results
 
+
+# ==========================================
 # Project Specific Media & Archive Files
+# ==========================================
+
 public/gallery/Gallery/*.zip
